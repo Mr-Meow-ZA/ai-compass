@@ -9,11 +9,11 @@
 - Added product vision, architecture, roadmap, content workflow and quality-score documentation.
 - Documented the production Vercel project and the legacy payload-based deployment.
 
-### Current limitation
+### Initial limitation
 
-- The imported snapshot is visually and structurally news-heavy.
-- Guides still exist, but Learn, Tips & Tricks and Reference require dedicated product sections.
-- Vercel still needs to be connected directly to this repository before the legacy `Mr-Meow-ZA/yeet` payload dependency can be retired.
+- The imported snapshot was visually and structurally news-heavy.
+- Guides still existed, but Learn, Tips & Tricks and Reference required dedicated product sections.
+- Vercel was not directly connected to the new repository.
 
 ## 2026-08-06 — Balanced platform rebuild
 
@@ -40,3 +40,12 @@
 - Fourteen routes rendered successfully in the test harness.
 - Generated route snapshots contained no duplicate IDs, empty links or unlabelled controls.
 - All generated internal article links resolve to an existing guide.
+- The one-time GitHub validation workflow completed successfully and removed its staging files.
+
+### Production
+
+- Deployed build `2026-08-06.1` to Vercel production.
+- Verified HTTP 200 responses for the production page and application JavaScript.
+- Verified that the production alias serves the rebuilt source from canonical commit `c257396378ea1ad1693a6f89d6fc27648b6cd466`.
+- Removed production dependence on the legacy compressed payload chunks in `Mr-Meow-ZA/yeet`.
+- Direct Vercel Git integration with `Mr-Meow-ZA/ai-compass` remains the next infrastructure task.
