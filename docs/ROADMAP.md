@@ -8,11 +8,13 @@
 - [x] Preserve external article, video and repository previews inside dedicated discovery sections.
 - [x] Clarify AI Compass original content versus third-party links.
 - [x] Add goal-based homepage entry points and beginner learning paths.
+- [x] Deploy and verify balanced build `2026-08-06.1` on the production URL.
 
 ## Foundation
 
 - [ ] Connect the Vercel project directly to `Mr-Meow-ZA/ai-compass` on `main`.
-- [ ] Remove production dependence on compressed payload chunks in `Mr-Meow-ZA/yeet`.
+- [x] Remove production dependence on compressed payload chunks in `Mr-Meow-ZA/yeet`.
+- [ ] Retire the temporary commit-pinned Vercel deployment bridge after direct Git integration is verified.
 - [x] Add JavaScript, generated-route, internal article-link and form-label checks to the rebuild review.
 - [ ] Add repeatable repository-based browser smoke tests for desktop and mobile.
 - [x] Maintain a repository product changelog and quality score.
