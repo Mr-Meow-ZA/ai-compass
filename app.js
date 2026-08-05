@@ -1,52 +1,445 @@
 (()=>{
 'use strict';
+
 const D=window.AI_COMPASS_DATA||{categories:[],articles:[],comparisons:[],repos:[],questions:[],approvalQueue:[]};
 const F=window.AI_COMPASS_FEED||[];
+const L=window.AI_COMPASS_LIBRARY||{learningPaths:[],tips:[],references:[],taskCards:[]};
 const app=document.getElementById('app');
 const toastEl=document.getElementById('toast');
-const safeStore=(()=>{try{const t='__aic_test';localStorage.setItem(t,'1');localStorage.removeItem(t);return localStorage}catch{return{getItem:()=>null,setItem:()=>{},removeItem:()=>{}}}})();
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const route=()=>{const raw=(location.hash||'#home').slice(1);const [path,query='']=raw.split('?');const [page,arg]=path.split('/');return{page:page||'home',arg,params:new URLSearchParams(query)}};
-const cat=id=>D.categories.find(c=>c.id===id)||{name:id||'General',description:''};
-const fmtDate=v=>{try{return new Intl.DateTimeFormat('en-ZA',{day:'numeric',month:'short',year:'numeric'}).format(new Date(v+'T12:00:00'))}catch{return v}};
-const initials=s=>String(s||'AI').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
-const searchSvg=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.7"/><path d="m16 16 5 5"/></svg>`;
-const bookmarkSvg=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-4-6 4V4.5Z"/></svg>`;
+const safeStore=(()=>{try{const k='__aic_test';localStorage.setItem(k,'1');localStorage.removeItem(k);return localStorage}catch{return{getItem:()=>null,setItem:()=>{},removeItem:()=>{}}}})();
+const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const fmtDate=value=>{try{return new Intl.DateTimeFormat('en-ZA',{day:'numeric',month:'short',year:'numeric'}).format(new Date(`${value}T12:00:00`))}catch{return value||''}};
+const category=id=>D.categories.find(item=>item.id===id)||{id,name:id||'General',description:''};
+const articleBySlug=slug=>D.articles.find(item=>item.slug===slug);
+const route=()=>{const raw=(location.hash||'#home').slice(1);const [path,query='']=raw.split('?');const parts=path.split('/').filter(Boolean);return{page:parts[0]||'home',arg:parts[1]||'',params:new URLSearchParams(query)}};
+const externalAttrs=url=>/^https?:/i.test(url||'')?' target="_blank" rel="noopener noreferrer"':'';
+const initials=value=>String(value||'AI').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]).join('').toUpperCase();
 let firstRender=true;
-function showToast(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>toastEl.classList.remove('show'),2200)}
-function externalAttrs(url){return /^https?:/i.test(url||'')?' target="_blank" rel="noopener noreferrer"':''}
-function mediaArt(item,extra=''){return `<div class="media-art ${esc(item.visual||'grid-blue')} ${extra}" aria-hidden="true"></div>`}
-function sourceAvatar(source){return `<span class="source-avatar" aria-hidden="true">${esc(initials(source))}</span>`}
-function topline(){const now=new Date();const date=new Intl.DateTimeFormat('en-ZA',{weekday:'short',day:'numeric',month:'long',year:'numeric'}).format(now);return `<div class="topline"><div class="container topline-inner"><div class="topline-left"><span class="live-dot" aria-hidden="true"></span><strong>AI Compass Briefing</strong><span>${esc(date)}</span><span>Curated from official, independent and open-source sources</span></div><div class="topline-right"><a href="#about">How we rank stories</a><a href="#owner">Editorial queue</a></div></div></div>`}
-function header(active){const nav=[['home','Home'],['explore','Latest'],['guides','Guides'],['compare','Compare'],['repos','Open source'],['videos','Videos'],['community','Community']];const topics=[['explore','Latest'],['explore/models','Models'],['explore/agents','Agents'],['explore/coding','Coding'],['explore/research','Research'],['repos','Open source'],['explore/safety','Safety'],['explore/work','Work & business']];return `${topline()}<header class="site-header"><div class="container header-main"><a class="brand" href="#home"><span class="brand-mark">A</span><span class="brand-copy"><span>AI Compass</span><small>News · tools · research</small></span></a><form class="main-search" id="globalSearch">${searchSvg}<input name="q" aria-label="Search AI news and guides" placeholder="Search AI news, guides, repositories and videos"><button>Search</button></form><div class="header-actions"><a class="icon-btn" href="#saved" aria-label="Saved items">${bookmarkSvg}<span class="sr-only">Saved</span></a><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation">☰</button></div></div><nav class="topic-nav" aria-label="Topics"><div class="container topic-nav-inner">${topics.map(([p,n])=>`<a href="#${p}" ${active===p?'aria-current="page"':''}>${n}</a>`).join('')}</div></nav><nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">${nav.map(([p,n])=>`<a href="#${p}">${n}</a>`).join('')}</nav></header>`}
-function footer(){return `<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">A</span><span class="brand-copy"><span>AI Compass</span><small>News · tools · research</small></span></a><p class="footer-copy">A practical hub for AI news, original guides, videos, open-source projects and research from across the web. External links remain the work of their publishers.</p></div><div class="footer-col"><strong>Discover</strong><a href="#explore">Latest stories</a><a href="#videos">Videos</a><a href="#repos">Open source</a></div><div class="footer-col"><strong>Learn</strong><a href="#guides">All guides</a><a href="#compare">Compare plans</a><a href="#community">Ask a question</a></div><div class="footer-col"><strong>Topics</strong><a href="#explore/models">Models</a><a href="#explore/coding">Coding</a><a href="#explore/research">Research</a></div><div class="footer-col"><strong>About</strong><a href="#about">Editorial method</a><a href="#owner">Approval queue</a><a href="#about">Corrections</a></div></div><div class="footer-bottom"><span>© 2026 AI Compass</span><span>AI assists with discovery and maintenance. Editorial accountability remains human.</span></div></div></footer>`}
-function shell(active,content){return `${header(active)}<main class="page" id="main" tabindex="-1">${content}</main>${footer()}`}
-function sourcePill(item){return `<span class="source-pill">${esc(item.source)}</span>`}
-function storyMeta(item){return `<div class="story-meta"><span>${esc(item.format)}</span><span class="sep"></span><span>${fmtDate(item.date)}</span><span class="sep"></span><span>${esc(item.readTime)}</span></div>`}
-function newsCard(item){return `<article class="news-card"><a class="news-card-media" href="${esc(item.url)}"${externalAttrs(item.url)} aria-label="Open ${esc(item.title)}">${mediaArt(item)}${sourcePill(item)}</a><div class="news-card-body"><span class="story-kicker">${esc(item.category)} · ${esc(item.sourceType)}</span><h3><a href="${esc(item.url)}"${externalAttrs(item.url)}>${esc(item.title)}</a></h3><p>${esc(item.dek)}</p>${storyMeta(item)}</div></article>`}
-function topStory(item){return `<article class="top-story"><div><span class="story-kicker">${esc(item.category)}</span><h3><a href="${esc(item.url)}"${externalAttrs(item.url)}>${esc(item.title)}</a></h3><p>${esc(item.source)} · ${fmtDate(item.date)}</p></div><a class="mini-media" href="${esc(item.url)}"${externalAttrs(item.url)} aria-label="Open ${esc(item.title)}">${mediaArt(item)}</a></article>`}
-function feedItem(item){return `<article class="feed-item"><a class="feed-thumb" href="${esc(item.url)}"${externalAttrs(item.url)} aria-label="Open ${esc(item.title)}">${mediaArt(item)}</a><div class="feed-copy"><span class="story-kicker">${esc(item.category)} · ${esc(item.sourceType)}</span><h3><a href="${esc(item.url)}"${externalAttrs(item.url)}>${esc(item.title)}</a></h3><p>${esc(item.dek)}</p></div><div class="feed-side"><strong>${esc(item.source)}</strong>${fmtDate(item.date)}<br>${esc(item.format)} · ${esc(item.readTime)}</div></article>`}
-function videoCard(item){return `<article class="video-card"><a class="video-poster" href="${esc(item.url)}"${externalAttrs(item.url)} aria-label="Watch ${esc(item.title)}">${mediaArt(item)}${sourcePill(item)}<span class="play-btn" aria-hidden="true">▶</span><span class="video-duration">${esc(item.readTime)}</span></a><h3><a href="${esc(item.url)}"${externalAttrs(item.url)}>${esc(item.title)}</a></h3><p>${esc(item.dek)}</p></article>`}
-function guideTile(a,i){return `<a class="guide-tile" href="#article/${a.slug}"><div><span class="story-kicker">AI Compass guide · ${esc(cat(a.category).name)}</span><h3>${esc(a.title)}</h3><p>${esc(a.excerpt)}</p></div><span class="guide-no">${String(i+1).padStart(2,'0')}</span></a>`}
-function rail(){const sources=[['OpenAI','Official product and research'],['Anthropic','Official product and research'],['Google AI','Official technology news'],['The Verge','Independent reporting'],['Hugging Face','Models and research'],['GitHub','Open-source projects']];return `<aside class="news-rail"><section class="rail-card"><div class="rail-card-head"><h2 class="rail-title">Trending now</h2><a class="section-link" href="#explore">View all</a></div><div class="trend-list"><a class="trend-item" href="#explore/agents"><span><strong>Agentic AI</strong><span>Models, tools and safety</span></span></a><a class="trend-item" href="#explore/coding"><span><strong>AI coding agents</strong><span>Claude Code, Codex and GitHub</span></span></a><a class="trend-item" href="#explore/research"><span><strong>Scientific AI</strong><span>Research workflows and papers</span></span></a><a class="trend-item" href="#compare"><span><strong>AI subscriptions</strong><span>Plans, prices and practical value</span></span></a><a class="trend-item" href="#repos"><span><strong>Local AI</strong><span>Models, runtimes and interfaces</span></span></a></div></section><section class="rail-card"><div class="rail-card-head"><h2 class="rail-title">Sources to follow</h2><a class="section-link" href="#about">Method</a></div><div class="source-list">${sources.map(([name,desc])=>`<div class="source-link">${sourceAvatar(name)}<span><strong>${esc(name)}</strong><small>${esc(desc)}</small></span><button class="follow-btn" data-follow="${esc(name)}">Follow</button></div>`).join('')}</div></section><section class="brief-card"><p class="eyebrow" style="color:#75aaff">Daily briefing</p><h3>The useful AI news, once a day.</h3><p>A concise digest of product changes, practical guides, research and open-source releases.</p><form id="briefForm"><input type="email" name="email" aria-label="Email address" placeholder="you@example.com" required><button>Join the briefing</button></form></section></aside>`}
-function home(){const lead=F.find(x=>x.featured)||F[0];const top=F.filter(x=>x.id!==lead.id).slice(0,4);const latest=F.filter(x=>!['Video'].includes(x.category)).slice(4,10);const videos=F.filter(x=>x.category==='Video').slice(0,3);const guides=D.articles.slice(0,4);return shell('home',`<section class="breaking"><div class="container breaking-inner"><span class="breaking-label">Today</span><div class="breaking-track"><strong>AI news hub:</strong><span>Official announcements, independent reporting, videos, papers and open-source projects in one feed.</span></div><a class="breaking-link" href="#explore">Open latest →</a></div></section><section class="hero-news"><div class="container hero-news-grid"><article class="lead-story"><a class="lead-visual" href="${esc(lead.url)}"${externalAttrs(lead.url)} aria-label="Open ${esc(lead.title)}">${mediaArt(lead)}<span class="lead-badge">Lead story</span><span class="lead-source">${sourceAvatar(lead.source)} ${esc(lead.source)} · ${esc(lead.sourceType)}</span></a><div class="lead-copy"><span class="story-kicker">${esc(lead.category)} · ${fmtDate(lead.date)}</span><h1><a href="${esc(lead.url)}"${externalAttrs(lead.url)}>${esc(lead.title)}</a></h1><p>${esc(lead.dek)}</p>${storyMeta(lead)}<a class="read-link" href="${esc(lead.url)}"${externalAttrs(lead.url)}>Read at ${esc(lead.source)} →</a></div></article><section class="top-stories"><div class="top-stories-head"><h2>Top stories</h2><a class="section-link" href="#explore">See all</a></div>${top.map(topStory).join('')}</section></div></section><section class="quick-strip"><div class="container quick-strip-inner"><span class="quick-label">Quick topics</span><div class="quick-links"><a href="#explore/models">Model releases</a><a href="#explore/agents">AI agents</a><a href="#explore/coding">Coding tools</a><a href="#explore/research">Research papers</a><a href="#repos">GitHub radar</a><a href="#videos">Watch</a><a href="#compare">Subscription guide</a></div></div></section><div class="container main-layout"><div class="feed-main"><section class="section-block"><div class="section-header"><div><h2>Latest from around the web</h2><p>Curated links open on the original publisher’s website.</p></div><a class="section-link" href="#explore">All stories →</a></div><div class="news-grid">${F.slice(1,7).map(newsCard).join('')}</div></section><section class="section-block"><div class="section-header"><div><h2>News stream</h2><p>Reverse chronological updates across AI products, research and community sources.</p></div><a class="section-link" href="#explore">Open full feed →</a></div><div class="feed-list">${latest.map(feedItem).join('')}</div></section><section class="section-block"><div class="section-header"><div><h2>Watch</h2><p>Official videos, product demos and research conversations.</p></div><a class="section-link" href="#videos">All videos →</a></div><div class="video-grid">${videos.map(videoCard).join('')}</div></section><section class="section-block"><div class="section-header"><div><h2>Open-source radar</h2><p>Useful projects to inspect—not automatic endorsements.</p></div><a class="section-link" href="#repos">Browse repositories →</a></div><div class="repo-board">${D.repos.slice(0,6).map((r,i)=>`<div class="repo-row"><span class="repo-icon">${String(i+1).padStart(2,'0')}</span><span class="repo-copy"><strong>${esc(r.name)}</strong><span>${esc(r.description)}</span></span><span class="repo-category">${esc(r.category)}</span><a class="repo-open" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>`).join('')}</div></section><section class="section-block"><div class="section-header"><div><h2>Original guides from AI Compass</h2><p>Practical walkthroughs created for this hub.</p></div><a class="section-link" href="#guides">All guides →</a></div><div class="guide-strip">${guides.map(guideTile).join('')}</div></section></div>${rail()}</div>`)}
-function explore(topic){const map={models:['Models','Product'],agents:['Agents','Safety'],coding:['Coding'],research:['Research'],safety:['Safety'],work:['Work','Business']};const allowed=map[topic];const title=topic?`${topic[0].toUpperCase()+topic.slice(1)} news`:'Latest AI news';const items=allowed?F.filter(x=>allowed.includes(x.category)):F;return shell(topic?`explore/${topic}`:'explore',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">AI discovery feed</p><h1>${esc(title)}</h1><p>Articles, announcements, podcasts, videos, research papers and open-source projects from external publishers, alongside AI Compass originals.</p></div><div class="page-stat"><strong>${items.length}</strong><span>Curated items in this view</span></div></div></section><section class="content-section"><div class="container"><div class="toolbar"><input id="feedSearch" type="search" placeholder="Search titles, sources and topics"><select id="feedFormat"><option value="all">All formats</option>${[...new Set(F.map(x=>x.format))].sort().map(x=>`<option>${esc(x)}</option>`).join('')}</select><select id="feedSort"><option value="latest">Newest first</option><option value="source">Source A–Z</option></select></div><div class="filter-tabs" id="feedTabs"><button class="active" data-category="all">All topics</button>${[...new Set(F.map(x=>x.category))].sort().map(x=>`<button data-category="${esc(x)}">${esc(x)}</button>`).join('')}</div><div class="result-summary" id="feedSummary" role="status" aria-live="polite"></div><div class="story-directory" id="feedDirectory"></div><div class="empty-state" id="feedEmpty" hidden><h2>No items match those filters.</h2><p>Try a broader topic or search.</p></div></div></section>`)}
-function guides(category){const items=category?D.articles.filter(x=>x.category===category):D.articles;return shell('guides',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Original AI Compass guides</p><h1>Practical guides that help you do the work.</h1><p>Step-by-step articles on subscriptions, GitHub, Obsidian, agents, RAG, open-source tools, research and AI safety.</p></div><div class="page-stat"><strong>${items.length}</strong><span>Original guides in this view</span></div></div></section><section class="content-section"><div class="container"><div class="toolbar"><input id="guideSearch" type="search" placeholder="Search guides"><select id="guideCategory"><option value="all">All topics</option>${D.categories.map(c=>`<option value="${c.id}" ${category===c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select><select id="guideLevel"><option value="all">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div><div class="result-summary" id="guideSummary" role="status" aria-live="polite"></div><div class="story-directory" id="guideDirectory"></div><div class="empty-state" id="guideEmpty" hidden><h2>No guide matches that search.</h2></div></div></section>`)}
-function internalGuideCard(a){const fake={source:'AI Compass',sourceType:'Original guide',category:cat(a.category).name,format:a.type,date:a.date,readTime:`${a.readTime} min`,visual:({'getting-started':'bars-cyan',workflows:'grid-blue',models:'blocks-google',agents:'terminal-black','open-source':'grid-green',research:'paper-yellow'})[a.category]||'grid-blue'};return `<article class="news-card"><a class="news-card-media" href="#article/${a.slug}" aria-label="Open ${esc(a.title)}">${mediaArt(fake)}${sourcePill(fake)}</a><div class="news-card-body"><span class="story-kicker">${esc(fake.category)} · ${esc(a.level)}</span><h3><a href="#article/${a.slug}">${esc(a.title)}</a></h3><p>${esc(a.excerpt)}</p>${storyMeta(fake)}</div></article>`}
-function article(slug){const a=D.articles.find(x=>x.slug===slug)||D.articles[0],sections=a.sections||[],sources=a.sources||[];document.title=`${a.title} — AI Compass`;return shell('guides',`<header class="article-header"><div class="container"><div class="breadcrumbs"><a href="#home">Home</a><span>›</span><a href="#guides">Guides</a><span>›</span><span>${esc(cat(a.category).name)}</span></div><h1>${esc(a.title)}</h1><p class="article-deck">${esc(a.excerpt)}</p><div class="article-byline"><span>AI Compass original</span><span>${esc(a.level)}</span><span>${a.readTime} min read</span><span>Reviewed ${esc(a.updated||fmtDate(a.date))}</span><span>${sources.length} source${sources.length===1?'':'s'}</span></div></div></header><div class="container article-layout"><aside class="article-toc"><strong>In this guide</strong><nav>${sections.map(s=>`<a href="#${esc(s.id)}">${esc(s.title)}</a>`).join('')}${sources.length?'<a href="#sources">Sources</a>':''}</nav></aside><article class="article-body"><details class="mobile-toc"><summary>In this guide</summary><nav>${sections.map(s=>`<a href="#${esc(s.id)}">${esc(s.title)}</a>`).join('')}${sources.length?'<a href="#sources">Sources</a>':''}</nav></details>${sections.map(s=>`<section id="${esc(s.id)}"><h2>${esc(s.title)}</h2>${s.html}</section>`).join('')}${sources.length?`<section id="sources"><h2>Sources and further reading</h2><ol>${sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)} ↗</a></li>`).join('')}</ol></section>`:''}${relatedBlock(a)}</article><aside class="article-side"><div class="article-side-box"><strong>Verification</strong><p>Time-sensitive claims should be checked against the linked primary source before purchase, policy or production decisions.</p></div><div class="article-actions"><button id="copyLink">Copy guide link</button><button id="saveGuide">${safeStore.getItem('saved:'+a.slug)==='1'?'Saved ✓':'Save guide'}</button><a href="#guides">Back to guides</a></div></aside></div>`)}
-function relatedBlock(a){const related=D.articles.filter(x=>x.slug!==a.slug&&x.category===a.category).slice(0,3);if(related.length<3)related.push(...D.articles.filter(x=>x.slug!==a.slug&&!related.includes(x)).slice(0,3-related.length));return `<section class="related-guides"><p>Continue reading</p>${related.map((x,i)=>`<a class="related-link" href="#article/${x.slug}"><span>${String(i+1).padStart(2,'0')}</span><strong>${esc(x.title)}</strong><span>→</span></a>`).join('')}</section>`}
-function compare(){return shell('compare',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">AI plan comparison</p><h1>Compare subscriptions by the work they improve.</h1><p>Prices, bundles and feature access can change. Each row links to the provider so you can verify the current local offer.</p></div><div class="page-stat"><strong>${D.comparisons.length}</strong><span>Major paid AI services</span></div></div></section><section class="content-section"><div class="container"><div class="table-wrap"><table class="data-table"><caption class="sr-only">Comparison of AI subscriptions</caption><thead><tr><th>Service</th><th>Best fit</th><th>Strengths</th><th>Watch for</th><th>Price checked</th><th>Source</th></tr></thead><tbody>${D.comparisons.map(x=>`<tr><td><span class="table-tag">${esc(x.score)}</span><br><strong>${esc(x.name)}</strong></td><td>${esc(x.bestFor)}</td><td><ul>${x.strengths.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></td><td>${esc(x.caution)}</td><td>${esc(x.price)}</td><td><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:800">Official ↗</a></td></tr>`).join('')}</tbody></table></div></div></section>`)}
-function repos(){const cats=[...new Set(D.repos.map(r=>r.category))].sort();return shell('repos',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Open-source radar</p><h1>Useful AI repositories, explained in context.</h1><p>Stars are a discovery signal, not due diligence. Review the licence, activity, security and fit before adopting any project.</p></div><div class="page-stat"><strong>${D.repos.length}</strong><span>Curated GitHub repositories</span></div></div></section><section class="content-section"><div class="container"><div class="toolbar"><input id="repoSearch" type="search" placeholder="Search repositories"><select id="repoCategory"><option value="all">All categories</option>${cats.map(c=>`<option>${esc(c)}</option>`).join('')}</select><select id="repoSort"><option value="curated">Curated order</option><option value="name">Name A–Z</option></select></div><div class="result-summary" id="repoSummary" role="status" aria-live="polite"></div><div class="table-wrap"><table class="data-table"><caption class="sr-only">Curated AI repositories</caption><thead><tr><th>Repository</th><th>Category</th><th>What it is useful for</th><th>Language</th><th>Checked</th><th>Link</th></tr></thead><tbody id="repoBody"></tbody></table></div></div></section>`)}
-function videos(){const items=F.filter(x=>x.category==='Video'||x.format==='Podcast');return shell('videos',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Watch and listen</p><h1>AI videos, demos, talks and podcasts.</h1><p>Official channels and independent discussions selected for practical relevance, not engagement alone.</p></div><div class="page-stat"><strong>${items.length}</strong><span>Video and audio sources</span></div></div></section><section class="content-section"><div class="container"><div class="video-grid">${items.map(videoCard).join('')}</div></div></section>`)}
-function community(){const saved=JSON.parse(safeStore.getItem('community:questions')||'[]');const items=[...saved,...D.questions];return shell('community',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Community desk</p><h1>Ask a precise question. Get a useful route forward.</h1><p>Answers should point to existing guides and credible sources first, then identify what still needs investigation.</p></div><div class="page-stat"><strong>${items.length}</strong><span>Questions in this prototype</span></div></div></section><section class="content-section"><div class="container community-layout"><div class="question-list">${items.map(q=>`<article class="question-item"><p class="eyebrow">${esc(q.status||'Awaiting answer')} · ${esc(q.author||q.name||'Community')}</p><h2>${esc(q.title)}</h2>${q.body?`<p>${esc(q.body)}</p>`:''}${q.answer?`<div class="answer-box"><strong>AI Compass answer</strong><p>${esc(q.answer)}</p></div>`:''}</article>`).join('')}</div><aside class="form-panel"><h2>Ask the community</h2><form id="questionForm"><div class="field"><label for="qName">Your name</label><input id="qName" name="name" required minlength="2"></div><div class="field"><label for="qTitle">Question</label><input id="qTitle" name="title" required minlength="8"></div><div class="field"><label for="qBody">Useful context</label><textarea id="qBody" name="body" rows="7" required minlength="15"></textarea></div><button class="primary-btn">Submit question</button><p class="muted" style="font-size:.72rem">Prototype submissions remain in this browser until shared accounts and moderation are connected.</p></form></aside></div></section>`)}
-function about(){return shell('about',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">How the hub works</p><h1>One place to discover. Original sources remain in control.</h1><p>AI Compass organises useful information from across the web, links back to the publisher and adds original guides where a step-by-step explanation is needed.</p></div><div class="page-stat"><strong>6</strong><span>Source and quality checks</span></div></div></section><section class="content-section"><div class="container"><div class="news-grid">${[['Source quality','Prefer official documentation, original reporting, repositories and research.'],['Freshness','Show dates and re-check time-sensitive product or pricing claims.'],['Diversity','Group multiple perspectives instead of presenting one source as the whole story.'],['Copyright','Preview and link; do not republish full articles, transcripts or restricted media.'],['Relevance','Prioritise material that changes a decision, workflow or understanding.'],['Human control','Use approval gates for rankings, sensitive claims, sponsorships and major changes.']].map((x,i)=>`<article class="news-card"><div class="news-card-media">${mediaArt({visual:['grid-blue','bars-cyan','rings-orange','paper-yellow','grid-green','type-red'][i]})}</div><div class="news-card-body"><span class="story-kicker">Editorial standard 0${i+1}</span><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></div></article>`).join('')}</div></div></section>`)}
-function owner(){const decisions=JSON.parse(safeStore.getItem('approval:decisions')||'{}');return shell('about',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Editorial queue</p><h1>Review judgement calls, not routine maintenance.</h1><p>Candidate stories should surface source quality, evidence, duplication, licensing and the proposed action before publication.</p></div><div class="page-stat"><strong>${D.approvalQueue.length}</strong><span>Items awaiting review</span></div></div></section><section class="content-section"><div class="container"><div class="owner-list">${D.approvalQueue.map(q=>{const s=decisions[q.id]||q.status;return `<article class="owner-item" data-id="${q.id}"><span class="status ${esc(s)}">${esc(s)}</span><div><h2>${esc(q.title)}</h2><p>${esc(q.reason)}</p><p class="eyebrow" style="margin-top:10px">${q.confidence}% confidence · ${esc(q.source)} · ${esc(q.action)}</p></div><div class="owner-actions"><button data-decision="Rejected">Reject</button><button class="approve" data-decision="Approved">Approve</button></div></article>`}).join('')}</div></div></section>`)}
-function saved(){const savedGuides=D.articles.filter(a=>safeStore.getItem('saved:'+a.slug)==='1');return shell('home',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Saved reading</p><h1>Your saved AI Compass guides.</h1><p>External feed saving will move to shared accounts when the backend is connected.</p></div><div class="page-stat"><strong>${savedGuides.length}</strong><span>Saved in this browser</span></div></div></section><section class="content-section"><div class="container"><div class="story-directory">${savedGuides.map(internalGuideCard).join('')}</div>${savedGuides.length?'':'<div class="empty-state"><h2>Nothing saved yet.</h2><p>Open an AI Compass guide and select “Save guide.”</p></div>'}</div></section>`)}
-function render(){try{const r=route();document.title='AI Compass — AI news, tools and research in one place';let html;if(r.page==='home')html=home();else if(r.page==='explore')html=explore(r.arg);else if(r.page==='guides')html=guides(r.arg);else if(r.page==='article')html=article(r.arg);else if(r.page==='compare')html=compare();else if(r.page==='repos')html=repos();else if(r.page==='videos')html=videos();else if(r.page==='community')html=community();else if(r.page==='about')html=about();else if(r.page==='owner')html=owner();else if(r.page==='saved')html=saved();else html=home();app.innerHTML=html;window.scrollTo(0,0);bind(r);const main=document.getElementById('main');if(main){if(!firstRender)main.focus({preventScroll:true})}firstRender=false}catch(err){console.error(err);app.innerHTML=`<main class="container empty-state" id="main"><h1>AI Compass could not load.</h1><p>${esc(err.message||'Unknown error')}</p></main>`}}
-function bind(r){const menu=document.getElementById('menuBtn'),mobile=document.getElementById('mobileNav');if(menu)menu.addEventListener('click',()=>{const on=mobile.classList.toggle('open');menu.setAttribute('aria-expanded',String(on));menu.setAttribute('aria-label',on?'Close navigation':'Open navigation')});mobile?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));const global=document.getElementById('globalSearch');if(global)global.addEventListener('submit',e=>{e.preventDefault();const q=String(new FormData(global).get('q')||'').trim();location.hash=q?`explore?q=${encodeURIComponent(q)}`:'explore'});document.querySelectorAll('[data-follow]').forEach(b=>b.addEventListener('click',()=>{const name=b.dataset.follow,key='follow:'+name,on=safeStore.getItem(key)==='1';if(on)safeStore.removeItem(key);else safeStore.setItem(key,'1');b.textContent=on?'Follow':'Following';showToast(on?`Unfollowed ${name}`:`Following ${name}`)}));const brief=document.getElementById('briefForm');if(brief)brief.addEventListener('submit',e=>{e.preventDefault();showToast('Briefing signup saved for the backend handoff');brief.reset()});
-if(r.page==='explore'){const search=document.getElementById('feedSearch'),format=document.getElementById('feedFormat'),sort=document.getElementById('feedSort'),directory=document.getElementById('feedDirectory'),summary=document.getElementById('feedSummary'),empty=document.getElementById('feedEmpty'),tabs=[...document.querySelectorAll('[data-category]')];const initial=r.params?.get('q')||'';if(initial)search.value=initial;const topicMap={models:['Models'],agents:['Coding','Safety'],coding:['Coding'],research:['Research'],safety:['Safety'],work:['Work']};const allowedCats=topicMap[r.arg]||null;let selected='all';const update=()=>{const q=search.value.trim().toLowerCase();let arr=F.filter(x=>((selected==='all'&&(!allowedCats||allowedCats.includes(x.category)))||x.category===selected)&&(format.value==='all'||x.format===format.value)&&(!q||[x.title,x.dek,x.source,x.category,x.format].join(' ').toLowerCase().includes(q)));if(sort.value==='latest')arr=[...arr].sort((a,b)=>b.date.localeCompare(a.date));else arr=[...arr].sort((a,b)=>a.source.localeCompare(b.source));directory.innerHTML=arr.map(newsCard).join('');summary.textContent=`${arr.length} item${arr.length===1?'':'s'} · external links open at the original source`;empty.hidden=arr.length>0};tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');selected=t.dataset.category;update()}));search.addEventListener('input',update);format.addEventListener('change',update);sort.addEventListener('change',update);update()}
-if(r.page==='guides'){const search=document.getElementById('guideSearch'),category=document.getElementById('guideCategory'),level=document.getElementById('guideLevel'),directory=document.getElementById('guideDirectory'),summary=document.getElementById('guideSummary'),empty=document.getElementById('guideEmpty');const update=()=>{const q=search.value.trim().toLowerCase();const arr=D.articles.filter(a=>(category.value==='all'||a.category===category.value)&&(level.value==='all'||a.level===level.value)&&(!q||[a.title,a.excerpt,a.tags.join(' '),cat(a.category).name].join(' ').toLowerCase().includes(q)));directory.innerHTML=arr.map(internalGuideCard).join('');summary.textContent=`${arr.length} original guide${arr.length===1?'':'s'}`;empty.hidden=arr.length>0};search.addEventListener('input',update);category.addEventListener('change',update);level.addEventListener('change',update);update()}
-if(r.page==='repos'){const search=document.getElementById('repoSearch'),category=document.getElementById('repoCategory'),sort=document.getElementById('repoSort'),body=document.getElementById('repoBody'),summary=document.getElementById('repoSummary');const update=()=>{const q=search.value.toLowerCase().trim();let arr=D.repos.filter(x=>(category.value==='all'||x.category===category.value)&&(!q||[x.name,x.description,x.category,x.language,x.tags.join(' ')].join(' ').toLowerCase().includes(q)));if(sort.value==='name')arr=[...arr].sort((a,b)=>a.name.localeCompare(b.name));body.innerHTML=arr.map(x=>`<tr><td><strong>${esc(x.name)}</strong></td><td><span class="table-tag">${esc(x.category)}</span></td><td>${esc(x.description)}</td><td>${esc(x.language||'Multiple')}</td><td>${esc(x.checked||'2026-08-05')}</td><td><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:800">GitHub ↗</a></td></tr>`).join('');summary.textContent=`${arr.length} repositories · curated, not automatically endorsed`};search.addEventListener('input',update);category.addEventListener('change',update);sort.addEventListener('change',update);update()}
-const copy=document.getElementById('copyLink');if(copy)copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href);showToast('Guide link copied')}catch{showToast('Copy the address from your browser')}});const saveBtn=document.getElementById('saveGuide');if(saveBtn)saveBtn.addEventListener('click',()=>{const slug=route().arg,key='saved:'+slug,on=safeStore.getItem(key)==='1';if(on)safeStore.removeItem(key);else safeStore.setItem(key,'1');saveBtn.textContent=on?'Save guide':'Saved ✓';showToast(on?'Removed from saved':'Guide saved')});const qf=document.getElementById('questionForm');if(qf)qf.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(qf),items=JSON.parse(safeStore.getItem('community:questions')||'[]');items.unshift({title:f.get('title'),body:f.get('body'),name:f.get('name'),status:'Awaiting answer'});safeStore.setItem('community:questions',JSON.stringify(items));showToast('Question saved for review');render()});document.querySelectorAll('[data-decision]').forEach(b=>b.addEventListener('click',()=>{const item=b.closest('.owner-item'),d=JSON.parse(safeStore.getItem('approval:decisions')||'{}');d[item.dataset.id]=b.dataset.decision;safeStore.setItem('approval:decisions',JSON.stringify(d));showToast(b.dataset.decision);render()}))}
-addEventListener('hashchange',render);document.addEventListener('DOMContentLoaded',render);document.addEventListener('keydown',e=>{if(e.key==='Escape'){const mobile=document.getElementById('mobileNav'),menu=document.getElementById('menuBtn');if(mobile?.classList.contains('open')){mobile.classList.remove('open');menu?.setAttribute('aria-expanded','false');menu?.focus()}}if(e.key==='/'&&!/input|textarea|select/i.test(document.activeElement?.tagName||'')){e.preventDefault();document.querySelector('#globalSearch input')?.focus()}});
+
+const icons={
+  search:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg>',
+  bookmark:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5A1.5 1.5 0 0 1 8 3h8a1.5 1.5 0 0 1 1.5 1.5V21L12 17.5 6.5 21V4.5Z"></path></svg>',
+  arrow:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>',
+  external:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8"></path><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg>'
+};
+
+function showToast(message){
+  if(!toastEl)return;
+  toastEl.textContent=message;
+  toastEl.classList.add('show');
+  clearTimeout(window.__aicToast);
+  window.__aicToast=setTimeout(()=>toastEl.classList.remove('show'),2200);
+}
+
+function header(active){
+  const nav=[
+    ['home','Home'],
+    ['learn','Learn'],
+    ['guides','Guides'],
+    ['tips','Tips & tricks'],
+    ['reference','Reference'],
+    ['tools','Tools & models'],
+    ['resources','Resources'],
+    ['news','News']
+  ];
+  return `<header class="site-header">
+    <div class="utility-bar"><div class="container utility-inner"><span>Independent AI education and discovery</span><div><a href="#about">Editorial method</a><a href="#community">Community</a></div></div></div>
+    <div class="container header-main">
+      <a class="brand" href="#home" aria-label="AI Compass home"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-name">AI Compass<small>Learn · choose · build</small></span></a>
+      <form class="global-search" id="globalSearch" role="search">${icons.search}<input name="q" aria-label="Search AI Compass" placeholder="Search guides, tips, terms, tools and news"><button type="submit">Search</button></form>
+      <div class="header-actions"><a class="icon-button" href="#saved" aria-label="Saved guides">${icons.bookmark}</a><button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav">Menu</button></div>
+    </div>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation"><div class="container nav-inner">${nav.map(([id,label])=>`<a href="#${id}" ${active===id?'aria-current="page"':''}>${esc(label)}</a>`).join('')}</div></nav>
+  </header>`;
+}
+
+function footer(){
+  return `<footer class="site-footer"><div class="container footer-grid">
+    <div><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true"><span></span></span><span class="brand-name">AI Compass<small>Learn · choose · build</small></span></a><p>Practical AI education, reliable reference material and carefully curated discovery. News is context—not the product.</p></div>
+    <div><strong>Learn</strong><a href="#learn">Learning paths</a><a href="#guides">Guides</a><a href="#tips">Tips & tricks</a><a href="#reference">Reference</a></div>
+    <div><strong>Choose</strong><a href="#tools">Tools & models</a><a href="#resources">Resources</a><a href="#news">AI news</a><a href="#saved">Saved guides</a></div>
+    <div><strong>Trust</strong><a href="#about">Editorial method</a><a href="#community">Community</a><a href="#owner">Review queue</a><a href="https://github.com/Mr-Meow-ZA/ai-compass" target="_blank" rel="noopener noreferrer">GitHub source ↗</a></div>
+  </div><div class="container footer-bottom"><span>© 2026 AI Compass</span><span>AI assists with research and maintenance. Sources, dates and human accountability remain visible.</span></div></footer>`;
+}
+
+function shell(active,content){return `${header(active)}<main id="main" class="page" tabindex="-1">${content}</main>${footer()}`}
+function sectionHeading(kicker,title,description,link='',linkLabel='View all'){return `<div class="section-heading"><div><p class="eyebrow">${esc(kicker)}</p><h2>${esc(title)}</h2>${description?`<p>${esc(description)}</p>`:''}</div>${link?`<a class="text-link" href="${esc(link)}">${esc(linkLabel)} ${icons.arrow}</a>`:''}</div>`}
+function meta(items){return `<div class="meta-row">${items.filter(Boolean).map(item=>`<span>${esc(item)}</span>`).join('')}</div>`}
+
+function guideCard(article,variant='standard'){
+  const c=category(article.category);
+  return `<article class="guide-card ${esc(variant)}">
+    <a class="guide-card-link" href="#article/${esc(article.slug)}">
+      <div class="guide-card-top"><span class="content-type">${esc(article.type)}</span><span class="level-badge">${esc(article.level)}</span></div>
+      <h3>${esc(article.title)}</h3><p>${esc(article.excerpt)}</p>
+      ${meta([c.name,`${article.readTime} min`,article.updated?`Updated ${fmtDate(article.updated)}`:`Published ${fmtDate(article.date)}`])}
+      <span class="card-action">Read guide ${icons.arrow}</span>
+    </a>
+  </article>`;
+}
+
+function compactGuide(article,index){
+  return `<a class="compact-guide" href="#article/${esc(article.slug)}"><span class="compact-number">${String(index+1).padStart(2,'0')}</span><span><strong>${esc(article.title)}</strong><small>${esc(article.level)} · ${article.readTime} min</small></span>${icons.arrow}</a>`;
+}
+
+function tipCard(tip){
+  return `<article class="tip-card"><div class="tip-card-head"><span class="content-type">${esc(tip.category)}</span><span>${esc(tip.level)}</span></div><h3>${esc(tip.title)}</h3><p>${esc(tip.summary)}</p><div class="tip-example"><strong>Try this</strong><code>${esc(tip.example)}</code></div><a class="text-link" href="#article/${esc(tip.related)}">Related guide ${icons.arrow}</a></article>`;
+}
+
+function referenceItem(item){
+  return `<article class="reference-item" id="term-${esc(item.slug)}"><div class="term-letter" aria-hidden="true">${esc(item.term[0])}</div><div><h3>${esc(item.term)}</h3><p>${esc(item.definition)}</p><p class="reference-note"><strong>Why it matters:</strong> ${esc(item.why)}</p>${meta(item.tags)}</div></article>`;
+}
+
+function comparisonCard(item){
+  return `<article class="comparison-card"><div class="comparison-title"><span class="source-avatar">${esc(initials(item.name))}</span><div><h3>${esc(item.name)}</h3><p>${esc(item.score)}</p></div></div><strong>${esc(item.bestFor)}</strong><ul>${item.strengths.slice(0,3).map(value=>`<li>${esc(value)}</li>`).join('')}</ul><p class="caution"><strong>Watch:</strong> ${esc(item.caution)}</p><div class="comparison-footer"><span>${esc(item.price)}</span><a href="${esc(item.url)}"${externalAttrs(item.url)}>Official source ${icons.external}</a></div></article>`;
+}
+
+function repoRow(repo){
+  return `<article class="repo-row"><div class="repo-icon">&lt;/&gt;</div><div><h3><a href="${esc(repo.url)}"${externalAttrs(repo.url)}>${esc(repo.name)} ${icons.external}</a></h3><p>${esc(repo.description)}</p>${meta([repo.category,repo.language,`Checked ${fmtDate(repo.checked)}`])}</div></article>`;
+}
+
+function newsItem(item,featured=false){
+  return `<article class="news-item ${featured?'featured':''}"><div class="news-source"><span class="source-avatar">${esc(initials(item.source))}</span><div><strong>${esc(item.source)}</strong><small>${esc(item.sourceType)} · ${fmtDate(item.date)}</small></div></div><div><span class="content-type">${esc(item.category)} · ${esc(item.format)}</span><h3><a href="${esc(item.url)}"${externalAttrs(item.url)}>${esc(item.title)} ${icons.external}</a></h3><p>${esc(item.dek)}</p>${meta([item.readTime,'External source'])}</div></article>`;
+}
+
+function pathCard(path){
+  const articles=path.steps.map(articleBySlug).filter(Boolean);
+  return `<article class="path-card accent-${esc(path.accent)}"><div class="path-intro"><span class="content-type">${esc(path.audience)}</span><h2>${esc(path.title)}</h2><p>${esc(path.description)}</p>${meta([path.duration,`${articles.length} lessons`])}<a class="primary-link" href="#learn/${esc(path.id)}">Open learning path ${icons.arrow}</a></div><ol class="path-preview">${articles.map((article,index)=>`<li><span>${index+1}</span><a href="#article/${esc(article.slug)}">${esc(article.title)}</a></li>`).join('')}</ol></article>`;
+}
+
+function home(){
+  const featured=D.articles.filter(item=>item.featured).slice(0,4);
+  const recommended=(featured.length>=3?featured.slice(0,3):D.articles.slice(0,3));
+  const latestNews=[...F].sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,4);
+  const popularRepos=D.repos.slice(0,4);
+  const tips=L.tips.slice(0,3);
+  const refs=L.references.slice(0,4);
+  const path=L.learningPaths[0];
+  return shell('home',`
+    <section class="hero"><div class="container hero-grid"><div class="hero-copy"><p class="eyebrow">Your practical guide to artificial intelligence</p><h1>Make AI useful.<br><span>Understand what matters.</span></h1><p class="hero-lede">Learn the fundamentals, choose the right tools and build reliable workflows—without drowning in hype, product launches or jargon.</p><form class="hero-search" id="heroSearch" role="search">${icons.search}<input name="q" aria-label="What do you want to learn or do?" placeholder="What do you want to learn or do?"><button>Find an answer</button></form><div class="hero-prompts"><span>Popular:</span><a href="#article/choose-your-first-ai-subscription">Choose an AI plan</a><a href="#article/prompting-for-reliable-results">Write better prompts</a><a href="#reference">Understand AI terms</a></div></div><aside class="hero-panel"><p class="eyebrow">Start here</p><h2>New to AI?</h2><p>Follow a short, ordered path that covers tools, prompting, privacy and verification.</p><div class="hero-progress"><span style="width:25%"></span></div><div class="hero-stat"><strong>4</strong><span>practical lessons<br>about 90 minutes</span></div><a class="primary-link dark" href="#learn/start-here">Begin the learning path ${icons.arrow}</a></aside></div></section>
+
+    <section class="task-section"><div class="container">${sectionHeading('Find your direction','What would you like AI to help you do?','Choose a route based on your goal rather than a product name.')}<div class="task-grid">${L.taskCards.map(card=>`<a class="task-card" href="${esc(card.href)}"><span class="task-number">${esc(card.icon)}</span><h3>${esc(card.title)}</h3><p>${esc(card.description)}</p><span>${esc(card.label)} ${icons.arrow}</span></a>`).join('')}</div></div></section>
+
+    <section class="content-section"><div class="container">${sectionHeading('Original AI Compass content','Recommended guides','Detailed, source-backed explanations written to help you make decisions and complete real work.','#guides','Browse all guides')}<div class="guide-grid">${recommended.map(article=>guideCard(article)).join('')}</div></div></section>
+
+    <section class="split-section"><div class="container split-grid"><div>${sectionHeading('Structured learning','A path, not a pile of articles','Work through the essentials in a sensible order.')}<div class="featured-path"><div><span class="content-type">${esc(path.audience)} path</span><h2>${esc(path.title)}</h2><p>${esc(path.description)}</p>${meta([path.duration,`${path.steps.length} lessons`])}<a class="primary-link" href="#learn/${esc(path.id)}">View the full path ${icons.arrow}</a></div><div class="path-list">${path.steps.map((slug,index)=>compactGuide(articleBySlug(slug),index)).join('')}</div></div></div><aside class="reference-desk">${sectionHeading('Quick reference','Understand the language','Plain-English definitions for terms you will encounter.','#reference','Open reference')}<div class="reference-compact">${refs.map(item=>`<a href="#reference?term=${encodeURIComponent(item.term)}"><strong>${esc(item.term)}</strong><span>${esc(item.definition)}</span></a>`).join('')}</div></aside></div></section>
+
+    <section class="content-section tinted"><div class="container">${sectionHeading('Practical library','Tips you can use today','Small changes that make AI work more reliably.','#tips','See all tips')}<div class="tips-grid">${tips.map(tipCard).join('')}</div></div></section>
+
+    <section class="content-section"><div class="container">${sectionHeading('Choose with evidence','Tools, models and open source','Compare practical fit, limitations and source information before you adopt anything.','#tools','Explore tools & models')}<div class="tools-home-grid"><div class="comparison-mini">${D.comparisons.slice(0,3).map(item=>`<a href="#tools"><span class="source-avatar">${esc(initials(item.name))}</span><span><strong>${esc(item.name)}</strong><small>${esc(item.bestFor)}</small></span>${icons.arrow}</a>`).join('')}</div><div class="repo-mini">${popularRepos.map(repo=>`<a href="${esc(repo.url)}"${externalAttrs(repo.url)}><span>&lt;/&gt;</span><span><strong>${esc(repo.name)}</strong><small>${esc(repo.category)} · ${esc(repo.language)}</small></span>${icons.external}</a>`).join('')}</div></div></div></section>
+
+    <section class="news-module"><div class="container">${sectionHeading('One part of the compass','Latest AI news','A compact, source-labelled view of notable developments. News stays separate from our evergreen guides and reference material.','#news','Open the news section')}<div class="news-list compact">${latestNews.map((item,index)=>newsItem(item,index===0)).join('')}</div></div></section>
+
+    <section class="community-banner"><div class="container community-banner-inner"><div><p class="eyebrow">Still unsure?</p><h2>Ask a practical AI question.</h2><p>Community questions help us identify gaps and create better guides, comparisons and references.</p></div><a class="primary-link dark" href="#community">Visit the community ${icons.arrow}</a></div></section>
+  `);
+}
+
+function learn(selected=''){
+  if(selected){
+    const path=L.learningPaths.find(item=>item.id===selected);
+    if(!path)return learn();
+    const lessons=path.steps.map(articleBySlug).filter(Boolean);
+    return shell('learn',`<section class="page-hero"><div class="container narrow"><a class="back-link" href="#learn">← All learning paths</a><p class="eyebrow">${esc(path.audience)} learning path</p><h1>${esc(path.title)}</h1><p>${esc(path.description)}</p>${meta([path.duration,`${lessons.length} lessons`])}</div></section><section class="content-section"><div class="container narrow"><div class="lesson-list">${lessons.map((article,index)=>`<article class="lesson"><div class="lesson-number">${String(index+1).padStart(2,'0')}</div><div><span class="content-type">${esc(article.type)} · ${article.readTime} min</span><h2><a href="#article/${esc(article.slug)}">${esc(article.title)}</a></h2><p>${esc(article.excerpt)}</p></div><a class="lesson-action" href="#article/${esc(article.slug)}" aria-label="Open ${esc(article.title)}">${icons.arrow}</a></article>`).join('')}</div></div></section>`);
+  }
+  return shell('learn',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Learn in a sensible order</p><h1>Build confidence step by step.</h1><p>AI Compass learning paths connect our strongest guides into short, goal-based courses. Start with the path that matches what you need to do next.</p></div><div class="page-stat"><strong>${L.learningPaths.length}</strong><span>curated paths<br>${D.articles.length} detailed guides</span></div></div></section><section class="content-section"><div class="container path-grid">${L.learningPaths.map(pathCard).join('')}</div></section><section class="content-section tinted"><div class="container">${sectionHeading('Not sure where to start?','Use the beginner route','It covers the minimum foundations before you move into tools, automation or agents.')}<div class="beginner-strip"><div><strong>1</strong><span>Choose a service</span></div><div><strong>2</strong><span>Give clear instructions</span></div><div><strong>3</strong><span>Protect information</span></div><div><strong>4</strong><span>Verify important claims</span></div><a class="primary-link" href="#learn/start-here">Start now ${icons.arrow}</a></div></div></section>`);
+}
+
+function guides(categoryId=''){
+  const categoryOptions=D.categories.map(item=>`<option value="${esc(item.id)}" ${categoryId===item.id?'selected':''}>${esc(item.name)}</option>`).join('');
+  return shell('guides',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">AI Compass originals</p><h1>Practical guides for real decisions and workflows.</h1><p>Long-form, source-backed articles covering AI fundamentals, subscriptions, integrations, local models, research, RAG and production agents.</p></div><div class="page-stat"><strong>${D.articles.length}</strong><span>original guides<br>beginner to advanced</span></div></div></section><section class="filter-bar"><div class="container filter-grid"><label>Search guides<input id="guideSearch" type="search" placeholder="Search titles, topics and tags"></label><label>Category<select id="guideCategory"><option value="all">All categories</option>${categoryOptions}</select></label><label>Level<select id="guideLevel"><option value="all">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label></div></section><section class="content-section"><div class="container"><div class="results-line"><span id="guideSummary"></span><span>AI Compass original content</span></div><div class="guide-grid" id="guideDirectory"></div><div class="empty-state" id="guideEmpty" hidden><h2>No guides match those filters.</h2><p>Try a broader search or another category.</p></div></div></section>`);
+}
+
+function article(slug){
+  const article=articleBySlug(slug);
+  if(!article)return shell('guides',`<section class="page-hero"><div class="container narrow"><h1>Guide not found</h1><p>The requested article is not available.</p><a class="primary-link" href="#guides">Browse all guides ${icons.arrow}</a></div></section>`);
+  const c=category(article.category);
+  const related=D.articles.filter(item=>item.slug!==article.slug&&(item.category===article.category||item.tags.some(tag=>article.tags.includes(tag)))).slice(0,3);
+  const saved=safeStore.getItem(`saved:${article.slug}`)==='1';
+  return shell('guides',`<div class="reading-progress" id="readingProgress"></div><article class="article-page"><header class="article-header"><div class="container article-header-grid"><div><a class="back-link" href="#guides">← All guides</a><div class="article-labels"><span class="content-type">AI Compass original</span><span class="level-badge">${esc(article.level)}</span></div><h1>${esc(article.title)}</h1><p>${esc(article.excerpt)}</p>${meta([c.name,`${article.readTime} min read`,article.updated?`Updated ${fmtDate(article.updated)}`:`Published ${fmtDate(article.date)}`,`${article.sources?.length||0} sources`])}<div class="article-actions"><button id="saveGuide" class="button-secondary">${saved?'Saved ✓':'Save guide'}</button><button id="copyLink" class="button-secondary">Copy link</button></div></div><aside class="article-summary"><p class="eyebrow">In this guide</p><ol>${article.sections.map(section=>`<li><a href="#section-${esc(section.id)}">${esc(section.title)}</a></li>`).join('')}</ol></aside></div></header><div class="container article-layout"><div class="article-body">${article.sections.map(section=>`<section id="section-${esc(section.id)}"><h2>${esc(section.title)}</h2>${section.html}</section>`).join('')}${article.sources?.length?`<section class="sources"><h2>Sources and verification</h2><p>Open the original sources and check dates before relying on time-sensitive details.</p><ol>${article.sources.map(source=>`<li><a href="${esc(source.url)}"${externalAttrs(source.url)}>${esc(source.title)} ${icons.external}</a><span>${esc(source.publisher||'Primary source')}</span></li>`).join('')}</ol></section>`:''}</div><aside class="article-rail"><div class="article-rail-card"><strong>Trust note</strong><p>AI Compass separates original guidance from external reporting. Pricing, product availability and capabilities can change.</p><a href="#about">Read our editorial method</a></div></aside></div></article><section class="content-section tinted"><div class="container">${sectionHeading('Continue learning','Related guides','Move to the next useful topic rather than starting over.')}<div class="guide-grid">${related.map(item=>guideCard(item)).join('')}</div></div></section>`);
+}
+
+function tips(){
+  const categories=[...new Set(L.tips.map(item=>item.category))].sort();
+  return shell('tips',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Small improvements, immediate value</p><h1>Tips and patterns for better AI work.</h1><p>Concise, reusable practices for prompting, research, privacy, coding, context management and safe automation.</p></div><div class="page-stat"><strong>${L.tips.length}</strong><span>practical tips<br>linked to deeper guides</span></div></div></section><section class="filter-bar"><div class="container filter-grid two"><label>Search tips<input id="tipSearch" type="search" placeholder="Search tips and examples"></label><label>Category<select id="tipCategory"><option value="all">All categories</option>${categories.map(value=>`<option>${esc(value)}</option>`).join('')}</select></label></div></section><section class="content-section"><div class="container"><div class="results-line"><span id="tipSummary"></span><span>Test the advice against your own workflow</span></div><div class="tips-grid" id="tipDirectory"></div><div class="empty-state" id="tipEmpty" hidden><h2>No tips match that search.</h2></div></div></section>`);
+}
+
+function reference(){
+  return shell('reference',`<section class="page-hero reference-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Plain-English AI reference</p><h1>Understand the terms without the jargon.</h1><p>Short definitions explain what a concept means, why it matters and where people commonly misunderstand it.</p></div><div class="page-stat"><strong>${L.references.length}</strong><span>core concepts<br>more being added</span></div></div></section><section class="filter-bar"><div class="container filter-grid one"><label>Search the reference<input id="referenceSearch" type="search" placeholder="Try RAG, agent, context window or benchmark"></label></div></section><section class="content-section"><div class="container narrow-wide"><div class="results-line"><span id="referenceSummary"></span><span>Definitions, not marketing labels</span></div><div class="reference-list" id="referenceDirectory"></div><div class="empty-state" id="referenceEmpty" hidden><h2>No terms match that search.</h2></div></div></section>`);
+}
+
+function tools(){
+  const repoCategories=[...new Set(D.repos.map(item=>item.category))].sort();
+  return shell('tools',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Choose by workflow, evidence and constraints</p><h1>Tools, models and open-source projects.</h1><p>Use comparisons to narrow the field, then check official sources, licence terms, maintenance activity and fit with your actual work.</p></div><div class="page-stat"><strong>${D.comparisons.length+D.repos.length}</strong><span>plans and repositories<br>curated with caution notes</span></div></div></section><section class="content-section"><div class="container">${sectionHeading('Subscription comparison','Popular AI plans','A practical snapshot—not a permanent ranking. Pricing and features require current verification.')}<div class="comparison-grid">${D.comparisons.map(comparisonCard).join('')}</div></div></section><section class="content-section tinted"><div class="container">${sectionHeading('Open-source directory','Repositories worth investigating','Inclusion means the project is relevant, not automatically safe or endorsed.')}<div class="repo-controls"><label>Search repositories<input id="repoSearch" type="search" placeholder="Search project, category, language or tags"></label><label>Category<select id="repoCategory"><option value="all">All categories</option>${repoCategories.map(value=>`<option>${esc(value)}</option>`).join('')}</select></label></div><div class="results-line"><span id="repoSummary"></span><span>Check licence, security and activity before adoption</span></div><div class="repo-directory" id="repoDirectory"></div><div class="empty-state" id="repoEmpty" hidden><h2>No repositories match those filters.</h2></div></div></section>`);
+}
+
+function resources(){
+  const resourceFeed=F.filter(item=>['Video','Podcast','Paper','Report','Guide'].includes(item.format)).slice(0,12);
+  return shell('resources',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Curated material from across the web</p><h1>Videos, papers, reports and useful external guides.</h1><p>AI Compass links to the original publisher, clearly labels the source and keeps third-party material separate from our own guides.</p></div><div class="page-stat"><strong>${resourceFeed.length}</strong><span>featured resources<br>from original publishers</span></div></div></section><section class="filter-bar"><div class="container filter-grid two"><label>Search resources<input id="resourceSearch" type="search" placeholder="Search title, source or topic"></label><label>Format<select id="resourceFormat"><option value="all">All formats</option>${[...new Set(resourceFeed.map(item=>item.format))].map(value=>`<option>${esc(value)}</option>`).join('')}</select></label></div></section><section class="content-section"><div class="container"><div class="results-line"><span id="resourceSummary"></span><span>External links open at the original source</span></div><div class="resource-grid" id="resourceDirectory"></div><div class="empty-state" id="resourceEmpty" hidden><h2>No resources match those filters.</h2></div></div></section>`);
+}
+
+function news(){
+  const categories=[...new Set(F.map(item=>item.category))].sort();
+  return shell('news',`<section class="page-hero news-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Latest developments</p><h1>AI news with sources and context.</h1><p>A dedicated feed for official announcements, independent reporting, research and open-source releases. Use the evergreen sections when you need to learn or make a decision.</p></div><div class="page-stat"><strong>${F.length}</strong><span>curated items<br>news is one feature</span></div></div></section><section class="filter-bar"><div class="container filter-grid"><label>Search news<input id="newsSearch" type="search" placeholder="Search headline, source or topic"></label><label>Topic<select id="newsCategory"><option value="all">All topics</option>${categories.map(value=>`<option>${esc(value)}</option>`).join('')}</select></label><label>Format<select id="newsFormat"><option value="all">All formats</option>${[...new Set(F.map(item=>item.format))].sort().map(value=>`<option>${esc(value)}</option>`).join('')}</select></label></div></section><section class="content-section"><div class="container news-layout"><div><div class="results-line"><span id="newsSummary"></span><span>External content remains the work of its publisher</span></div><div class="news-list" id="newsDirectory"></div><div class="empty-state" id="newsEmpty" hidden><h2>No news items match those filters.</h2></div></div><aside class="news-sidebar"><div class="sidebar-card"><p class="eyebrow">Use news well</p><h2>Turn developments into understanding.</h2><ol><li>Open the original source.</li><li>Check the publication date.</li><li>Separate announced features from available features.</li><li>Use a guide or comparison before changing your workflow.</li></ol><a class="text-link" href="#article/ai-news-signal-not-noise">Build a better news habit ${icons.arrow}</a></div><div class="sidebar-card"><p class="eyebrow">Looking for durable answers?</p><a href="#guides">Browse original guides</a><a href="#reference">Use the reference desk</a><a href="#tools">Compare tools and models</a></div></aside></div></section>`);
+}
+
+function resourceCard(item){
+  return `<article class="resource-card"><div class="resource-source"><span class="source-avatar">${esc(initials(item.source))}</span><span><strong>${esc(item.source)}</strong><small>${esc(item.sourceType)}</small></span></div><span class="content-type">${esc(item.format)} · ${esc(item.category)}</span><h3><a href="${esc(item.url)}"${externalAttrs(item.url)}>${esc(item.title)} ${icons.external}</a></h3><p>${esc(item.dek)}</p>${meta([fmtDate(item.date),item.readTime])}</article>`;
+}
+
+function community(){
+  const local=JSON.parse(safeStore.getItem('community:questions')||'[]');
+  const questions=[...local,...D.questions];
+  return shell('community',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Questions shape the library</p><h1>Ask, answer and identify what needs a better guide.</h1><p>Community discussions are useful when they lead to clearer explanations, tested workflows and better source material.</p></div><div class="page-stat"><strong>${questions.length}</strong><span>questions<br>stored locally in this prototype</span></div></div></section><section class="content-section"><div class="container community-grid"><div class="question-list">${questions.map(item=>`<article class="question-card"><div>${meta([item.status||'Awaiting answer',item.author||item.name||'Community',item.replies!=null?`${item.replies} replies`:'Local draft'])}<h2>${esc(item.title)}</h2>${item.answer?`<p>${esc(item.answer)}</p>`:`<p>${esc(item.body||'This question is awaiting review.')}</p>`}${item.tags?meta(item.tags):''}</div></article>`).join('')}</div><aside><form class="question-form" id="questionForm"><p class="eyebrow">Ask a question</p><h2>What are you trying to understand or do?</h2><label>Title<input name="title" required maxlength="120"></label><label>Context<textarea name="body" required rows="6" maxlength="1000"></textarea></label><label>Name<input name="name" required maxlength="60"></label><button class="primary-button">Submit for review</button><small>This prototype stores your draft in this browser only.</small></form></aside></div></section>`);
+}
+
+function searchPage(params){
+  const q=(params.get('q')||'').trim();
+  const lower=q.toLowerCase();
+  const guides=D.articles.filter(item=>[item.title,item.excerpt,item.tags.join(' '),category(item.category).name].join(' ').toLowerCase().includes(lower));
+  const tips=L.tips.filter(item=>[item.title,item.summary,item.category,item.example].join(' ').toLowerCase().includes(lower));
+  const refs=L.references.filter(item=>[item.term,item.definition,item.why,item.tags.join(' ')].join(' ').toLowerCase().includes(lower));
+  const repos=D.repos.filter(item=>[item.name,item.description,item.category,item.language,item.tags.join(' ')].join(' ').toLowerCase().includes(lower));
+  const news=F.filter(item=>[item.title,item.dek,item.source,item.category,item.format].join(' ').toLowerCase().includes(lower));
+  const total=guides.length+tips.length+refs.length+repos.length+news.length;
+  return shell('home',`<section class="page-hero"><div class="container narrow-wide"><p class="eyebrow">Search AI Compass</p><h1>${q?`Results for “${esc(q)}”`:'Search the full library'}</h1><p>${q?`${total} result${total===1?'':'s'} across original guides, tips, references, repositories and news.`:'Use the search box above to find a concept, tool or task.'}</p></div></section>${q?`<section class="content-section"><div class="container search-results">${guides.length?`<section>${sectionHeading('Original content',`Guides (${guides.length})`,'')}<div class="guide-grid">${guides.slice(0,6).map(item=>guideCard(item)).join('')}</div></section>`:''}${tips.length?`<section>${sectionHeading('Practical library',`Tips (${tips.length})`,'')}<div class="tips-grid">${tips.slice(0,6).map(tipCard).join('')}</div></section>`:''}${refs.length?`<section>${sectionHeading('Reference',`Terms (${refs.length})`,'')}<div class="reference-list">${refs.slice(0,8).map(referenceItem).join('')}</div></section>`:''}${repos.length?`<section>${sectionHeading('Open source',`Repositories (${repos.length})`,'')}<div class="repo-directory">${repos.slice(0,8).map(repoRow).join('')}</div></section>`:''}${news.length?`<section>${sectionHeading('Latest developments',`News (${news.length})`,'')}<div class="news-list">${news.slice(0,6).map(item=>newsItem(item)).join('')}</div></section>`:''}${total?'':'<div class="empty-state"><h2>No results found.</h2><p>Try a broader phrase or browse the learning paths.</p></div>'}</div></section>`:''}`);
+}
+
+function saved(){
+  const savedGuides=D.articles.filter(item=>safeStore.getItem(`saved:${item.slug}`)==='1');
+  return shell('home',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Saved in this browser</p><h1>Your reading list.</h1><p>Saved items currently remain on this device. Shared accounts require a future backend.</p></div><div class="page-stat"><strong>${savedGuides.length}</strong><span>saved guides</span></div></div></section><section class="content-section"><div class="container">${savedGuides.length?`<div class="guide-grid">${savedGuides.map(item=>guideCard(item)).join('')}</div>`:'<div class="empty-state"><h2>Your reading list is empty.</h2><p>Open a guide and choose “Save guide”.</p><a class="primary-link" href="#guides">Browse guides '+icons.arrow+'</a></div>'}</div></section>`);
+}
+
+function about(){
+  return shell('',`<section class="page-hero"><div class="container narrow-wide"><p class="eyebrow">How AI Compass works</p><h1>Useful guidance requires more than collecting links.</h1><p>AI Compass combines original education, practical reference material and curated external discovery. Every content type has a different purpose and must be labelled accordingly.</p></div></section><section class="content-section"><div class="container principles-grid">${[
+    ['Original guides','AI Compass explanations and decision support, written from reviewed sources.'],
+    ['Reference','Concise definitions designed for retrieval and reuse.'],
+    ['Tips & workflows','Small, testable practices linked to deeper guidance.'],
+    ['Tools & comparisons','Practical fit and limitations—not universal rankings.'],
+    ['External resources','Short previews that send the reader to the original publisher.'],
+    ['News','A compact feed of developments, clearly separated from evergreen guidance.']
+  ].map((item,index)=>`<article><span>0${index+1}</span><h2>${esc(item[0])}</h2><p>${esc(item[1])}</p></article>`).join('')}</div></section><section class="content-section tinted"><div class="container narrow-wide">${sectionHeading('Editorial principles','Trust is a product feature','')}<div class="method-list"><div><strong>Prefer primary sources</strong><p>Official documentation, research papers, standards and maintainer-owned repositories come first.</p></div><div><strong>Show dates and uncertainty</strong><p>Fast-changing details must include verification dates and clear limitations.</p></div><div><strong>Separate evidence from judgement</strong><p>Facts, interpretation, recommendations and external claims should not blur together.</p></div><div><strong>Do not manufacture volume</strong><p>A smaller, maintained library is more useful than endless duplicated content.</p></div></div></div></section>`);
+}
+
+function owner(){
+  const decisions=JSON.parse(safeStore.getItem('approval:decisions')||'{}');
+  return shell('',`<section class="page-hero"><div class="container page-hero-grid"><div><p class="eyebrow">Editorial review queue</p><h1>Human judgement stays visible.</h1><p>Potential updates that involve weak evidence, duplication, sensitive claims or major changes should not publish automatically.</p></div><div class="page-stat"><strong>${D.approvalQueue.length}</strong><span>items awaiting review</span></div></div></section><section class="content-section"><div class="container owner-list">${D.approvalQueue.map(item=>{const status=decisions[item.id]||item.status;return `<article class="owner-item" data-id="${esc(item.id)}"><div><span class="status">${esc(status)}</span><h2>${esc(item.title)}</h2><p>${esc(item.reason)}</p>${meta([`${item.confidence}% confidence`,item.source,item.action])}</div><div><button data-decision="Rejected" class="button-secondary">Reject</button><button data-decision="Approved" class="primary-button">Approve</button></div></article>`}).join('')}</div></section>`);
+}
+
+function render(){
+  try{
+    const r=route();
+    window.onscroll=null;
+    let html;
+    switch(r.page){
+      case 'home':html=home();break;
+      case 'learn':html=learn(r.arg);break;
+      case 'guides':html=guides(r.arg);break;
+      case 'article':html=article(r.arg);break;
+      case 'tips':html=tips();break;
+      case 'reference':html=reference();break;
+      case 'tools':case 'compare':case 'repos':html=tools();break;
+      case 'resources':case 'videos':html=resources();break;
+      case 'news':case 'explore':html=news();break;
+      case 'community':html=community();break;
+      case 'search':html=searchPage(r.params);break;
+      case 'saved':html=saved();break;
+      case 'about':html=about();break;
+      case 'owner':html=owner();break;
+      default:html=home();
+    }
+    app.innerHTML=html;
+    document.title=titleForRoute(r);
+    bind(r);
+    window.scrollTo(0,0);
+    const main=document.getElementById('main');
+    if(main&&!firstRender)main.focus({preventScroll:true});
+    firstRender=false;
+  }catch(error){
+    console.error(error);
+    app.innerHTML=`<main id="main" class="empty-state"><h1>AI Compass could not load.</h1><p>${esc(error.message||'Unknown error')}</p></main>`;
+  }
+}
+
+function titleForRoute(r){
+  const titles={home:'AI Compass — Learn, choose and use AI with confidence',learn:'Learn AI — AI Compass',guides:'Practical AI guides — AI Compass',tips:'AI tips and tricks — AI Compass',reference:'AI reference — AI Compass',tools:'AI tools and models — AI Compass',resources:'AI resources — AI Compass',news:'AI news — AI Compass',community:'Community — AI Compass',about:'Editorial method — AI Compass',saved:'Saved guides — AI Compass',search:'Search — AI Compass',owner:'Editorial review queue — AI Compass'};
+  if(r.page==='article'){const item=articleBySlug(r.arg);return item?`${item.title} — AI Compass`:'Guide — AI Compass'}
+  return titles[r.page]||'AI Compass';
+}
+
+function bind(r){
+  const menu=document.getElementById('menuButton');
+  const nav=document.getElementById('primaryNav');
+  menu?.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    menu.setAttribute('aria-expanded',String(open));
+    menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  });
+  nav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
+
+  const submitSearch=form=>{
+    form?.addEventListener('submit',event=>{
+      event.preventDefault();
+      const q=String(new FormData(form).get('q')||'').trim();
+      location.hash=q?`search?q=${encodeURIComponent(q)}`:'guides';
+    });
+  };
+  submitSearch(document.getElementById('globalSearch'));
+  submitSearch(document.getElementById('heroSearch'));
+
+  if(r.page==='guides')bindGuideFilters();
+  if(r.page==='tips')bindTipFilters();
+  if(r.page==='reference')bindReferenceFilters(r.params);
+  if(['tools','compare','repos'].includes(r.page))bindRepoFilters();
+  if(['resources','videos'].includes(r.page))bindResourceFilters();
+  if(['news','explore'].includes(r.page))bindNewsFilters();
+
+  document.getElementById('copyLink')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href);showToast('Guide link copied')}catch{showToast('Copy the address from your browser')}});
+  document.getElementById('saveGuide')?.addEventListener('click',event=>{
+    const slug=route().arg;
+    const key=`saved:${slug}`;
+    const saved=safeStore.getItem(key)==='1';
+    if(saved)safeStore.removeItem(key);else safeStore.setItem(key,'1');
+    event.currentTarget.textContent=saved?'Save guide':'Saved ✓';
+    showToast(saved?'Removed from reading list':'Saved to reading list');
+  });
+  document.getElementById('questionForm')?.addEventListener('submit',event=>{
+    event.preventDefault();
+    const form=new FormData(event.currentTarget);
+    const items=JSON.parse(safeStore.getItem('community:questions')||'[]');
+    items.unshift({title:form.get('title'),body:form.get('body'),name:form.get('name'),status:'Awaiting review'});
+    safeStore.setItem('community:questions',JSON.stringify(items));
+    showToast('Question saved for review');
+    render();
+  });
+  document.querySelectorAll('[data-decision]').forEach(button=>button.addEventListener('click',()=>{
+    const item=button.closest('.owner-item');
+    const decisions=JSON.parse(safeStore.getItem('approval:decisions')||'{}');
+    decisions[item.dataset.id]=button.dataset.decision;
+    safeStore.setItem('approval:decisions',JSON.stringify(decisions));
+    showToast(button.dataset.decision);
+    render();
+  }));
+
+  if(r.page==='article'){
+    const progress=document.getElementById('readingProgress');
+    const updateProgress=()=>{const doc=document.documentElement;const distance=doc.scrollHeight-innerHeight;const pct=distance>0?Math.min(100,(scrollY/distance)*100):0;if(progress)progress.style.width=`${pct}%`};
+    updateProgress();
+    window.onscroll=updateProgress;
+  }
+}
+
+function bindGuideFilters(){
+  const search=document.getElementById('guideSearch');
+  const categorySelect=document.getElementById('guideCategory');
+  const level=document.getElementById('guideLevel');
+  const directory=document.getElementById('guideDirectory');
+  const summary=document.getElementById('guideSummary');
+  const empty=document.getElementById('guideEmpty');
+  const update=()=>{
+    const q=search.value.trim().toLowerCase();
+    const items=D.articles.filter(item=>(categorySelect.value==='all'||item.category===categorySelect.value)&&(level.value==='all'||item.level===level.value)&&(!q||[item.title,item.excerpt,item.tags.join(' '),category(item.category).name].join(' ').toLowerCase().includes(q)));
+    directory.innerHTML=items.map(item=>guideCard(item)).join('');
+    summary.textContent=`${items.length} guide${items.length===1?'':'s'}`;
+    empty.hidden=items.length>0;
+  };
+  [search,categorySelect,level].forEach(control=>control.addEventListener(control.tagName==='INPUT'?'input':'change',update));
+  update();
+}
+
+function bindTipFilters(){
+  const search=document.getElementById('tipSearch');
+  const categorySelect=document.getElementById('tipCategory');
+  const directory=document.getElementById('tipDirectory');
+  const summary=document.getElementById('tipSummary');
+  const empty=document.getElementById('tipEmpty');
+  const update=()=>{
+    const q=search.value.trim().toLowerCase();
+    const items=L.tips.filter(item=>(categorySelect.value==='all'||item.category===categorySelect.value)&&(!q||[item.title,item.summary,item.example,item.category,item.level].join(' ').toLowerCase().includes(q)));
+    directory.innerHTML=items.map(tipCard).join('');
+    summary.textContent=`${items.length} practical tip${items.length===1?'':'s'}`;
+    empty.hidden=items.length>0;
+  };
+  search.addEventListener('input',update);categorySelect.addEventListener('change',update);update();
+}
+
+function bindReferenceFilters(params){
+  const search=document.getElementById('referenceSearch');
+  const directory=document.getElementById('referenceDirectory');
+  const summary=document.getElementById('referenceSummary');
+  const empty=document.getElementById('referenceEmpty');
+  const initial=params?.get('term')||'';
+  if(initial)search.value=initial;
+  const update=()=>{
+    const q=search.value.trim().toLowerCase();
+    const items=L.references.filter(item=>!q||[item.term,item.definition,item.why,item.tags.join(' ')].join(' ').toLowerCase().includes(q));
+    directory.innerHTML=items.map(referenceItem).join('');
+    summary.textContent=`${items.length} reference term${items.length===1?'':'s'}`;
+    empty.hidden=items.length>0;
+  };
+  search.addEventListener('input',update);update();
+}
+
+function bindRepoFilters(){
+  const search=document.getElementById('repoSearch');
+  const categorySelect=document.getElementById('repoCategory');
+  const directory=document.getElementById('repoDirectory');
+  const summary=document.getElementById('repoSummary');
+  const empty=document.getElementById('repoEmpty');
+  if(!search)return;
+  const update=()=>{
+    const q=search.value.trim().toLowerCase();
+    const items=D.repos.filter(item=>(categorySelect.value==='all'||item.category===categorySelect.value)&&(!q||[item.name,item.description,item.category,item.language,item.tags.join(' ')].join(' ').toLowerCase().includes(q)));
+    directory.innerHTML=items.map(repoRow).join('');
+    summary.textContent=`${items.length} repositor${items.length===1?'y':'ies'}`;
+    empty.hidden=items.length>0;
+  };
+  search.addEventListener('input',update);categorySelect.addEventListener('change',update);update();
+}
+
+function bindResourceFilters(){
+  const search=document.getElementById('resourceSearch');
+  const format=document.getElementById('resourceFormat');
+  const directory=document.getElementById('resourceDirectory');
+  const summary=document.getElementById('resourceSummary');
+  const empty=document.getElementById('resourceEmpty');
+  if(!search)return;
+  const resourceFeed=F.filter(item=>['Video','Podcast','Paper','Report','Guide'].includes(item.format));
+  const update=()=>{
+    const q=search.value.trim().toLowerCase();
+    const items=resourceFeed.filter(item=>(format.value==='all'||item.format===format.value)&&(!q||[item.title,item.dek,item.source,item.category,item.format].join(' ').toLowerCase().includes(q)));
+    directory.innerHTML=items.map(resourceCard).join('');
+    summary.textContent=`${items.length} external resource${items.length===1?'':'s'}`;
+    empty.hidden=items.length>0;
+  };
+  search.addEventListener('input',update);format.addEventListener('change',update);update();
+}
+
+function bindNewsFilters(){
+  const search=document.getElementById('newsSearch');
+  const categorySelect=document.getElementById('newsCategory');
+  const format=document.getElementById('newsFormat');
+  const directory=document.getElementById('newsDirectory');
+  const summary=document.getElementById('newsSummary');
+  const empty=document.getElementById('newsEmpty');
+  if(!search)return;
+  const update=()=>{
+    const q=search.value.trim().toLowerCase();
+    const items=[...F].sort((a,b)=>String(b.date).localeCompare(String(a.date))).filter(item=>(categorySelect.value==='all'||item.category===categorySelect.value)&&(format.value==='all'||item.format===format.value)&&(!q||[item.title,item.dek,item.source,item.category,item.format].join(' ').toLowerCase().includes(q)));
+    directory.innerHTML=items.map((item,index)=>newsItem(item,index===0)).join('');
+    summary.textContent=`${items.length} curated item${items.length===1?'':'s'}`;
+    empty.hidden=items.length>0;
+  };
+  search.addEventListener('input',update);categorySelect.addEventListener('change',update);format.addEventListener('change',update);update();
+}
+
+addEventListener('hashchange',render);
+document.addEventListener('DOMContentLoaded',render);
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    const nav=document.getElementById('primaryNav');
+    const menu=document.getElementById('menuButton');
+    if(nav?.classList.contains('open')){nav.classList.remove('open');menu?.setAttribute('aria-expanded','false');menu?.focus()}
+  }
+  if(event.key==='/'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||'')){event.preventDefault();document.querySelector('#globalSearch input')?.focus()}
+});
 })();

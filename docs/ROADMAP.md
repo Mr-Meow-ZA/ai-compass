@@ -2,36 +2,37 @@
 
 ## Immediate — restore the full AI Compass balance
 
-- [ ] Redesign the homepage so news is one module, not the whole website.
-- [ ] Introduce clear top-level sections for Learn, Tips & Tricks and Reference.
-- [ ] Surface the existing guide library prominently.
-- [ ] Preserve external article, video and repository previews inside dedicated discovery sections.
-- [ ] Clarify AI Compass original content versus third-party links.
+- [x] Redesign the homepage so news is one module, not the whole website.
+- [x] Introduce clear top-level sections for Learn, Tips & Tricks and Reference.
+- [x] Surface the existing guide library prominently.
+- [x] Preserve external article, video and repository previews inside dedicated discovery sections.
+- [x] Clarify AI Compass original content versus third-party links.
+- [x] Add goal-based homepage entry points and beginner learning paths.
 
 ## Foundation
 
 - [ ] Connect the Vercel project directly to `Mr-Meow-ZA/ai-compass` on `main`.
 - [ ] Remove production dependence on compressed payload chunks in `Mr-Meow-ZA/yeet`.
-- [ ] Add automated JavaScript, internal-link and external-link checks.
-- [ ] Add route-level browser smoke tests for desktop and mobile.
-- [ ] Add a repository-maintained product changelog and quality score.
+- [x] Add JavaScript, generated-route, internal article-link and form-label checks to the rebuild review.
+- [ ] Add repeatable repository-based browser smoke tests for desktop and mobile.
+- [x] Maintain a repository product changelog and quality score.
 
 ## Content architecture
 
-- [ ] Split guides, tips, references, comparisons, tools, resources and news into separate collections.
-- [ ] Add content schemas with title, summary, type, status, dates, source, confidence, tags and related items.
-- [ ] Add beginner, intermediate and advanced learning paths.
-- [ ] Build a proper glossary and reference index.
-- [ ] Build a reusable tips and workflow library.
-- [ ] Add freshness and superseded-content indicators.
+- [x] Give guides, tips, references, comparisons, tools, resources and news separate user-facing collections.
+- [ ] Move each collection from browser globals into individual JSON or Markdown files with schema validation.
+- [x] Add beginner, everyday-user and builder learning paths.
+- [x] Build an initial glossary and reference index.
+- [x] Build an initial reusable tips and workflow library.
+- [ ] Add freshness and superseded-content indicators across every content type.
 
 ## Discovery
 
-- [ ] Unified search across every content type.
-- [ ] Filters for skill level, task, product, format and freshness.
-- [ ] Related-content links across news, guides, references and tools.
-- [ ] Saved reading and progress tracking.
-- [ ] Better source pages and source-quality indicators.
+- [x] Add unified search across guides, tips, references, repositories and news.
+- [x] Add filters appropriate to each major content collection.
+- [x] Add related guide links and cross-content homepage discovery.
+- [ ] Expand saved reading into all content types and add progress tracking.
+- [ ] Add dedicated source pages and formal source-quality indicators.
 
 ## Future backend — approval required
 

@@ -28,8 +28,9 @@ The homepage should balance these pillars. News should support discovery without
 
 - `index.html` — static application entry point.
 - `styles.css` — responsive visual system.
-- `data.js` — guides, comparisons, repositories, community data and external feed records.
-- `app.js` — hash-based routing, rendering, search, filters and interactions.
+- `data.js` — imported guides, comparisons, repositories, community data and external feed records.
+- `content.js` — learning paths, tips, reference terms and goal-based homepage entry points.
+- `app.js` — hash-based routing, rendering, unified search, filters and interactions.
 - `vercel.json` — deployment and security-header configuration.
 - `docs/` — product vision, architecture, roadmap, content workflow and quality standards.
 - `CHANGELOG.md` — concise development history.
@@ -71,4 +72,4 @@ The Vercel project must ultimately be connected directly to this repository. Old
 
 ## Status
 
-This repository was initialised from the current AI Compass production snapshot on 5 August 2026. The next major product task is to rebalance the current news-heavy homepage into the full multi-pillar AI Compass experience described above.
+The balanced-platform rebuild was completed in source on 6 August 2026. The homepage now prioritises learning paths, original guides, tips, reference material and tool discovery, with news retained as a compact module and dedicated section. The remaining infrastructure priority is connecting the Vercel project directly to this repository and completing a deployed browser-level visual inspection.

@@ -61,3 +61,10 @@ Before adding an item:
 3. Avoid duplicate or near-duplicate pages.
 4. Preserve meaningful history.
 5. Mark obsolete items as superseded, archived or abandoned rather than silently presenting them as current.
+
+## Current source locations
+
+- `data.js` contains the imported long-form guides, comparisons, repositories, community records and curated external feed.
+- `content.js` contains learning paths, concise tips, reference terms and goal-based homepage entry points.
+
+This split is an interim static model. Future work should move each collection into separate schema-validated JSON or Markdown files without changing the visible distinction between AI Compass originals and third-party previews.
