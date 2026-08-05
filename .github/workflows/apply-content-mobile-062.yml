@@ -1,0 +1,32 @@
+name: Apply AI Compass content and mobile release
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-content-mobile-062.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract reviewed release
+        shell: bash
+        run: |
+          cat .release/0.6.2/chunk*.txt | tr -d '\n' | base64 --decode > /tmp/aic-062.tar.gz
+          tar -xzf /tmp/aic-062.tar.gz -C .
+      - name: Validate source and content
+        shell: bash
+        run: npm run check
+      - name: Commit release
+        shell: bash
+        run: |
+          git config user.name 'Mr-Meow-ZA'
+          git config user.email '108538294+Mr-Meow-ZA@users.noreply.github.com'
+          git add index.html package.json content.js knowledge.js mobile.css enhancements.js scripts/validate-content.js README.md CHANGELOG.md docs/ARCHITECTURE.md docs/ROADMAP.md docs/QUALITY_SCORE.md docs/CONTENT_AUDIT_2026-08-06.md
+          if git diff --cached --quiet; then
+            echo 'No release changes to commit.'
+          else
+            git commit -m 'Expand AI Compass content and mobile experience [skip ci]'
+            git push origin HEAD:main
+          fi
