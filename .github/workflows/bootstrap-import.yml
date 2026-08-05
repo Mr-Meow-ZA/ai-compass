@@ -1,0 +1,130 @@
+name: Bootstrap current AI Compass source
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/bootstrap-import.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-current-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reconstruct and split current production snapshot
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64
+          import gzip
+          import pathlib
+          import re
+          import urllib.request
+
+          base = "https://raw.githubusercontent.com/Mr-Meow-ZA/yeet/ai-compass-news-v5/ai-compass-v5/payload/"
+          parts = []
+          for index in range(11):
+              request = urllib.request.Request(
+                  f"{base}{index}.js",
+                  headers={"User-Agent": "AI-Compass-Bootstrap"},
+              )
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  text = response.read().decode("utf-8").strip()
+              match = re.fullmatch(r'module\.exports="([A-Za-z0-9+/=]+)";', text)
+              if not match:
+                  raise RuntimeError(f"Invalid legacy payload chunk {index}")
+              parts.append(match.group(1))
+
+          html = gzip.decompress(base64.b64decode("".join(parts))).decode("utf-8")
+          if "2026-08-05.5" not in html or "Latest from around the web" not in html:
+              raise RuntimeError("The reconstructed snapshot failed validation")
+
+          style_match = re.search(r"<style>(.*?)</style>", html, re.S)
+          scripts = re.findall(r"<script(?: [^>]*)?>(.*?)</script>", html, re.S)
+          if not style_match or len(scripts) < 3:
+              raise RuntimeError("Could not split the self-contained application")
+
+          styles = style_match.group(1).strip() + "\n"
+          data = scripts[1].strip() + "\n"
+          app = scripts[2].strip() + "\n"
+
+          index_html = html.replace(style_match.group(0), '<link rel="stylesheet" href="styles.css">', 1)
+          index_html = index_html.replace(f"<script>{scripts[1]}</script>", '<script src="data.js"></script>', 1)
+          index_html = index_html.replace(f"<script>{scripts[2]}</script>", '<script src="app.js"></script>', 1)
+
+          pathlib.Path("index.html").write_text(index_html, encoding="utf-8")
+          pathlib.Path("styles.css").write_text(styles, encoding="utf-8")
+          pathlib.Path("data.js").write_text(data, encoding="utf-8")
+          pathlib.Path("app.js").write_text(app, encoding="utf-8")
+          PY
+
+      - name: Add static deployment configuration
+        shell: bash
+        run: |
+          cat > vercel.json <<'JSON'
+          {
+            "cleanUrls": true,
+            "trailingSlash": false,
+            "headers": [
+              {
+                "source": "/(.*)",
+                "headers": [
+                  { "key": "X-Content-Type-Options", "value": "nosniff" },
+                  { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+                  { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+                  { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+                ]
+              }
+            ]
+          }
+          JSON
+
+          cat > package.json <<'JSON'
+          {
+            "name": "ai-compass",
+            "version": "0.5.0",
+            "private": true,
+            "description": "AI discovery, education and reference platform",
+            "scripts": {
+              "serve": "python -m http.server 4173",
+              "check": "node --check app.js && node --check data.js"
+            }
+          }
+          JSON
+
+          cat > .gitignore <<'EOF'
+          .DS_Store
+          Thumbs.db
+          node_modules/
+          .vercel/
+          *.log
+          EOF
+
+      - name: Validate imported source
+        shell: bash
+        run: |
+          node --check app.js
+          node --check data.js
+          test -s index.html
+          test -s styles.css
+          grep -q "2026-08-05.5" index.html
+          grep -q "AI_COMPASS_DATA" data.js
+          grep -q "function render" app.js
+
+      - name: Commit imported source
+        shell: bash
+        run: |
+          git config user.name "AI Compass Bootstrap"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html styles.css data.js app.js vercel.json package.json .gitignore
+          if git diff --cached --quiet; then
+            echo "Source already imported"
+            exit 0
+          fi
+          git commit -m "Import current AI Compass application source"
+          git push
