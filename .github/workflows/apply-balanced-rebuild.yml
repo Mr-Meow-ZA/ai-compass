@@ -1,0 +1,36 @@
+name: Apply balanced AI Compass rebuild
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-balanced-rebuild.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reconstruct and extract reviewed source
+        run: |
+          cat .github/rebuild-v6/part-* | base64 --decode > /tmp/ai-compass-v6-update.tgz
+          tar -xzf /tmp/ai-compass-v6-update.tgz
+      - name: Validate source
+        run: npm run check
+      - name: Commit balanced rebuild
+        run: |
+          rm -rf .github/rebuild-v6
+          rm -f .github/workflows/apply-balanced-rebuild.yml
+          git config user.name "AI Compass Maintainer"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Rebuild AI Compass as balanced learning platform [skip ci]"
+          git push origin main
