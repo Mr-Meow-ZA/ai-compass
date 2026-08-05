@@ -1,10 +1,10 @@
 {
   "name": "ai-compass",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": true,
   "description": "AI education, discovery and reference platform",
   "scripts": {
     "serve": "python -m http.server 4173",
-    "check": "node --check app.js && node --check data.js && node --check content.js"
+    "check": "node --check app.js && node --check data.js && node --check knowledge.js && node --check content.js && node --check enhancements.js && node scripts/validate-content.js"
   }
 }

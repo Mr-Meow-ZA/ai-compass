@@ -8,13 +8,11 @@
 - [x] Preserve external article, video and repository previews inside dedicated discovery sections.
 - [x] Clarify AI Compass original content versus third-party links.
 - [x] Add goal-based homepage entry points and beginner learning paths.
-- [x] Deploy and verify balanced build `2026-08-06.1` on the production URL.
 
 ## Foundation
 
 - [ ] Connect the Vercel project directly to `Mr-Meow-ZA/ai-compass` on `main`.
-- [x] Remove production dependence on compressed payload chunks in `Mr-Meow-ZA/yeet`.
-- [ ] Retire the temporary commit-pinned Vercel deployment bridge after direct Git integration is verified.
+- [ ] Remove production dependence on compressed payload chunks in `Mr-Meow-ZA/yeet`.
 - [x] Add JavaScript, generated-route, internal article-link and form-label checks to the rebuild review.
 - [ ] Add repeatable repository-based browser smoke tests for desktop and mobile.
 - [x] Maintain a repository product changelog and quality score.
@@ -44,3 +42,19 @@
 - [ ] Duplicate and near-duplicate detection.
 - [ ] Editorial approval workflow.
 - [ ] Personalised feeds and recommendations.
+
+## Completed in 0.6.2 — depth and mobile
+
+- [x] Add original guides for office productivity, evaluation, architecture choice, governance and multimodal work.
+- [x] Expand learning paths, tips and reference coverage.
+- [x] Add automated validation for unique content identifiers, source URLs and internal relationships.
+- [x] Add safe-area-aware mobile shortcuts and search.
+- [x] Increase touch target sizes and improve article, table, filter and card behaviour on narrow screens.
+- [x] Give each major content type a more distinct visual identity.
+
+## Next content priorities
+
+- [ ] Build a versioned template library for prompts, checklists and workflow artefacts.
+- [ ] Add data-analysis practice files and an interactive spreadsheet learning route.
+- [ ] Add sector starter packs for operations, education, small business and creative work.
+- [ ] Add freshness and superseded-content indicators to every guide and comparison.

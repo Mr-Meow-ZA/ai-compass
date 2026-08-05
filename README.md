@@ -73,3 +73,14 @@ The Vercel project must ultimately be connected directly to this repository. Old
 ## Status
 
 The balanced-platform rebuild was completed in source on 6 August 2026. The homepage now prioritises learning paths, original guides, tips, reference material and tool discovery, with news retained as a compact module and dedicated section. The remaining infrastructure priority is connecting the Vercel project directly to this repository and completing a deployed browser-level visual inspection.
+
+
+## Current library snapshot
+
+- 24 original guides
+- 5 structured learning paths
+- 20 practical tips
+- 22 plain-English reference terms
+- Curated tool, repository, resource and news collections
+
+Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources and internal learning relationships.

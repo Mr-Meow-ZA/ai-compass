@@ -1,38 +1,37 @@
 # Quality Score
 
-## Review — 2026-08-06 balanced-platform rebuild
+## Review — 2026-08-06 content depth and mobile pass (0.6.2)
 
-The previous build was structurally dominated by external news. Version `2026-08-06.1` restores the intended AI Compass product model: original education and reference content is primary; news is one supporting feature.
+Version `2026-08-06.2` expands the balanced-platform rebuild with five high-value evergreen guides, two additional learning paths, a larger practical reference library and a deliberate mobile interaction layer.
 
 | Area | Score | Evidence and remaining limitations |
 |---|---:|---|
-| Mobile usability | 8.7 | Dedicated mobile navigation, single-column layouts, responsive filters and reduced card density. A real-device visual pass is still required. |
-| Navigation | 9.1 | Top-level routes now match the product vision: Learn, Guides, Tips & Tricks, Reference, Tools & Models, Resources and News. Legacy routes continue to resolve. |
-| Visual design | 8.8 | Replaced the news-template identity with a calm white learning/reference system, restrained borders, stronger typography and distinct page patterns. Final judgement still requires real-device visual inspection. |
-| Accessibility | 9.0 | Skip link, visible focus, semantic headings, labelled controls, keyboard menu handling, reduced-motion support and no duplicate IDs in generated route snapshots. |
-| Performance | 8.9 | Static HTML/CSS/JavaScript, no framework or external font dependency, and a small structured `content.js` collection. |
-| Reliability | 9.1 | JavaScript syntax checks pass; 14 route render tests pass; dynamic filter handlers execute; all generated internal article links resolve; production returned the expected build and assets. |
-| Information architecture | 9.3 | News is now a compact homepage module and dedicated section. Learning paths, guides, tips, reference, tools and resources have independent routes and clear purposes. |
-| Search and filtering | 9.0 | Unified search covers guides, tips, reference terms, repositories and external news. Dedicated filters exist for each major directory. |
-| Content discovery | 9.2 | Goal-based entry points, structured learning paths, related guides, quick reference, tool previews and compact news discovery are connected from the homepage. |
-| Trustworthiness | 9.1 | Original and third-party content are labelled separately; external links identify their sources; editorial method, dates and caution notes remain visible. |
-| Usefulness to beginners | 9.4 | Prominent Start Here path, plain-English reference, privacy and verification guidance, practical tips and goal-led entry points. |
-| Usefulness to experienced users | 8.9 | Advanced guides, repositories, MCP, RAG, agents and guardrails remain available. Deeper technical reference collections are still a roadmap item. |
+| Mobile usability | 9.3 | Safe-area bottom navigation, mobile search, swipeable task cards, collapsible article contents, 44px control targets and no tested horizontal overflow at 390px. Real-device testing on multiple iPhones and Android devices remains useful. |
+| Navigation | 9.2 | Primary navigation remains product-led; mobile shortcuts prioritise Home, Learn, Guides, Search and Saved while News stays secondary. |
+| Visual design | 9.1 | Guides, tips, reference, resources, repositories, comparisons and news now have distinct but coherent visual identities. |
+| Accessibility | 9.2 | WCAG-oriented target sizes, skip navigation, visible focus, labelled search dialog, keyboard escape handling, reduced-motion support and semantic controls. |
+| Performance | 8.9 | Dependency-free static application. Additional content increases transfer size; collection splitting and generated search indexes remain future work. |
+| Reliability | 9.2 | Syntax, relationship and source validation pass; 13 routes and key mobile interactions ran without console or page errors. |
+| Information architecture | 9.4 | Learning, guides, tips, reference, tools, resources and news remain separate. New content fills practical work and governance gaps. |
+| Search and filtering | 9.1 | Unified search includes the five new guides, twenty tips and twenty-two reference terms. Mobile search is directly accessible. |
+| Content discovery | 9.4 | Six goal routes, five learning paths, updated featured guides and content-specific visual cues improve orientation. |
+| Trustworthiness | 9.3 | New guides use primary sources from NIST, Anthropic, OpenAI, Google, Microsoft and OWASP, with dates and caution boundaries. |
+| Usefulness to beginners | 9.5 | Stronger coverage of office work, evaluation, multimodal literacy, safe adoption and plain-language definitions. |
+| Usefulness to experienced users | 9.1 | Governance, evals, authority boundaries, guardrails and architecture choice add practical depth. |
 
-**Current overall product score: 9.0/10** based on source, route, structural and production-response review.
+**Current overall product score: 9.2/10** based on content, source, route, interaction and responsive browser review.
 
 ## Validation completed
 
-- JavaScript syntax: `app.js`, `data.js` and `content.js` passed `node --check`.
-- Route rendering: Home, Learn, selected learning path, Guides, Article, Tips, Reference, Tools, Resources, News, Community, About, Saved and unified Search rendered without the application error boundary.
-- Generated HTML snapshots: no duplicate IDs, empty links or unlabelled form controls across the tested routes.
-- Internal article links: all generated article links target an existing guide slug.
-- Filter handlers: guide, tip, reference, repository, resource and news filter events executed in the route harness.
-- GitHub validation workflow: completed successfully before the rebuild commit reached `main`.
-- Production deployment: Vercel deployment `dpl_F1mLQmDFa2NWHzQEpF8Pdm7TLFjz` reached `READY` and received the production aliases.
-- Live response: `https://ai-compass-hub.vercel.app` returned HTTP 200, build marker `2026-08-06.1`, the correct HTML metadata and the rebuilt `app.js` asset.
-- Runtime review: no fatal application error was found. Vercel emitted a Node runtime deprecation warning unrelated to the application code.
+- JavaScript syntax passed for `app.js`, `data.js`, `knowledge.js`, `content.js` and `enhancements.js`.
+- Content validation passed for 24 guide slugs, 5 learning paths, 20 tips, 22 reference terms and all source URLs.
+- Thirteen representative routes rendered in headless Chromium.
+- Mobile navigation, search dialog, article contents toggle and Escape behaviour passed.
+- No console errors, page errors or horizontal overflow were found at 390 × 844.
+- No visible non-inline controls below the WCAG 2.2 24px minimum were found; primary mobile controls are designed around 44px targets.
 
-## Known limitation
+## Known limitations
 
-The container's managed Chromium policy blocks localhost and external domains, so this review could not complete a true pixel-level browser screenshot audit. The design has therefore passed structural and deployed-response validation, but a real-device visual and responsive pass remains necessary before increasing the visual-design or mobile scores.
+- Browser testing used Chromium rather than physical iOS Safari and Android Chrome devices.
+- The content collections remain JavaScript data files rather than schema-validated Markdown or JSON collections.
+- Vercel still requires a direct Git connection to this repository for normal commit-to-production deployments.

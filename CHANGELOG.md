@@ -9,11 +9,11 @@
 - Added product vision, architecture, roadmap, content workflow and quality-score documentation.
 - Documented the production Vercel project and the legacy payload-based deployment.
 
-### Initial limitation
+### Current limitation
 
-- The imported snapshot was visually and structurally news-heavy.
-- Guides still existed, but Learn, Tips & Tricks and Reference required dedicated product sections.
-- Vercel was not directly connected to the new repository.
+- The imported snapshot is visually and structurally news-heavy.
+- Guides still exist, but Learn, Tips & Tricks and Reference require dedicated product sections.
+- Vercel still needs to be connected directly to this repository before the legacy `Mr-Meow-ZA/yeet` payload dependency can be retired.
 
 ## 2026-08-06 — Balanced platform rebuild
 
@@ -40,12 +40,37 @@
 - Fourteen routes rendered successfully in the test harness.
 - Generated route snapshots contained no duplicate IDs, empty links or unlabelled controls.
 - All generated internal article links resolve to an existing guide.
-- The one-time GitHub validation workflow completed successfully and removed its staging files.
 
-### Production
+## 2026-08-06 — Content depth and mobile usability pass (0.6.2)
 
-- Deployed build `2026-08-06.1` to Vercel production.
-- Verified HTTP 200 responses for the production page and application JavaScript.
-- Verified that the production alias serves the rebuilt source from canonical commit `c257396378ea1ad1693a6f89d6fc27648b6cd466`.
-- Removed production dependence on the legacy compressed payload chunks in `Mr-Meow-ZA/yeet`.
-- Direct Vercel Git integration with `Mr-Meow-ZA/ai-compass` remains the next infrastructure task.
+### Content added
+
+- Added five original guides covering office productivity, AI-output evaluation, automation-versus-agent architecture, lightweight governance and multimodal AI.
+- Expanded learning paths from three to five with new Office Productivity and Responsible Adoption routes.
+- Expanded practical tips from eight to twenty.
+- Expanded the reference desk from ten to twenty-two concepts.
+- Expanded goal-based homepage entry points from four to six.
+- Added a formal content audit documenting addressed and remaining gaps.
+
+### Mobile improvements
+
+- Added a safe-area-aware bottom shortcut dock for Home, Learn, Guides, Search and Saved.
+- Added a mobile search dialog with direct access to Tips, Reference, Tools and News.
+- Increased interactive target sizes and spacing to meet or exceed WCAG 2.2 minimum target guidance.
+- Converted goal cards into a swipeable mobile carousel.
+- Added a collapsible guide contents control on mobile articles.
+- Improved narrow-screen tables, code blocks, filters, typography, card density and footer spacing.
+- Prevented article tables from expanding the page beyond the viewport.
+
+### Content identity
+
+- Added distinct visual treatments for guides, tips, references, resources, comparisons, repositories and news.
+- Rebalanced the six homepage goal cards into a three-by-two desktop grid and a touch-friendly mobile carousel.
+
+### Validation
+
+- All application JavaScript passed syntax checks.
+- Content validation passed for unique slugs, source links, learning-path references and tip relationships.
+- Thirteen routes rendered successfully in Chromium at desktop and mobile widths.
+- Mobile search, mobile navigation, article contents toggle and all directory filters were exercised.
+- No console errors, page errors, narrow-screen overflow or undersized non-inline controls were found in the test pass.
