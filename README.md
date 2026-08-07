@@ -29,8 +29,11 @@ The homepage should balance these pillars. News should support discovery without
 - `index.html` — static application entry point.
 - `styles.css` — responsive visual system.
 - `data.js` — imported guides, comparisons, repositories, community data and external feed records.
+- `knowledge.js` — maintained original guides added after the imported historical collection.
+- `template-library.js` — reusable prompt and workflow template guide collection.
 - `content.js` — learning paths, tips, reference terms and goal-based homepage entry points.
 - `app.js` — hash-based routing, rendering, unified search, filters and interactions.
+- `enhancements.js` and `mobile.css` — progressive mobile interaction and content-type refinements.
 - `vercel.json` — deployment and security-header configuration.
 - `docs/` — product vision, architecture, roadmap, content workflow and quality standards.
 - `CHANGELOG.md` — concise development history.
@@ -72,12 +75,11 @@ The Vercel project must ultimately be connected directly to this repository. Old
 
 ## Status
 
-The balanced-platform rebuild was completed in source on 6 August 2026. The homepage now prioritises learning paths, original guides, tips, reference material and tool discovery, with news retained as a compact module and dedicated section. The remaining infrastructure priority is connecting the Vercel project directly to this repository and completing a deployed browser-level visual inspection.
-
+The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 adds the first reusable prompt/workflow template library, grounded in current primary-source guidance and designed as evergreen practical content rather than a news feature. The remaining infrastructure priority is connecting the Vercel project directly to this repository and completing a deployed browser-level visual inspection.
 
 ## Current library snapshot
 
-- 24 original guides
+- 25 original guides
 - 5 structured learning paths
 - 20 practical tips
 - 22 plain-English reference terms

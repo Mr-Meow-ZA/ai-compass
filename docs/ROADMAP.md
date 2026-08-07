@@ -52,9 +52,15 @@
 - [x] Increase touch target sizes and improve article, table, filter and card behaviour on narrow screens.
 - [x] Give each major content type a more distinct visual identity.
 
+## Completed in 0.6.3 — reusable templates
+
+- [x] Build a versioned prompt and workflow template library with copyable patterns for common real-world tasks.
+- [x] Ground the template library in current primary-source prompting guidance.
+- [x] Add the new content module to syntax and relationship validation.
+
 ## Next content priorities
 
-- [ ] Build a versioned template library for prompts, checklists and workflow artefacts.
 - [ ] Add data-analysis practice files and an interactive spreadsheet learning route.
 - [ ] Add sector starter packs for operations, education, small business and creative work.
 - [ ] Add freshness and superseded-content indicators to every guide and comparison.
+- [ ] Expand image, audio and video creation workflows with maintained primary-source references.

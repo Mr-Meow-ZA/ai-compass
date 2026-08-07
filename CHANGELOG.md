@@ -74,3 +74,22 @@
 - Thirteen routes rendered successfully in Chromium at desktop and mobile widths.
 - Mobile search, mobile navigation, article contents toggle and all directory filters were exercised.
 - No console errors, page errors, narrow-screen overflow or undersized non-inline controls were found in the test pass.
+
+## 2026-08-07 — Reusable prompt template library (0.6.3)
+
+### Content added
+
+- Added an original, provider-neutral guide containing eight copyable prompt patterns for source-first research, evidence-bound document drafting, spreadsheet audits, meeting actions, option comparisons, troubleshooting, code changes and governed agent work.
+- Added a five-block prompt structure covering goal, context, constraints, output and success tests.
+- Added a lightweight versioning method for prompts that drive repeated or consequential workflows.
+- Grounded the guide in current official prompting guidance from OpenAI, Anthropic and Google rather than third-party prompt collections.
+
+### Editorial rationale
+
+- This closes the highest-priority gap in the 6 August content audit: a versioned template library for prompts, checklists and workflow artefacts.
+- The release adds durable evergreen utility without increasing the share of homepage news content.
+
+### Validation
+
+- Added `template-library.js` to syntax and content validation.
+- The content validator now checks the new guide alongside the existing guide, learning-path, tip and reference collections.
