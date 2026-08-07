@@ -2,7 +2,7 @@ const fs=require('fs');
 const vm=require('vm');
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['data.js','knowledge.js','content.js']){
+for(const file of ['data.js','knowledge.js','template-library.js','content.js']){
   vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 }
 const D=context.window.AI_COMPASS_DATA;
