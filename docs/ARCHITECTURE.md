@@ -7,6 +7,8 @@ AI Compass is a static single-page application:
 - `index.html` loads the application and SEO metadata.
 - `data.js` contains the imported original guides, comparisons, repositories, community items and curated external feed.
 - `knowledge.js` adds maintained original guides without rewriting the imported historical collection.
+- `template-library.js` contains maintained reusable prompt and workflow templates.
+- `sector-starter-packs.js` contains maintained sector-focused adoption guides.
 - `content.js` contains learning paths, tips, reference terms and goal-based homepage entry points.
 - `app.js` provides hash routing, rendering, unified search, filters, saved guides and local prototype interactions.
 - `enhancements.js` provides progressive mobile navigation, mobile search and article contents controls.
@@ -47,7 +49,7 @@ Saved guides and some community or editorial interactions use browser-local stor
 
 Before this repository existed, production was deployed through compressed HTML payload chunks stored in the unrelated public repository `Mr-Meow-ZA/yeet`, notably the branches `ai-compass-site` and `ai-compass-news-v5`.
 
-That was a recovery workaround, not the target architecture. New development happens only in this repository. Vercel should be connected directly to `Mr-Meow-ZA/ai-compass` after the new source is verified.
+That was a recovery workaround, not the target architecture. New development happens only in this repository. Vercel is now connected directly to `Mr-Meow-ZA/ai-compass`; legacy payload branches should not be used for new releases.
 
 ## Recommended evolution
 
@@ -55,7 +57,7 @@ That was a recovery workaround, not the target architecture. New development hap
 
 - Keep source readable and directly deployable.
 - Add repeatable link, schema and browser smoke tests.
-- Connect Vercel directly to this repository.
+- Keep Vercel connected directly to this repository.
 
 ### Phase 2 — maintainable content model
 
