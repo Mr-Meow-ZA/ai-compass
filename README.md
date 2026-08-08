@@ -31,6 +31,7 @@ The homepage should balance these pillars. News should support discovery without
 - `data.js` — imported guides, comparisons, repositories, community data and external feed records.
 - `knowledge.js` — maintained original guides added after the imported historical collection.
 - `template-library.js` — reusable prompt and workflow template guide collection.
+- `sector-starter-packs.js` — sector-focused practical adoption guides, beginning with small business.
 - `content.js` — learning paths, tips, reference terms and goal-based homepage entry points.
 - `app.js` — hash-based routing, rendering, unified search, filters and interactions.
 - `enhancements.js` and `mobile.css` — progressive mobile interaction and content-type refinements.
@@ -62,7 +63,7 @@ The intended long-term workflow is:
 6. Let the connected Vercel project deploy `main`.
 7. Inspect the production URL after deployment.
 
-The Vercel project must ultimately be connected directly to this repository. Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and should not be used for new development.
+The Vercel project should remain connected directly to this repository. Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and should not be used for new development.
 
 ## Product guardrails
 
@@ -75,11 +76,11 @@ The Vercel project must ultimately be connected directly to this repository. Old
 
 ## Status
 
-The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 adds the first reusable prompt/workflow template library, grounded in current primary-source guidance and designed as evergreen practical content rather than a news feature. The remaining infrastructure priority is connecting the Vercel project directly to this repository and completing a deployed browser-level visual inspection.
+The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 added the reusable prompt/workflow template library. Version 0.6.4 begins the roadmap's sector starter packs with a small-business adoption guide built around measurable pilots, information boundaries, evaluation and staged automation.
 
 ## Current library snapshot
 
-- 25 original guides
+- 26 original guides
 - 5 structured learning paths
 - 20 practical tips
 - 22 plain-English reference terms

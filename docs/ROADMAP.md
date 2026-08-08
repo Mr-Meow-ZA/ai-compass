@@ -11,7 +11,7 @@
 
 ## Foundation
 
-- [ ] Connect the Vercel project directly to `Mr-Meow-ZA/ai-compass` on `main`.
+- [x] Connect the Vercel project directly to `Mr-Meow-ZA/ai-compass` on `main`.
 - [ ] Remove production dependence on compressed payload chunks in `Mr-Meow-ZA/yeet`.
 - [x] Add JavaScript, generated-route, internal article-link and form-label checks to the rebuild review.
 - [ ] Add repeatable repository-based browser smoke tests for desktop and mobile.
@@ -58,9 +58,15 @@
 - [x] Ground the template library in current primary-source prompting guidance.
 - [x] Add the new content module to syntax and relationship validation.
 
+## Completed in 0.6.4 — first sector starter pack
+
+- [x] Add the small-business AI starter pack with a measurable pilot and staged-adoption method.
+- [x] Link the starter pack to deeper AI Compass guides rather than duplicating those workflows.
+- [x] Ground sector guidance in current primary-source material and avoid volatile product rankings or pricing.
+
 ## Next content priorities
 
 - [ ] Add data-analysis practice files and an interactive spreadsheet learning route.
-- [ ] Add sector starter packs for operations, education, small business and creative work.
+- [ ] Continue sector starter packs for operations, education and creative work.
 - [ ] Add freshness and superseded-content indicators to every guide and comparison.
 - [ ] Expand image, audio and video creation workflows with maintained primary-source references.

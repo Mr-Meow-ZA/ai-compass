@@ -93,3 +93,22 @@
 
 - Added `template-library.js` to syntax and content validation.
 - The content validator now checks the new guide alongside the existing guide, learning-path, tip and reference collections.
+
+## 2026-08-08 — Small-business sector starter pack (0.6.4)
+
+### Content added
+
+- Added the first sector-specific starter pack: a practical small-business adoption guide for choosing use cases, setting information boundaries, running measurable pilots, standardising successful workflows and adding automation in layers.
+- Added a 30-day adoption sequence and internal links to the office-work, evaluation, prompt-template, architecture-choice and governance guides.
+- Grounded the guide in current primary-source guidance from NIST, OECD, Microsoft and OpenAI.
+
+### Editorial rationale
+
+- This starts the next major content-audit priority: sector starter packs for small business, operations, education and creative work.
+- The guide focuses on durable adoption method rather than vendor-specific feature lists or unverified productivity claims.
+- News volume is unchanged.
+
+### Validation
+
+- Added `sector-starter-packs.js` to syntax and content validation.
+- Updated the application build marker to `2026-08-08.1` and package version to `0.6.4`.
