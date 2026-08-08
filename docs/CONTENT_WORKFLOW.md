@@ -9,6 +9,7 @@ AI Compass maintains distinct content types:
 - Tip or trick
 - Reference or glossary entry
 - Workflow or template
+- Sector starter pack
 - Model, tool or subscription comparison
 - Curated repository or resource
 - External article preview
@@ -65,6 +66,9 @@ Before adding an item:
 ## Current source locations
 
 - `data.js` contains the imported long-form guides, comparisons, repositories, community records and curated external feed.
+- `knowledge.js` contains maintained original guides that extend the imported library.
+- `template-library.js` contains reusable prompt and workflow templates.
+- `sector-starter-packs.js` contains sector-specific practical adoption guides.
 - `content.js` contains learning paths, concise tips, reference terms and goal-based homepage entry points.
 
 This split is an interim static model. Future work should move each collection into separate schema-validated JSON or Markdown files without changing the visible distinction between AI Compass originals and third-party previews.
