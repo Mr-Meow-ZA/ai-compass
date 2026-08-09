@@ -28,7 +28,7 @@ Version `2026-08-06.2` expanded the balanced-platform rebuild with five high-val
 - Mobile navigation, search dialog, article contents toggle and Escape behaviour passed that review.
 - No console errors, page errors or horizontal overflow were found at 390 × 844 in that review.
 - No visible non-inline controls below the WCAG 2.2 24px minimum were found; primary mobile controls are designed around 44px targets.
-- Releases 0.6.3 and 0.6.4 extend the maintained guide set and are included in repository syntax and relationship validation.
+- Releases 0.6.3 through 0.6.5 extend the maintained guide set and are included in repository syntax and relationship validation.
 
 ## Known limitations
 
