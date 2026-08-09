@@ -64,9 +64,15 @@
 - [x] Link the starter pack to deeper AI Compass guides rather than duplicating those workflows.
 - [x] Ground sector guidance in current primary-source material and avoid volatile product rankings or pricing.
 
+## Completed in 0.6.5 — operations starter pack
+
+- [x] Add an operations AI starter pack for grounded procedure assistance, handovers, incident review, recurring reporting and maintenance workflows.
+- [x] Define human approval and authority boundaries for consequential operational actions.
+- [x] Add prompt-injection and representative-evaluation guidance grounded in current primary sources.
+
 ## Next content priorities
 
 - [ ] Add data-analysis practice files and an interactive spreadsheet learning route.
-- [ ] Continue sector starter packs for operations, education and creative work.
+- [ ] Continue sector starter packs for education and creative work.
 - [ ] Add freshness and superseded-content indicators to every guide and comparison.
 - [ ] Expand image, audio and video creation workflows with maintained primary-source references.
