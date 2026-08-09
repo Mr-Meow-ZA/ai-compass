@@ -28,7 +28,9 @@ The homepage should balance these pillars. News should support discovery without
 
 - `index.html` — static application entry point.
 - `styles.css` — responsive visual system.
-- `data.js` — imported guides, comparisons, repositories, community data and external feed records.
+- `data.js` — imported guides, comparisons, repositories, community data and historical external feed records.
+- `news-refresh.js` — maintained current-news additions, verification metadata and attributable thumbnail enhancement.
+- `news-media.css` — responsive news-thumbnail presentation.
 - `knowledge.js` — maintained original guides added after the imported historical collection.
 - `template-library.js` — reusable prompt and workflow template guide collection.
 - `sector-starter-packs.js` — sector-focused practical adoption guides, beginning with small business and operations.
@@ -71,12 +73,13 @@ The Vercel project should remain connected directly to this repository. Older pa
 - Keep external previews short and link to the original publisher.
 - Clearly identify AI Compass original material versus third-party content.
 - Prefer primary sources and preserve publication or verification dates.
+- Use news imagery only when provenance is clear; preserve source credit and allow image-free cards when it is not.
 - Do not publish low-confidence rumours as facts.
 - Do not change authentication, secrets, domains, paid services, privacy settings or database schemas without explicit approval.
 
 ## Status
 
-The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 added the reusable prompt/workflow template library. Version 0.6.4 began sector starter packs with a small-business adoption guide, and version 0.6.5 adds an operations guide focused on grounded information, human approval and controlled authority.
+The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 added the reusable prompt/workflow template library. Version 0.6.4 began sector starter packs with a small-business adoption guide, version 0.6.5 added an operations guide focused on grounded information and controlled authority, and version 0.6.6 introduces a maintained current-news layer with source-attributed thumbnails where reliable imagery is available.
 
 ## Current library snapshot
 
