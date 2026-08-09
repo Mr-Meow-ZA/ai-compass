@@ -132,3 +132,26 @@
 
 - Application build marker is `2026-08-09.1` and package version is `0.6.5`.
 - Repository CI must pass syntax, content-source and internal-relationship validation before merge.
+
+## 2026-08-09 — Curated news refresh and source thumbnails (0.6.6)
+
+### News added
+
+- Added an official OpenAI service update covering the scheduled 9 August retirement of Atlas and the transition of browser-agent work into supported ChatGPT and Codex experiences.
+- Added OpenAI's 29 July ChatGPT for Academic Researchers announcement as a research-discovery item, with the rollout scale described as the publisher's stated program plan rather than an independent outcome claim.
+- Added Google DeepMind's Gemini 3.5 Flash Cyber announcement with explicit dual-use and limited-access context rather than repeating provider benchmark claims as independent fact.
+
+### News imagery and provenance
+
+- Added the first maintained news-image metadata and rendering layer.
+- Added an official Google DeepMind 16:9 announcement image for Gemini 3.5 Flash Cyber and official Anthropic artwork for the existing Claude for Teachers item.
+- Added source credit, source-page links, accessible alt text, lazy loading and a failure fallback that hides a broken image rather than leaving a damaged card.
+- News items without a suitably attributable or reliable image remain image-free.
+
+### Editorial and validation changes
+
+- Added a dedicated `news-refresh.js` maintenance layer so current curated news can be updated without rewriting the imported historical feed in `data.js`.
+- Added `news-media.css` for responsive thumbnail presentation and verification markers.
+- Added verification dates to maintained news records.
+- Updated the application build marker to `2026-08-09.2` and package version to `0.6.6`.
+- Added `news-refresh.js` to the repository syntax check; CI and preview validation remain release gates before merge.
