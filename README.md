@@ -31,7 +31,7 @@ The homepage should balance these pillars. News should support discovery without
 - `data.js` — imported guides, comparisons, repositories, community data and external feed records.
 - `knowledge.js` — maintained original guides added after the imported historical collection.
 - `template-library.js` — reusable prompt and workflow template guide collection.
-- `sector-starter-packs.js` — sector-focused practical adoption guides, beginning with small business.
+- `sector-starter-packs.js` — sector-focused practical adoption guides, beginning with small business and operations.
 - `content.js` — learning paths, tips, reference terms and goal-based homepage entry points.
 - `app.js` — hash-based routing, rendering, unified search, filters and interactions.
 - `enhancements.js` and `mobile.css` — progressive mobile interaction and content-type refinements.
@@ -76,11 +76,11 @@ The Vercel project should remain connected directly to this repository. Older pa
 
 ## Status
 
-The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 added the reusable prompt/workflow template library. Version 0.6.4 begins the roadmap's sector starter packs with a small-business adoption guide built around measurable pilots, information boundaries, evaluation and staged automation.
+The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 added the reusable prompt/workflow template library. Version 0.6.4 began sector starter packs with a small-business adoption guide, and version 0.6.5 adds an operations guide focused on grounded information, human approval and controlled authority.
 
 ## Current library snapshot
 
-- 26 original guides
+- 27 original guides
 - 5 structured learning paths
 - 20 practical tips
 - 22 plain-English reference terms

@@ -112,3 +112,23 @@
 
 - Added `sector-starter-packs.js` to syntax and content validation.
 - Updated the application build marker to `2026-08-08.1` and package version to `0.6.4`.
+
+## 2026-08-09 — Operations sector starter pack (0.6.5)
+
+### Content added
+
+- Added an operations-focused starter pack covering source-grounded SOP and procedure assistance, shift handovers, incident review, recurring reports, work-order triage and maintenance-note workflows.
+- Added explicit authority boundaries that keep direct equipment control, safety interlocks, emergency actions and regulatory sign-off outside ordinary generative-AI workflows.
+- Added a representative operations-evaluation method and a four-level human approval ladder from summarise through act.
+- Added prompt-injection guidance for vendor documents, messages, web content and other untrusted operational inputs.
+
+### Editorial rationale
+
+- Continues the sector-starter-pack roadmap with an evergreen operations guide rather than increasing daily-news volume.
+- Grounds claims in current NIST, Microsoft, OWASP and OpenAI primary guidance and links to existing AI Compass evaluation, governance, architecture and prompt-template material.
+- Avoids product rankings, volatile pricing and unsupported claims about autonomous operational performance.
+
+### Validation target
+
+- Application build marker is `2026-08-09.1` and package version is `0.6.5`.
+- Repository CI must pass syntax, content-source and internal-relationship validation before merge.

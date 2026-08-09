@@ -2,7 +2,8 @@
 'use strict';
 const D=window.AI_COMPASS_DATA;
 if(!D||!Array.isArray(D.articles))return;
-const item={
+const items=[
+{
   slug:'small-business-ai-starter-pack',
   title:'A practical AI starter pack for small businesses',
   excerpt:'A low-risk way for small teams to choose useful AI jobs, run measurable pilots, protect business information and scale only what proves its value.',
@@ -25,6 +26,32 @@ const item={
     {title:'Microsoft — Microsoft 365 Copilot Business FAQ',url:'https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-business-faq',publisher:'Microsoft'}
   ],
   updated:'8 August 2026'
-};
-if(!D.articles.some(article=>article.slug===item.slug))D.articles.push(item);
+},
+{
+  slug:'operations-ai-starter-pack',
+  title:'A practical AI starter pack for operations teams',
+  excerpt:'A source-grounded operating method for using AI on SOPs, shift handovers, incident reviews, recurring reports and maintenance workflows without giving the model uncontrolled authority.',
+  type:'Sector starter pack',category:'workflows',level:'Intermediate',readTime:20,date:'2026-08-09',featured:true,source:'AI Compass',
+  tags:['operations','SOP','incident review','maintenance','handover','grounding','evaluation','governance'],
+  sections:[
+    {title:'Start with decision support, not autonomous control',id:'decision-support',html:'<p>For operational work, begin where AI can organise, compare or draft information while a responsible person still owns the decision. Good first targets include shift handover summaries, draft incident timelines, recurring performance commentary, procedure lookup, work-order triage and maintenance-note classification.</p><div class="callout"><strong>Boundary:</strong> keep direct equipment control, safety interlocks, emergency actions, regulatory sign-off and other high-consequence decisions outside the model unless a separately engineered and approved system has explicit safeguards.</div>'},
+    {title:'Ground every operational answer in approved sources',id:'grounding',html:'<p>An operations assistant should answer from the records that actually govern the job: current procedures, approved manuals, controlled forms, asset registers, work orders and verified telemetry. Ask it to cite the source, revision or timestamp it used, and make "not found" an acceptable answer.</p><p>Grounding improves relevance, but it does not guarantee that every generated statement is present in the source. Microsoft\'s current Copilot documentation explicitly notes that grounded systems can still produce content not present in input material, so human verification remains necessary.</p>'},
+    {title:'Treat documents and messages as untrusted input',id:'untrusted-input',html:'<p>External emails, vendor documents, copied web text and uploaded files can contain instructions that conflict with the workflow. OWASP identifies prompt injection as a leading risk for LLM applications and notes that retrieval or fine-tuning does not fully remove it.</p><p>Separate trusted system instructions from retrieved content, constrain available actions, and never let text inside a document silently expand permissions or trigger consequential changes.</p>'},
+    {title:'Build a representative operations eval set',id:'eval-set',html:'<p>Before scaling a workflow, collect representative examples from normal, difficult and failure conditions. Define what a good answer must contain, which source should support it, which errors are unacceptable and when the system must escalate.</p><ol class="steps"><li>Include routine cases and rare edge cases.</li><li>Use real phrasing from operators and coordinators where permitted.</li><li>Score factual correctness, source support, completeness and escalation behaviour.</li><li>Re-run the same set after prompt, model, data-source or workflow changes.</li></ol><p>OpenAI describes this discipline as specify, measure and improve; Microsoft similarly recommends grounded, realistic prompts for agent evaluation.</p>'},
+    {title:'Use a human approval ladder',id:'approval-ladder',html:'<div class="table-wrap"><table><thead><tr><th>AI role</th><th>Example</th><th>Default approval</th></tr></thead><tbody><tr><td>Summarise</td><td>Shift notes or inspection findings</td><td>Operator checks before use</td></tr><tr><td>Recommend</td><td>Possible follow-up actions</td><td>Named responsible person decides</td></tr><tr><td>Draft</td><td>Report, work order or stakeholder update</td><td>Human approves before release</td></tr><tr><td>Act</td><td>Create, change or trigger a system record</td><td>Explicit workflow gate plus audit trail</td></tr></tbody></table></div><p>This follows the <a href="#article/automation-workflow-or-agent">AI Compass architecture guide</a>: automate deterministic steps first and grant model-driven actions only where the authority boundary is clear.</p>'},
+    {title:'Pilot one closed-loop workflow',id:'closed-loop-pilot',html:'<p>A useful pilot has a clear input, output, reviewer and measurable outcome. For example: ingest a daily handover note, extract open actions, compare them with the approved action register, draft a concise summary, then require a coordinator to approve it. Measure total review time, missed actions, unsupported additions and escalation accuracy.</p><p>Use the <a href="#article/evaluate-ai-output-scorecard">AI output scorecard</a> rather than judging the pilot from a few impressive examples.</p>'},
+    {title:'Operate the AI workflow like any other controlled process',id:'controlled-process',html:'<p>Once a pilot is useful, give it an owner, version its instructions, record approved data sources, define fallback behaviour and keep an audit trail for consequential actions. Re-test after material model, prompt or source changes. NIST\'s AI RMF and Generative AI Profile frame AI risk management as an ongoing lifecycle activity, not a one-time launch review.</p><p>For the governance layer around this process, continue with the <a href="#article/ai-governance-starter-kit">AI governance starter kit</a> and the <a href="#article/reusable-prompt-template-library">reusable prompt template library</a>.</p>'}
+  ],
+  sources:[
+    {title:'NIST — AI Risk Management Framework',url:'https://www.nist.gov/itl/ai-risk-management-framework',publisher:'NIST'},
+    {title:'NIST — Generative AI Profile',url:'https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence',publisher:'NIST'},
+    {title:'Microsoft Learn — How Microsoft 365 Copilot works',url:'https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture',publisher:'Microsoft'},
+    {title:'Microsoft Learn — Design evaluation prompts for Copilot agent evaluation',url:'https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/evaluation-design-prompts',publisher:'Microsoft'},
+    {title:'OWASP GenAI Security Project — Prompt Injection',url:'https://genai.owasp.org/llmrisk/llm01-prompt-injection/',publisher:'OWASP'},
+    {title:'OpenAI — How evals drive the next chapter in AI for businesses',url:'https://openai.com/index/evals-drive-next-chapter-of-ai/',publisher:'OpenAI'}
+  ],
+  updated:'9 August 2026'
+}
+];
+for(const item of items)if(!D.articles.some(article=>article.slug===item.slug))D.articles.push(item);
 })();
