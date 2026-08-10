@@ -86,7 +86,7 @@ const categoryPhoto={
   research:'research',
   education:'education',
   safety:'security',
-  products:'infrastructure',
+  products:'coding',
   work:'team',
   coding:'coding',
   society:'team',
