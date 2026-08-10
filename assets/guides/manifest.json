@@ -1,10 +1,11 @@
 {
-  "version": 4,
+  "version": 5,
   "count": 28,
   "generatedFor": "AI Compass",
   "runtimeGeneration": false,
-  "style": "text-free editorial photography",
-  "approvalRound": 2,
+  "style": "content-first text-free editorial photography",
+  "approvalRound": 3,
+  "artDirection": "Show the guide subject and system first. People only where explanatory; when present, use diverse gender and race representation across the set.",
   "items": [
     {
       "slug": "ai-for-documents-spreadsheets-meetings",
@@ -40,71 +41,71 @@
       "slug": "ai-governance-starter-kit",
       "title": "A lightweight AI governance starter kit for small teams",
       "file": "assets/guides/ai-governance-starter-kit.webp",
-      "sourceCandidate": "https://design.canva.ai/v9ADgFPLpL_5v7D",
+      "sourceCandidate": "https://design.canva.ai/_WgAfx4lEeo9yPT",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 35276
+      "bytes": 45106
     },
     {
       "slug": "multimodal-ai-practical-guide",
       "title": "A practical guide to multimodal AI: text, images, audio and video",
       "file": "assets/guides/multimodal-ai-practical-guide.webp",
-      "sourceCandidate": "https://design.canva.ai/l0A_Kmkqgy11zB9",
+      "sourceCandidate": "https://design.canva.ai/hIZg9gzyGZlSlsf",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 39024
+      "bytes": 36486
     },
     {
       "slug": "choose-your-first-ai-subscription",
       "title": "Which AI subscription should you start with?",
       "file": "assets/guides/choose-your-first-ai-subscription.webp",
-      "sourceCandidate": "https://design.canva.ai/cr6THQEkezrwWfI",
+      "sourceCandidate": "https://design.canva.ai/_1n9ztHxQjyjUEx",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 40158
+      "bytes": 37920
     },
     {
       "slug": "connect-ai-to-github",
       "title": "Connect your AI assistant to GitHub safely",
       "file": "assets/guides/connect-ai-to-github.webp",
-      "sourceCandidate": "https://design.canva.ai/bUvMl0SklwLtFTS",
+      "sourceCandidate": "https://design.canva.ai/VeS0Vjve9Pu-M_6",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 20078
+      "bytes": 16114
     },
     {
       "slug": "obsidian-ai-second-brain",
       "title": "Build an Obsidian second brain that AI can actually use",
       "file": "assets/guides/obsidian-ai-second-brain.webp",
-      "sourceCandidate": "https://design.canva.ai/LUsQdkELXLy4RwY",
+      "sourceCandidate": "https://design.canva.ai/1mcN7dikvIZn1qN",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 60558
+      "bytes": 17992
     },
     {
       "slug": "prompting-for-reliable-results",
       "title": "A practical prompting system for reliable work",
       "file": "assets/guides/prompting-for-reliable-results.webp",
-      "sourceCandidate": "https://design.canva.ai/R3pouyCBbx8SP1K",
+      "sourceCandidate": "https://design.canva.ai/GCeUtQ2mFY5mt-W",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 28720
+      "bytes": 36516
     },
     {
       "slug": "create-reusable-ai-skills",
       "title": "How to create reusable AI skills instead of repeating prompts",
       "file": "assets/guides/create-reusable-ai-skills.webp",
-      "sourceCandidate": "https://design.canva.ai/qOYFaEG2Fj42S-J",
+      "sourceCandidate": "https://design.canva.ai/Ilcag-C-CdrgVJn",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 35010
+      "bytes": 28964
     },
     {
       "slug": "mcp-explained-and-set-up",
@@ -150,21 +151,21 @@
       "slug": "understand-hugging-face",
       "title": "Hugging Face explained for normal people",
       "file": "assets/guides/understand-hugging-face.webp",
-      "sourceCandidate": "https://design.canva.ai/jgvXIJ-Faux2nk9",
+      "sourceCandidate": "https://design.canva.ai/3InCVATXApTK4d2",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 32308
+      "bytes": 18606
     },
     {
       "slug": "local-ai-starter",
       "title": "Running AI locally: a realistic beginner path",
       "file": "assets/guides/local-ai-starter.webp",
-      "sourceCandidate": "https://design.canva.ai/zBfA-zRIZVOr6It",
+      "sourceCandidate": "https://design.canva.ai/JQhXLenwAqeF4pE",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 29810
+      "bytes": 21456
     },
     {
       "slug": "coding-assistant-comparison",
@@ -190,11 +191,11 @@
       "slug": "research-with-ai-and-verify-sources",
       "title": "Research with AI without being fooled by confident citations",
       "file": "assets/guides/research-with-ai-and-verify-sources.webp",
-      "sourceCandidate": "https://design.canva.ai/5kutAJ5mus0DyXC",
+      "sourceCandidate": "https://design.canva.ai/QptSRRoFngiNu4I",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 43666
+      "bytes": 32852
     },
     {
       "slug": "ai-privacy-before-uploading",
@@ -210,11 +211,11 @@
       "slug": "automate-ai-content-website",
       "title": "Build an AI-managed content pipeline that does not publish rubbish",
       "file": "assets/guides/automate-ai-content-website.webp",
-      "sourceCandidate": "https://design.canva.ai/j7zxMZmMSTfhB5r",
+      "sourceCandidate": "https://design.canva.ai/YVhp3j8VeITG-dA",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 37726
+      "bytes": 58352
     },
     {
       "slug": "production-agent-guardrails",
@@ -230,21 +231,21 @@
       "slug": "model-benchmarks-that-matter",
       "title": "How to use AI benchmarks without choosing the wrong model",
       "file": "assets/guides/model-benchmarks-that-matter.webp",
-      "sourceCandidate": "https://design.canva.ai/nVMFG3LQwVO_BwF",
+      "sourceCandidate": "https://design.canva.ai/l8wQnKUP9eQg38o",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 38634
+      "bytes": 39950
     },
     {
       "slug": "ai-news-signal-not-noise",
       "title": "Build an AI news habit that finds signal instead of hype",
       "file": "assets/guides/ai-news-signal-not-noise.webp",
-      "sourceCandidate": "https://design.canva.ai/5Fc1Ti7tuzKGHIR",
+      "sourceCandidate": "https://design.canva.ai/u82nWhs9vHpONA6",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 34586
+      "bytes": 30918
     },
     {
       "slug": "reusable-prompt-template-library",
@@ -260,21 +261,21 @@
       "slug": "small-business-ai-starter-pack",
       "title": "A practical AI starter pack for small businesses",
       "file": "assets/guides/small-business-ai-starter-pack.webp",
-      "sourceCandidate": "https://design.canva.ai/IUgc-ysSefnnGbh",
+      "sourceCandidate": "https://design.canva.ai/uEbJFIFfJb4A7MP",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 40526
+      "bytes": 44634
     },
     {
       "slug": "operations-ai-starter-pack",
       "title": "A practical AI starter pack for operations teams",
       "file": "assets/guides/operations-ai-starter-pack.webp",
-      "sourceCandidate": "https://design.canva.ai/Wni_RqFR_zthFav",
+      "sourceCandidate": "https://design.canva.ai/Xf_eOg_xO5LMsum",
       "provenance": "AI-generated for AI Compass",
       "width": 960,
       "height": 540,
-      "bytes": 52960
+      "bytes": 50878
     },
     {
       "slug": "education-ai-starter-pack",
