@@ -1,0 +1,59 @@
+name: Generate AI Compass guide assets
+
+on:
+  push:
+    branches:
+      - design/clean-guide-library
+    paths:
+      - scripts/generate-guide-assets.js
+      - .github/workflows/generate-guide-assets.yml
+      - data.js
+      - knowledge.js
+      - template-library.js
+      - sector-starter-packs.js
+      - education-starter-pack.js
+      - content.js
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/clean-guide-library
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate guide-specific editorial assets
+        run: node scripts/generate-guide-assets.js
+      - name: Verify all generated images
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const m=JSON.parse(fs.readFileSync('assets/guides/manifest.json','utf8'));
+          if(m.count<28)throw new Error(`Expected at least 28 assets, got ${m.count}`);
+          for(const item of m.items){
+            const b=fs.readFileSync(item.file);
+            if(b.length<25000)throw new Error(`${item.file} is too small`);
+            if(b[0]!==0xff||b[1]!==0xd8)throw new Error(`${item.file} is not JPEG`);
+            if(!item.prompt||item.prompt.length<200)throw new Error(`${item.slug} has no useful prompt record`);
+          }
+          console.log(`Verified ${m.count} guide images.`);
+          NODE
+      - name: Commit generated first-party assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/guides
+          if git diff --cached --quiet; then
+            echo 'No generated asset changes.'
+          else
+            git commit -m 'assets(guides): add guide-specific generated imagery [skip ci]'
+            git push origin HEAD:design/clean-guide-library
+          fi
