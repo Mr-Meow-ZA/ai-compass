@@ -2,7 +2,7 @@ const fs=require('fs');
 const vm=require('vm');
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['data.js','knowledge.js','template-library.js','sector-starter-packs.js','content.js']){
+for(const file of ['data.js','knowledge.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js']){
   vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 }
 const D=context.window.AI_COMPASS_DATA;
@@ -21,6 +21,7 @@ for(const article of D.articles||[]){
     if(!/^https:\/\//.test(source.url||''))errors.push(`Invalid source URL in ${article.slug}: ${source.url||'missing'}`);
   }
 }
+if((D.articles||[]).length<28)errors.push(`Guide preservation failure: expected at least 28 guides, found ${(D.articles||[]).length}`);
 for(const path of L.learningPaths||[]){
   if(!path.steps?.length)errors.push(`Learning path has no steps: ${path.id}`);
   for(const slug of path.steps||[])if(!slugs.has(slug))errors.push(`Learning path ${path.id} references missing article ${slug}`);
