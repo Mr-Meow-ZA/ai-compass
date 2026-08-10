@@ -28,6 +28,7 @@ jobs:
           name: ai-compass-visual-smoke
           path: |
             visual-smoke-home.png
+            visual-smoke-guides.png
             visual-smoke-news.png
             visual-smoke-mobile.png
             visual-smoke-home.html
