@@ -36,6 +36,7 @@ The homepage should balance these pillars. News should support discovery without
 - `sector-starter-packs.js` — sector-focused practical adoption guides for small business and operations.
 - `education-starter-pack.js` — educator-focused AI adoption guide covering pedagogy, assessment, privacy and AI literacy.
 - `content.js` — learning paths, tips, reference terms and goal-based homepage entry points.
+- `visual-system.js` / visual validation scripts — curated editorial photography, provenance and rendered-coverage checks.
 - `app.js` — hash-based routing, rendering, unified search, filters and interactions.
 - `enhancements.js` and `mobile.css` — progressive mobile interaction and content-type refinements.
 - `vercel.json` — deployment and security-header configuration.
@@ -56,17 +57,19 @@ Do not open `index.html` directly from the filesystem because browser security r
 
 ## Deployment
 
-The intended long-term workflow is:
+The canonical workflow is:
 
 1. Create a small branch.
 2. Make focused changes.
-3. Test desktop and mobile routes and interactions.
-4. Open or review a pull request.
-5. Merge to `main` only after tests pass.
-6. Let the connected Vercel project deploy `main`.
-7. Inspect the production URL after deployment.
+3. Run `npm run check` and the relevant rendered browser validation.
+4. Review desktop and mobile routes/interactions.
+5. Open or review a pull request.
+6. Require Vercel Preview and repository validation before merge.
+7. Merge to `main` only after checks pass.
+8. Let the connected Vercel project deploy `main`.
+9. Inspect the production result after deployment.
 
-The Vercel project should remain connected directly to this repository. Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and should not be used for new development.
+The Vercel project is connected directly to this repository. Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and are not part of the current production workflow.
 
 ## Product guardrails
 
@@ -80,14 +83,12 @@ The Vercel project should remain connected directly to this repository. Older pa
 
 ## Status
 
-The balanced-platform rebuild was completed in source on 6 August 2026. Version 0.6.3 added the reusable prompt/workflow template library. Version 0.6.4 began sector starter packs with a small-business adoption guide, version 0.6.5 added an operations guide, version 0.6.6 introduced a maintained current-news layer with source-attributed thumbnails, and version 0.6.7 adds a human-centred education starter pack for teachers and learning environments.
+**Current release baseline: 0.6.9 / build `2026-08-10.3`.**
 
-## Current library snapshot
+The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, added reusable prompt/workflow templates and sector starter packs, introduced a maintained current-news layer, and completed the first professional editorial-photography system with rendered desktop/mobile validation.
 
-- 28 original guides
-- 5 structured learning paths
-- 20 practical tips
-- 22 plain-English reference terms
-- Curated tool, repository, resource and news collections
+The current library preserves at least 28 original guides alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections.
 
-Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources and internal learning relationships.
+The next planned release is **0.7.0 — Maintainability & Freshness**, focused on structured content files/schema validation, freshness and superseded-content metadata, and a reusable source-quality model before another broad content expansion.
+
+Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships and visual-system contracts.
