@@ -70,9 +70,15 @@
 - [x] Define human approval and authority boundaries for consequential operational actions.
 - [x] Add prompt-injection and representative-evaluation guidance grounded in current primary sources.
 
+## Completed in 0.6.7 — education starter pack
+
+- [x] Add an educator AI starter pack centred on learning goals, student-use rules, privacy, assessment and teacher judgement.
+- [x] Add verification and AI-literacy practices grounded in UNESCO competency frameworks.
+- [x] Add a small classroom-pilot method linked to existing evaluation and governance guidance.
+
 ## Next content priorities
 
 - [ ] Add data-analysis practice files and an interactive spreadsheet learning route.
-- [ ] Continue sector starter packs for education and creative work.
+- [ ] Continue sector starter packs for creative work.
 - [ ] Add freshness and superseded-content indicators to every guide and comparison.
 - [ ] Expand image, audio and video creation workflows with maintained primary-source references.
