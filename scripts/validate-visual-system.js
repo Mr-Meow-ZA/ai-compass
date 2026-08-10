@@ -7,7 +7,8 @@ const root=path.resolve(__dirname,'..');
 const sandbox={
   window:{},
   document:{addEventListener(){},querySelectorAll(){return[]},getElementById(){return null}},
-  location:{hash:'#home'},
+  location:{hash:'#home',href:'https://ai-compass-hub.vercel.app/#home'},
+  URL,
   MutationObserver:class{observe(){}},
   requestAnimationFrame:fn=>fn(),
   console
@@ -23,18 +24,28 @@ const F=sandbox.window.AI_COMPASS_FEED;
 const V=sandbox.window.AI_COMPASS_VISUALS;
 if(!D||!Array.isArray(D.articles))throw new Error('Article library did not load');
 if(!F||!Array.isArray(F))throw new Error('News feed did not load');
-if(!V||typeof V.artwork!=='function')throw new Error('Editorial visual API did not load');
+if(!V||typeof V.photoFor!=='function'||typeof V.picture!=='function')throw new Error('Photographic visual API did not load');
+
+const photoKeys=Object.keys(V.photos||{});
+if(photoKeys.length<8)throw new Error(`Expected at least 8 curated photographic sources, found ${photoKeys.length}`);
+for(const key of photoKeys){
+  const photo=V.photos[key];
+  if(!photo.base||!/^https:\/\//.test(photo.base))throw new Error(`Invalid photo source: ${key}`);
+  if(!photo.source||!/^https:\/\//.test(photo.source))throw new Error(`Photo provenance missing: ${key}`);
+  if(!photo.credit||!photo.alt)throw new Error(`Photo metadata incomplete: ${key}`);
+}
 
 const slugs=new Set();
 for(const article of D.articles){
   if(!article.slug)throw new Error('Guide missing slug');
   if(slugs.has(article.slug))throw new Error(`Duplicate guide slug: ${article.slug}`);
   slugs.add(article.slug);
-  const svg=V.artwork(article.slug,article.category,`Editorial illustration for ${article.title}`);
-  if(!svg.includes('<svg')||!svg.includes('role="img"')||!svg.includes('aria-label='))throw new Error(`Invalid guide artwork: ${article.slug}`);
-  if(/undefined|null/.test(svg))throw new Error(`Broken value in guide artwork: ${article.slug}`);
-  const again=V.artwork(article.slug,article.category,`Editorial illustration for ${article.title}`);
-  if(svg!==again)throw new Error(`Artwork must be deterministic: ${article.slug}`);
+  const photo=V.photoFor(article);
+  const html=V.picture(photo,`Photo selected for ${article.title}`,'guide-photo');
+  if(!html.includes('<img')||!html.includes('class="editorial-photo"'))throw new Error(`Guide photo markup failed: ${article.slug}`);
+  if(!html.includes('alt=')||!html.includes('loading=')||!html.includes('visual-credit'))throw new Error(`Guide photo accessibility/provenance failed: ${article.slug}`);
+  if(!html.includes('https://'))throw new Error(`Guide photo is not HTTPS: ${article.slug}`);
+  if(/undefined|null/.test(html))throw new Error(`Broken value in guide photo markup: ${article.slug}`);
 }
 
 if(D.articles.length<28)throw new Error(`Guide preservation failure: expected at least 28 guides, found ${D.articles.length}`);
@@ -46,13 +57,16 @@ for(const item of F){
     if(!item.thumbnailAlt)throw new Error(`Thumbnail missing alt text: ${item.id}`);
     if(!item.thumbnailCredit)throw new Error(`Thumbnail missing credit: ${item.id}`);
   }
-  const fallback=V.artwork(item.id,item.category,`AI Compass editorial illustration for ${item.title}`);
-  if(!fallback.includes('<svg'))throw new Error(`News fallback artwork failed: ${item.id}`);
+  const photo=V.photoFor(item.id,item.category);
+  const fallback=V.picture(photo,`Contextual editorial photograph for ${item.title}`,'news-photo');
+  if(!fallback.includes('<img'))throw new Error(`News photographic fallback failed: ${item.id}`);
 }
 
+const js=fs.readFileSync(path.join(root,'visual-system.js'),'utf8');
+if(js.includes('class="editorial-svg"'))throw new Error('Legacy vector renderer remains in visual-system.js');
 const css=fs.readFileSync(path.join(root,'visual-system.css'),'utf8');
-for(const selector of ['.guide-visual','.editorial-fallback','.article-visual','.path-visual']){
+for(const selector of ['.guide-visual','.editorial-photo','.visual-credit','.editorial-fallback','.article-visual','.path-visual','.hero-photo']){
   if(!css.includes(selector))throw new Error(`Missing visual CSS contract: ${selector}`);
 }
 
-console.log(`Visual system OK: ${D.articles.length} guides preserved; ${F.length} feed items have official-image or editorial-fallback coverage.`);
+console.log(`Photographic visual system OK: ${D.articles.length} guides preserved; ${photoKeys.length} curated sources; ${F.length} feed items covered.`);
