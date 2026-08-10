@@ -51,6 +51,8 @@ cp "$TMP/mobile.html" "$ROOT/visual-smoke-mobile.html"
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 \
   --virtual-time-budget=2500 --screenshot="$ROOT/visual-smoke-home.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 \
+  --virtual-time-budget=2500 --screenshot="$ROOT/visual-smoke-guides.png" http://127.0.0.1:4173/#guides > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 \
   --virtual-time-budget=2500 --screenshot="$ROOT/visual-smoke-news.png" http://127.0.0.1:4173/#news > /dev/null 2>&1
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 \
   --virtual-time-budget=2500 --screenshot="$ROOT/visual-smoke-mobile.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
