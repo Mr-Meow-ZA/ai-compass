@@ -175,3 +175,23 @@
 
 - Application build marker is `2026-08-10.1` and package version is `0.6.7`.
 - `education-starter-pack.js` is included in the repository syntax check; CI and Vercel preview remain release gates before merge.
+
+## 2026-08-10 — Editorial visual system (0.6.8)
+
+### Visual design
+
+- Added a restrained AI Compass-owned vector illustration system for guide cards, learning paths, article summaries and news fallbacks.
+- Added distinct editorial motifs for getting started, workflows, models, agents, open source, research, education, safety, products, work, coding, society, events and video instead of generic generated imagery.
+- Preserved official publisher artwork where it is already attributable and reliable; externally hosted news images now fall back to an AI Compass illustration if they fail to load.
+- Kept visual treatment deliberately flat, typographic and diagrammatic to avoid synthetic-photo aesthetics and repetitive AI-art conventions.
+
+### Guide preservation
+
+- No guide was removed or replaced in this release.
+- Added automated visual validation with a preservation floor of 28 original guides so an unexpected library reduction fails CI.
+
+### Validation target
+
+- Application build marker is `2026-08-10.2` and package version is `0.6.8`.
+- `npm run check` now validates the visual-system source, deterministic SVG output, guide-count preservation, news-image HTTPS/alt/credit metadata and CSS visual contracts.
+- CI and Vercel preview remain required before merge.
