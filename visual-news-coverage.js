@@ -3,7 +3,7 @@
 
 const F=window.AI_COMPASS_FEED||[];
 const V=window.AI_COMPASS_VISUALS;
-if(!V||typeof V.artwork!=='function')return;
+if(!V||typeof V.photoFor!=='function'||typeof V.picture!=='function')return;
 
 const normalise=value=>{
   try{
@@ -36,17 +36,17 @@ function ensureNewsVisuals(root=document){
     }
     if(official?.hidden)official.remove();
     if(fallback){
-      card.dataset.visualCoverage='editorial';
+      card.dataset.visualCoverage='photo';
       return;
     }
 
     const figure=document.createElement('figure');
     figure.className='news-thumbnail editorial-fallback';
-    figure.dataset.editorialFallback='true';
-    const category=String(item.category||'default').toLowerCase();
-    figure.innerHTML=`<div class="editorial-visual">${V.artwork(item.id||item.url,category,`AI Compass editorial illustration for ${item.title}`)}</div><figcaption>AI Compass editorial illustration</figcaption>`;
+    figure.dataset.editorialFallback='photo';
+    const photo=V.photoFor(item.id||item.url,item.category);
+    figure.innerHTML=`<div class="editorial-visual">${V.picture(photo,`Contextual editorial photograph for ${item.title}`,'news-photo')}</div>`;
     content.insertBefore(figure,content.firstChild);
-    card.dataset.visualCoverage='editorial';
+    card.dataset.visualCoverage='photo';
   });
 }
 

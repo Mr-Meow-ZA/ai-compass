@@ -195,3 +195,25 @@
 - Application build marker is `2026-08-10.2` and package version is `0.6.8`.
 - `npm run check` now validates the visual-system source, deterministic SVG output, guide-count preservation, news-image HTTPS/alt/credit metadata and CSS visual contracts.
 - CI and Vercel preview remain required before merge.
+
+## 2026-08-10 — Photographic editorial upgrade (0.6.9)
+
+### Visual design
+
+- Replaced the 0.6.8 diagrammatic/vector treatment with high-resolution editorial photography across the homepage start panel, guide cards, learning paths, article summaries and news fallbacks.
+- Added curated topic imagery for business use, collaboration, education, coding, industrial automation, infrastructure, security, research and governance.
+- Preserved official publisher artwork for news where available; contextual editorial photography is used only as a fallback when a maintained news item does not have a suitable official thumbnail.
+- Added responsive image crops, `srcset`, lazy loading for card imagery, eager loading for above-the-fold/article imagery, accessible alt text and visible source credits.
+- Adjusted product-news fallback selection so browser/product stories use developer/workstation photography rather than generic infrastructure imagery.
+
+### Quality and preservation
+
+- No original guide was removed or replaced; the preservation floor remains 28 guides.
+- Removed legacy vector rendering from the live guide-card path.
+- CI now fails if legacy vector artwork renders, if guide photography or attribution is incomplete, or if the curated photographic CDN sources are unreachable.
+- Headless Chrome renders and captures Home, Guides, News, article and 390 px mobile routes for visual review before merge.
+
+### Release target
+
+- Application build marker is `2026-08-10.3` and package version is `0.6.9`.
+- Vercel Preview and the full rendered-photography validation must pass before merge.
