@@ -155,3 +155,23 @@
 - Added verification dates to maintained news records.
 - Updated the application build marker to `2026-08-09.2` and package version to `0.6.6`.
 - Added `news-refresh.js` to the repository syntax check; CI and preview validation remain release gates before merge.
+
+## 2026-08-10 — Education sector starter pack (0.6.7)
+
+### Content added
+
+- Added a practical educator starter pack covering learning-goal-first AI use, explicit student-use rules, verification, privacy, assessment design, teacher-reviewed feedback and AI literacy.
+- Added a simple classroom pilot method that measures learning quality and teacher workload instead of treating tool adoption as success by itself.
+- Linked the guide to AI Compass evaluation, prompt-template and governance material.
+- Grounded the guide in UNESCO's current teacher and student AI competency frameworks, UNESCO's generative-AI guidance and the TeachAI school-guidance toolkit.
+
+### Editorial rationale
+
+- Continues the sector-starter-pack roadmap with evergreen education guidance rather than increasing news volume.
+- Keeps teacher judgement, learner agency, privacy and visible evidence of learning central.
+- The fresh-news scan found no additional post-0.6.6 primary-source announcement that met the bar for another news item, so the feed was not padded with low-value updates.
+
+### Validation target
+
+- Application build marker is `2026-08-10.1` and package version is `0.6.7`.
+- `education-starter-pack.js` is included in the repository syntax check; CI and Vercel preview remain release gates before merge.
