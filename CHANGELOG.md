@@ -231,3 +231,18 @@
 - Reviewed current official OpenAI, Anthropic, Google DeepMind, Meta, Microsoft Research, GitHub and Hugging Face channels.
 - Added no new daily-news item because no post-10-August announcement surfaced that clearly met the significance and source-quality bar.
 - Preserved all existing original guides and did not increase news prominence.
+
+## 2026-08-11 — Static guide imagery correction (0.6.10)
+
+### Fixed
+
+- Removed the live `visual-system.js` and `visual-news-coverage.js` runtime image injectors from the production entry point.
+- Guide-card photography now renders directly from the stylesheet as part of the card layout, so images do not depend on MutationObserver timing or post-render DOM enhancement.
+- Added subject-aware static photo selection for prompting/coding, automation/agents/operations, models/infrastructure, education, governance, security/privacy, research/evaluation and office-work guides.
+- Restored the normal guide-card padding and responsive image crop behaviour for desktop and mobile.
+- Preserved all existing original guides and content modules.
+
+### Release
+
+- Application build marker is `2026-08-11.1` and package version is `0.6.10`.
+- The runtime visual files remain in repository history for auditability but are no longer loaded by the production page.
