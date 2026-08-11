@@ -31,10 +31,12 @@ jobs:
             visual-smoke-guides.png
             visual-smoke-news.png
             visual-smoke-mobile.png
+            visual-smoke-admin.png
             visual-smoke-home.html
             visual-smoke-guides.html
             visual-smoke-news.html
             visual-smoke-article.html
             visual-smoke-mobile.html
+            visual-smoke-admin.html
           if-no-files-found: ignore
           retention-days: 7
