@@ -1,0 +1,32 @@
+'use strict';
+const fs=require('fs');
+const path=require('path');
+const vm=require('vm');
+const root=path.resolve(__dirname,'..');
+const manifestPath=path.join(root,'assets','guides','manifest.json');
+if(!fs.existsSync(manifestPath))throw new Error('Guide asset manifest is missing');
+const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
+if(manifest.runtimeGeneration!==false)throw new Error('Guide assets must be pre-generated, not runtime-generated');
+if(manifest.count<28||!Array.isArray(manifest.items)||manifest.items.length<28)throw new Error(`Expected at least 28 guide assets, found ${manifest.items?.length||0}`);
+const context={window:{}};vm.createContext(context);
+for(const file of ['data.js','knowledge.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js'])vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),context,{filename:file});
+const articles=context.window.AI_COMPASS_DATA?.articles||[];
+const items=new Map(manifest.items.map(item=>[item.slug,item]));
+const seen=new Set();
+for(const article of articles){
+  const item=items.get(article.slug);
+  if(!item)throw new Error(`Guide has no first-party image: ${article.slug}`);
+  if(seen.has(item.file))throw new Error(`Guide asset reused by multiple guides: ${item.file}`);
+  seen.add(item.file);
+  const file=path.join(root,item.file);
+  if(!fs.existsSync(file))throw new Error(`Guide asset file missing: ${item.file}`);
+  const bytes=fs.readFileSync(file);
+  if(bytes.length<12000)throw new Error(`Guide asset suspiciously small: ${item.file} (${bytes.length} bytes)`);
+  if(!(bytes[0]===0x52&&bytes[1]===0x49&&bytes[2]===0x46&&bytes[3]===0x46&&bytes[8]===0x57&&bytes[9]===0x45&&bytes[10]===0x42&&bytes[11]===0x50))throw new Error(`Guide asset is not WebP: ${item.file}`);
+  if(item.width!==960||item.height!==540)throw new Error(`Guide asset dimensions are not 16:9 960x540: ${article.slug}`);
+}
+if(items.size!==articles.length)throw new Error(`Asset/article count mismatch: ${items.size} assets for ${articles.length} guides`);
+const index=fs.readFileSync(path.join(root,'index.html'),'utf8');
+if(!index.includes('clean-design.css'))throw new Error('Clean guide design stylesheet is not wired into index.html');
+if(!index.includes('guide-assets.js'))throw new Error('First-party guide asset loader is not wired into index.html');
+console.log(`Guide assets valid: ${articles.length} unique pre-generated WebP images, all wired by slug.`);

@@ -1,0 +1,291 @@
+{
+  "version": 5,
+  "count": 28,
+  "generatedFor": "AI Compass",
+  "runtimeGeneration": false,
+  "style": "content-first text-free editorial photography",
+  "approvalRound": 3,
+  "artDirection": "Show the guide subject and system first. People only where explanatory; when present, use diverse gender and race representation across the set.",
+  "items": [
+    {
+      "slug": "ai-for-documents-spreadsheets-meetings",
+      "title": "Use AI for documents, spreadsheets and meetings without losing control",
+      "file": "assets/guides/ai-for-documents-spreadsheets-meetings.webp",
+      "sourceCandidate": "https://design.canva.ai/NP-H-DlBKLLRbKX",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 31168
+    },
+    {
+      "slug": "evaluate-ai-output-scorecard",
+      "title": "Evaluate AI output with a scorecard instead of “looks good”",
+      "file": "assets/guides/evaluate-ai-output-scorecard.webp",
+      "sourceCandidate": "https://design.canva.ai/0G5-S7pcWaF7lpq",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 55642
+    },
+    {
+      "slug": "automation-workflow-or-agent",
+      "title": "Automation, workflow or agent? Choose the simplest system that works",
+      "file": "assets/guides/automation-workflow-or-agent.webp",
+      "sourceCandidate": "https://design.canva.ai/YuYgmYC8W77lX-K",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 20096
+    },
+    {
+      "slug": "ai-governance-starter-kit",
+      "title": "A lightweight AI governance starter kit for small teams",
+      "file": "assets/guides/ai-governance-starter-kit.webp",
+      "sourceCandidate": "https://design.canva.ai/_WgAfx4lEeo9yPT",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 45106
+    },
+    {
+      "slug": "multimodal-ai-practical-guide",
+      "title": "A practical guide to multimodal AI: text, images, audio and video",
+      "file": "assets/guides/multimodal-ai-practical-guide.webp",
+      "sourceCandidate": "https://design.canva.ai/hIZg9gzyGZlSlsf",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 36486
+    },
+    {
+      "slug": "choose-your-first-ai-subscription",
+      "title": "Which AI subscription should you start with?",
+      "file": "assets/guides/choose-your-first-ai-subscription.webp",
+      "sourceCandidate": "https://design.canva.ai/_1n9ztHxQjyjUEx",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 37920
+    },
+    {
+      "slug": "connect-ai-to-github",
+      "title": "Connect your AI assistant to GitHub safely",
+      "file": "assets/guides/connect-ai-to-github.webp",
+      "sourceCandidate": "https://design.canva.ai/VeS0Vjve9Pu-M_6",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 16114
+    },
+    {
+      "slug": "obsidian-ai-second-brain",
+      "title": "Build an Obsidian second brain that AI can actually use",
+      "file": "assets/guides/obsidian-ai-second-brain.webp",
+      "sourceCandidate": "https://design.canva.ai/1mcN7dikvIZn1qN",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 17992
+    },
+    {
+      "slug": "prompting-for-reliable-results",
+      "title": "A practical prompting system for reliable work",
+      "file": "assets/guides/prompting-for-reliable-results.webp",
+      "sourceCandidate": "https://design.canva.ai/GCeUtQ2mFY5mt-W",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 36516
+    },
+    {
+      "slug": "create-reusable-ai-skills",
+      "title": "How to create reusable AI skills instead of repeating prompts",
+      "file": "assets/guides/create-reusable-ai-skills.webp",
+      "sourceCandidate": "https://design.canva.ai/Ilcag-C-CdrgVJn",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 28964
+    },
+    {
+      "slug": "mcp-explained-and-set-up",
+      "title": "MCP explained: connect AI to tools without custom integrations everywhere",
+      "file": "assets/guides/mcp-explained-and-set-up.webp",
+      "sourceCandidate": "https://design.canva.ai/kcdK7AVn9ZSND1X",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 17594
+    },
+    {
+      "slug": "agent-orchestration-without-chaos",
+      "title": "Agent orchestration without creating chaos",
+      "file": "assets/guides/agent-orchestration-without-chaos.webp",
+      "sourceCandidate": "https://design.canva.ai/lqrfuhZbj6CqMEC",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 37014
+    },
+    {
+      "slug": "rag-vs-long-context",
+      "title": "RAG vs long context: when each one wins",
+      "file": "assets/guides/rag-vs-long-context.webp",
+      "sourceCandidate": "https://design.canva.ai/ufEABzXlBYXgghx",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 36276
+    },
+    {
+      "slug": "build-first-rag-knowledge-base",
+      "title": "Build your first useful RAG knowledge base",
+      "file": "assets/guides/build-first-rag-knowledge-base.webp",
+      "sourceCandidate": "https://design.canva.ai/fhBl9pS-0i-XqNW",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 37276
+    },
+    {
+      "slug": "understand-hugging-face",
+      "title": "Hugging Face explained for normal people",
+      "file": "assets/guides/understand-hugging-face.webp",
+      "sourceCandidate": "https://design.canva.ai/3InCVATXApTK4d2",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 18606
+    },
+    {
+      "slug": "local-ai-starter",
+      "title": "Running AI locally: a realistic beginner path",
+      "file": "assets/guides/local-ai-starter.webp",
+      "sourceCandidate": "https://design.canva.ai/JQhXLenwAqeF4pE",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 21456
+    },
+    {
+      "slug": "coding-assistant-comparison",
+      "title": "Choose an AI coding assistant by workflow, not hype",
+      "file": "assets/guides/coding-assistant-comparison.webp",
+      "sourceCandidate": "https://design.canva.ai/CaL3o2vLhTnyZ1h",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 35464
+    },
+    {
+      "slug": "evaluate-ai-github-repositories",
+      "title": "How to evaluate an AI GitHub repository before adopting it",
+      "file": "assets/guides/evaluate-ai-github-repositories.webp",
+      "sourceCandidate": "https://design.canva.ai/2JOp6C7KIDK922Z",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 39998
+    },
+    {
+      "slug": "research-with-ai-and-verify-sources",
+      "title": "Research with AI without being fooled by confident citations",
+      "file": "assets/guides/research-with-ai-and-verify-sources.webp",
+      "sourceCandidate": "https://design.canva.ai/QptSRRoFngiNu4I",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 32852
+    },
+    {
+      "slug": "ai-privacy-before-uploading",
+      "title": "What should never be pasted into an AI chat?",
+      "file": "assets/guides/ai-privacy-before-uploading.webp",
+      "sourceCandidate": "https://design.canva.ai/zFiTCw2booM_d3l",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 14610
+    },
+    {
+      "slug": "automate-ai-content-website",
+      "title": "Build an AI-managed content pipeline that does not publish rubbish",
+      "file": "assets/guides/automate-ai-content-website.webp",
+      "sourceCandidate": "https://design.canva.ai/YVhp3j8VeITG-dA",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 58352
+    },
+    {
+      "slug": "production-agent-guardrails",
+      "title": "Production guardrails for agents that can take action",
+      "file": "assets/guides/production-agent-guardrails.webp",
+      "sourceCandidate": "https://design.canva.ai/FHuiatHZkwvulZR",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 33246
+    },
+    {
+      "slug": "model-benchmarks-that-matter",
+      "title": "How to use AI benchmarks without choosing the wrong model",
+      "file": "assets/guides/model-benchmarks-that-matter.webp",
+      "sourceCandidate": "https://design.canva.ai/l8wQnKUP9eQg38o",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 39950
+    },
+    {
+      "slug": "ai-news-signal-not-noise",
+      "title": "Build an AI news habit that finds signal instead of hype",
+      "file": "assets/guides/ai-news-signal-not-noise.webp",
+      "sourceCandidate": "https://design.canva.ai/u82nWhs9vHpONA6",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 30918
+    },
+    {
+      "slug": "reusable-prompt-template-library",
+      "title": "A reusable prompt template library for real work",
+      "file": "assets/guides/reusable-prompt-template-library.webp",
+      "sourceCandidate": "https://design.canva.ai/exh9YnRYLFCNARt",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 28112
+    },
+    {
+      "slug": "small-business-ai-starter-pack",
+      "title": "A practical AI starter pack for small businesses",
+      "file": "assets/guides/small-business-ai-starter-pack.webp",
+      "sourceCandidate": "https://design.canva.ai/uEbJFIFfJb4A7MP",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 44634
+    },
+    {
+      "slug": "operations-ai-starter-pack",
+      "title": "A practical AI starter pack for operations teams",
+      "file": "assets/guides/operations-ai-starter-pack.webp",
+      "sourceCandidate": "https://design.canva.ai/Xf_eOg_xO5LMsum",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 50878
+    },
+    {
+      "slug": "education-ai-starter-pack",
+      "title": "A practical AI starter pack for educators",
+      "file": "assets/guides/education-ai-starter-pack.webp",
+      "sourceCandidate": "https://design.canva.ai/t_B-FlEuq1Vz2o2",
+      "provenance": "AI-generated for AI Compass",
+      "width": 960,
+      "height": 540,
+      "bytes": 35478
+    }
+  ]
+}

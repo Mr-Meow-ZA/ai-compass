@@ -64,36 +64,40 @@ ARTICLE_COUNT="$(count_photo "$TMP/article.html")"
 MOBILE_COUNT="$(count_photo "$TMP/mobile.html")"
 NEWS_CARDS="$(count_token 'class="news-item' "$TMP/news.html")"
 NEWS_COVERAGE="$(count_token 'data-visual-coverage=' "$TMP/news.html")"
-PHOTO_CREDITS="$(count_token 'class="visual-credit"' "$TMP/guides.html")"
+GUIDE_CREDITS="$(grep -Eo 'AI-generated for AI Compass|AI Compass guide artwork' "$TMP/guides.html" | wc -l | tr -d ' ' || true)"
+GUIDE_LOCAL_ASSETS="$(count_token 'src="assets/guides/' "$TMP/guides.html")"
+GUIDE_MAPPED="$(count_token 'data-custom-guide-asset=' "$TMP/guides.html")"
 
-echo "Rendered counts: home=$HOME_COUNT guides=$GUIDE_COUNT news-photo=$NEWS_COUNT article=$ARTICLE_COUNT mobile=$MOBILE_COUNT news-cards=$NEWS_CARDS news-coverage=$NEWS_COVERAGE guide-credits=$PHOTO_CREDITS"
+echo "Rendered counts: home=$HOME_COUNT guides=$GUIDE_COUNT guide-mapped=$GUIDE_MAPPED guide-local=$GUIDE_LOCAL_ASSETS news-photo=$NEWS_COUNT article=$ARTICLE_COUNT mobile=$MOBILE_COUNT news-cards=$NEWS_CARDS news-coverage=$NEWS_COVERAGE guide-credits=$GUIDE_CREDITS"
 
 [[ "$HOME_COUNT" -ge 4 ]] || { echo "Home rendered only $HOME_COUNT photographic visuals" >&2; exit 1; }
-[[ "$GUIDE_COUNT" -ge 28 ]] || { echo "Guides rendered only $GUIDE_COUNT photographic visuals" >&2; exit 1; }
+[[ "$GUIDE_COUNT" -ge 28 ]] || { echo "Guides rendered only $GUIDE_COUNT visuals" >&2; exit 1; }
+[[ "$GUIDE_MAPPED" -ge 28 ]] || { echo "Only $GUIDE_MAPPED guide cards received mapped guide artwork" >&2; exit 1; }
 [[ "$NEWS_CARDS" -ge 15 ]] || { echo "News directory rendered only $NEWS_CARDS cards" >&2; exit 1; }
 [[ "$NEWS_COVERAGE" -eq "$NEWS_CARDS" ]] || { echo "Only $NEWS_COVERAGE of $NEWS_CARDS news cards received a visual coverage decision" >&2; exit 1; }
 [[ "$NEWS_COUNT" -ge 10 ]] || { echo "News rendered only $NEWS_COUNT photographic fallback visuals" >&2; exit 1; }
-[[ "$ARTICLE_COUNT" -ge 1 ]] || { echo "Article route has no photographic visual" >&2; exit 1; }
-[[ "$MOBILE_COUNT" -ge 4 ]] || { echo "Mobile home rendered only $MOBILE_COUNT photographic visuals" >&2; exit 1; }
-[[ "$PHOTO_CREDITS" -ge 28 ]] || { echo "Guide photo attribution is incomplete" >&2; exit 1; }
+[[ "$ARTICLE_COUNT" -ge 1 ]] || { echo "Article route has no visual" >&2; exit 1; }
+[[ "$MOBILE_COUNT" -ge 4 ]] || { echo "Mobile home rendered only $MOBILE_COUNT visuals" >&2; exit 1; }
+[[ "$GUIDE_CREDITS" -ge 28 ]] || { echo "Guide artwork provenance is incomplete" >&2; exit 1; }
 
 grep 'visual-system.css' "$TMP/home.html" > /dev/null || { echo "visual-system.css is not loaded" >&2; exit 1; }
+grep 'clean-design.css' "$TMP/guides.html" > /dev/null || { echo "clean-design.css is not loaded" >&2; exit 1; }
 grep 'visual-system.js' "$TMP/home.html" > /dev/null || { echo "visual-system.js is not loaded" >&2; exit 1; }
+grep 'guide-assets.js' "$TMP/guides.html" > /dev/null || { echo "guide-assets.js is not loaded" >&2; exit 1; }
 grep 'visual-news-coverage.js' "$TMP/news.html" > /dev/null || { echo "visual-news-coverage.js is not loaded" >&2; exit 1; }
-grep 'images.unsplash.com' "$TMP/guides.html" > /dev/null || { echo "Guide photography source is not present" >&2; exit 1; }
 if grep -q 'class="editorial-svg"' "$TMP/guides.html"; then
   echo "Legacy vector artwork is still rendered on guide cards" >&2
   exit 1
 fi
 
-# Verify the curated image CDN sources themselves are currently reachable.
+# External photographic sources remain for non-guide editorial/news fallbacks and should stay reachable.
 mapfile -t PHOTO_BASES < <(grep -o "https://images.unsplash.com/photo-[^']*" visual-system.js | sort -u)
-[[ "${#PHOTO_BASES[@]}" -ge 7 ]] || { echo "Expected at least seven distinct photographic sources" >&2; exit 1; }
+[[ "${#PHOTO_BASES[@]}" -ge 7 ]] || { echo "Expected at least seven distinct fallback photographic sources" >&2; exit 1; }
 for base in "${PHOTO_BASES[@]}"; do
   curl --location --fail --silent --show-error --max-time 20 "${base}?auto=format&fit=crop&w=96&q=40" -o /dev/null || {
-    echo "Photographic source failed: $base" >&2
+    echo "Photographic fallback source failed: $base" >&2
     exit 1
   }
 done
 
-echo "Rendered photographic visual smoke OK."
+echo "Rendered visual smoke OK: all guide cards use mapped guide artwork."

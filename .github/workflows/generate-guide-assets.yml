@@ -1,0 +1,57 @@
+name: Generate AI Compass guide assets
+
+on:
+  push:
+    branches:
+      - design/clean-guide-library
+    paths:
+      - scripts/generate-guide-assets.js
+      - .github/workflows/generate-guide-assets.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/clean-guide-library
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install image normaliser
+        run: npm install --no-save --package-lock=false sharp@0.34.3
+      - name: Ingest pre-generated guide-specific editorial assets
+        run: node scripts/generate-guide-assets.js
+      - name: Verify all first-party images
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const m=JSON.parse(fs.readFileSync('assets/guides/manifest.json','utf8'));
+          if(m.count!==28||m.runtimeGeneration!==false)throw new Error(`Expected exactly 28 pre-generated assets`);
+          const slugs=new Set();
+          for(const item of m.items){
+            if(slugs.has(item.slug))throw new Error(`Duplicate ${item.slug}`);slugs.add(item.slug);
+            const b=fs.readFileSync(item.file);
+            if(b.length<10000)throw new Error(`${item.file} is too small`);
+            if(b.slice(0,4).toString('hex')!=='52494646')throw new Error(`${item.file} is not WebP/RIFF`);
+            if(item.width!==960||item.height!==540)throw new Error(`${item.file} has wrong dimensions`);
+          }
+          console.log('Verified 28 unique 960x540 first-party guide images.');
+          NODE
+      - name: Commit first-party assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/guides
+          if git diff --cached --quiet; then
+            echo 'No asset changes.'
+          else
+            git commit -m 'assets(guides): add 28 custom generated thumbnails [skip ci]'
+            git push origin HEAD:design/clean-guide-library
+          fi
