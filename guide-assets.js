@@ -12,16 +12,21 @@ function applyFigure(figure,item){
   if(!figure||!item)return;
   const img=figure.querySelector('img');if(!img)return;
   const desired=src(item.slug);
-  if(figure.dataset.customGuideAsset===item.slug&&figure.dataset.customGuideSrc===desired)return;
+  if(figure.dataset.customGuideAsset===item.slug&&figure.dataset.customGuideSrc===desired&&figure.dataset.guideImageState==='loaded')return;
   const fallback=localSrc(item.slug);
   const hasOverride=overrides.has(item.slug);
   const credit=figure.querySelector('.visual-credit');
+  figure.dataset.guideImageState='loading';
+  img.onload=()=>{figure.dataset.guideImageState='loaded'};
   img.onerror=()=>{
     if(img.getAttribute('src')!==fallback){
       overrides.delete(item.slug);
+      figure.dataset.guideImageState='loading';
       img.src=fallback;
       figure.dataset.customGuideSrc=fallback;
       if(credit)credit.textContent='AI-generated for AI Compass';
+    }else{
+      figure.dataset.guideImageState='failed';
     }
   };
   img.src=desired;img.removeAttribute('srcset');img.removeAttribute('sizes');img.removeAttribute('referrerpolicy');
