@@ -55,40 +55,40 @@ cp "$TMP/mobile.html" "$ROOT/visual-smoke-mobile.html"
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 \
   --virtual-time-budget=4200 --screenshot="$ROOT/visual-smoke-mobile.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
 
-count_photo(){ grep -o 'class="editorial-photo"' "$1" | wc -l | tr -d ' ' || true; }
 count_token(){ grep -o "$1" "$2" | wc -l | tr -d ' ' || true; }
-HOME_COUNT="$(count_photo "$TMP/home.html")"
-GUIDE_COUNT="$(count_photo "$TMP/guides.html")"
-NEWS_COUNT="$(count_photo "$TMP/news.html")"
-ARTICLE_COUNT="$(count_photo "$TMP/article.html")"
-MOBILE_COUNT="$(count_photo "$TMP/mobile.html")"
+HOME_GUIDES="$(count_token 'class="guide-card ' "$TMP/home.html")"
+GUIDE_CARDS="$(count_token 'class="guide-card ' "$TMP/guides.html")"
 NEWS_CARDS="$(count_token 'class="news-item' "$TMP/news.html")"
-NEWS_COVERAGE="$(count_token 'data-visual-coverage=' "$TMP/news.html")"
-PHOTO_CREDITS="$(count_token 'class="visual-credit"' "$TMP/guides.html")"
+ARTICLE_HEADERS="$(count_token 'class="article-header' "$TMP/article.html")"
+MOBILE_HERO="$(count_token 'class="hero' "$TMP/mobile.html")"
 
-echo "Rendered counts: home=$HOME_COUNT guides=$GUIDE_COUNT news-photo=$NEWS_COUNT article=$ARTICLE_COUNT mobile=$MOBILE_COUNT news-cards=$NEWS_CARDS news-coverage=$NEWS_COVERAGE guide-credits=$PHOTO_CREDITS"
+echo "Rendered counts: home-guides=$HOME_GUIDES guides=$GUIDE_CARDS news-cards=$NEWS_CARDS article-headers=$ARTICLE_HEADERS mobile-hero=$MOBILE_HERO"
 
-[[ "$HOME_COUNT" -ge 4 ]] || { echo "Home rendered only $HOME_COUNT photographic visuals" >&2; exit 1; }
-[[ "$GUIDE_COUNT" -ge 28 ]] || { echo "Guides rendered only $GUIDE_COUNT photographic visuals" >&2; exit 1; }
+[[ "$HOME_GUIDES" -ge 3 ]] || { echo "Home rendered only $HOME_GUIDES guide cards" >&2; exit 1; }
+[[ "$GUIDE_CARDS" -ge 28 ]] || { echo "Guides rendered only $GUIDE_CARDS guide cards" >&2; exit 1; }
 [[ "$NEWS_CARDS" -ge 15 ]] || { echo "News directory rendered only $NEWS_CARDS cards" >&2; exit 1; }
-[[ "$NEWS_COVERAGE" -eq "$NEWS_CARDS" ]] || { echo "Only $NEWS_COVERAGE of $NEWS_CARDS news cards received a visual coverage decision" >&2; exit 1; }
-[[ "$NEWS_COUNT" -ge 10 ]] || { echo "News rendered only $NEWS_COUNT photographic fallback visuals" >&2; exit 1; }
-[[ "$ARTICLE_COUNT" -ge 1 ]] || { echo "Article route has no photographic visual" >&2; exit 1; }
-[[ "$MOBILE_COUNT" -ge 4 ]] || { echo "Mobile home rendered only $MOBILE_COUNT photographic visuals" >&2; exit 1; }
-[[ "$PHOTO_CREDITS" -ge 28 ]] || { echo "Guide photo attribution is incomplete" >&2; exit 1; }
+[[ "$ARTICLE_HEADERS" -ge 1 ]] || { echo "Article route did not render" >&2; exit 1; }
+[[ "$MOBILE_HERO" -ge 1 ]] || { echo "Mobile home did not render" >&2; exit 1; }
 
 grep 'visual-system.css' "$TMP/home.html" > /dev/null || { echo "visual-system.css is not loaded" >&2; exit 1; }
-grep 'visual-system.js' "$TMP/home.html" > /dev/null || { echo "visual-system.js is not loaded" >&2; exit 1; }
-grep 'visual-news-coverage.js' "$TMP/news.html" > /dev/null || { echo "visual-news-coverage.js is not loaded" >&2; exit 1; }
-grep 'images.unsplash.com' "$TMP/guides.html" > /dev/null || { echo "Guide photography source is not present" >&2; exit 1; }
+if grep -q 'visual-system.js' "$TMP/home.html"; then
+  echo "Runtime visual-system.js is still loaded" >&2
+  exit 1
+fi
+if grep -q 'visual-news-coverage.js' "$TMP/news.html"; then
+  echo "Runtime visual-news-coverage.js is still loaded" >&2
+  exit 1
+fi
+grep -F '.guide-card-link::before' visual-system.css > /dev/null || { echo "Static guide image contract is missing" >&2; exit 1; }
+grep 'images.unsplash.com' visual-system.css > /dev/null || { echo "Static guide photography source is not present" >&2; exit 1; }
 if grep -q 'class="editorial-svg"' "$TMP/guides.html"; then
   echo "Legacy vector artwork is still rendered on guide cards" >&2
   exit 1
 fi
 
-# Verify the curated image CDN sources themselves are currently reachable.
-mapfile -t PHOTO_BASES < <(grep -o "https://images.unsplash.com/photo-[^']*" visual-system.js | sort -u)
-[[ "${#PHOTO_BASES[@]}" -ge 7 ]] || { echo "Expected at least seven distinct photographic sources" >&2; exit 1; }
+# Verify the stylesheet-curated image CDN sources are currently reachable.
+mapfile -t PHOTO_BASES < <(grep -o "https://images.unsplash.com/photo-[^?'\"]*" visual-system.css | sort -u)
+[[ "${#PHOTO_BASES[@]}" -ge 7 ]] || { echo "Expected at least seven distinct static photographic sources" >&2; exit 1; }
 for base in "${PHOTO_BASES[@]}"; do
   curl --location --fail --silent --show-error --max-time 20 "${base}?auto=format&fit=crop&w=96&q=40" -o /dev/null || {
     echo "Photographic source failed: $base" >&2
@@ -96,4 +96,4 @@ for base in "${PHOTO_BASES[@]}"; do
   }
 done
 
-echo "Rendered photographic visual smoke OK."
+echo "Rendered static visual smoke OK."
