@@ -7,8 +7,8 @@ const verified='2026-08-09';
 const additions=[
   {
     id:'openai-atlas-retirement',
-    title:'OpenAI retires Atlas as browser-agent work moves into ChatGPT and Codex',
-    dek:'OpenAI says Atlas is scheduled to stop working on 9 August 2026 and advises users to save important browser data while browser-based agent capabilities move into supported ChatGPT and Codex experiences.',
+    title:'OpenAI scheduled Atlas to stop working as browser-agent work moves into ChatGPT and Codex',
+    dek:'OpenAI’s help article says Atlas was scheduled to stop working on 9 August 2026 and advises users to save important browser data while browser-based agent capabilities move into supported ChatGPT and Codex experiences. AI Compass has not independently confirmed Atlas’s post-deadline service state.',
     source:'OpenAI',
     sourceType:'Official help article',
     category:'Products',
@@ -16,7 +16,7 @@ const additions=[
     date:'2026-08-09',
     readTime:'4 min',
     url:'https://help.openai.com/en/articles/20001371',
-    verified,
+    verified:'2026-08-11',
     visual:'browser-blue'
   },
   {
