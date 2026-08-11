@@ -1,6 +1,6 @@
 {
   "name": "ai-compass",
-  "version": "0.6.9",
+  "version": "0.6.10",
   "private": true,
   "description": "AI education, discovery and reference platform",
   "scripts": {
