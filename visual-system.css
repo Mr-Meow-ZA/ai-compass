@@ -8,7 +8,6 @@
 
 .guide-visual{margin:-1px -1px 20px;border-radius:11px 11px 8px 8px;border-color:#d4dbe4;background:#e8edf2}
 .guide-visual .editorial-photo-frame{aspect-ratio:16/9}
-.guide-card-link{padding-top:1px}
 .guide-card:hover .guide-visual{border-color:#b8c4d2}
 .guide-card:hover .editorial-photo{transform:scale(1.035)}
 .guide-card:hover .visual-credit{background:rgba(12,18,27,.88)}
@@ -35,6 +34,99 @@
 /* Images should support the content, not turn cards into poster art. */
 .guide-card,.news-item,.path-card,.article-summary{isolation:isolate}
 
+/*
+  0.6.10 static media path.
+  Guide imagery is rendered by CSS as part of the card itself; there is no
+  MutationObserver, DOM injection, requestAnimationFrame enhancement or image
+  fallback script involved in the live guide path.
+
+  Curated source photography:
+  business — Jakub Żerdzicki / Unsplash — https://unsplash.com/photos/LNnmSumlwO4
+  collaboration — Annie Spratt / Unsplash — https://unsplash.com/s/photos/team-meeting
+  education — Quilia / Unsplash — https://unsplash.com/photos/zFSo6bnZJTw
+  coding — Ibrahim Yusuf / Unsplash — https://unsplash.com/photos/vWJtYRfE_rw
+  automation — ZHENYU LUO / Unsplash — https://unsplash.com/photos/kE0JmtbvXxM
+  infrastructure — Kevin Ache / Unsplash — https://unsplash.com/photos/2JJ3wBHu4_0
+  security — Kier in Sight Archives / Unsplash — https://unsplash.com/photos/3Nwt6w-KU3E
+  research — Unsplash library photography — https://unsplash.com/s/photos/library
+  governance — Tingey Injury Law Firm / Unsplash — https://unsplash.com/s/photos/scales-of-justice
+*/
+
+.guide-card-link{
+  --guide-photo:url('https://images.unsplash.com/photo-1707902665498-a202981fb5ac?auto=format&fit=crop&w=960&q=84');
+  padding:25px;
+  overflow:hidden;
+}
+.guide-card-link::before{
+  content:"";
+  display:block;
+  flex:0 0 auto;
+  height:162px;
+  margin:-25px -25px 20px;
+  border-bottom:1px solid #d4dbe4;
+  background-image:linear-gradient(180deg,rgba(7,18,34,.02),rgba(7,18,34,.16)),var(--guide-photo);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  transition:transform .35s ease,filter .35s ease;
+  filter:saturate(.94) contrast(1.02);
+}
+.guide-card:hover .guide-card-link::before{filter:saturate(1) contrast(1.035)}
+
+/* Subject-specific guide photography. */
+.guide-card-link[href*="prompt"],
+.guide-card-link[href*="coding"],
+.guide-card-link[href*="open-source"],
+.guide-card-link[href*="repository"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1710770563074-6d9cc0d3e338?auto=format&fit=crop&w=960&q=84');
+}
+.guide-card-link[href*="automation"],
+.guide-card-link[href*="agent"],
+.guide-card-link[href*="operations"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?auto=format&fit=crop&w=960&q=84');
+}
+.guide-card-link[href*="model"],
+.guide-card-link[href*="infrastructure"],
+.guide-card-link[href*="local-ai"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?auto=format&fit=crop&w=960&q=84');
+}
+.guide-card-link[href*="education"],
+.guide-card-link[href*="teacher"],
+.guide-card-link[href*="student"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=960&q=84');
+}
+.guide-card-link[href*="governance"],
+.guide-card-link[href*="policy"]{
+  --guide-photo:url('https://unsplash.com/photos/yCdPU73kGSc/download?force=true');
+}
+.guide-card-link[href*="safety"],
+.guide-card-link[href*="security"],
+.guide-card-link[href*="privacy"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1667264501379-c1537934c7ab?auto=format&fit=crop&w=960&q=84');
+}
+.guide-card-link[href*="research"],
+.guide-card-link[href*="evaluate"],
+.guide-card-link[href*="news"],
+.guide-card-link[href*="source"],
+.guide-card-link[href*="verify"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=960&q=84');
+}
+.guide-card-link[href*="document"],
+.guide-card-link[href*="spreadsheet"],
+.guide-card-link[href*="meeting"],
+.guide-card-link[href*="work"],
+.guide-card-link[href*="team"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=960&q=84');
+}
+
+/* Home cards intentionally vary when a slug is not topic-specific. */
+.guide-grid .guide-card:nth-child(3n+2) .guide-card-link:not([href*="prompt"]):not([href*="coding"]):not([href*="automation"]):not([href*="agent"]):not([href*="operations"]):not([href*="model"]):not([href*="education"]):not([href*="governance"]):not([href*="safety"]):not([href*="security"]):not([href*="privacy"]):not([href*="research"]):not([href*="evaluate"]):not([href*="news"]):not([href*="document"]):not([href*="spreadsheet"]):not([href*="meeting"]){
+  --guide-photo:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=960&q=84');
+}
+.guide-grid .guide-card:nth-child(3n) .guide-card-link:not([href*="prompt"]):not([href*="coding"]):not([href*="automation"]):not([href*="agent"]):not([href*="operations"]):not([href*="model"]):not([href*="education"]):not([href*="governance"]):not([href*="safety"]):not([href*="security"]):not([href*="privacy"]):not([href*="research"]):not([href*="evaluate"]):not([href*="news"]):not([href*="document"]):not([href*="spreadsheet"]):not([href*="meeting"]){
+  --guide-photo:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=960&q=84');
+}
+
 @media (min-width:821px){
   .guide-card .guide-visual{min-height:162px}
   .guide-card .editorial-photo{height:162px;aspect-ratio:auto}
@@ -47,16 +139,18 @@
   .article-visual{max-width:520px}
   .article-visual .editorial-photo{min-height:0;aspect-ratio:16/9}
   .hero-photo{margin-bottom:18px}
+  .guide-card-link::before{height:180px}
 }
 
 @media (max-width:560px){
-  .guide-card-link{padding-top:1px!important}
+  .guide-card-link{padding:22px!important}
+  .guide-card-link::before{height:154px;margin:-22px -22px 18px}
   .guide-visual{margin:-1px -1px 17px}
   .visual-credit{right:6px;bottom:6px;font-size:8px;padding:3px 6px}
   .hero-photo .editorial-photo{min-height:0;aspect-ratio:16/9}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .editorial-photo{transition:none!important}
+  .editorial-photo,.guide-card-link::before{transition:none!important}
   .guide-card:hover .editorial-photo,.news-item:hover .news-thumbnail img{transform:none}
 }
