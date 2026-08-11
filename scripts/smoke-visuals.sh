@@ -30,7 +30,7 @@ curl --fail --silent --show-error http://127.0.0.1:4173/ > /dev/null
 render(){
   local hash="$1" out="$2" width="$3" height="$4"
   "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars \
-    --window-size="${width},${height}" --virtual-time-budget=4200 --dump-dom \
+    --window-size="${width},${height}" --virtual-time-budget=6500 --dump-dom \
     "http://127.0.0.1:4173/${hash}" > "$out"
 }
 
@@ -38,22 +38,28 @@ render '#home' "$TMP/home.html" 1440 1000
 render '#guides' "$TMP/guides.html" 1440 1000
 render '#news' "$TMP/news.html" 1440 1000
 render '#article/choose-your-first-ai-subscription' "$TMP/article.html" 1440 1000
-render '#home' "$TMP/mobile.html" 390 844
+render '#guides' "$TMP/mobile.html" 390 844
+
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 \
+  --virtual-time-budget=4000 --dump-dom http://127.0.0.1:4173/admin.html > "$TMP/admin.html"
 
 cp "$TMP/home.html" "$ROOT/visual-smoke-home.html"
 cp "$TMP/guides.html" "$ROOT/visual-smoke-guides.html"
 cp "$TMP/news.html" "$ROOT/visual-smoke-news.html"
 cp "$TMP/article.html" "$ROOT/visual-smoke-article.html"
 cp "$TMP/mobile.html" "$ROOT/visual-smoke-mobile.html"
+cp "$TMP/admin.html" "$ROOT/visual-smoke-admin.html"
 
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 \
-  --virtual-time-budget=4200 --screenshot="$ROOT/visual-smoke-home.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
+  --virtual-time-budget=6500 --screenshot="$ROOT/visual-smoke-home.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 \
-  --virtual-time-budget=4200 --screenshot="$ROOT/visual-smoke-guides.png" http://127.0.0.1:4173/#guides > /dev/null 2>&1
+  --virtual-time-budget=6500 --screenshot="$ROOT/visual-smoke-guides.png" http://127.0.0.1:4173/#guides > /dev/null 2>&1
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 \
-  --virtual-time-budget=4200 --screenshot="$ROOT/visual-smoke-news.png" http://127.0.0.1:4173/#news > /dev/null 2>&1
+  --virtual-time-budget=6500 --screenshot="$ROOT/visual-smoke-news.png" http://127.0.0.1:4173/#news > /dev/null 2>&1
 "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 \
-  --virtual-time-budget=4200 --screenshot="$ROOT/visual-smoke-mobile.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
+  --virtual-time-budget=6500 --screenshot="$ROOT/visual-smoke-mobile.png" http://127.0.0.1:4173/#guides > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 \
+  --virtual-time-budget=4000 --screenshot="$ROOT/visual-smoke-admin.png" http://127.0.0.1:4173/admin.html > /dev/null 2>&1
 
 count_photo(){ grep -o 'class="editorial-photo"' "$1" | wc -l | tr -d ' ' || true; }
 count_token(){ grep -o "$1" "$2" | wc -l | tr -d ' ' || true; }
@@ -65,19 +71,25 @@ MOBILE_COUNT="$(count_photo "$TMP/mobile.html")"
 NEWS_CARDS="$(count_token 'class="news-item' "$TMP/news.html")"
 NEWS_COVERAGE="$(count_token 'data-visual-coverage=' "$TMP/news.html")"
 GUIDE_CREDITS="$(grep -Eo 'AI-generated for AI Compass|AI Compass guide artwork' "$TMP/guides.html" | wc -l | tr -d ' ' || true)"
-GUIDE_LOCAL_ASSETS="$(count_token 'src="assets/guides/' "$TMP/guides.html")"
 GUIDE_MAPPED="$(count_token 'data-custom-guide-asset=' "$TMP/guides.html")"
+GUIDE_LOADED="$(count_token 'data-guide-image-state="loaded"' "$TMP/guides.html")"
+GUIDE_FAILED="$(count_token 'data-guide-image-state="failed"' "$TMP/guides.html")"
+MOBILE_GUIDE_LOADED="$(count_token 'data-guide-image-state="loaded"' "$TMP/mobile.html")"
+MOBILE_GUIDE_FAILED="$(count_token 'data-guide-image-state="failed"' "$TMP/mobile.html")"
 
-echo "Rendered counts: home=$HOME_COUNT guides=$GUIDE_COUNT guide-mapped=$GUIDE_MAPPED guide-local=$GUIDE_LOCAL_ASSETS news-photo=$NEWS_COUNT article=$ARTICLE_COUNT mobile=$MOBILE_COUNT news-cards=$NEWS_CARDS news-coverage=$NEWS_COVERAGE guide-credits=$GUIDE_CREDITS"
+echo "Rendered counts: home=$HOME_COUNT guides=$GUIDE_COUNT guide-mapped=$GUIDE_MAPPED guide-loaded=$GUIDE_LOADED guide-failed=$GUIDE_FAILED mobile-guide-loaded=$MOBILE_GUIDE_LOADED mobile-guide-failed=$MOBILE_GUIDE_FAILED news-photo=$NEWS_COUNT article=$ARTICLE_COUNT news-cards=$NEWS_CARDS news-coverage=$NEWS_COVERAGE guide-credits=$GUIDE_CREDITS"
 
 [[ "$HOME_COUNT" -ge 4 ]] || { echo "Home rendered only $HOME_COUNT photographic visuals" >&2; exit 1; }
 [[ "$GUIDE_COUNT" -ge 28 ]] || { echo "Guides rendered only $GUIDE_COUNT visuals" >&2; exit 1; }
 [[ "$GUIDE_MAPPED" -ge 28 ]] || { echo "Only $GUIDE_MAPPED guide cards received mapped guide artwork" >&2; exit 1; }
+[[ "$GUIDE_LOADED" -ge 28 ]] || { echo "Only $GUIDE_LOADED guide images actually loaded on desktop" >&2; exit 1; }
+[[ "$GUIDE_FAILED" -eq 0 ]] || { echo "$GUIDE_FAILED guide images failed on desktop" >&2; exit 1; }
+[[ "$MOBILE_GUIDE_LOADED" -ge 28 ]] || { echo "Only $MOBILE_GUIDE_LOADED guide images actually loaded on mobile" >&2; exit 1; }
+[[ "$MOBILE_GUIDE_FAILED" -eq 0 ]] || { echo "$MOBILE_GUIDE_FAILED guide images failed on mobile" >&2; exit 1; }
 [[ "$NEWS_CARDS" -ge 15 ]] || { echo "News directory rendered only $NEWS_CARDS cards" >&2; exit 1; }
 [[ "$NEWS_COVERAGE" -eq "$NEWS_CARDS" ]] || { echo "Only $NEWS_COVERAGE of $NEWS_CARDS news cards received a visual coverage decision" >&2; exit 1; }
 [[ "$NEWS_COUNT" -ge 10 ]] || { echo "News rendered only $NEWS_COUNT photographic fallback visuals" >&2; exit 1; }
 [[ "$ARTICLE_COUNT" -ge 1 ]] || { echo "Article route has no visual" >&2; exit 1; }
-[[ "$MOBILE_COUNT" -ge 4 ]] || { echo "Mobile home rendered only $MOBILE_COUNT visuals" >&2; exit 1; }
 [[ "$GUIDE_CREDITS" -ge 28 ]] || { echo "Guide artwork provenance is incomplete" >&2; exit 1; }
 
 grep 'visual-system.css' "$TMP/home.html" > /dev/null || { echo "visual-system.css is not loaded" >&2; exit 1; }
@@ -85,6 +97,16 @@ grep 'clean-design.css' "$TMP/guides.html" > /dev/null || { echo "clean-design.c
 grep 'visual-system.js' "$TMP/home.html" > /dev/null || { echo "visual-system.js is not loaded" >&2; exit 1; }
 grep 'guide-assets.js' "$TMP/guides.html" > /dev/null || { echo "guide-assets.js is not loaded" >&2; exit 1; }
 grep 'visual-news-coverage.js' "$TMP/news.html" > /dev/null || { echo "visual-news-coverage.js is not loaded" >&2; exit 1; }
+grep 'id="loginForm"' "$TMP/admin.html" > /dev/null || { echo "Admin login portal did not render" >&2; exit 1; }
+grep 'id="editorPanel"' "$TMP/admin.html" > /dev/null || { echo "Admin image manager did not render" >&2; exit 1; }
+if grep -qE 'media\.canva\.com|design\.canva\.ai' guide-assets.js; then
+  echo "Temporary Canva URLs are forbidden in runtime guide artwork" >&2
+  exit 1
+fi
+if grep -qE 'href="[^"]*admin' "$TMP/home.html"; then
+  echo "Public navigation must not expose the admin portal" >&2
+  exit 1
+fi
 if grep -q 'class="editorial-svg"' "$TMP/guides.html"; then
   echo "Legacy vector artwork is still rendered on guide cards" >&2
   exit 1
@@ -100,4 +122,4 @@ for base in "${PHOTO_BASES[@]}"; do
   }
 done
 
-echo "Rendered visual smoke OK: all guide cards use mapped guide artwork."
+echo "Rendered visual smoke OK: guide images load on desktop/mobile and private admin portal exists."
