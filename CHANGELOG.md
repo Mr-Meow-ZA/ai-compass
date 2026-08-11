@@ -217,3 +217,17 @@
 
 - Application build marker is `2026-08-10.3` and package version is `0.6.9`.
 - Vercel Preview and the full rendered-photography validation must pass before merge.
+
+## 2026-08-11 — Editorial freshness verification
+
+### Corrected
+
+- Re-verified OpenAI’s Atlas service-update source after the stated 9 August deadline passed.
+- Reworded the AI Compass preview so it reports OpenAI’s scheduled shutdown date without claiming that post-deadline service state has been independently confirmed.
+- Updated the Atlas record’s verification date to 11 August 2026.
+
+### News scan
+
+- Reviewed current official OpenAI, Anthropic, Google DeepMind, Meta, Microsoft Research, GitHub and Hugging Face channels.
+- Added no new daily-news item because no post-10-August announcement surfaced that clearly met the significance and source-quality bar.
+- Preserved all existing original guides and did not increase news prominence.
