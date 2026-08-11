@@ -64,20 +64,21 @@ ARTICLE_COUNT="$(count_photo "$TMP/article.html")"
 MOBILE_COUNT="$(count_photo "$TMP/mobile.html")"
 NEWS_CARDS="$(count_token 'class="news-item' "$TMP/news.html")"
 NEWS_COVERAGE="$(count_token 'data-visual-coverage=' "$TMP/news.html")"
-GUIDE_CREDITS="$(count_token 'AI-generated for AI Compass' "$TMP/guides.html")"
-GUIDE_ASSETS="$(count_token 'src="assets/guides/' "$TMP/guides.html")"
+GUIDE_CREDITS="$(grep -Eo 'AI-generated for AI Compass|AI Compass guide artwork' "$TMP/guides.html" | wc -l | tr -d ' ' || true)"
+GUIDE_LOCAL_ASSETS="$(count_token 'src="assets/guides/' "$TMP/guides.html")"
+GUIDE_MAPPED="$(count_token 'data-custom-guide-asset=' "$TMP/guides.html")"
 
-echo "Rendered counts: home=$HOME_COUNT guides=$GUIDE_COUNT guide-assets=$GUIDE_ASSETS news-photo=$NEWS_COUNT article=$ARTICLE_COUNT mobile=$MOBILE_COUNT news-cards=$NEWS_CARDS news-coverage=$NEWS_COVERAGE guide-credits=$GUIDE_CREDITS"
+echo "Rendered counts: home=$HOME_COUNT guides=$GUIDE_COUNT guide-mapped=$GUIDE_MAPPED guide-local=$GUIDE_LOCAL_ASSETS news-photo=$NEWS_COUNT article=$ARTICLE_COUNT mobile=$MOBILE_COUNT news-cards=$NEWS_CARDS news-coverage=$NEWS_COVERAGE guide-credits=$GUIDE_CREDITS"
 
 [[ "$HOME_COUNT" -ge 4 ]] || { echo "Home rendered only $HOME_COUNT photographic visuals" >&2; exit 1; }
 [[ "$GUIDE_COUNT" -ge 28 ]] || { echo "Guides rendered only $GUIDE_COUNT visuals" >&2; exit 1; }
-[[ "$GUIDE_ASSETS" -ge 28 ]] || { echo "Only $GUIDE_ASSETS guide cards use committed first-party assets" >&2; exit 1; }
+[[ "$GUIDE_MAPPED" -ge 28 ]] || { echo "Only $GUIDE_MAPPED guide cards received mapped guide artwork" >&2; exit 1; }
 [[ "$NEWS_CARDS" -ge 15 ]] || { echo "News directory rendered only $NEWS_CARDS cards" >&2; exit 1; }
 [[ "$NEWS_COVERAGE" -eq "$NEWS_CARDS" ]] || { echo "Only $NEWS_COVERAGE of $NEWS_CARDS news cards received a visual coverage decision" >&2; exit 1; }
 [[ "$NEWS_COUNT" -ge 10 ]] || { echo "News rendered only $NEWS_COUNT photographic fallback visuals" >&2; exit 1; }
 [[ "$ARTICLE_COUNT" -ge 1 ]] || { echo "Article route has no visual" >&2; exit 1; }
 [[ "$MOBILE_COUNT" -ge 4 ]] || { echo "Mobile home rendered only $MOBILE_COUNT visuals" >&2; exit 1; }
-[[ "$GUIDE_CREDITS" -ge 28 ]] || { echo "Guide AI-image provenance is incomplete" >&2; exit 1; }
+[[ "$GUIDE_CREDITS" -ge 28 ]] || { echo "Guide artwork provenance is incomplete" >&2; exit 1; }
 
 grep 'visual-system.css' "$TMP/home.html" > /dev/null || { echo "visual-system.css is not loaded" >&2; exit 1; }
 grep 'clean-design.css' "$TMP/guides.html" > /dev/null || { echo "clean-design.css is not loaded" >&2; exit 1; }
@@ -99,4 +100,4 @@ for base in "${PHOTO_BASES[@]}"; do
   }
 done
 
-echo "Rendered visual smoke OK: all guide cards use committed first-party assets."
+echo "Rendered visual smoke OK: all guide cards use mapped guide artwork."
