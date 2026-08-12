@@ -1,10 +1,10 @@
 {
   "name": "ai-compass",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "private": true,
   "description": "AI education, discovery and reference platform",
   "scripts": {
     "serve": "python -m http.server 4173",
-    "check": "node --check app.js && node --check data.js && node --check news-refresh.js && node --check visual-system.js && node --check visual-news-coverage.js && node --check knowledge.js && node --check template-library.js && node --check sector-starter-packs.js && node --check education-starter-pack.js && node --check content.js && node --check enhancements.js && node scripts/validate-content.js && node scripts/validate-visual-system.js"
+    "check": "node --check app.js && node --check data.js && node --check subscription-refresh.js && node --check news-refresh.js && node --check visual-system.js && node --check visual-news-coverage.js && node --check knowledge.js && node --check template-library.js && node --check sector-starter-packs.js && node --check education-starter-pack.js && node --check content.js && node --check enhancements.js && node scripts/validate-content.js && node scripts/validate-visual-system.js"
   }
 }

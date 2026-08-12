@@ -1,8 +1,9 @@
+'use strict';
 const fs=require('fs');
 const vm=require('vm');
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['data.js','knowledge.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js']){
+for(const file of ['data.js','subscription-refresh.js','knowledge.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js']){
   vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 }
 const D=context.window.AI_COMPASS_DATA;
@@ -22,6 +23,13 @@ for(const article of D.articles||[]){
   }
 }
 if((D.articles||[]).length<28)errors.push(`Guide preservation failure: expected at least 28 guides, found ${(D.articles||[]).length}`);
+
+const subscriptionGuide=(D.articles||[]).find(item=>item.slug==='choose-your-first-ai-subscription');
+const subscriptionSnapshot=subscriptionGuide?.sections?.find(section=>section.id==='snapshot')?.html||'';
+if(subscriptionGuide?.verified!=='2026-08-12')errors.push('Subscription guide freshness overlay did not load');
+if(!subscriptionSnapshot.includes('Google AI Plus')||!subscriptionSnapshot.includes('$9.99/month'))errors.push('Subscription guide is missing verified Google AI Plus entry pricing');
+if(!(D.comparisons||[]).some(item=>item.name==='Google AI Plus / Pro'))errors.push('Subscription comparison freshness overlay did not load');
+
 for(const path of L.learningPaths||[]){
   if(!path.steps?.length)errors.push(`Learning path has no steps: ${path.id}`);
   for(const slug of path.steps||[])if(!slugs.has(slug))errors.push(`Learning path ${path.id} references missing article ${slug}`);

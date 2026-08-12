@@ -246,3 +246,25 @@
 
 - Application build marker is `2026-08-11.1` and package version is `0.6.10`.
 - The runtime visual files remain in repository history for auditability but are no longer loaded by the production page.
+
+## 2026-08-12 — Subscription-plan freshness correction (0.6.11)
+
+### Corrected
+
+- Re-verified the original AI subscription decision guide against official OpenAI, Anthropic, Google, Microsoft and Perplexity plan pages.
+- Corrected Google coverage so Google AI Plus is the lower-cost paid entry tier at $9.99/month on the US plan page, while Google AI Pro remains $19.99/month with the larger bundle and higher limits.
+- Clarified that Microsoft Copilot Chat is included for eligible Microsoft 365 users while the full Microsoft 365 Copilot business licence remains $30/user/month paid yearly on the South Africa page, excluding VAT.
+- Refreshed ChatGPT Plus, Claude Pro and Perplexity Pro plan-price verification dates and kept regional/local-price caveats visible.
+- Updated the related comparison cards in the same release so the guide and comparison directory do not diverge.
+
+### Editorial workflow
+
+- Added `subscription-refresh.js` as a small maintained pre-render correction layer for volatile subscription facts without rewriting the imported historical guide collection.
+- Registered the module in syntax and content validation and added assertions for the verified Google AI Plus correction.
+- Preserved every existing original guide; guide count is unchanged.
+- Scanned current official OpenAI, Anthropic, Google DeepMind, Meta, Microsoft, GitHub and Hugging Face channels and added no new news item because no post-11-August development met the significance/source-quality bar.
+
+### Release target
+
+- Application build marker is `2026-08-12.1` and package version is `0.6.11`.
+- Repository validation and Vercel Preview remain required before merge; production must be verified against the exact merged `main` commit.
