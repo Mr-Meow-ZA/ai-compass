@@ -50,10 +50,18 @@ cp "$TMP/dashboard.html" "$ROOT/visual-smoke-dashboard.html"
 cp "$TMP/dashboard-mobile.html" "$ROOT/visual-smoke-dashboard-mobile.html"
 cp "$TMP/mobile.html" "$ROOT/visual-smoke-mobile.html"
 
-"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,2200 \
-  --virtual-time-budget=4200 --screenshot="$ROOT/visual-smoke-dashboard.png" http://127.0.0.1:4173/#article/create-professional-dashboards-with-ai > /dev/null 2>&1
-"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,1200 \
-  --virtual-time-budget=4200 --screenshot="$ROOT/visual-smoke-dashboard-mobile.png" http://127.0.0.1:4173/#article/create-professional-dashboards-with-ai > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=4200 \
+  --screenshot="$ROOT/visual-smoke-home.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=4200 \
+  --screenshot="$ROOT/visual-smoke-guides.png" http://127.0.0.1:4173/#guides > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=4200 \
+  --screenshot="$ROOT/visual-smoke-news.png" http://127.0.0.1:4173/#news > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 --virtual-time-budget=4200 \
+  --screenshot="$ROOT/visual-smoke-mobile.png" http://127.0.0.1:4173/#home > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,2200 --virtual-time-budget=4200 \
+  --screenshot="$ROOT/visual-smoke-dashboard.png" http://127.0.0.1:4173/#article/create-professional-dashboards-with-ai > /dev/null 2>&1
+"$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,1200 --virtual-time-budget=4200 \
+  --screenshot="$ROOT/visual-smoke-dashboard-mobile.png" http://127.0.0.1:4173/#article/create-professional-dashboards-with-ai > /dev/null 2>&1
 
 count_token(){ grep -o "$1" "$2" | wc -l | tr -d ' ' || true; }
 HOME_GUIDES="$(count_token 'class="guide-card ' "$TMP/home.html")"
