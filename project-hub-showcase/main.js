@@ -4,6 +4,7 @@ import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 
+const extraStyle=document.createElement('link');extraStyle.rel='stylesheet';extraStyle.href='style2.css';document.head.appendChild(extraStyle);
 const holder=document.getElementById('scene'),scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x05070b,.052);
 const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,.1,100);camera.position.set(.8,.25,11.5);
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<700?1.35:1.75));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.04;holder.appendChild(renderer.domElement);
