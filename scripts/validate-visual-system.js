@@ -17,7 +17,7 @@ sandbox.window.window=sandbox.window;
 vm.createContext(sandbox);
 
 const run=file=>vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),sandbox,{filename:file});
-['data.js','news-refresh.js','knowledge.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','visual-system.js'].forEach(run);
+['data.js','news-refresh.js','knowledge.js','dashboard-guide.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','visual-system.js'].forEach(run);
 
 const D=sandbox.window.AI_COMPASS_DATA;
 const F=sandbox.window.AI_COMPASS_FEED;
@@ -48,7 +48,8 @@ for(const article of D.articles){
   if(/undefined|null/.test(html))throw new Error(`Broken value in guide photo markup: ${article.slug}`);
 }
 
-if(D.articles.length<28)throw new Error(`Guide preservation failure: expected at least 28 guides, found ${D.articles.length}`);
+if(D.articles.length<29)throw new Error(`Guide preservation failure: expected at least 29 guides, found ${D.articles.length}`);
+if(!slugs.has('create-professional-dashboards-with-ai'))throw new Error('Dashboard guide is absent from visual validation');
 
 for(const item of F){
   if(!item.id||!item.url)continue;
@@ -67,6 +68,10 @@ if(js.includes('class="editorial-svg"'))throw new Error('Legacy vector renderer 
 const css=fs.readFileSync(path.join(root,'visual-system.css'),'utf8');
 for(const selector of ['.guide-visual','.editorial-photo','.visual-credit','.editorial-fallback','.article-visual','.path-visual','.hero-photo']){
   if(!css.includes(selector))throw new Error(`Missing visual CSS contract: ${selector}`);
+}
+const dashboardCss=fs.readFileSync(path.join(root,'dashboard-guide.css'),'utf8');
+for(const selector of ['.dashboard-guide-hero','.dashboard-gallery','.mobile-comparison','.quality-ladder']){
+  if(!dashboardCss.includes(selector))throw new Error(`Missing dashboard guide visual CSS contract: ${selector}`);
 }
 
 console.log(`Photographic visual system OK: ${D.articles.length} guides preserved; ${photoKeys.length} curated sources; ${F.length} feed items covered.`);

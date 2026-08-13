@@ -30,9 +30,10 @@ The homepage should balance these pillars. News should support discovery without
 - `styles.css` — responsive visual system.
 - `data.js` — imported guides, comparisons, repositories, community data and historical external feed records.
 - `subscription-refresh.js` — maintained verified subscription-plan corrections layered onto the imported decision guide and comparison cards before rendering.
-- `news-refresh.js` — maintained current-news additions, verification metadata and attributable thumbnail enhancement.
+- `news-refresh.js` and dated news modules — maintained current-news additions, verification metadata and attributable source context.
 - `news-media.css` — responsive news-thumbnail presentation.
 - `knowledge.js` — maintained original guides added after the imported historical collection.
+- `dashboard-guide.js` / `dashboard-guide.css` — flagship visual guide for designing professional dashboards with AI, including eight dashboard-type mockups, mobile composition and reusable design prompts.
 - `template-library.js` — reusable prompt and workflow template guide collection.
 - `sector-starter-packs.js` — sector-focused practical adoption guides for small business and operations.
 - `education-starter-pack.js` — educator-focused AI adoption guide covering pedagogy, assessment, privacy and AI literacy.
@@ -41,8 +42,8 @@ The homepage should balance these pillars. News should support discovery without
 - `app.js` — hash-based routing, rendering, unified search, filters and interactions.
 - `enhancements.js` and `mobile.css` — progressive mobile interaction and content-type refinements.
 - `vercel.json` — deployment and security-header configuration.
-- `docs/` — product vision, architecture, roadmap, content workflow and quality standards.
-- `CHANGELOG.md` — concise development history.
+- `docs/` — product vision, architecture, roadmap, content workflow, release archive and quality standards.
+- `CHANGELOG.md` — current release history, with older entries preserved in the changelog archive.
 
 The current source is a self-contained static web application with no required build step or external UI framework.
 
@@ -84,12 +85,12 @@ The Vercel project is connected directly to this repository. Older payload-based
 
 ## Status
 
-**Current release baseline: 0.6.11 / build `2026-08-12.1`.**
+**Current release baseline: 0.6.12 / build `2026-08-13.1`.**
 
-The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, added reusable prompt/workflow templates and sector starter packs, introduced a maintained current-news layer, established professional photographic guide treatment, and added a verified subscription-freshness layer for volatile consumer-plan facts.
+The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, added reusable prompt/workflow templates and sector starter packs, introduced a maintained current-news layer, established professional photographic guide treatment, added a verified subscription-freshness layer for volatile consumer-plan facts, and added a flagship visual guide for professional AI-assisted dashboard design.
 
-The current library preserves at least 28 original guides alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections.
+The current library preserves at least 29 original guides alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections.
 
 The next planned release is **0.7.0 — Maintainability & Freshness**, focused on structured content files/schema validation, freshness and superseded-content metadata, and a reusable source-quality model before another broad content expansion.
 
-Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships, subscription freshness and visual-system contracts.
+Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships, subscription freshness, dashboard-guide registration and visual-system contracts.

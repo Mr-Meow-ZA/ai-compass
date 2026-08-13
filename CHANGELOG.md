@@ -14,4 +14,5 @@ Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHA
 ### Changed
 - Increased the original guide library from 28 to 29 guides.
 - Registered the dashboard guide module and stylesheet in the production entry point and syntax validation path.
+- Registered the dashboard guide in content and visual-system validation, raised the preservation floor to 29, and added rendered desktop/mobile browser checks for all eight dashboard mockups, the quality ladder and mobile composition.
 - Advanced the production build marker to `2026-08-13.1`.
