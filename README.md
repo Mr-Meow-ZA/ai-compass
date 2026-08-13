@@ -36,6 +36,7 @@ The homepage should balance these pillars. News should support discovery without
 - `template-library.js` — reusable prompt and workflow template guide collection.
 - `sector-starter-packs.js` — sector-focused practical adoption guides for small business and operations.
 - `education-starter-pack.js` — educator-focused AI adoption guide covering pedagogy, assessment, privacy and AI literacy.
+- `dashboard-guide.js` and `dashboard-guide.css` — flagship professional-dashboard guide with embedded executive, operational, finance, project, SLA, AI-agent and mobile mockup examples.
 - `content.js` — learning paths, tips, reference terms and goal-based homepage entry points.
 - `visual-system.js` / visual validation scripts — retained visual-system source and validation history; production guide photography is rendered without runtime DOM image injection.
 - `app.js` — hash-based routing, rendering, unified search, filters and interactions.
@@ -84,12 +85,12 @@ The Vercel project is connected directly to this repository. Older payload-based
 
 ## Status
 
-**Current release baseline: 0.6.11 / build `2026-08-12.1`.**
+**Current release baseline: 0.6.12 / build `2026-08-13.1`.**
 
-The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, added reusable prompt/workflow templates and sector starter packs, introduced a maintained current-news layer, established professional photographic guide treatment, and added a verified subscription-freshness layer for volatile consumer-plan facts.
+The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, added reusable prompt/workflow templates and sector starter packs, introduced a maintained current-news layer, established professional photographic guide treatment, added a verified subscription-freshness layer for volatile consumer-plan facts, and introduced a visual flagship guide for professional AI-assisted dashboard design.
 
-The current library preserves at least 28 original guides alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections.
+The current library preserves at least 29 original guides alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections.
 
 The next planned release is **0.7.0 — Maintainability & Freshness**, focused on structured content files/schema validation, freshness and superseded-content metadata, and a reusable source-quality model before another broad content expansion.
 
-Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships, subscription freshness and visual-system contracts.
+Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships, subscription freshness, the dashboard-guide visual contract and visual-system contracts.
