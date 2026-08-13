@@ -268,3 +268,25 @@
 
 - Application build marker is `2026-08-12.1` and package version is `0.6.11`.
 - Repository validation and Vercel Preview remain required before merge; production must be verified against the exact merged `main` commit.
+
+## 2026-08-13 — Professional dashboard design flagship guide (0.6.12)
+
+### Content added
+
+- Added an original 28-minute guide, `create-professional-dashboards-with-ai`, covering decision-first dashboard requirements, information architecture, visual hierarchy, chart selection, AI-assisted design workflow, implementation prompts, mobile composition and release QA.
+- Added eight dashboard-use categories covering executive, command-centre, KPI, financial, project, SLA/service, AI-agent operations and personal productivity use cases.
+- Added six responsive in-guide mockups for executive portfolio, live operations, finance, project portfolio, service/SLA and AI-agent operations dashboards, plus a dedicated mobile dashboard example.
+- Added a visual bad → better → excellent comparison so readers can see the difference between a chart collection, a hierarchical dashboard and a true decision interface.
+- Added reusable prompts for requirements, wireframing, Power BI implementation and dashboard QA.
+
+### Sources and quality
+
+- Grounded design guidance in current Microsoft Power BI dashboard and Copilot documentation, W3C WCAG 2.2 and OpenAI prompting guidance.
+- Added `dashboard-guide.js` and `dashboard-guide.css` as a self-contained content and visual module.
+- Added dedicated validation that preserves a minimum of 29 original guides and verifies the dashboard mockup contract.
+- Extended rendered Chrome smoke tests to the new guide on desktop and 390 px mobile, including six visual examples, comparison states and the phone layout.
+
+### Release target
+
+- Application build marker is `2026-08-13.1` and package version is `0.6.12`.
+- No existing guide was removed or replaced.
