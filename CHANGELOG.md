@@ -2,6 +2,20 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.6.14 - 2026-08-14
+
+### Added
+- New practical build-guide collection focused on making useful work products with AI rather than explaining AI concepts in isolation.
+- **Build an executive presentation with AI** — evidence pack, story spine, slide architecture, production workflow, reusable prompts and red-team QA.
+- **Build a smart Excel tracker with AI** — schema design, controlled inputs, formulas, exception views, reusable prompts and workbook audit guidance.
+- **Build your first AI-assisted workflow automation** — trigger/fetch/decide/approve/act/log architecture, rule-vs-AI guidance, failure handling, auditability and success measures.
+- Original static visual mockups for all three guides, with responsive desktop/mobile presentation and no runtime image injection.
+
+### Changed
+- Practical guide library increases from 29 to 32 original guides.
+- Registered the new guide module and stylesheet in the production entry point and JavaScript syntax validation path.
+- Advanced the application build marker to `2026-08-14.2` and package version to `0.6.14`.
+
 ## 0.6.13 - 2026-08-14
 
 ### Corrected
