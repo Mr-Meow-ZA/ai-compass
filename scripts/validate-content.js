@@ -3,7 +3,7 @@ const fs=require('fs');
 const vm=require('vm');
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','reference-refresh-2026-08-14.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 const D=context.window.AI_COMPASS_DATA;
 const L=context.window.AI_COMPASS_LIBRARY;
 const errors=[];
@@ -41,6 +41,13 @@ for(const item of L.references||[]){
   if(!key)errors.push('Reference term is missing');
   if(terms.has(key))errors.push(`Duplicate reference term: ${item.term}`);
   terms.add(key);
+  if(item.sourceUrl&&!/^https:\/\//.test(item.sourceUrl))errors.push(`Invalid reference source URL: ${item.term}`);
 }
+for(const slug of ['content-provenance-c2pa','open-weight-model']){
+  const item=(L.references||[]).find(entry=>entry.slug===slug);
+  if(!item)errors.push(`Maintained reference missing: ${slug}`);
+  if(item?.verified!=='2026-08-14'||!item?.source||!item?.sourceUrl)errors.push(`Maintained reference metadata incomplete: ${slug}`);
+}
+if(!(L.tips||[]).some(item=>item.id==='provenance-is-a-signal'))errors.push('Provenance verification tip did not load');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Content valid: ${D.articles.length} guides, ${L.learningPaths.length} paths, ${L.tips.length} tips, ${L.references.length} reference terms.`);
