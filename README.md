@@ -34,6 +34,7 @@ The homepage should balance these pillars. News should support discovery without
 - `news-media.css` — responsive news-thumbnail presentation.
 - `knowledge.js` — maintained original guides added after the imported historical collection.
 - `dashboard-guide.js` / `dashboard-guide.css` — flagship visual guide for designing professional dashboards with AI, including eight dashboard-type mockups, mobile composition and reusable design prompts.
+- `practical-build-guides.js` / `practical-build-guides.css` — outcome-first guides for executive presentations, smart Excel trackers and AI-assisted workflow automation.
 - `template-library.js` — reusable prompt and workflow template guide collection.
 - `sector-starter-packs.js` — sector-focused practical adoption guides for small business and operations.
 - `education-starter-pack.js` — educator-focused AI adoption guide covering pedagogy, assessment, privacy and AI literacy.
@@ -86,12 +87,12 @@ The Vercel project is connected directly to this repository. Older payload-based
 
 ## Status
 
-**Current release baseline: 0.6.13 / build `2026-08-14.1`.**
+**Current release baseline: 0.6.15 / build `2026-08-15.1`.**
 
-The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, added reusable prompt/workflow templates and sector starter packs, introduced a maintained current-news layer, established professional photographic guide treatment, added a verified subscription-freshness layer for volatile consumer-plan facts, added a flagship visual guide for professional AI-assisted dashboard design, and strengthened primary-source provenance/reference coverage.
+The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, added reusable prompt/workflow templates and sector starter packs, introduced a maintained current-news layer, established professional photographic guide treatment, added a verified subscription-freshness layer for volatile consumer-plan facts, added flagship visual and practical build guides, and strengthened primary-source provenance/reference coverage.
 
-The current library preserves at least 29 original guides alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections. Maintained reference coverage now includes content provenance/C2PA and the distinction between open weights and Open Source AI.
+The current library preserves at least 32 original guides alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections. Maintained reference coverage includes content provenance/C2PA, the distinction between open weights and Open Source AI, and Structured Outputs for schema-constrained AI workflows.
 
-The next planned release is **0.7.0 — Maintainability & Freshness**, focused on structured content files/schema validation, freshness and superseded-content metadata, and a reusable source-quality model before another broad content expansion.
+The next planned release remains **0.7.0 — Maintainability & Freshness**, focused on structured content files/schema validation, freshness and superseded-content metadata, and a reusable source-quality model before another broad content expansion.
 
-Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships, subscription freshness, dashboard-guide registration, maintained news metadata, maintained reference metadata and visual-system contracts.
+Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships, subscription freshness, cumulative guide preservation, maintained news/reference metadata and visual-system contracts.
