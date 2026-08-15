@@ -2,6 +2,21 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.6.15 - 2026-08-15
+
+### Added
+- New maintained reference entry for **Structured Outputs**, grounded in OpenAI's primary documentation and verified 15 August 2026.
+- New practical automation tip: define and validate a fixed schema before asking AI to extract data for downstream workflows.
+
+### Changed
+- Raised cumulative guide-preservation validation from 29 to 32 and added explicit identity checks for the dashboard and three practical build guides so a missing module cannot pass silently.
+- Registered the 15 August reference-refresh module in both the application and validation paths.
+- Refreshed README and architecture documentation to match the current 32-guide baseline and practical-build module.
+- Advanced the application build marker to `2026-08-15.1` and package version to `0.6.15`.
+
+### News scan
+- Reviewed current primary-source channels from OpenAI, Anthropic, Google, Microsoft and Meta for material developments since the previous successful curator pass. No post-14-August item met the significance and source-quality threshold, so no filler news item was added.
+
 ## 0.6.14 - 2026-08-14
 
 ### Added
