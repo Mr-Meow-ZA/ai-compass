@@ -3,7 +3,7 @@ const fs=require('fs');
 const vm=require('vm');
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','reference-refresh-2026-08-14.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','practical-build-guides.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','reference-refresh-2026-08-14.js','reference-refresh-2026-08-15.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 const D=context.window.AI_COMPASS_DATA;
 const L=context.window.AI_COMPASS_LIBRARY;
 const errors=[];
@@ -18,14 +18,16 @@ for(const article of D.articles||[]){
   if(!Array.isArray(article.sources)||article.sources.length===0)errors.push(`Article has no sources: ${article.slug}`);
   for(const source of article.sources||[])if(!/^https:\/\//.test(source.url||''))errors.push(`Invalid source URL in ${article.slug}: ${source.url||'missing'}`);
 }
-if((D.articles||[]).length<29)errors.push(`Guide preservation failure: expected at least 29 guides, found ${(D.articles||[]).length}`);
+if((D.articles||[]).length<32)errors.push(`Guide preservation failure: expected at least 32 guides, found ${(D.articles||[]).length}`);
+for(const requiredSlug of ['create-professional-dashboards-with-ai','build-an-ai-powered-executive-presentation','build-a-smart-excel-tracker-with-ai','build-your-first-ai-assisted-workflow-automation']){
+  if(!slugs.has(requiredSlug))errors.push(`Required guide missing: ${requiredSlug}`);
+}
 const subscriptionGuide=(D.articles||[]).find(item=>item.slug==='choose-your-first-ai-subscription');
 const subscriptionSnapshot=subscriptionGuide?.sections?.find(section=>section.id==='snapshot')?.html||'';
 if(subscriptionGuide?.verified!=='2026-08-12')errors.push('Subscription guide freshness overlay did not load');
 if(!subscriptionSnapshot.includes('Google AI Plus')||!subscriptionSnapshot.includes('$9.99/month'))errors.push('Subscription guide is missing verified Google AI Plus entry pricing');
 if(!(D.comparisons||[]).some(item=>item.name==='Google AI Plus / Pro'))errors.push('Subscription comparison freshness overlay did not load');
 const dashboardGuide=(D.articles||[]).find(item=>item.slug==='create-professional-dashboards-with-ai');
-if(!dashboardGuide)errors.push('Dashboard flagship guide did not load');
 if(dashboardGuide?.verified!=='2026-08-13')errors.push('Dashboard guide verification date is missing');
 if((dashboardGuide?.sources||[]).length<4)errors.push('Dashboard guide source set is incomplete');
 const dashboardHtml=(dashboardGuide?.sections||[]).map(section=>section.html||'').join('\n');
@@ -43,11 +45,11 @@ for(const item of L.references||[]){
   terms.add(key);
   if(item.sourceUrl&&!/^https:\/\//.test(item.sourceUrl))errors.push(`Invalid reference source URL: ${item.term}`);
 }
-for(const slug of ['content-provenance-c2pa','open-weight-model']){
+for(const [slug,date] of [['content-provenance-c2pa','2026-08-14'],['open-weight-model','2026-08-14'],['structured-outputs','2026-08-15']]){
   const item=(L.references||[]).find(entry=>entry.slug===slug);
   if(!item)errors.push(`Maintained reference missing: ${slug}`);
-  if(item?.verified!=='2026-08-14'||!item?.source||!item?.sourceUrl)errors.push(`Maintained reference metadata incomplete: ${slug}`);
+  if(item?.verified!==date||!item?.source||!item?.sourceUrl)errors.push(`Maintained reference metadata incomplete: ${slug}`);
 }
-if(!(L.tips||[]).some(item=>item.id==='provenance-is-a-signal'))errors.push('Provenance verification tip did not load');
+for(const tipId of ['provenance-is-a-signal','schema-before-ai-extraction'])if(!(L.tips||[]).some(item=>item.id===tipId))errors.push(`Maintained tip did not load: ${tipId}`);
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Content valid: ${D.articles.length} guides, ${L.learningPaths.length} paths, ${L.tips.length} tips, ${L.references.length} reference terms.`);
