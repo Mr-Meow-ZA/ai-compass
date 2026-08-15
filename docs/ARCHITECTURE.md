@@ -7,9 +7,12 @@ AI Compass is a static single-page application:
 - `index.html` loads the application and SEO metadata.
 - `data.js` contains the imported original guides, comparisons, repositories, community items and curated external feed.
 - `knowledge.js` adds maintained original guides without rewriting the imported historical collection.
+- `dashboard-guide.js` contains the flagship visual dashboard guide.
+- `practical-build-guides.js` contains maintained outcome-first guides for presentations, Excel trackers and workflow automation.
 - `template-library.js` contains maintained reusable prompt and workflow templates.
 - `sector-starter-packs.js` contains maintained sector-focused adoption guides.
 - `content.js` contains learning paths, tips, reference terms and goal-based homepage entry points.
+- dated reference-refresh modules maintain verified reference and tip additions without rewriting the historical collection.
 - `app.js` provides hash routing, rendering, unified search, filters, saved guides and local prototype interactions.
 - `enhancements.js` provides progressive mobile navigation, mobile search and article contents controls.
 - `styles.css` contains the core responsive visual system.
@@ -65,6 +68,7 @@ That was a recovery workaround, not the target architecture. New development hap
 - Add content schemas and required source metadata.
 - Generate search indexes automatically.
 - Add editorial status and change-history fields.
+- Replace hard-coded module lists with a shared manifest so application registration and validation cannot drift apart.
 
 ### Phase 3 — shared backend
 
