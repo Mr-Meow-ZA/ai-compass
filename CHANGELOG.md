@@ -12,6 +12,7 @@ Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHA
 ### Changed
 - Original guide library increases from 32 to 33 guides.
 - Registered the new research guide in the application and syntax/content validation paths, raised the cumulative preservation floor to 33 and added an explicit required-slug/verification check.
+- Restored attributable photographic guide-card imagery for the dashboard and three earlier practical-build guides after rendered validation exposed legacy SVG/gradient overrides.
 - Advanced the application build marker to `2026-08-16.1` and package version to `0.6.16`.
 
 ### News scan
