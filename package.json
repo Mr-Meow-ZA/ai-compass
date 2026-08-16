@@ -1,10 +1,10 @@
 {
   "name": "ai-compass",
-  "version": "0.6.15",
+  "version": "0.6.16",
   "private": true,
   "description": "AI education, discovery and reference platform",
   "scripts": {
     "serve": "python -m http.server 4173",
-    "check": "node --check app.js && node --check data.js && node --check subscription-refresh.js && node --check news-refresh.js && node --check news-2026-08-13.js && node --check visual-system.js && node --check visual-news-coverage.js && node --check knowledge.js && node --check dashboard-guide.js && node --check practical-build-guides.js && node --check template-library.js && node --check sector-starter-packs.js && node --check education-starter-pack.js && node --check content.js && node --check reference-refresh-2026-08-14.js && node --check reference-refresh-2026-08-15.js && node --check enhancements.js && node scripts/validate-content.js && node scripts/validate-news.js && node scripts/validate-visual-system.js"
+    "check": "node --check app.js && node --check data.js && node --check subscription-refresh.js && node --check news-refresh.js && node --check news-2026-08-13.js && node --check visual-system.js && node --check visual-news-coverage.js && node --check knowledge.js && node --check dashboard-guide.js && node --check practical-build-guides.js && node --check research-build-guide.js && node --check template-library.js && node --check sector-starter-packs.js && node --check education-starter-pack.js && node --check content.js && node --check reference-refresh-2026-08-14.js && node --check reference-refresh-2026-08-15.js && node --check enhancements.js && node scripts/validate-content.js && node scripts/validate-news.js && node scripts/validate-visual-system.js"
   }
 }

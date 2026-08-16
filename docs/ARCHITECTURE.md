@@ -9,6 +9,7 @@ AI Compass is a static single-page application:
 - `knowledge.js` adds maintained original guides without rewriting the imported historical collection.
 - `dashboard-guide.js` contains the flagship visual dashboard guide.
 - `practical-build-guides.js` contains maintained outcome-first guides for presentations, Excel trackers and workflow automation.
+- `research-build-guide.js` contains the maintained source-backed research/report build guide.
 - `template-library.js` contains maintained reusable prompt and workflow templates.
 - `sector-starter-packs.js` contains maintained sector-focused adoption guides.
 - `content.js` contains learning paths, tips, reference terms and goal-based homepage entry points.
