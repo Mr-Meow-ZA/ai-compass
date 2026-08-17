@@ -25,6 +25,9 @@ Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHA
 - Evaluation guidance uses current Microsoft iterative agent-evaluation guidance, OpenAI Evals and NIST risk/evaluation material.
 - Identity/security guidance uses current Microsoft Entra Agent ID and authorization guidance plus NIST risk-management material.
 
+### News scan
+- Reviewed current official OpenAI, Anthropic, Google and Microsoft AI announcement channels for material developments since the previous successful curator pass. No new item surfaced that cleared the significance and source-quality threshold, so no filler news item was added.
+
 ## 0.6.18 - 2026-08-17
 
 ### Added
