@@ -6,7 +6,11 @@
   Sources / provenance:
   business — Jakub Żerdzicki / Unsplash — https://unsplash.com/photos/LNnmSumlwO4
   collaboration — Annie Spratt / Unsplash — https://unsplash.com/s/photos/team-meeting
+  coding — Ibrahim Yusuf / Unsplash — https://unsplash.com/photos/vWJtYRfE_rw
   automation — ZHENYU LUO / Unsplash — https://unsplash.com/photos/kE0JmtbvXxM
+  infrastructure — Kevin Ache / Unsplash — https://unsplash.com/photos/2JJ3wBHu4_0
+  security — Kier in Sight Archives / Unsplash — https://unsplash.com/photos/3Nwt6w-KU3E
+  research — Unsplash library photography — https://unsplash.com/s/photos/library
   infographic / data-visualization workspace — Ngital / Unsplash — https://unsplash.com/photos/8OYcY9CRP_0
 */
 .guide-card-link[href*="create-professional-dashboards-with-ai"]{
@@ -23,4 +27,19 @@
 }
 .guide-card-link[href*="build-a-professional-infographic-with-ai"]{
   --guide-photo:url('https://images.unsplash.com/photo-1781246435700-afec19012b45?auto=format&fit=crop&w=960&q=84')!important;
+}
+.guide-card-link[href*="design-an-enterprise-ai-architecture"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?auto=format&fit=crop&w=960&q=84')!important;
+}
+.guide-card-link[href*="build-a-trustworthy-enterprise-rag-system"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=960&q=84')!important;
+}
+.guide-card-link[href*="build-an-enterprise-ai-evaluation-framework"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1710770563074-6d9cc0d3e338?auto=format&fit=crop&w=960&q=84')!important;
+}
+.guide-card-link[href*="secure-enterprise-ai-agents-with-identity-and-least-privilege"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1667264501379-c1537934c7ab?auto=format&fit=crop&w=960&q=84')!important;
+}
+.guide-card-link[href*="enterprise-ai-development-lifecycle"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=960&q=84')!important;
 }
