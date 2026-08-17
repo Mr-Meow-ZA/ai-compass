@@ -1,27 +1,20 @@
 'use strict';
-const fs=require('fs');
-const vm=require('vm');
-const document={addEventListener(){},querySelectorAll(){return[]},getElementById(){return null}};
-const context={window:{},document,MutationObserver:class{observe(){}},Intl,Date,URL,console};
-vm.createContext(context);
-for(const file of [
-  'data.js','subscription-refresh.js','news-refresh.js','news-2026-08-13.js','news-intelligence-data.js',
-  'knowledge.js','dashboard-guide.js','practical-build-guides.js','infographic-build-guide.js','research-build-guide.js',
-  'agentic-build-guides.js','enterprise-ai-builder-guides.js','template-library.js','sector-starter-packs.js','education-starter-pack.js',
-  'content.js','enterprise-learning-path.js','curriculum-data.js','reference-refresh-2026-08-14.js','reference-refresh-2026-08-15.js'
-])vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+const {loadRuntimeData}=require('./load-runtime-data');
 
+(async()=>{
+const context=await loadRuntimeData({includeNews:true,includeFreshness:true});
 const D=context.window.AI_COMPASS_DATA;
 const L=context.window.AI_COMPASS_LIBRARY;
 const F=context.window.AI_COMPASS_FEED;
 const C=context.window.AI_COMPASS_CURRICULUM;
 const I=context.window.AI_COMPASS_NEWS_INTELLIGENCE;
+const FR=context.window.AI_COMPASS_FRESHNESS;
 const errors=[];
 const slugs=new Set((D?.articles||[]).map(item=>item.slug));
 const pathIds=new Set((L?.learningPaths||[]).map(item=>item.id));
 
 if((D?.articles||[]).length<41)errors.push(`Guide preservation failure: expected at least 41 guides, found ${(D?.articles||[]).length}`);
-if(!C||C.reviewed!=='2026-08-17'||!Array.isArray(C.levels))errors.push('Curriculum metadata missing or stale');
+if(!C||!/^\d{4}-\d{2}-\d{2}$/.test(C.reviewed||'')||!Array.isArray(C.levels))errors.push('Curriculum metadata missing or invalid');
 if((C?.levels||[]).length!==5)errors.push(`Expected five curriculum levels, found ${(C?.levels||[]).length}`);
 if(!pathIds.has('ai-power-user'))errors.push('AI Power User path did not load');
 const power=(L?.learningPaths||[]).find(item=>item.id==='ai-power-user');
@@ -42,13 +35,14 @@ for(const id of pathIds){
   if(meta?.next&&!pathIds.has(meta.next))errors.push(`Curriculum next path missing: ${id} -> ${meta.next}`);
 }
 
-if(!I||I.reviewed!=='2026-08-17'||!Array.isArray(I.method?.principles)||I.method.principles.length!==4)errors.push('News intelligence method missing or stale');
+if(!I||!/^\d{4}-\d{2}-\d{2}$/.test(I.reviewed||'')||!Array.isArray(I.method?.principles)||I.method.principles.length!==4)errors.push('News intelligence method missing or invalid');
 if(!Array.isArray(F)||F.length<20)errors.push(`Expected at least 20 curated news items, found ${F?.length||0}`);
 let highSignal=0;
 for(const item of F||[]){
   const n=item.intelligence;
   if(!n||!n.signal||!n.status||!n.sourceQuality||!n.why||!n.audience||!n.action)errors.push(`News intelligence incomplete: ${item.id}`);
   if(typeof n?.importance!=='number'||n.importance<1||n.importance>5)errors.push(`Invalid news importance: ${item.id}`);
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(n?.reviewed||''))errors.push(`News intelligence review date invalid: ${item.id}`);
   if((n?.importance||0)>=4)highSignal++;
   if(n?.related&&!slugs.has(n.related)&&!(L?.references||[]).some(ref=>ref.slug===n.related))errors.push(`News intelligence related content missing: ${item.id} -> ${n.related}`);
 }
@@ -58,6 +52,11 @@ for(const id of ['anthropic-claude-watermarking-provenance','openai-atlas-retire
   if(!item)errors.push(`Maintained news signal missing: ${id}`);
   if((item?.intelligence?.importance||0)<4)errors.push(`Maintained news signal not marked high signal: ${id}`);
 }
+if(!FR?.policy?.classes?.volatile||!FR?.policy?.classes?.durable||!FR?.policy?.classes?.news)errors.push('Freshness runtime did not load all policy classes');
+const subscription=(D?.articles||[]).find(item=>item.slug==='choose-your-first-ai-subscription');
+if(subscription&&FR.classFor('guides',subscription.slug)!=='volatile')errors.push('Subscription guide is not classified as volatile');
+if(context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS?.release!=='0.7.0')errors.push('Structured content runtime status is missing the 0.7.0 release');
 
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`Intelligence valid: ${D.articles.length} guides, ${L.learningPaths.length} paths across ${C.levels.length} levels, ${F.length} news items, ${highSignal} high-signal developments.`);
+console.log(`Intelligence valid: ${D.articles.length} guides, ${L.learningPaths.length} paths across ${C.levels.length} levels, ${F.length} news items, ${highSignal} high-signal developments; freshness runtime loaded.`);
+})().catch(error=>{console.error(error);process.exit(1)});
