@@ -29,9 +29,6 @@
     "news": "news"
   },
   "guideOverrides": {
-    "choose-your-first-ai-subscription": "volatile",
-    "chatgpt-vs-claude-vs-gemini-2026": "volatile",
-    "coding-plans-codex-claude-code-copilot-cursor": "volatile",
-    "local-ai-hardware-guide": "volatile"
+    "choose-your-first-ai-subscription": "volatile"
   }
 }
