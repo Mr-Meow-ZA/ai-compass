@@ -74,7 +74,10 @@ cp "$TMP/mobile.html" "$ROOT/visual-smoke-mobile.html"
 count_token(){ grep -o "$1" "$2" | wc -l | tr -d ' ' || true; }
 HOME_GUIDES="$(count_token 'class="guide-card ' "$TMP/home.html")"
 GUIDE_CARDS="$(count_token 'class="guide-card ' "$TMP/guides.html")"
-NEWS_CARDS="$(count_token 'class="news-item' "$TMP/news.html")"
+NEWS_LEGACY="$(count_token 'class="news-item' "$TMP/news.html")"
+NEWS_INTEL="$(count_token 'class="intel-news-row' "$TMP/news.html")"
+NEWS_SIGNALS="$(count_token 'class="signal-card' "$TMP/news.html")"
+if [[ "$NEWS_INTEL" -gt 0 ]]; then NEWS_CARDS="$NEWS_INTEL"; else NEWS_CARDS="$NEWS_LEGACY"; fi
 ARTICLE_HEADERS="$(count_token 'class="article-header' "$TMP/article.html")"
 MOBILE_HERO="$(count_token 'class="hero' "$TMP/mobile.html")"
 DASH_EXAMPLES="$(count_token 'class="dashboard-example' "$TMP/dashboard.html")"
@@ -83,11 +86,14 @@ DASH_PHONES="$(count_token 'class="phone-frame' "$TMP/dashboard-mobile.html")"
 INFOGRAPHIC_VISUALS="$(count_token 'build-visual infographic' "$TMP/infographic.html")"
 INFOGRAPHIC_MOBILE_HEADERS="$(count_token 'class="article-header' "$TMP/infographic-mobile.html")"
 
-echo "Rendered counts: home-guides=$HOME_GUIDES guides=$GUIDE_CARDS news-cards=$NEWS_CARDS article-headers=$ARTICLE_HEADERS mobile-hero=$MOBILE_HERO dashboard-examples=$DASH_EXAMPLES dashboard-quality=$DASH_QUALITY dashboard-phones=$DASH_PHONES infographic-visuals=$INFOGRAPHIC_VISUALS infographic-mobile-headers=$INFOGRAPHIC_MOBILE_HEADERS"
+echo "Rendered counts: home-guides=$HOME_GUIDES guides=$GUIDE_CARDS news-cards=$NEWS_CARDS news-signals=$NEWS_SIGNALS article-headers=$ARTICLE_HEADERS mobile-hero=$MOBILE_HERO dashboard-examples=$DASH_EXAMPLES dashboard-quality=$DASH_QUALITY dashboard-phones=$DASH_PHONES infographic-visuals=$INFOGRAPHIC_VISUALS infographic-mobile-headers=$INFOGRAPHIC_MOBILE_HEADERS"
 
 [[ "$HOME_GUIDES" -ge 3 ]] || { echo "Home rendered only $HOME_GUIDES guide cards" >&2; exit 1; }
 [[ "$GUIDE_CARDS" -ge 34 ]] || { echo "Guides rendered only $GUIDE_CARDS guide cards" >&2; exit 1; }
-[[ "$NEWS_CARDS" -ge 15 ]] || { echo "News directory rendered only $NEWS_CARDS cards" >&2; exit 1; }
+[[ "$NEWS_CARDS" -ge 15 ]] || { echo "News directory preserved only $NEWS_CARDS curated items" >&2; exit 1; }
+if [[ "$NEWS_INTEL" -gt 0 ]]; then
+  [[ "$NEWS_SIGNALS" -ge 3 ]] || { echo "Intelligence news route rendered only $NEWS_SIGNALS top signals" >&2; exit 1; }
+fi
 [[ "$ARTICLE_HEADERS" -ge 1 ]] || { echo "Article route did not render" >&2; exit 1; }
 [[ "$MOBILE_HERO" -ge 1 ]] || { echo "Mobile home did not render" >&2; exit 1; }
 [[ "$DASH_EXAMPLES" -eq 8 ]] || { echo "Dashboard guide rendered $DASH_EXAMPLES examples instead of 8" >&2; exit 1; }

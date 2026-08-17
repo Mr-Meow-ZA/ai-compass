@@ -2,6 +2,30 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.6.21 - 2026-08-17
+
+### Added
+- New source-first **AI Compass intelligence desk** for News with three deliberately elevated Top Signals, explicit real-world status, source-quality labels, audience relevance and a recommended next move.
+- Clear separation between sourced **What changed** summaries and **Why AI Compass thinks it matters** editorial analysis.
+- Search plus Signal, Topic and Status filters across the complete existing 20-item curated briefing.
+- New five-level curriculum: **AI Essentials → AI at Work → AI Power User → AI Builder & Team Lead → Enterprise AI Builder**.
+- New six-lesson **Become an AI power user** path covering reliable prompting, evidence-led research, reusable AI skills, RAG fundamentals, automation-versus-agent choice and evaluation.
+- Path-level prerequisite, learning-outcome, curriculum-position and recommended-next-path context.
+- `scripts/validate-intelligence.js` for curriculum/news-intelligence contracts and `scripts/smoke-intelligence.sh` for rendered News/Learn/Power User/Enterprise checks at desktop and mobile sizes.
+
+### Changed
+- News is no longer presented as a flat link directory. The original publisher/source records and canonical links remain intact underneath the intelligence presentation.
+- High-signal status is now deliberate editorial elevation rather than something a broad category such as Safety or Models can inherit automatically.
+- Preserved all **41 original guides** while increasing active learning paths from 6 to **7** and organising every path into exactly one of **5 curriculum levels**.
+- Strengthened the legacy visual smoke suite so it verifies preserved News volume under either the historical card markup or the new intelligence structure and requires Top Signals when the intelligence layer is active.
+- Advanced application build marker to `2026-08-17.5` and package version to `0.6.21`.
+
+### Validation and editorial review
+- Structural validation passes with 41 guides, 7 paths, 5 curriculum levels and complete intelligence metadata across all 20 curated News records.
+- Core visual regression, Enterprise AI Builder, discovery/navigation and the new signal/curriculum Chromium suites pass.
+- Manual desktop/mobile screenshot review caught an over-promoted external safety commentary item in Top Signals; the generic category scoring was corrected before merge. The resulting Top Signals are the maintained Anthropic provenance item, OpenAI Atlas retirement/migration and Google DeepMind Gemini 3.5 Flash Cyber limited-access development.
+- Reviewed official OpenAI, Anthropic, Google and Microsoft announcement/documentation channels for a newer material development. No post-13-August item cleared the significance/source-quality threshold, so no filler story was added merely to increase recency.
+
 ## 0.6.20 - 2026-08-17
 
 ### Added

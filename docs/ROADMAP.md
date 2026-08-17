@@ -8,7 +8,7 @@ A first-time reader should be able to arrive with a problem rather than AI vocab
 
 Target experience:
 
-- **Learn** — AI Essentials → AI for Work → AI Power User → AI Builder / Enterprise, plus role/goal paths.
+- **Learn** — AI Essentials → AI at Work → AI Power User → AI Builder & Team Lead → Enterprise AI Builder, plus role/goal paths.
 - **Guides** — substantial source-backed original content with level/topic/tool/goal metadata.
 - **Practical** — prompt recipes, patterns, checklists and quick techniques.
 - **Tools** — end-user/developer product profiles and comparisons.
@@ -16,7 +16,7 @@ Target experience:
 - **Courses** — vetted training with explicit AI Compass editorial judgement and audience fit.
 - **Resources** — reusable templates/frameworks/checklists and curated repositories/external material.
 - **Reference** — glossary, concepts, standards and durable explainers.
-- **News** — selective analysis of developments that matter, connected back to learning.
+- **News** — selective source-first intelligence about developments that matter, connected back to learning.
 - **Community / My Compass** — future free profiles, follows/saves, progress, comments, forum and personal return experience.
 
 ## Foundation completed
@@ -48,10 +48,24 @@ Target experience:
 - [x] Evolve Tips & Tricks into a stronger **Practical Library** presentation.
 - [x] Expand **Resources** around reusable AI Compass frameworks/checklists plus curated repositories.
 - [x] Add visible guide topic tags and topic shortcuts.
-- [x] Add experience-based learning lanes: AI Essentials, AI for Work, AI Power User, AI Builder & Enterprise.
+- [x] Add initial experience-based learning lanes.
 - [x] Add an explicit community/profile roadmap without pretending browser-local prototype features are shared accounts.
 - [x] Add structural validation for tool/model/course/resource metadata and relationships.
 - [x] Add dedicated desktop/mobile Chromium smoke routes for the new discovery experiences.
+
+## 0.6.21 — Signal & Curriculum
+
+- [x] Turn News from a flat link feed into a source-first intelligence briefing.
+- [x] Clearly separate publisher-backed **What changed** from **Why AI Compass thinks it matters**.
+- [x] Add signal, real-world status, source-quality, audience and recommended-next-action metadata across the full curated feed.
+- [x] Reserve high-signal status for deliberate editorial elevation rather than inheriting it from broad categories.
+- [x] Add Top Signals ranked by practical impact/durability while preserving the complete 20-item briefing with search and filters.
+- [x] Connect selected developments to relevant AI Compass guides/reference topics.
+- [x] Organise all seven learning paths into a formal five-level curriculum.
+- [x] Add a dedicated six-lesson **Become an AI power user** path bridging weekly AI use and controlled agent/enterprise building.
+- [x] Add prerequisites, learning outcomes, curriculum position and recommended next path to learning-path pages.
+- [x] Add structural intelligence/curriculum validation plus dedicated desktop/mobile Chromium smoke routes.
+- [x] Preserve all 41 original guides and existing public article routes.
 
 ## Next — 0.7.0 Maintainability & Freshness
 
@@ -62,26 +76,31 @@ The next structural release should make the growing library easier and safer to 
 - [ ] Move actively maintained guides, practical items, references, tools, models, courses, resources and news into structured JSON or Markdown collections with schemas.
 - [ ] Add a shared content manifest so app registration and validation cannot drift.
 - [ ] Add visible `last reviewed`, freshness class and superseded/archive metadata across volatile content.
-- [ ] Establish reusable source metadata and source-quality indicators.
+- [ ] Establish reusable source metadata and source-quality indicators across every volatile content type, reusing the concepts already proven in News.
 - [ ] Generate internal related-content relationships/search indexes from metadata where practical.
+- [ ] Move curriculum and News intelligence overlays into structured collections rather than browser-global modules.
 - [ ] Preserve all 41+ original guides and existing public routes during migration.
 - [ ] Keep `npm run check`, rendered browser smoke tests and Vercel Preview as release gates.
 
-## News evolution
+## News evolution — next depth
 
-- [ ] Audit the existing news archive for duplicate, low-value and outdated previews without erasing history.
-- [ ] Add structured AI Compass analysis fields: **what happened, why it matters, who should care, what changes, what remains unknown**.
-- [ ] Add importance labels such as Worth knowing / Important / Major development.
-- [ ] Link news to relevant guides, references, tools, models and courses.
-- [ ] Keep primary announcements visible and use reputable independent reporting only where it adds context.
-- [ ] Prefer a few meaningful developments to high-volume headline aggregation.
+The 0.6.21 release establishes the first structured intelligence layer. Remaining improvements:
 
-## Learning evolution
+- [ ] Audit the historical news archive for duplicate, low-value and outdated previews without erasing meaningful history.
+- [ ] Add an explicit **what remains unknown / watch next** field where it materially helps the reader.
+- [ ] Expand related links from guides/reference into relevant tools, models, courses and resources.
+- [ ] Add visible freshness/review indicators as part of the shared 0.7 metadata model.
+- [ ] Keep primary announcements visible and use reputable independent reporting only where it adds clearly labelled context.
+- [ ] Continue preferring a few meaningful developments to high-volume headline aggregation.
 
-- [ ] Audit every existing path for prerequisites, gaps, duplicated lessons and sensible next steps.
-- [ ] Build a formal **AI Power User** curriculum bridging everyday usage and technical builder material.
-- [ ] Add role-oriented paths such as Manager, Analyst/Researcher, Developer, Educator and Enterprise Leader where the library can support them without filler.
-- [ ] Add course recommendations and reusable resources inside learning paths.
+## Learning evolution — next depth
+
+The five-level curriculum and AI Power User bridge are now established. Remaining improvements:
+
+- [ ] Audit every lesson sequence for duplicated material, prerequisites and opportunities for practical exercises.
+- [ ] Add role-oriented paths such as Manager, Analyst/Researcher, Developer, Educator and Enterprise Leader where the existing library can support them without filler.
+- [ ] Add vetted course recommendations and reusable resources directly inside learning paths.
+- [ ] Add practice tasks / checkpoints to selected paths where completion can be meaningfully demonstrated.
 - [ ] Add progress/completion metadata in preparation for synced user profiles.
 
 ## Discovery/content expansion priorities
