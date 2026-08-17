@@ -1,6 +1,6 @@
 # AI Compass
 
-AI Compass is an AI discovery, education and reference platform for beginners and experienced users.
+AI Compass is an independent AI learning, discovery, reference and community platform for beginners, professionals and experienced builders.
 
 **Production:** https://ai-compass-hub.vercel.app  
 **Vercel project:** `ai-compass-hub`  
@@ -9,50 +9,52 @@ AI Compass is an AI discovery, education and reference platform for beginners an
 
 ## Product direction
 
-AI Compass is **not primarily a news website**. News is one section inside a broader practical hub.
+AI Compass is **not primarily a news website**. It should help a reader learn AI, build useful things, choose tools and models, find trustworthy training and resources, understand important developments and eventually learn with a community.
 
 The intended product pillars are:
 
-1. **Learn** — beginner-to-advanced learning paths.
-2. **Guides** — substantial original walkthroughs.
-3. **Tips & Tricks** — concise, practical techniques.
-4. **Reference** — glossary, concepts, model families and terminology.
-5. **Tools & Models** — comparisons and practical recommendations.
-6. **Resources** — repositories, videos, courses, templates and useful websites.
-7. **News** — a curated external discovery feed with clear source attribution.
-8. **Community** — questions, answers and suggested topics.
+1. **Learn** — structured paths from AI essentials through workplace use, power-user skills and enterprise building.
+2. **Guides** — substantial original explainers, decision guides and practical build walkthroughs.
+3. **Practical Library** — concise prompt recipes, patterns, checklists and techniques linked to deeper guidance.
+4. **Tools** — product profiles and practical recommendations by task, audience and constraint.
+5. **Models** — model-family reference separated from end-user products and subscriptions.
+6. **Courses** — vetted external training with an AI Compass editorial review, audience fit and value assessment.
+7. **Resources** — reusable AI Compass templates/frameworks plus carefully curated repositories and external material.
+8. **Reference** — glossary, concepts, standards and durable technical explanations.
+9. **News** — a selective feed of developments with sources and context rather than headline volume.
+10. **Community** — questions today, with free profiles, follows, progress, comments and forums planned as a governed future layer.
 
-The homepage should balance these pillars. News should support discovery without dominating the product.
+The homepage should orient readers by **what they want to achieve**, not force them to understand the product taxonomy first. News should support discovery without dominating the experience.
 
 ## Current repository contents
 
-- `index.html` — static application entry point.
-- `styles.css` — responsive visual system.
+- `index.html` — static application entry point and module registration.
+- `styles.css` / `mobile.css` — responsive application visual system.
 - `data.js` — imported guides, comparisons, repositories, community data and historical external feed records.
-- `subscription-refresh.js` — maintained verified subscription-plan corrections layered onto the imported decision guide and comparison cards before rendering.
+- `subscription-refresh.js` — maintained verified subscription-plan corrections layered onto the historical comparison content.
 - `news-refresh.js` and dated news modules — maintained current-news additions, verification metadata and attributable source context.
-- `news-media.css` — responsive news-thumbnail presentation.
 - `knowledge.js` — maintained original guides added after the imported historical collection.
-- `dashboard-guide.js` / `dashboard-guide.css` — flagship visual guide for designing professional dashboards with AI, including eight dashboard-type mockups, mobile composition and reusable design prompts.
-- `practical-build-guides.js` / `practical-build-guides.css` — outcome-first guides for executive presentations, smart Excel trackers and AI-assisted workflow automation.
-- `infographic-build-guide.js` — maintained visual-communication guide for evidence-led AI-assisted infographics, accessibility and verification.
-- `research-build-guide.js` — maintained build guide for source-backed AI research reports, evidence matrices, synthesis and verification.
-- `agentic-build-guides.js` — maintained guides for agent orchestration and governed workplace agent pilots/evaluation.
+- `dashboard-guide.js` / `dashboard-guide.css` — flagship visual dashboard build guide.
+- `practical-build-guides.js` / `practical-build-guides.css` — executive presentation, Excel tracker and workflow-automation build guides.
+- `infographic-build-guide.js` — evidence-led AI-assisted infographic guide.
+- `research-build-guide.js` — source-backed research/report build guide.
+- `agentic-build-guides.js` — agent orchestration and governed workplace agent-pilot guides.
 - `enterprise-ai-builder-guides.js` — enterprise architecture, RAG, evaluation, identity/security and AI-development-lifecycle guides.
-- `enterprise-learning-path.js` — maintained “Build AI systems at work” learning path linking the practical, agentic and enterprise builder series.
+- `enterprise-learning-path.js` — maintained **Build AI systems at work** path linking the practical, agentic and enterprise builder series.
 - `template-library.js` — reusable prompt and workflow template guide collection.
-- `sector-starter-packs.js` — sector-focused practical adoption guides for small business and operations.
-- `education-starter-pack.js` — educator-focused AI adoption guide covering pedagogy, assessment, privacy and AI literacy.
-- `content.js` — foundational learning paths, tips, reference terms and goal-based homepage entry points.
-- dated reference-refresh modules — maintained reference and tip additions with primary-source metadata without rewriting the historical collection.
-- `visual-system.css`, `editorial-photo-overrides.css` and visual validation scripts — maintained photographic editorial treatment and rendered desktop/mobile checks.
-- `app.js` — hash-based routing, rendering, unified search, filters and interactions.
-- `enhancements.js` and `mobile.css` — progressive mobile interaction and content-type refinements.
+- `sector-starter-packs.js` / `education-starter-pack.js` — sector-focused adoption guidance.
+- `content.js` — foundational learning paths, practical tips, reference terms and goal cards.
+- `discovery-data.js` — maintained tool, model, course and reusable-resource directories with verification/editorial metadata.
+- `site-evolution.js` / `site-evolution.css` — progressive navigation and discovery layer for separate Tools, Models, Courses, Practical and expanded Resources experiences without rewriting the stable core router.
+- dated reference-refresh modules — maintained reference and tip additions with primary-source metadata.
+- `visual-system.css`, `editorial-photo-overrides.css` and browser smoke scripts — maintained photographic editorial treatment and rendered validation.
+- `app.js` — stable hash routing, rendering, unified search, filters and interactions.
+- `enhancements.js` — progressive mobile interaction refinements.
 - `vercel.json` — deployment and security-header configuration.
 - `docs/` — product vision, architecture, roadmap, content workflow, release archive and quality standards.
-- `CHANGELOG.md` — current release history, with older entries preserved in the changelog archive.
+- `CHANGELOG.md` — current release history.
 
-The current source is a self-contained static web application with no required build step or external UI framework.
+The current source remains a self-contained static web application with no required build step or external UI framework. Shared accounts/community require a future backend and are not represented as production-ready merely because the interface describes the roadmap.
 
 ## Local development
 
@@ -70,35 +72,36 @@ The canonical workflow is:
 
 1. Create a small branch.
 2. Make focused changes.
-3. Run `npm run check` and the relevant rendered browser validation.
-4. Review desktop and mobile routes/interactions.
+3. Run `npm run check` and relevant rendered browser validation.
+4. Review actual desktop and mobile screenshots.
 5. Open or review a pull request.
-6. Require Vercel Preview and repository validation before merge.
+6. Require repository validation and Vercel Preview before merge.
 7. Merge to `main` only after checks pass.
 8. Let the connected Vercel project deploy `main`.
-9. Inspect the production result after deployment.
+9. Verify the exact merged SHA reached Vercel production before calling the release published.
 
 The Vercel project is connected directly to this repository. Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and are not part of the current production workflow.
 
 ## Product guardrails
 
-- Do not let the news feed displace guides, references, tips, comparisons or learning paths.
+- Do not let news displace guides, learning, reference, tools, models, courses or reusable resources.
+- Preserve every original guide by default; an unexplained guide-count reduction or missing registered module is a validation failure.
+- Keep Tools and Models conceptually separate: a product/subscription is not the same thing as the underlying model family.
+- Course ratings are editorial judgements supported by explicit reasons, limitations, audience fit and current source verification—not affiliate rankings.
 - Keep external previews short and link to the original publisher.
-- Clearly identify AI Compass original content versus third-party links.
-- Prefer primary sources and preserve publication or verification dates.
-- Use news imagery only when provenance is clear; preserve source credit and allow image-free cards when it is not.
-- Do not publish low-confidence rumours as facts.
-- Preserve every original guide by default and treat unexplained guide-count reductions or missing registered modules as validation failures.
-- Do not change authentication, secrets, domains, paid services, privacy settings or database schemas without explicit approval.
+- Clearly identify AI Compass original content versus third-party material and future user-generated community content.
+- Prefer primary sources and preserve publication/verification dates.
+- Use imagery only when provenance is clear and rendering is reliable.
+- Do not publish low-confidence rumours, unsupported rankings or unverified pricing as fact.
+- Do not represent browser-local saves/questions as shared-account features.
+- Authentication, database schemas, profile/community persistence, moderation systems, paid services or secrets require an explicitly reviewed backend phase.
 
 ## Status
 
-**Current release baseline: 0.6.19 / build `2026-08-17.3`.**
+**Current release candidate: 0.6.20 / build `2026-08-17.4`.**
 
-The 0.6.x line established the balanced knowledge-platform direction, expanded original guides and learning paths, introduced maintained current-news/reference layers, established professional photographic guide treatment and built a growing practical “make useful things with AI” series.
+The current library preserves at least **41 original guides**. The 0.6.20 foundation introduces separate Tools and Models directories, a vetted Courses section, an expanded reusable Resources toolkit, a stronger Practical Library, experience-based learning lanes, visible guide topic tags, clearer goal-based homepage entry points and an explicit community/profile roadmap.
 
-The current library preserves at least **41 original guides** alongside structured learning paths, practical tips, reference terms, templates and curated discovery collections. The Enterprise AI Builder series now connects workflow automation and agent orchestration to enterprise architecture, trustworthy RAG, systematic evaluation, least-privilege identity/security and a full idea-to-retirement AI development lifecycle. The dedicated **Build AI systems at work** path links these into one progressive route for corporate AI builders.
+This release deliberately uses a progressive discovery layer rather than a risky core-router rewrite. The next architectural step remains **0.7.0 — Maintainability & Freshness**: structured content/schema validation, visible freshness/superseded metadata and a reusable source-quality model. The future account/community phase should then add free profiles, synced saves/follows, learning progress, comments, forums, notifications and moderation on an approved backend without weakening editorial/community separation.
 
-The next planned structural release remains **0.7.0 — Maintainability & Freshness**, focused on structured content files/schema validation, freshness and superseded-content metadata, and a reusable source-quality model.
-
-Run `npm run check` before committing. It validates JavaScript syntax, guide identifiers, sources, internal learning relationships, subscription freshness, cumulative guide preservation, maintained news/reference metadata and visual-system contracts. Use `bash scripts/smoke-visuals.sh` and `bash scripts/smoke-enterprise.sh` for rendered visual validation.
+Run `npm run check` before committing. It validates JavaScript syntax, guide identities/sources, learning relationships, subscription freshness, cumulative guide preservation, maintained news/reference metadata, visual-system contracts and the new discovery/course/resource relationships. Use `bash scripts/smoke-visuals.sh`, `bash scripts/smoke-enterprise.sh` and `bash scripts/smoke-discovery.sh` for rendered validation.
