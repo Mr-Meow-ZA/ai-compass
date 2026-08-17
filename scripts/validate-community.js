@@ -12,6 +12,7 @@ const data=read('community-data.js');
 const ui=read('community.js');
 const migration=read('supabase/migrations/20260818003000_ai_compass_community_forum.sql');
 const hardening=read('supabase/migrations/20260818003200_ai_compass_forum_function_hardening.sql');
+const abuseHardening=read('supabase/migrations/20260818003300_ai_compass_forum_abuse_hardening.sql');
 
 required(/sb_publishable_[A-Za-z0-9_-]+/.test(config),'Community config must use a Supabase publishable key.');
 required(!/sb_secret_|service_role/i.test(config),'Community browser config must never contain a secret/service-role key.');
@@ -34,6 +35,10 @@ required(migration.includes('ai_compass_forum_reports_one_target'),'Report targe
 required(migration.includes('ai_compass_forum_threads_accepted_reply_fk'),'Accepted-answer relationship is missing.');
 required(hardening.includes('security invoker'),'Identity helpers must be hardened to security-invoker mode.');
 for(const fn of ['ai_compass_guard_profile_update','ai_compass_guard_thread_insert','ai_compass_guard_thread_update','ai_compass_guard_reply_insert','ai_compass_guard_reply_update','ai_compass_touch_thread_from_reply'])required(hardening.includes(`revoke execute on function public.${fn}()`),`Trigger function ${fn} remains browser-callable.`);
+required(abuseHardening.includes("current_setting('ai_compass.internal_thread_touch'"),'Thread activity updates need an internal-only touch guard.');
+required(abuseHardening.includes("or new.last_activity_at is distinct from old.last_activity_at"),'Thread authors must not be able to bump last_activity_at directly.');
+required(abuseHardening.includes('ai_compass_profiles_self_update'),'Normal profile updates must be self-only.');
+required(!abuseHardening.includes('ai_compass_profiles_self_or_mod_update'),'Broad moderator profile-edit policy must not be restored by abuse hardening.');
 
 for(const routeMarker of ['#community/thread/','#community/category/','#community/profile','#community/new','#community/moderation'])required(ui.includes(routeMarker),`Community route marker missing: ${routeMarker}`);
 required(ui.includes("bodyText=value=>esc(value).replace"),'Community post body rendering must escape user text before adding line breaks.');
@@ -44,4 +49,4 @@ required(data.includes("ai_compass_forum_reports"),'Community client must suppor
 required(data.includes("ai_compass_forum_moderation_actions"),'Community client must log moderation actions.');
 
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`Community contracts valid: ${tables.length} RLS tables, 11 categories, lazy client load, passwordless auth, reporting and moderation.`);
+console.log(`Community contracts valid: ${tables.length} RLS tables, 11 categories, lazy client load, passwordless auth, reporting, moderation and abuse hardening.`);
