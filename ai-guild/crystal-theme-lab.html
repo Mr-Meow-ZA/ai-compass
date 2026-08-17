@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Guild — Crystal Citadel Theme Lab</title>
+<style>
+:root{
+  --bg:#dfeefa;--sky:#bfe1ff;--deep:#223653;--text:#172338;--muted:#66758b;
+  --gold:#d5aa55;--line:rgba(65,82,106,.22);--glass:rgba(255,255,255,.62);
+  --glass2:rgba(255,255,255,.82);--accent:#6aa7e6;--accent2:#89d0e6;--shadow:rgba(52,76,110,.16);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}
+body{overflow-x:hidden}
+button,select{font:inherit}
+button{cursor:pointer}
+.app{min-height:100vh;background:
+radial-gradient(circle at 72% 6%,rgba(255,255,255,.8),transparent 24%),
+linear-gradient(180deg,var(--sky),var(--bg) 45%,#f7fbff 100%);
+position:relative}
+.app:before,.app:after{content:"";position:fixed;pointer-events:none;z-index:0;filter:blur(1px)}
+.app:before{width:360px;height:360px;border-radius:50%;right:-90px;top:120px;background:radial-gradient(circle,#d7f6ff 0 12%,#7fd2f1 13% 18%,rgba(92,152,210,.13) 19% 35%,transparent 36%);opacity:.55}
+.app:after{width:460px;height:220px;left:-120px;bottom:0;background:linear-gradient(25deg,transparent 0 20%,rgba(255,255,255,.8) 21% 29%,transparent 30% 38%,rgba(255,255,255,.55) 39% 50%,transparent 51%);opacity:.45}
+.shell{position:relative;z-index:1;display:grid;grid-template-columns:180px minmax(0,1fr);min-height:100vh}
+.side{padding:18px 12px;border-right:1px solid var(--line);backdrop-filter:blur(18px);background:rgba(255,255,255,.32)}
+.brand{text-align:center;padding:12px 6px 18px}.brand .crystal{font-size:38px;filter:drop-shadow(0 8px 10px rgba(67,127,182,.25))}.brand h1{font-family:Georgia,serif;font-size:19px;letter-spacing:.05em;margin:5px 0 2px}.brand small{color:var(--muted)}
+.nav{display:grid;gap:4px}.nav button{border:0;background:transparent;color:var(--muted);padding:10px 11px;border-radius:10px;text-align:left}.nav button.active,.nav button:hover{background:rgba(255,255,255,.62);color:var(--deep)}
+.side-rank{margin-top:16px;padding:10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.38)}.side-rank b{display:block;font-size:11px}.side-rank small{font-size:9px;color:var(--muted)}
+.content{padding:22px 26px 80px;max-width:1500px;width:100%;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}.top h2{font-family:Georgia,serif;font-size:27px;margin:0}.top p{color:var(--muted);margin:5px 0 0;font-size:12px}
+.theme-switch{min-width:250px}.theme-switch label{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:5px}.theme-switch select{width:100%;border:1px solid var(--line);background:var(--glass2);color:var(--deep);border-radius:10px;padding:9px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}
+.stat{border-top:1px solid var(--line);padding:10px 4px}.stat small{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.09em}.stat strong{display:block;font-size:20px;margin-top:4px}
+.hero-stage{min-height:430px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch;position:relative}
+.hero-display{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 20px;overflow:hidden}
+.hero-display:before{content:"";position:absolute;inset:12% 10% auto 12%;height:260px;border:1px solid rgba(255,255,255,.75);border-radius:50%;box-shadow:0 0 0 18px rgba(255,255,255,.08),0 0 0 35px rgba(98,160,216,.06)}
+.hero-art{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:280px;font-size:150px;filter:drop-shadow(0 24px 18px rgba(47,79,116,.2))}
+.hero-name{position:relative;z-index:3;margin-top:-20px}.hero-name .eyebrow{color:var(--accent);font-size:10px;text-transform:uppercase;letter-spacing:.13em}.hero-name h3{font-family:Georgia,serif;font-size:28px;margin:3px 0}.hero-name p{margin:0;color:var(--muted);font-size:12px;max-width:540px}
+.hero-selector{display:flex;gap:7px;margin-top:15px;position:relative;z-index:3}.hero-chip{border:1px solid var(--line);background:rgba(255,255,255,.42);border-radius:10px;padding:7px 9px;color:var(--deep)}.hero-chip.active{background:white;border-color:var(--gold);box-shadow:0 8px 20px var(--shadow)}
+.detail-panel{padding:18px 10px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
+.level-row{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}.level-row strong{font-size:30px;font-family:Georgia,serif}.level-row span{font-size:10px;color:var(--muted)}
+.xpbar{height:7px;background:rgba(52,70,97,.09);border-radius:999px;overflow:hidden}.xpbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.tabs{display:flex;gap:5px;margin:16px 0 10px;flex-wrap:wrap}.tabs button{border:0;background:transparent;color:var(--muted);padding:7px 9px;border-bottom:2px solid transparent}.tabs button.active{color:var(--deep);border-bottom-color:var(--gold)}
+.pane{display:none}.pane.show{display:block}
+.scroll-grid,.equipment-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.scroll,.equip{background:var(--glass);border:1px solid rgba(255,255,255,.7);box-shadow:0 10px 24px var(--shadow);border-radius:12px;padding:10px;backdrop-filter:blur(10px)}
+.scroll .icon,.equip .icon{font-size:25px}.scroll b,.equip b{display:block;font-size:11px;margin-top:4px}.scroll small,.equip small{font-size:9px;color:var(--muted)}
+.loot-line{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+.quest-rail{margin-top:18px;display:grid;grid-template-columns:1.4fr .6fr;gap:15px}
+.quests{display:grid;gap:7px}.quest{display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line)}.quest:last-child{border-bottom:0}.qicon{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.62);display:grid;place-items:center}.quest b{font-size:11px}.quest small{display:block;color:var(--muted);font-size:9px}.reward{font-size:10px;color:var(--accent)}
+.records{padding-left:16px;border-left:1px solid var(--line)}.records h4{font-family:Georgia,serif;margin:0 0 10px}.record{padding:8px 0;border-bottom:1px solid var(--line);font-size:10px}.record small{display:block;color:var(--muted)}
+.theme-note{margin-top:15px;color:var(--muted);font-size:10px;border-top:1px dashed var(--line);padding-top:10px}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.brand,.side-rank{display:none}.nav{grid-template-columns:repeat(6,1fr)}.nav button{text-align:center;padding:8px 4px;font-size:10px}.content{padding:14px 12px 70px}.top{display:block}.theme-switch{margin-top:10px}.stats{grid-template-columns:repeat(2,1fr)}.hero-stage,.quest-rail{grid-template-columns:1fr}.hero-display{min-height:380px}.hero-art{font-size:120px}.scroll-grid,.equipment-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.nav{grid-template-columns:repeat(3,1fr)}.scroll-grid,.equipment-grid,.loot-line{grid-template-columns:1fr}.hero-selector{overflow:auto}.hero-chip{white-space:nowrap}.hero-art{font-size:104px}}
+
+body[data-theme="citadel"]{--bg:#e6f1fb;--sky:#b8dcfa;--deep:#1f3550;--text:#18273c;--muted:#66778e;--gold:#d4ad58;--line:rgba(58,82,111,.20);--glass:rgba(255,255,255,.62);--glass2:rgba(255,255,255,.86);--accent:#5d9ee0;--accent2:#8dd0e7}
+body[data-theme="sanctum"]{--bg:#f5f2ea;--sky:#e4edf3;--deep:#243443;--text:#20303e;--muted:#7b858d;--gold:#c9a15d;--line:rgba(60,73,86,.18);--glass:rgba(255,255,255,.72);--glass2:#fff;--accent:#7ba8b9;--accent2:#b1c7d1}
+body[data-theme="aether"]{--bg:#ece9ff;--sky:#cbd9ff;--deep:#2c315d;--text:#252949;--muted:#6e7093;--gold:#d7b861;--line:rgba(60,62,108,.18);--glass:rgba(255,255,255,.58);--glass2:#fdfcff;--accent:#8a7de1;--accent2:#76c9e7}
+body[data-theme="sunspire"]{--bg:#f6ead5;--sky:#f6d7a7;--deep:#4a321f;--text:#392819;--muted:#8a6d51;--gold:#d29640;--line:rgba(93,62,34,.18);--glass:rgba(255,250,240,.62);--glass2:#fff9ed;--accent:#d7853b;--accent2:#efbd62}
+body[data-theme="verdant"]{--bg:#e8f1e9;--sky:#cce6d8;--deep:#244338;--text:#213a31;--muted:#6d8378;--gold:#c2a14f;--line:rgba(47,82,68,.17);--glass:rgba(255,255,255,.55);--glass2:#f8fffb;--accent:#5f9d7e;--accent2:#8ec4a8}
+
+body[data-theme="sanctum"] .app{background:linear-gradient(180deg,#edf2f5,#f9f6ee 45%,#fff 100%)}
+body[data-theme="aether"] .app{background:radial-gradient(circle at 78% 6%,rgba(255,255,255,.88),transparent 23%),linear-gradient(180deg,#cbd7ff,#ece9ff 47%,#f9fbff)}
+body[data-theme="sunspire"] .app{background:radial-gradient(circle at 80% 8%,rgba(255,247,211,.85),transparent 25%),linear-gradient(180deg,#f5d39c,#f5e4c5 48%,#fff8ec)}
+body[data-theme="verdant"] .app{background:radial-gradient(circle at 78% 8%,rgba(255,255,255,.75),transparent 24%),linear-gradient(180deg,#cce5d7,#e9f1e9 50%,#f9fdf8)}
+</style>
+</head>
+<body data-theme="citadel">
+<div class="app">
+  <div class="shell">
+    <aside class="side">
+      <div class="brand"><div class="crystal">💠</div><h1>AI GUILD</h1><small id="brandSub">Crystal Citadel</small></div>
+      <nav class="nav">
+        <button class="active">Guild</button><button>Heroes</button><button>Spellbook</button><button>Armoury</button><button>Quests</button><button>Chronicle</button>
+      </nav>
+      <div class="side-rank"><b>Guild Rank · Spellwarden</b><small>18,450 / 25,000 XP</small></div>
+    </aside>
+    <main class="content">
+      <div class="top">
+        <div><h2 id="pageTitle">Crystal Citadel</h2><p id="pageDesc">Bright high-fantasy, crystal architecture, character-first presentation.</p></div>
+        <div class="theme-switch"><label>Choose new direction</label><select id="themeSelect">
+          <option value="citadel">1 · Crystal Citadel Ascendant</option>
+          <option value="sanctum">2 · Ivory Sanctum</option>
+          <option value="aether">3 · Aether Court</option>
+          <option value="sunspire">4 · Sunspire Kingdom</option>
+          <option value="verdant">5 · Verdant Crown</option>
+        </select></div>
+      </div>
+
+      <section class="stats">
+        <div class="stat"><small>Guild XP</small><strong>18,450</strong></div>
+        <div class="stat"><small>Tokens</small><strong>428K</strong></div>
+        <div class="stat"><small>Adventures</small><strong>126</strong></div>
+        <div class="stat"><small>Streak</small><strong>7 days</strong></div>
+        <div class="stat"><small>Relics</small><strong>18</strong></div>
+      </section>
+
+      <section class="hero-stage">
+        <div class="hero-display">
+          <div class="hero-art" id="heroArt">🧙‍♂️</div>
+          <div class="hero-name"><div class="eyebrow" id="heroSchool">STRATEGY SCHOOL</div><h3 id="heroName">ChatGPT · Strategist Mage</h3><p id="heroLore">A versatile guild tactician who combines research, planning and synthesis magic into practical outcomes.</p></div>
+          <div class="hero-selector" id="heroSelector"></div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="level-row"><div><span>LEVEL</span><strong id="heroLevel">12</strong></div><span id="heroXpText">72% to Level 13</span></div>
+          <div class="xpbar"><i id="heroXpBar" style="width:72%"></i></div>
+          <div class="tabs" id="tabs"><button class="active" data-tab="spells">Spells</button><button data-tab="weapons">Weapons</button><button data-tab="armour">Armour</button><button data-tab="relics">Relics</button></div>
+          <div class="pane show" id="spellsPane"><div class="scroll-grid" id="spellsGrid"></div></div>
+          <div class="pane" id="weaponsPane"><div class="equipment-grid" id="weaponsGrid"></div></div>
+          <div class="pane" id="armourPane"><div class="equipment-grid" id="armourGrid"></div></div>
+          <div class="pane" id="relicsPane"><div class="loot-line" id="relicGrid"></div></div>
+        </div>
+      </section>
+
+      <section class="quest-rail">
+        <div>
+          <div class="quests">
+            <div class="quest"><div class="qicon">⚒️</div><div><b>Ship Something Useful</b><small>Deploy an app, document or workflow artifact.</small></div><div class="reward">+500 XP</div></div>
+            <div class="quest"><div class="qicon">📜</div><div><b>Master a Spell School</b><small>Use one skill family three times today.</small></div><div class="reward">+250 XP</div></div>
+            <div class="quest"><div class="qicon">🔗</div><div><b>Complete an Armour Set</b><small>Use four linked connectors on one project.</small></div><div class="reward">+900 XP</div></div>
+          </div>
+        </div>
+        <aside class="records"><h4>Guild Records</h4><div class="record"><b>Cursor forged a new feature</b><small>+240 XP · 27m ago</small></div><div class="record"><b>Claude mastered a long document</b><small>+160 XP · 1h ago</small></div><div class="record"><b>Codex shipped a build</b><small>+310 XP · 2h ago</small></div></aside>
+      </section>
+
+      <div class="theme-note" id="themeNote"></div>
+    </main>
+  </div>
+</div>
+
+<script>
+const HEROES=[
+{id:'gpt',name:'ChatGPT',role:'Strategist Mage',level:12,xp:72,art:'🧙‍♂️',school:'Strategy School',lore:'A versatile guild tactician who combines research, planning and synthesis magic into practical outcomes.',spells:['Insight','Strategy','Eloquence','Synthesis'],weapons:['⚔️ Codeblade · GitHub','🏹 Far-Seer Bow · Web Search','🪄 Artifact Wand · Documents','🔨 Deploy Hammer · Vercel'],armour:['🥋 Archivist Mantle · Drive','🧤 Forge Gauntlets · GitHub','🥾 Cloudstep Boots · Vercel','🛡️ Data Aegis · Supabase']},
+{id:'claude',name:'Claude',role:'Archive Sage',level:11,xp:61,art:'🧙',school:'Archive School',lore:'A scholar of deep reading, critique and long-context reasoning, strongest when handling complex knowledge.',spells:['Long Memory','Critique','Prose','Reason'],weapons:['📚 Sage Tome · Documents','🪶 Quillblade · Writing','🏹 Research Bow · Search','⚔️ Code Sabre · Claude Code'],armour:['🥋 Scholar Mantle','🪖 Context Helm','🧤 Repo Gauntlets','🥾 Archive Boots']},
+{id:'cursor',name:'Cursor',role:'Forgeblade',level:10,xp:54,art:'🧝‍♂️',school:'Forge School',lore:'A battle-smith for implementation, debugging, refactoring and turning rough ideas into working code.',spells:['Creation','Mending','Refactor','Tests'],weapons:['🗡️ Repository Blade','🔨 Forge Hammer','🪓 Refactor Axe','⚔️ Test Sword'],armour:['🧤 Repo Gauntlets','🪖 Workspace Helm','🥾 Deploy Boots','🛡️ Database Shield']},
+{id:'copilot',name:'Copilot',role:'Sentinel Knight',level:9,xp:44,art:'🛡️',school:'Sentinel School',lore:'A dependable guardian woven into everyday office work, workflows, meetings and operational systems.',spells:['Meetings','Officecraft','Summary','Workflow'],weapons:['⚔️ Office Longsword','🪄 Flow Wand','🏹 SharePoint Bow','🔨 Excel Mace'],armour:['🛡️ Tenant Shield','🥋 SharePoint Plate','🪖 Mail Helm','🥾 Calendar Greaves']},
+{id:'codex',name:'Codex',role:'Runesmith',level:8,xp:37,art:'🧙‍♀️',school:'Rune School',lore:'An autonomous builder focused on code changes, verification and turning plans into shipped artifacts.',spells:['Build','Repair','Agents','Release'],weapons:['⚔️ Branchblade','🔨 Build Hammer','🗡️ Patch Dagger','🏹 Deploy Bow'],armour:['🧤 Repo Bracers','🥾 Cloud Greaves','🛡️ Data Ward','🥋 Sandbox Mail']}
+];
+const THEMES={
+citadel:{name:'Crystal Citadel Ascendant',desc:'The refined version of the direction you liked: airy blue-white high fantasy, crystalline magic, modern structure, hero-first layout.',note:'Closest to the previous Crystal Citadel, but less dashboard-like and more like a premium character/equipment menu.'},
+sanctum:{name:'Ivory Sanctum',desc:'White stone, soft steel-blue, restrained gold and cathedral-like calm.',note:'This is the most elegant and minimal option. Think sacred high-fantasy palace rather than game HUD.'},
+aether:{name:'Aether Court',desc:'Lavender-blue sky realm with floating magical energy and aristocratic JRPG character presentation.',note:'More magical and expressive than Crystal Citadel, while keeping the same clean, achievable web structure.'},
+sunspire:{name:'Sunspire Kingdom',desc:'Warm ivory, amber crystal and heroic royal fantasy inspired by sunlit kingdoms and ceremonial equipment.',note:'A warmer alternative to the blue crystal look without falling back into medieval parchment or tavern styling.'},
+verdant:{name:'Verdant Crown',desc:'Luminous white-and-green high fantasy with nature magic, jade crystals and elven palace energy.',note:'For a fresher fantasy identity: still premium and bright, but built around living magic rather than ice/crystal.'}
+};
+let selected=HEROES[0];
+const q=s=>document.querySelector(s),qa=s=>Array.from(document.querySelectorAll(s));
+function renderHeroSelector(){
+ q('#heroSelector').innerHTML=HEROES.map(h=>`<button class="hero-chip ${h.id===selected.id?'active':''}" data-hero="${h.id}">${h.art} ${h.name}</button>`).join('');
+ qa('[data-hero]').forEach(b=>b.onclick=()=>{selected=HEROES.find(h=>h.id===b.dataset.hero)||HEROES[0];render();});
+}
+function render(){
+ q('#heroArt').textContent=selected.art;
+ q('#heroSchool').textContent=selected.school.toUpperCase();
+ q('#heroName').textContent=selected.name+' · '+selected.role;
+ q('#heroLore').textContent=selected.lore;
+ q('#heroLevel').textContent=selected.level;
+ q('#heroXpText').textContent=selected.xp+'% to Level '+(selected.level+1);
+ q('#heroXpBar').style.width=selected.xp+'%';
+ q('#spellsGrid').innerHTML=selected.spells.map((s,i)=>`<div class="scroll"><div class="icon">📜</div><b>Scroll of ${s}</b><small>${['Rare','Epic','Rare','Legendary'][i]} mastery</small></div>`).join('');
+ q('#weaponsGrid').innerHTML=selected.weapons.map(w=>`<div class="equip"><div class="icon">${w.slice(0,2)}</div><b>${w.slice(2)}</b><small>Plugin weapon</small></div>`).join('');
+ q('#armourGrid').innerHTML=selected.armour.map(a=>`<div class="equip"><div class="icon">${a.slice(0,2)}</div><b>${a.slice(2)}</b><small>Connector armour</small></div>`).join('');
+ q('#relicGrid').innerHTML=['💎 Focus Crystal','🏆 Shipwright Sigil','🔥 Seven-Day Flame'].map(r=>`<div class="equip"><div class="icon">${r.slice(0,2)}</div><b>${r.slice(2)}</b><small>Achievement relic</small></div>`).join('');
+ renderHeroSelector();
+}
+q('#tabs').onclick=e=>{const b=e.target.closest('button[data-tab]');if(!b)return;qa('#tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');qa('.pane').forEach(x=>x.classList.remove('show'));q('#'+b.dataset.tab+'Pane').classList.add('show');};
+q('#themeSelect').onchange=e=>{document.body.dataset.theme=e.target.value;const t=THEMES[e.target.value];q('#brandSub').textContent=t.name;q('#pageTitle').textContent=t.name;q('#pageDesc').textContent=t.desc;q('#themeNote').textContent=t.note;};
+render();
+q('#themeNote').textContent=THEMES.citadel.note;
+</script>
+</body>
+</html>
