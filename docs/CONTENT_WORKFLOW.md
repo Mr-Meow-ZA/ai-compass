@@ -21,6 +21,21 @@ AI Compass maintains deliberately distinct content types:
 
 Do not collapse different types merely because they mention the same provider. A product such as ChatGPT is a Tool; GPT is a model family; an OpenAI Academy course is Training; an OpenAI announcement can be News; a sourced explanation can be an AI Compass Guide.
 
+## Canonical maintained-content rule
+
+For collections migrated into `content/maintained/*.json`, the structured JSON record is the single editorial source of truth.
+
+Do **not** recreate parallel maintained JavaScript data modules. Runtime globals are compatibility adapters for the current static renderer, not canonical editorial stores.
+
+Current structured sources:
+
+- `content/maintained/discovery.json` — Tools, Models, Courses, Resources.
+- `content/maintained/curriculum.json` — curriculum levels, Power User path and progression metadata.
+- `content/maintained/news-intelligence.json` — News signal/status/analysis/action metadata.
+- `content/maintained/freshness.json` — review classes/windows and guide overrides.
+
+`content/manifest.json` owns registration, release/build identity, collection floors and structured-source/schema references.
+
 ## Required metadata
 
 Every published item should include, where relevant:
@@ -42,7 +57,7 @@ Every published item should include, where relevant:
 
 ### Learning/curriculum metadata
 
-Learning paths should additionally record audience, duration, ordered lesson slugs and a clear description. The maintained curriculum layer should record:
+Learning paths should record audience, duration, ordered lesson slugs and a clear description. The maintained curriculum should record:
 
 - One curriculum level for every active learning path
 - Intended audience and stage for each level
@@ -56,7 +71,9 @@ A learning path may reuse an existing source-backed guide; creating duplicate le
 
 ### Tool/model metadata
 
-Tool profiles should additionally record provider, product type, best-fit tasks, cautions and official source. Model-family profiles should record provider, access/deployment style, openness/licence caveat, best-fit workloads and official current documentation. Do not treat tool/subscription pricing as stable model metadata.
+Tool profiles should additionally record provider, product type, best-fit tasks, cautions, tags, official source and review date. Model-family profiles should record provider, access/deployment style, openness/licence caveat, best-fit workloads, tags, official current documentation and review date.
+
+Do not treat tool/subscription pricing as stable model metadata.
 
 ### Course-review metadata
 
@@ -72,7 +89,7 @@ Every vetted course should include:
 - What value it provides
 - Who should skip it / limitations
 - Related AI Compass learning path
-- Verification date
+- Verification/review date
 
 Ratings are editorial judgement, not objective fact. They must be supported by the written review and never purchased, sponsored or affiliate-driven without explicit disclosure.
 
@@ -103,6 +120,26 @@ Every maintained News record should preserve the source-backed publisher layer f
 Signal labels are editorial triage, not objective scores. Broad categories such as Safety or Models **must not automatically earn high-signal status**. High-signal elevation should be deliberate and supported by practical impact/durability. The UI must visually distinguish sourced `What changed` content from AI Compass analysis.
 
 Do not create analysis solely to increase volume. If the source scan produces no meaningful development, publishing nothing is preferable to manufacturing a daily story.
+
+## Freshness policy
+
+Freshness is maintenance metadata, not a quality score.
+
+The shared policy currently uses three classes:
+
+- **news** — fast-moving current developments;
+- **volatile** — provider-controlled products, models, courses, subscriptions and selected hardware/comparison guidance;
+- **durable** — concepts, curriculum structure and engineering guidance with longer review windows.
+
+Reader-facing states include `Current`, `Recent`, `Archive`, `Review soon`, `Needs review` and `Review date not recorded`.
+
+Rules:
+
+1. A freshness warning is a prompt to re-verify; it is not evidence that the content is wrong.
+2. Archived News remains part of historical editorial record unless the original item itself was materially incorrect.
+3. Volatile content marked `Needs review` should not be promoted as a current recommendation until its provider-controlled claims are rechecked.
+4. When an item is superseded or abandoned, mark that explicitly instead of using freshness alone to imply the change.
+5. Update the canonical review/verification date only after a real source check, not simply because a file was edited.
 
 ## Source standards
 
@@ -143,7 +180,7 @@ Future community content must be clearly labelled user-generated content and sto
 
 ## Updating existing content
 
-Before adding an item:
+Before adding or changing an item:
 
 1. Search titles, IDs, tags, claims and source URLs.
 2. Update the best existing record when possible.
@@ -151,38 +188,53 @@ Before adding an item:
 4. Preserve meaningful history.
 5. Mark obsolete items as superseded, archived or abandoned rather than silently presenting them as current.
 6. Preserve every existing original guide by default; an unexplained count reduction or missing guide slug is a release blocker.
-7. Re-review volatile tool/model/course/news records when their provider documentation materially changes.
+7. Re-review volatile tool/model/course/news records when provider documentation materially changes or the freshness policy says review is due.
 8. Re-check curriculum assignments whenever a path is added, removed or substantially reordered.
+9. For structured collections, edit the JSON source rather than runtime globals or deleted legacy data modules.
+10. If a schema genuinely changes, update the schema and validators in the same branch.
 
 ## Current source locations
 
-- `data.js` contains imported guides, comparisons, repositories, community records and historical curated external feed data.
-- `knowledge.js` and maintained guide modules extend the original guide library.
-- `content.js` contains foundational learning paths, practical items, reference terms and goal cards.
-- `enterprise-learning-path.js` extends the learning-path library with the corporate AI builder route.
-- `curriculum-data.js` adds the Power User path and five-level curriculum/progression metadata.
-- `learning-intelligence.js` presents curriculum and path progression without rewriting the stable core renderer.
-- `discovery-data.js` contains maintained Tools, Models, Courses and reusable Resources metadata.
-- `site-evolution.js` presents the evolved information architecture without rewriting the historical/core renderer.
-- `news-intelligence-data.js` layers signal/status/source-quality/action metadata across the curated feed.
-- `news-intelligence.js` presents the source-first intelligence briefing.
-- dated reference/news refresh modules add maintained current content without rewriting historical collections.
+### Historical/original content
 
-This split is an interim static model. The 0.7.x target is separate schema-validated JSON/Markdown collections with shared source/freshness metadata and a reusable manifest, including migration of the current curriculum and news-intelligence overlays.
+- `data.js` — imported guides, comparisons, repositories, community records and historical curated external feed data.
+- `knowledge.js` and maintained guide modules — cumulative original guide library.
+- `content.js` — foundational learning paths, practical items, reference terms and goal cards.
+- `enterprise-learning-path.js` — corporate AI builder route.
+- dated reference/news refresh modules — preserved source-backed additions.
+
+### Structured maintained content
+
+- `content/manifest.json` — registration/preservation/freshness manifest.
+- `content/maintained/discovery.json` — Tools, Models, Courses, Resources.
+- `content/maintained/curriculum.json` — curriculum and Power User path.
+- `content/maintained/news-intelligence.json` — News intelligence analysis metadata.
+- `content/maintained/freshness.json` — shared freshness policy.
+- `content/schemas/*.schema.json` — structured content contracts.
+- `structured-content-loader.js` — browser JSON/manifest loader.
+- `maintained-content-runtime.js` — compatibility adapter into current runtime globals.
+- `freshness-runtime.js` / `freshness-ui.js` — shared freshness calculation and presentation.
+- `site-evolution.js`, `learning-intelligence.js`, `news-intelligence.js` — structured-content-aware presentation layers.
+
+The migration is intentionally incremental. Guide bodies and foundational tips/references can move later only when the schema provides a clear maintenance benefit and cumulative-history risks are controlled.
 
 ## Release gates
 
 Every meaningful editorial/product release should:
 
-1. Register every new module in both application and validation paths.
-2. Run syntax/content/source validation.
-3. Validate affected search, filters, taxonomy and internal relationships.
-4. Validate course-to-learning-path, toolkit-to-guide, curriculum-to-path and news-related-content links.
-5. Preserve cumulative guide identities/count floors.
-6. For News changes, verify the sourced fact layer and AI Compass analysis remain visibly distinct.
-7. Run rendered browser checks for meaningful visual/navigation changes at desktop and mobile sizes.
-8. Inspect the actual screenshots rather than relying only on build success or DOM counts.
-9. Preserve image provenance and accessible treatment for prominent imagery.
-10. Update the changelog and relevant architecture/roadmap documentation.
-11. Merge only after required checks pass.
-12. Confirm the exact merged `main` commit reached Vercel production before calling it live.
+1. Fetch/read the current canonical repository and shared workflow lessons before editing.
+2. Keep structured collection IDs and source relationships stable unless a deliberate correction/migration requires change.
+3. Run schema/manifest validation and verify `index.html` registration agrees with `content/manifest.json`.
+4. Run syntax/content/source validation.
+5. Validate affected search, filters, taxonomy and internal relationships.
+6. Validate course-to-learning-path, toolkit-to-guide, curriculum-to-path and News-related-content links.
+7. Preserve cumulative guide identities/count floors.
+8. Verify structured-dependent presentation modules wait for content readiness rather than assuming network timing.
+9. For News changes, verify sourced facts and AI Compass analysis remain visibly distinct.
+10. For freshness changes, test deterministic threshold boundaries rather than only today's state.
+11. Run rendered browser checks for meaningful visual/navigation/runtime changes at desktop and mobile sizes.
+12. Inspect actual screenshots rather than relying only on build success or DOM counts when presentation changed.
+13. Preserve image provenance and accessible treatment for prominent imagery.
+14. Update changelog and relevant README/architecture/roadmap/quality documentation.
+15. Merge only after required checks and Vercel Preview pass for the exact branch head.
+16. Confirm the exact merged `main` SHA has a successful post-merge GitHub Actions run and successful Vercel deployment status before calling it published.
