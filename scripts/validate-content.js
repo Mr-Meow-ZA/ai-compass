@@ -3,7 +3,7 @@ const fs=require('fs');
 const vm=require('vm');
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','practical-build-guides.js','infographic-build-guide.js','research-build-guide.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','reference-refresh-2026-08-14.js','reference-refresh-2026-08-15.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','practical-build-guides.js','infographic-build-guide.js','research-build-guide.js','agentic-build-guides.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','reference-refresh-2026-08-14.js','reference-refresh-2026-08-15.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 const D=context.window.AI_COMPASS_DATA;
 const L=context.window.AI_COMPASS_LIBRARY;
 const errors=[];
@@ -18,9 +18,12 @@ for(const article of D.articles||[]){
   if(!Array.isArray(article.sources)||article.sources.length===0)errors.push(`Article has no sources: ${article.slug}`);
   for(const source of article.sources||[])if(!/^https:\/\//.test(source.url||''))errors.push(`Invalid source URL in ${article.slug}: ${source.url||'missing'}`);
 }
-if((D.articles||[]).length<34)errors.push(`Guide preservation failure: expected at least 34 guides, found ${(D.articles||[]).length}`);
-for(const requiredSlug of ['create-professional-dashboards-with-ai','build-an-ai-powered-executive-presentation','build-a-smart-excel-tracker-with-ai','build-your-first-ai-assisted-workflow-automation','build-a-professional-infographic-with-ai','build-a-professional-research-report-with-ai']){
+if((D.articles||[]).length<36)errors.push(`Guide preservation failure: expected at least 36 guides, found ${(D.articles||[]).length}`);
+for(const requiredSlug of ['create-professional-dashboards-with-ai','build-an-ai-powered-executive-presentation','build-a-smart-excel-tracker-with-ai','build-your-first-ai-assisted-workflow-automation','build-a-professional-infographic-with-ai','build-a-professional-research-report-with-ai','build-agent-orchestration','build-and-test-agentic-ai-at-work']){
   if(!slugs.has(requiredSlug))errors.push(`Required guide missing: ${requiredSlug}`);
+}
+for(const slug of ['build-agent-orchestration','build-and-test-agentic-ai-at-work']){
+ const g=(D.articles||[]).find(x=>x.slug===slug);if(g?.verified!=='2026-08-17')errors.push(`Agentic guide verification date missing: ${slug}`);if((g?.sources||[]).length<5)errors.push(`Agentic guide source set incomplete: ${slug}`);
 }
 const infographicGuide=(D.articles||[]).find(item=>item.slug==='build-a-professional-infographic-with-ai');
 if(infographicGuide?.verified!=='2026-08-17')errors.push('Infographic guide verification date is missing');
@@ -38,24 +41,11 @@ if(dashboardGuide?.verified!=='2026-08-13')errors.push('Dashboard guide verifica
 if((dashboardGuide?.sources||[]).length<4)errors.push('Dashboard guide source set is incomplete');
 const dashboardHtml=(dashboardGuide?.sections||[]).map(section=>section.html||'').join('\n');
 for(const token of ['dashboard-guide-hero','dashboard-gallery','mobile-comparison','quality-ladder','prompt-stack']) if(!dashboardHtml.includes(token))errors.push(`Dashboard guide contract missing: ${token}`);
-for(const path of L.learningPaths||[]){
-  if(!path.steps?.length)errors.push(`Learning path has no steps: ${path.id}`);
-  for(const slug of path.steps||[])if(!slugs.has(slug))errors.push(`Learning path ${path.id} references missing article ${slug}`);
-}
+for(const path of L.learningPaths||[]){if(!path.steps?.length)errors.push(`Learning path has no steps: ${path.id}`);for(const slug of path.steps||[])if(!slugs.has(slug))errors.push(`Learning path ${path.id} references missing article ${slug}`);}
 for(const tip of L.tips||[])if(!slugs.has(tip.related))errors.push(`Tip ${tip.id} references missing article ${tip.related}`);
 const terms=new Set();
-for(const item of L.references||[]){
-  const key=(item.term||'').toLowerCase();
-  if(!key)errors.push('Reference term is missing');
-  if(terms.has(key))errors.push(`Duplicate reference term: ${item.term}`);
-  terms.add(key);
-  if(item.sourceUrl&&!/^https:\/\//.test(item.sourceUrl))errors.push(`Invalid reference source URL: ${item.term}`);
-}
-for(const [slug,date] of [['content-provenance-c2pa','2026-08-14'],['open-weight-model','2026-08-14'],['structured-outputs','2026-08-15']]){
-  const item=(L.references||[]).find(entry=>entry.slug===slug);
-  if(!item)errors.push(`Maintained reference missing: ${slug}`);
-  if(item?.verified!==date||!item?.source||!item?.sourceUrl)errors.push(`Maintained reference metadata incomplete: ${slug}`);
-}
+for(const item of L.references||[]){const key=(item.term||'').toLowerCase();if(!key)errors.push('Reference term is missing');if(terms.has(key))errors.push(`Duplicate reference term: ${item.term}`);terms.add(key);if(item.sourceUrl&&!/^https:\/\//.test(item.sourceUrl))errors.push(`Invalid reference source URL: ${item.term}`);}
+for(const [slug,date] of [['content-provenance-c2pa','2026-08-14'],['open-weight-model','2026-08-14'],['structured-outputs','2026-08-15']]){const item=(L.references||[]).find(entry=>entry.slug===slug);if(!item)errors.push(`Maintained reference missing: ${slug}`);if(item?.verified!==date||!item?.source||!item?.sourceUrl)errors.push(`Maintained reference metadata incomplete: ${slug}`);}
 for(const tipId of ['provenance-is-a-signal','schema-before-ai-extraction'])if(!(L.tips||[]).some(item=>item.id===tipId))errors.push(`Maintained tip did not load: ${tipId}`);
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Content valid: ${D.articles.length} guides, ${L.learningPaths.length} paths, ${L.tips.length} tips, ${L.references.length} reference terms.`);
