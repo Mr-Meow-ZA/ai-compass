@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const X=window.AI_COMPASS_DISCOVERY||{tools:[],models:[],courses:[],resources:[]};
+let X=window.AI_COMPASS_DISCOVERY||{tools:[],models:[],courses:[],resources:[]};
 const D=window.AI_COMPASS_DATA||{articles:[],repos:[]};
 const L=window.AI_COMPASS_LIBRARY||{learningPaths:[],tips:[]};
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -58,12 +58,13 @@ function enhanceLearn(){
  if(current().arg||document.querySelector('.learning-lanes'))return;
  const heroEl=document.querySelector('.page-hero');if(!heroEl)return;
  const lanes=document.createElement('section');lanes.className='learning-lanes';
- const path=(id)=>L.learningPaths.find(x=>x.id===id);
+ const path=id=>L.learningPaths.find(x=>x.id===id);
  const laneData=[
   ['01','AI Essentials','Start here if AI still feels unfamiliar.',['start-here']],
   ['02','AI for Work','Move from chat to repeatable professional workflows.',['office-productivity','work-smarter']],
-  ['03','AI Power User','Build context, automation and stronger operating habits.',['responsible-adoption','build-agents']],
-  ['04','AI Builder & Enterprise','Design, test and govern AI systems at work.',['enterprise-ai-builder']]
+  ['03','AI Power User','Build context, automation and stronger operating habits.',['ai-power-user']],
+  ['04','AI Builder & Team Lead','Build controlled agentic systems and adoption practices.',['build-agents','responsible-adoption']],
+  ['05','Enterprise AI Builder','Design, test and govern production AI systems.',['enterprise-ai-builder']]
  ];
  lanes.innerHTML=`<div class="container"><div class="section-heading"><div><p class="eyebrow">Choose by experience</p><h2>From first use to enterprise builder.</h2><p>You do not need to know AI terminology to choose what to learn next.</p></div></div><div class="learning-lane-grid">${laneData.map(([n,t,d,ids])=>`<article><span>${n}</span><h3>${t}</h3><p>${d}</p>${ids.map(id=>path(id)).filter(Boolean).map(p=>`<a href="#learn/${esc(p.id)}">${esc(p.title)} →</a>`).join('')}</article>`).join('')}</div></div>`;
  heroEl.insertAdjacentElement('afterend',lanes);
@@ -110,6 +111,14 @@ function enhance(){
  if(r.page==='community')enhanceCommunity();
 }
 
-document.addEventListener('DOMContentLoaded',()=>setTimeout(enhance,0));
-addEventListener('hashchange',()=>setTimeout(enhance,0));
+function start(){
+ const ready=window.AI_COMPASS_CONTENT_READY||Promise.resolve();
+ ready.then(()=>{
+  X=window.AI_COMPASS_DISCOVERY||X;
+  const run=()=>setTimeout(enhance,0);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+  addEventListener('hashchange',run);
+ }).catch(error=>console.error('AI Compass discovery enhancement could not start',error));
+}
+start();
 })();
