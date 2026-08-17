@@ -3,10 +3,10 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 
 const categoryDefaults={
-  Safety:{importance:4,why:'This changes the trust, provenance, security or governance picture. The practical question is whether your current controls still match the capability or risk.',audience:'Security, governance and enterprise AI teams',action:'Review the primary source and check whether any policy, provenance or approval control should change.'},
+  Safety:{importance:3,why:'This changes the trust, provenance, security or governance picture. The practical question is whether your current controls still match the capability or risk.',audience:'Security, governance and enterprise AI teams',action:'Review the primary source and check whether any policy, provenance or approval control should change.'},
   Products:{importance:3,why:'Product changes matter when they alter a workflow, availability or migration path — not simply because a feature has a new name.',audience:'People using the affected product in real workflows',action:'Check availability in your own account before changing a process or subscription.'},
   Research:{importance:3,why:'Research can shift what is technically plausible, but a result or program is not the same as a generally available production capability.',audience:'Researchers, advanced users and AI builders',action:'Read the source for scope and limitations before treating the result as a product capability.'},
-  Models:{importance:4,why:'Model changes can affect capability, latency, cost and application design. Benchmarks are useful signals, not substitutes for your own task set.',audience:'Builders and people choosing models',action:'Re-run representative tasks before changing a production model or paid plan.'},
+  Models:{importance:3,why:'Model changes can affect capability, latency, cost and application design. Benchmarks are useful signals, not substitutes for your own task set.',audience:'Builders and people choosing models',action:'Re-run representative tasks before changing a production model or paid plan.'},
   OpenSource:{importance:3,why:'Open releases can materially change what can be inspected, adapted or run locally, but licence, hardware and maintenance quality still determine practical fit.',audience:'Developers and local-AI users',action:'Check the licence, model card, repository activity and hardware requirements before adoption.'},
   Business:{importance:3,why:'Partnerships and enterprise launches matter when they change distribution, support or access — but the real impact depends on what is actually available to customers.',audience:'Business leaders and enterprise AI teams',action:'Look for concrete availability, licensing and implementation details rather than headline commitments.'}
 };
@@ -83,7 +83,7 @@ window.AI_COMPASS_NEWS_INTELLIGENCE={
       'Durability — will this still matter after the launch-day excitement passes?',
       'Evidence — primary documentation and research outrank commentary when establishing what actually changed.'
     ],
-    note:'Signal labels are editorial triage, not objective scores. If nothing clears the threshold, AI Compass would rather publish nothing than manufacture a daily story.'
+    note:'Signal labels are editorial triage, not objective scores. Categories do not automatically earn high-signal status. If nothing clears the threshold, AI Compass would rather publish nothing than manufacture a daily story.'
   }
 };
 })();
