@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "release": "0.7.0",
+  "build": "2026-08-17.6",
+  "generatedBundle": "maintained-content.generated.js",
+  "sourceCollections": [
+    {
+      "id": "discovery",
+      "path": "content/maintained/discovery.json",
+      "schema": "content/schemas/discovery.schema.json"
+    },
+    {
+      "id": "curriculum",
+      "path": "content/maintained/curriculum.json",
+      "schema": "content/schemas/curriculum.schema.json"
+    },
+    {
+      "id": "news-intelligence",
+      "path": "content/maintained/news-intelligence.json",
+      "schema": "content/schemas/news-intelligence.schema.json"
+    },
+    {
+      "id": "freshness",
+      "path": "content/maintained/freshness.json",
+      "schema": "content/schemas/freshness.schema.json"
+    }
+  ],
+  "runtimeModules": [
+    {"path": "data.js", "role": "historical-core"},
+    {"path": "subscription-refresh.js", "role": "maintained-overlay"},
+    {"path": "news-refresh.js", "role": "news-feed"},
+    {"path": "news-2026-08-13.js", "role": "news-feed"},
+    {"path": "knowledge.js", "role": "guide-module"},
+    {"path": "dashboard-guide.js", "role": "guide-module"},
+    {"path": "practical-build-guides.js", "role": "guide-module"},
+    {"path": "infographic-build-guide.js", "role": "guide-module"},
+    {"path": "research-build-guide.js", "role": "guide-module"},
+    {"path": "agentic-build-guides.js", "role": "guide-module"},
+    {"path": "enterprise-ai-builder-guides.js", "role": "guide-module"},
+    {"path": "template-library.js", "role": "guide-module"},
+    {"path": "sector-starter-packs.js", "role": "guide-module"},
+    {"path": "education-starter-pack.js", "role": "guide-module"},
+    {"path": "content.js", "role": "library-core"},
+    {"path": "enterprise-learning-path.js", "role": "learning-overlay"},
+    {"path": "reference-refresh-2026-08-14.js", "role": "reference-overlay"},
+    {"path": "reference-refresh-2026-08-15.js", "role": "reference-overlay"},
+    {"path": "maintained-content.generated.js", "role": "generated-structured-content"},
+    {"path": "maintained-content-runtime.js", "role": "structured-content-runtime"},
+    {"path": "freshness-runtime.js", "role": "freshness-runtime"},
+    {"path": "app.js", "role": "core-renderer"},
+    {"path": "site-evolution.js", "role": "discovery-renderer"},
+    {"path": "enhancements.js", "role": "interaction-enhancement"},
+    {"path": "learning-intelligence.js", "role": "learning-renderer"},
+    {"path": "news-intelligence.js", "role": "news-renderer"}
+  ],
+  "collections": [
+    {"id": "guides", "global": "AI_COMPASS_DATA.articles", "minimum": 41, "freshnessClass": "durable"},
+    {"id": "learning-paths", "global": "AI_COMPASS_LIBRARY.learningPaths", "minimum": 7, "freshnessClass": "durable"},
+    {"id": "tips", "global": "AI_COMPASS_LIBRARY.tips", "minimum": 22, "freshnessClass": "durable"},
+    {"id": "references", "global": "AI_COMPASS_LIBRARY.references", "minimum": 25, "freshnessClass": "durable"},
+    {"id": "news", "global": "AI_COMPASS_FEED", "minimum": 20, "freshnessClass": "news"},
+    {"id": "tools", "global": "AI_COMPASS_DISCOVERY.tools", "minimum": 6, "freshnessClass": "volatile"},
+    {"id": "models", "global": "AI_COMPASS_DISCOVERY.models", "minimum": 6, "freshnessClass": "volatile"},
+    {"id": "courses", "global": "AI_COMPASS_DISCOVERY.courses", "minimum": 6, "freshnessClass": "volatile"},
+    {"id": "resources", "global": "AI_COMPASS_DISCOVERY.resources", "minimum": 8, "freshnessClass": "durable"}
+  ]
+}
