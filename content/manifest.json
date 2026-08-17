@@ -2,25 +2,28 @@
   "schemaVersion": 1,
   "release": "0.7.0",
   "build": "2026-08-17.6",
-  "generatedBundle": "maintained-content.generated.js",
   "sourceCollections": [
     {
       "id": "discovery",
+      "runtimeKey": "discovery",
       "path": "content/maintained/discovery.json",
       "schema": "content/schemas/discovery.schema.json"
     },
     {
       "id": "curriculum",
+      "runtimeKey": "curriculum",
       "path": "content/maintained/curriculum.json",
       "schema": "content/schemas/curriculum.schema.json"
     },
     {
       "id": "news-intelligence",
+      "runtimeKey": "newsIntelligence",
       "path": "content/maintained/news-intelligence.json",
       "schema": "content/schemas/news-intelligence.schema.json"
     },
     {
       "id": "freshness",
+      "runtimeKey": "freshness",
       "path": "content/maintained/freshness.json",
       "schema": "content/schemas/freshness.schema.json"
     }
@@ -44,7 +47,7 @@
     {"path": "enterprise-learning-path.js", "role": "learning-overlay"},
     {"path": "reference-refresh-2026-08-14.js", "role": "reference-overlay"},
     {"path": "reference-refresh-2026-08-15.js", "role": "reference-overlay"},
-    {"path": "maintained-content.generated.js", "role": "generated-structured-content"},
+    {"path": "structured-content-loader.js", "role": "manifest-loader"},
     {"path": "maintained-content-runtime.js", "role": "structured-content-runtime"},
     {"path": "freshness-runtime.js", "role": "freshness-runtime"},
     {"path": "app.js", "role": "core-renderer"},
