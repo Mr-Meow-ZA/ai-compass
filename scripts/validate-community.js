@@ -17,8 +17,8 @@ required(/sb_publishable_[A-Za-z0-9_-]+/.test(config),'Community config must use
 required(!/sb_secret_|service_role/i.test(config),'Community browser config must never contain a secret/service-role key.');
 required(config.includes("enabled:true"),'Community must be explicitly feature-enabled on the community branch.');
 required(index.includes('community.css'),'Community stylesheet is not registered.');
-required(index.includes('@supabase/supabase-js@2'),'Pinned-major Supabase browser client is not registered.');
-required(index.indexOf('@supabase/supabase-js@2')<index.indexOf('community-data.js'),'Supabase client must load before community-data.js.');
+required(data.includes('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/'),'Community data layer must lazy-load the pinned-major Supabase browser client.');
+required(data.includes("script.async=true"),'Community library should load asynchronously so it cannot block the editorial site.');
 required(index.indexOf('community-config.js')<index.indexOf('community-data.js'),'Community config must load before community-data.js.');
 required(index.indexOf('community-data.js')<index.indexOf('community.js'),'Community data layer must load before community UI.');
 for(const file of ['community-config.js','community-data.js','community.js'])required(manifest.runtimeModules.some(module=>module.path===file),`${file} is missing from the runtime manifest.`);
@@ -44,4 +44,4 @@ required(data.includes("ai_compass_forum_reports"),'Community client must suppor
 required(data.includes("ai_compass_forum_moderation_actions"),'Community client must log moderation actions.');
 
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`Community contracts valid: ${tables.length} RLS tables, 11 categories, passwordless auth, reporting and moderation.`);
+console.log(`Community contracts valid: ${tables.length} RLS tables, 11 categories, lazy client load, passwordless auth, reporting and moderation.`);
