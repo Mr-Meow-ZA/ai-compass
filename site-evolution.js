@@ -63,7 +63,7 @@ function enhanceLearn(){
   ['01','AI Essentials','Start here if AI still feels unfamiliar.',['start-here']],
   ['02','AI for Work','Move from chat to repeatable professional workflows.',['office-productivity','work-smarter']],
   ['03','AI Power User','Build context, automation and stronger operating habits.',['responsible-adoption','build-agents']],
-  ['04','AI Builder & Enterprise','Design, test and govern AI systems at work.',['build-ai-systems-at-work']]
+  ['04','AI Builder & Enterprise','Design, test and govern AI systems at work.',['enterprise-ai-builder']]
  ];
  lanes.innerHTML=`<div class="container"><div class="section-heading"><div><p class="eyebrow">Choose by experience</p><h2>From first use to enterprise builder.</h2><p>You do not need to know AI terminology to choose what to learn next.</p></div></div><div class="learning-lane-grid">${laneData.map(([n,t,d,ids])=>`<article><span>${n}</span><h3>${t}</h3><p>${d}</p>${ids.map(id=>path(id)).filter(Boolean).map(p=>`<a href="#learn/${esc(p.id)}">${esc(p.title)} →</a>`).join('')}</article>`).join('')}</div></div>`;
  heroEl.insertAdjacentElement('afterend',lanes);
