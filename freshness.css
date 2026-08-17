@@ -1,0 +1,11 @@
+/* AI Compass 0.7.0 freshness and maintenance status */
+.freshness-badge{display:inline-flex;align-items:center;gap:7px;max-width:100%;padding:6px 9px;border:1px solid #d6dee6;border-radius:999px;background:#f7f9fb;color:#52606d;font-size:11px;line-height:1.2;vertical-align:middle}
+.freshness-badge strong{font-size:11px;color:#243447;white-space:nowrap}.freshness-badge small{font-size:10px;color:#6d7884;white-space:nowrap}
+.freshness-current{border-color:#c9dfd2;background:#f3faf6}.freshness-current strong{color:#245b3d}
+.freshness-warning,.freshness-recent{border-color:#e5dcc3;background:#fcf9f0}.freshness-warning strong,.freshness-recent strong{color:#725a17}
+.freshness-stale{border-color:#e4c8c8;background:#fff6f6}.freshness-stale strong{color:#7a3434}
+.freshness-archive,.freshness-unknown{background:#f5f6f7;color:#68737f}.freshness-archive strong,.freshness-unknown strong{color:#4d5965}
+.freshness-strip{border-bottom:1px solid var(--line);background:#fbfcfd}.freshness-strip .container{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:12px;padding-bottom:12px}.freshness-strip p{margin:0;color:var(--muted);font-size:12px;line-height:1.45}.freshness-strip p strong{color:var(--ink)}
+.freshness-card-slot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 2px}.guide-card .freshness-card-slot{margin:4px 0 14px}.article-freshness{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 4px}.reference-item .freshness-card-slot{margin-top:10px}.intel-source .freshness-badge{margin-left:2px}.intel-news-row .freshness-badge{margin-top:8px}.curriculum-review .freshness-badge{margin-top:8px}
+.content-health-note{margin-top:12px;padding:12px 14px;border-left:3px solid #8aa0b5;background:#f7f9fb;color:#53616f;font-size:12px;line-height:1.5}.content-health-note strong{color:var(--ink)}
+@media(max-width:700px){.freshness-strip .container{align-items:flex-start;flex-direction:column;gap:8px}.freshness-badge{flex-wrap:wrap;border-radius:10px}.freshness-badge small{white-space:normal}.article-freshness{margin-top:10px}.intel-source .freshness-badge{margin-left:0;margin-top:4px}}
