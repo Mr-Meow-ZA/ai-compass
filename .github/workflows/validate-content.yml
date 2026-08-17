@@ -19,6 +19,8 @@ jobs:
           node-version: '22'
       - name: Validate source and content relationships
         run: npm run check
+      - name: Verify anonymous Community API boundaries
+        run: node scripts/check-community-anon-api.js
       - name: Render visual smoke routes in Chrome
         run: bash scripts/smoke-visuals.sh
       - name: Render enterprise builder routes in Chrome
