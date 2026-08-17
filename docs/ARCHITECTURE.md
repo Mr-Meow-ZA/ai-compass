@@ -166,7 +166,7 @@ Rendered release gates:
 - `scripts/smoke-enterprise.sh` — Enterprise AI Builder routes.
 - `scripts/smoke-discovery.sh` — Tools, Models, Courses, Practical, Resources and Learn.
 - `scripts/smoke-intelligence.sh` — News intelligence and five-level curriculum.
-- `scripts/smoke-structured-content.sh` — manifest-loaded data and freshness presentation across Guides, volatile guide, Tools, Models, Courses, Reference, Learn and News on desktop/mobile.
+- `scripts/smoke-freshness.sh` — manifest-loaded data and freshness presentation across Guides, volatile guide, Tools, Models, Courses, Reference, Learn and News on desktop/mobile.
 
 GitHub Actions runs all validation layers and uploads actual screenshots/DOM diagnostics before merge.
 
