@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Compass freshness policy",
+  "type": "object",
+  "required": ["reviewed", "classes", "collectionDefaults", "guideOverrides"],
+  "properties": {
+    "reviewed": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "classes": {
+      "type": "object",
+      "required": ["news", "volatile", "durable"],
+      "properties": {
+        "news": {"type": "object", "required": ["reviewEveryDays", "warnAfterDays"]},
+        "volatile": {"type": "object", "required": ["reviewEveryDays", "warnAfterDays"]},
+        "durable": {"type": "object", "required": ["reviewEveryDays", "warnAfterDays"]}
+      }
+    },
+    "collectionDefaults": {"type": "object"},
+    "guideOverrides": {"type": "object"}
+  }
+}
