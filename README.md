@@ -26,38 +26,51 @@ The intended product pillars are:
 
 The homepage should orient readers by **what they want to achieve**, not force them to understand the product taxonomy first. News should support discovery without dominating the experience.
 
-## Current repository contents
+## Current architecture
 
-- `index.html` — static application entry point and module registration.
-- `styles.css` / `mobile.css` — responsive application visual system.
-- `data.js` — imported guides, comparisons, repositories, community data and historical external feed records.
-- `subscription-refresh.js` — maintained verified subscription-plan corrections layered onto the historical comparison content.
-- `news-refresh.js` and dated news modules — maintained current-news additions, verification metadata and attributable source context.
-- `news-intelligence-data.js` — editorial signal/status/source-quality/impact metadata layered across the curated news feed.
-- `news-intelligence.js` / `intelligence.css` — source-first News briefing with Top Signals, explicit fact-versus-analysis sections and filtered full archive.
-- `knowledge.js` — maintained original guides added after the imported historical collection.
-- `dashboard-guide.js` / `dashboard-guide.css` — flagship visual dashboard build guide.
-- `practical-build-guides.js` / `practical-build-guides.css` — executive presentation, Excel tracker and workflow-automation build guides.
-- `infographic-build-guide.js` — evidence-led AI-assisted infographic guide.
-- `research-build-guide.js` — source-backed research/report build guide.
-- `agentic-build-guides.js` — agent orchestration and governed workplace agent-pilot guides.
-- `enterprise-ai-builder-guides.js` — enterprise architecture, RAG, evaluation, identity/security and AI-development-lifecycle guides.
-- `enterprise-learning-path.js` — maintained **Build AI systems at work** path linking the practical, agentic and enterprise builder series.
-- `curriculum-data.js` / `learning-intelligence.js` — five-level curriculum, the **Become an AI power user** bridge path and prerequisite/outcome/progression context for learning paths.
-- `template-library.js` — reusable prompt and workflow template guide collection.
-- `sector-starter-packs.js` / `education-starter-pack.js` — sector-focused adoption guidance.
+AI Compass remains a self-contained static web application with no runtime framework and no server-side database. Release 0.7.0 introduces a manifest-driven maintained-content layer so fast-changing editorial records no longer need duplicate browser-global source modules.
+
+### Stable application and historical content
+
+- `index.html` — static application entry point and script registration.
+- `app.js` — stable hash routing, core rendering, search, filters, saved guides and browser-local prototype interactions.
+- `data.js` — imported guides, comparisons, repositories, community records and historical curated feed records.
+- `knowledge.js` and maintained guide modules — the cumulative original-guide library.
 - `content.js` — foundational learning paths, practical tips, reference terms and goal cards.
-- `discovery-data.js` — maintained tool, model, course and reusable-resource directories with verification/editorial metadata.
-- `site-evolution.js` / `site-evolution.css` — progressive navigation and discovery layer for separate Tools, Models, Courses, Practical and expanded Resources experiences without rewriting the stable core router.
-- dated reference-refresh modules — maintained reference and tip additions with primary-source metadata.
-- `visual-system.css`, `editorial-photo-overrides.css` and browser smoke scripts — maintained photographic editorial treatment and rendered validation.
-- `app.js` — stable hash routing, rendering, unified search, filters and interactions.
-- `enhancements.js` — progressive mobile interaction refinements.
-- `vercel.json` — deployment and security-header configuration.
-- `docs/` — product vision, architecture, roadmap, content workflow, release archive and quality standards.
-- `CHANGELOG.md` — current release history.
+- `enterprise-learning-path.js` — maintained **Build AI systems at work** path.
+- dated news/reference refresh modules — verified additions layered onto historical data without rewriting it.
 
-The current source remains a self-contained static web application with no required build step or external UI framework. Shared accounts/community require a future backend and are not represented as production-ready merely because the interface describes the roadmap.
+### Structured maintained content
+
+- `content/manifest.json` — canonical release/build manifest, source-collection registry, runtime-module registry, preservation floors and freshness classes.
+- `content/maintained/discovery.json` — Tools, Models, Courses and reusable Resources.
+- `content/maintained/curriculum.json` — five-level curriculum, **Become an AI power user**, prerequisites, outcomes and next-path metadata.
+- `content/maintained/news-intelligence.json` — signal/status/source-quality/impact metadata applied to the curated News feed.
+- `content/maintained/freshness.json` — shared freshness classes, review windows and guide overrides.
+- `content/schemas/*.schema.json` — JSON Schema contracts for the manifest and maintained collections.
+- `structured-content-loader.js` — loads the manifest and declared JSON collections in the browser.
+- `maintained-content-runtime.js` — adapts structured records into the existing runtime globals while the stable renderer is preserved.
+- `freshness-runtime.js` / `freshness-ui.js` / `freshness.css` — deterministic freshness classification and visible maintenance state.
+
+The superseded `discovery-data.js`, `curriculum-data.js` and `news-intelligence-data.js` modules are intentionally removed in 0.7.0 so the maintained records have one source of truth.
+
+### Presentation layers
+
+- `site-evolution.js` / `site-evolution.css` — Tools, Models, Courses, Practical, Resources, guide tags and reader-first discovery.
+- `learning-intelligence.js` / `intelligence.css` — five-level curriculum and path progression.
+- `news-intelligence.js` / `intelligence.css` — source-first News intelligence desk.
+- `visual-system.css`, `editorial-photo-overrides.css`, guide-specific styles and `mobile.css` — responsive publication-style visual system.
+- `enhancements.js` — progressive mobile/search/article interaction refinements.
+
+## Freshness model
+
+AI Compass now distinguishes content by how quickly it can become misleading:
+
+- **News** — fast-moving developments. Reader states progress from `Current` to `Recent` to `Archive`.
+- **Volatile** — provider-controlled details such as tools, models, courses, subscriptions and selected hardware/comparison guides. States progress from `Current` to `Review soon` to `Needs review`.
+- **Durable** — concepts, learning structure and engineering guidance with longer review windows.
+
+Freshness is maintenance metadata, not a quality score. An archived news item remains historically valid if its source/summary was accurate; a `Needs review` label means the current recommendation or provider-controlled detail should be re-verified before relying on it.
 
 ## Local development
 
@@ -67,36 +80,49 @@ python -m http.server 4173
 
 Then open `http://localhost:4173`.
 
-Do not open `index.html` directly from the filesystem because browser security rules can differ from a served environment.
+Do not open `index.html` directly from the filesystem. The 0.7.0 maintained-content loader fetches JSON collections, so a served HTTP environment is required.
 
 ## Deployment
 
 The canonical workflow is:
 
-1. Create a small branch.
-2. Make focused changes.
-3. Run `npm run check` and relevant rendered browser validation.
-4. Review actual desktop and mobile screenshots.
-5. Open or review a pull request.
-6. Require repository validation and Vercel Preview before merge.
-7. Merge to `main` only after checks pass.
+1. Create a focused branch.
+2. Make source/content changes.
+3. Run `npm run check` and affected rendered-browser suites.
+4. Review actual desktop/mobile screenshots for meaningful visual changes.
+5. Open/review a pull request.
+6. Require repository validation and Vercel Preview for the exact PR head.
+7. Merge to `main` only after required checks pass.
 8. Let the connected Vercel project deploy `main`.
-9. Verify the exact merged SHA reached Vercel production before calling the release published.
+9. Verify the exact merged SHA has a successful post-merge GitHub Actions run and successful Vercel deployment status before calling the release published.
 
-The Vercel project is connected directly to this repository. Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and are not part of the current production workflow.
+Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and are not part of the current production workflow.
+
+## Editing structured maintained content
+
+For Tools, Models, Courses, Resources, Curriculum, News intelligence or freshness policy:
+
+1. Edit the appropriate file under `content/maintained/`.
+2. Keep stable IDs and existing canonical relationships unless an editorial correction requires a change.
+3. Add/update schema fields if the content contract genuinely changes.
+4. Update `content/manifest.json` only when a collection/module/preservation contract changes.
+5. Run `npm run check`.
+6. Render the affected route before merge.
+
+Do not recreate parallel JavaScript source modules for structured collections. The manifest/JSON record is the canonical maintained source.
 
 ## Product guardrails
 
 - Do not let news displace guides, learning, reference, tools, models, courses or reusable resources.
-- Preserve every original guide by default; an unexplained guide-count reduction or missing registered module is a validation failure.
+- Preserve every original guide by default; an unexplained guide-count reduction or missing required identity is a validation failure.
 - Keep Tools and Models conceptually separate: a product/subscription is not the same thing as the underlying model family.
 - Course ratings are editorial judgements supported by explicit reasons, limitations, audience fit and current source verification—not affiliate rankings.
 - News signal labels are editorial triage, not objective scores. A category never earns high-signal status automatically.
 - Separate source-backed `what changed` facts from AI Compass interpretation, audience impact and recommended action.
-- Prefer primary sources for establishing what changed; use independent reporting as clearly labelled context rather than silently upgrading it to a primary claim.
+- Prefer primary sources for establishing what changed; use independent reporting as clearly labelled context.
 - Keep external previews short and link to the original publisher.
 - Clearly identify AI Compass original content versus third-party material and future user-generated community content.
-- Prefer primary sources and preserve publication/verification dates.
+- Preserve source URLs, verification/review dates and superseded/archive state where relevant.
 - Use imagery only when provenance is clear and rendering is reliable.
 - Do not publish low-confidence rumours, unsupported rankings or unverified pricing as fact.
 - Do not represent browser-local saves/questions as shared-account features.
@@ -104,12 +130,22 @@ The Vercel project is connected directly to this repository. Older payload-based
 
 ## Status
 
-**Current release candidate: 0.6.21 / build `2026-08-17.5`.**
+**Release candidate: 0.7.0 / build `2026-08-17.6`.**
 
-The current library preserves at least **41 original guides** and now exposes **7 learning paths organised across 5 curriculum levels**. The new **Become an AI power user** path bridges everyday AI use and technical building through evidence-led research, reusable instructions, RAG fundamentals, automation choice and evaluation.
+The current library preserves at least **41 original guides**, **7 learning paths** across **5 curriculum levels**, a source-first **20-item News intelligence briefing**, **6 Tools**, **6 model families**, **6 vetted Courses** and **8 reusable toolkit resources**.
 
-News is now a source-first intelligence experience rather than a flat feed: Top Signals are deliberately elevated, publisher facts are separated from AI Compass analysis, availability/status is visible, readers can see who should care and what to do next, and the full 20-item curated archive remains filterable. The 17 August primary-source scan did not justify adding a filler story simply to increase recency.
+0.7.0 is primarily an architecture/trust release: Discovery, Curriculum, News Intelligence and Freshness are now canonical schema-validated JSON collections behind a shared manifest; duplicate JavaScript sources are removed; visible freshness states are shared across volatile content; and CI validates manifest registration, schemas, relationships, freshness behaviour and all existing browser routes.
 
-The next architectural step remains **0.7.0 — Maintainability & Freshness**: structured content/schema validation, visible freshness/superseded metadata, shared source metadata and generated taxonomy/relationships. The future account/community phase should then add free profiles, synced saves/follows, learning progress, comments, forums, notifications and moderation on an approved backend without weakening editorial/community separation.
+This is an incremental migration, not a risky rewrite. Original guide bodies, foundational tips/references and imported historical data remain in their proven modules and can move into structured collections during later 0.7.x work.
 
-Run `npm run check` before committing. It validates JavaScript syntax, guide identities/sources, all seven learning paths, curriculum assignments, subscription freshness, cumulative guide preservation, maintained news/reference metadata, editorial news-intelligence contracts, visual-system contracts and discovery/course/resource relationships. Use `bash scripts/smoke-visuals.sh`, `bash scripts/smoke-enterprise.sh`, `bash scripts/smoke-discovery.sh` and `bash scripts/smoke-intelligence.sh` for rendered validation.
+Run `npm run check` before committing. The full release gate also includes:
+
+```bash
+bash scripts/smoke-visuals.sh
+bash scripts/smoke-enterprise.sh
+bash scripts/smoke-discovery.sh
+bash scripts/smoke-intelligence.sh
+bash scripts/smoke-structured-content.sh
+```
+
+The next product priorities after 0.7.0 are generated cross-site taxonomy/search, deeper per-item freshness/source metadata, role-based learning paths and richer resource/tool/model coverage; the separately reviewed free-profile/community backend remains an approved product goal rather than a static-frontend shortcut.
