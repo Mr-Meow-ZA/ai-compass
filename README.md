@@ -145,7 +145,7 @@ bash scripts/smoke-visuals.sh
 bash scripts/smoke-enterprise.sh
 bash scripts/smoke-discovery.sh
 bash scripts/smoke-intelligence.sh
-bash scripts/smoke-structured-content.sh
+bash scripts/smoke-freshness.sh
 ```
 
 The next product priorities after 0.7.0 are generated cross-site taxonomy/search, deeper per-item freshness/source metadata, role-based learning paths and richer resource/tool/model coverage; the separately reviewed free-profile/community backend remains an approved product goal rather than a static-frontend shortcut.
