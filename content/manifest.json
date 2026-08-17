@@ -38,7 +38,9 @@
     {"path": "freshness-ui.js", "role": "freshness-renderer"},
     {"path": "community-config.js", "role": "community-config"},
     {"path": "community-data.js", "role": "community-data-runtime"},
-    {"path": "community.js", "role": "community-renderer"}
+    {"path": "my-compass-data.js", "role": "profile-preference-runtime"},
+    {"path": "community.js", "role": "community-renderer"},
+    {"path": "my-compass.js", "role": "personalization-renderer"}
   ],
   "collections": [
     {"id": "guides", "global": "AI_COMPASS_DATA.articles", "minimum": 41, "freshnessClass": "durable"},
