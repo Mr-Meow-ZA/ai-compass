@@ -3,8 +3,8 @@
 const D=window.AI_COMPASS_DATA||{articles:[]};
 const F=window.AI_COMPASS_FEED||[];
 const L=window.AI_COMPASS_LIBRARY||{references:[]};
-const X=window.AI_COMPASS_DISCOVERY||{tools:[],models:[],courses:[],resources:[]};
-const C=window.AI_COMPASS_CURRICULUM||{};
+let X=window.AI_COMPASS_DISCOVERY||{tools:[],models:[],courses:[],resources:[]};
+let C=window.AI_COMPASS_CURRICULUM||{};
 const current=()=>{const raw=(location.hash||'#home').slice(1);const [path]=raw.split('?');const parts=path.split('/').filter(Boolean);return{page:parts[0]||'home',arg:parts[1]||''}};
 const FR=()=>window.AI_COMPASS_FRESHNESS;
 const normalizeUrl=value=>String(value||'').replace(/\/$/,'');
@@ -127,6 +127,15 @@ function decorate(){
   wireRefreshControls();
 }
 
-document.addEventListener('DOMContentLoaded',()=>setTimeout(decorate,140));
-addEventListener('hashchange',()=>setTimeout(decorate,160));
+function start(){
+ const ready=window.AI_COMPASS_CONTENT_READY||Promise.resolve();
+ ready.then(()=>{
+  X=window.AI_COMPASS_DISCOVERY||X;
+  C=window.AI_COMPASS_CURRICULUM||C;
+  const run=()=>setTimeout(decorate,140);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+  addEventListener('hashchange',()=>setTimeout(decorate,160));
+ }).catch(error=>console.error('AI Compass freshness UI could not start',error));
+}
+start();
 })();
