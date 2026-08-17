@@ -2,19 +2,21 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "AI Compass content manifest",
   "type": "object",
-  "required": ["schemaVersion", "release", "build", "generatedBundle", "sourceCollections", "runtimeModules", "collections"],
+  "required": ["schemaVersion", "release", "build", "sourceCollections", "runtimeModules", "collections"],
   "properties": {
     "schemaVersion": {"type": "number"},
     "release": {"type": "string"},
     "build": {"type": "string"},
-    "generatedBundle": {"type": "string"},
     "sourceCollections": {
       "type": "array",
       "minItems": 4,
       "items": {
         "type": "object",
-        "required": ["id", "path", "schema"],
-        "properties": {"id": {"type": "string"}, "path": {"type": "string"}, "schema": {"type": "string"}}
+        "required": ["id", "runtimeKey", "path", "schema"],
+        "properties": {
+          "id": {"type": "string"}, "runtimeKey": {"type": "string"},
+          "path": {"type": "string"}, "schema": {"type": "string"}
+        }
       }
     },
     "runtimeModules": {
