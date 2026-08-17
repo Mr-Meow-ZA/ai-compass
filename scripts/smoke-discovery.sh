@@ -17,9 +17,13 @@ grep -q 'AI courses worth your time' "$TMP/courses.html" || { echo 'Courses rout
 grep -q 'Practical patterns you can use today' "$TMP/practical.html" || { echo 'Practical route did not render' >&2; exit 1; }
 grep -q 'Resources for building and using AI' "$TMP/resources.html" || { echo 'Resources route did not render' >&2; exit 1; }
 grep -q 'From first use to enterprise builder' "$TMP/learn.html" || { echo 'Learning lanes did not render' >&2; exit 1; }
-grep -q 'AI Compass editorial score' "$TMP/courses-mobile.html" || { echo 'Course cards did not render on mobile' >&2; exit 1; }
 grep -q 'Choose your route' "$TMP/home-mobile.html" || { echo 'Homepage entry points did not render on mobile' >&2; exit 1; }
-[[ "$(grep -o 'class="course-card"' "$TMP/courses.html" | wc -l | tr -d ' ')" -ge 6 ]] || { echo 'Too few course cards rendered' >&2; exit 1; }
-[[ "$(grep -o 'class="directory-card' "$TMP/tools.html" | wc -l | tr -d ' ')" -ge 6 ]] || { echo 'Too few tool cards rendered' >&2; exit 1; }
-[[ "$(grep -o 'class="directory-card' "$TMP/models.html" | wc -l | tr -d ' ')" -ge 6 ]] || { echo 'Too few model cards rendered' >&2; exit 1; }
-echo 'Discovery route smoke OK.'
+COURSE_DESKTOP="$(grep -o 'class="course-card"' "$TMP/courses.html" | wc -l | tr -d ' ')"
+COURSE_MOBILE="$(grep -o 'class="course-card"' "$TMP/courses-mobile.html" | wc -l | tr -d ' ')"
+TOOL_CARDS="$(grep -o 'class="directory-card' "$TMP/tools.html" | wc -l | tr -d ' ')"
+MODEL_CARDS="$(grep -o 'class="directory-card' "$TMP/models.html" | wc -l | tr -d ' ')"
+[[ "$COURSE_DESKTOP" -ge 6 ]] || { echo "Too few course cards rendered on desktop: $COURSE_DESKTOP" >&2; exit 1; }
+[[ "$COURSE_MOBILE" -ge 6 ]] || { echo "Too few course cards rendered on mobile: $COURSE_MOBILE" >&2; exit 1; }
+[[ "$TOOL_CARDS" -ge 6 ]] || { echo "Too few tool cards rendered: $TOOL_CARDS" >&2; exit 1; }
+[[ "$MODEL_CARDS" -ge 6 ]] || { echo "Too few model cards rendered: $MODEL_CARDS" >&2; exit 1; }
+echo "Discovery route smoke OK: courses desktop=$COURSE_DESKTOP mobile=$COURSE_MOBILE tools=$TOOL_CARDS models=$MODEL_CARDS."
