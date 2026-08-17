@@ -1,5 +1,7 @@
 'use strict';
 const {loadRuntimeData}=require('./load-runtime-data');
+const fs=require('fs');
+const path=require('path');
 
 (async()=>{
 const context=await loadRuntimeData({includeNews:true,includeFreshness:true});
@@ -9,6 +11,7 @@ const F=context.window.AI_COMPASS_FEED;
 const C=context.window.AI_COMPASS_CURRICULUM;
 const I=context.window.AI_COMPASS_NEWS_INTELLIGENCE;
 const FR=context.window.AI_COMPASS_FRESHNESS;
+const manifest=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../content/manifest.json'),'utf8'));
 const errors=[];
 const slugs=new Set((D?.articles||[]).map(item=>item.slug));
 const pathIds=new Set((L?.learningPaths||[]).map(item=>item.id));
@@ -55,7 +58,8 @@ for(const id of ['anthropic-claude-watermarking-provenance','openai-atlas-retire
 if(!FR?.policy?.classes?.volatile||!FR?.policy?.classes?.durable||!FR?.policy?.classes?.news)errors.push('Freshness runtime did not load all policy classes');
 const subscription=(D?.articles||[]).find(item=>item.slug==='choose-your-first-ai-subscription');
 if(subscription&&FR.classFor('guides',subscription.slug)!=='volatile')errors.push('Subscription guide is not classified as volatile');
-if(context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS?.release!=='0.7.0')errors.push('Structured content runtime status is missing the 0.7.0 release');
+const structuredStatus=context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS;
+if(structuredStatus?.release!==manifest.release||structuredStatus?.build!==manifest.build)errors.push(`Structured content runtime identity mismatch: expected ${manifest.release}/${manifest.build}, found ${structuredStatus?.release||'missing'}/${structuredStatus?.build||'missing'}`);
 
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Intelligence valid: ${D.articles.length} guides, ${L.learningPaths.length} paths across ${C.levels.length} levels, ${F.length} news items, ${highSignal} high-signal developments; freshness runtime loaded.`);
