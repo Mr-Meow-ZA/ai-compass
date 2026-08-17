@@ -7,6 +7,7 @@
   business — Jakub Żerdzicki / Unsplash — https://unsplash.com/photos/LNnmSumlwO4
   collaboration — Annie Spratt / Unsplash — https://unsplash.com/s/photos/team-meeting
   automation — ZHENYU LUO / Unsplash — https://unsplash.com/photos/kE0JmtbvXxM
+  infographic / data-visualization workspace — Ngital / Unsplash — https://unsplash.com/photos/8OYcY9CRP_0
 */
 .guide-card-link[href*="create-professional-dashboards-with-ai"]{
   --guide-photo:url('https://images.unsplash.com/photo-1707902665498-a202981fb5ac?auto=format&fit=crop&w=960&q=84')!important;
@@ -19,4 +20,7 @@
 }
 .guide-card-link[href*="build-your-first-ai-assisted-workflow-automation"]{
   --guide-photo:url('https://images.unsplash.com/photo-1655393001768-d946c97d6fd1?auto=format&fit=crop&w=960&q=84')!important;
+}
+.guide-card-link[href*="build-a-professional-infographic-with-ai"]{
+  --guide-photo:url('https://images.unsplash.com/photo-1781246435700-afec19012b45?auto=format&fit=crop&w=960&q=84')!important;
 }

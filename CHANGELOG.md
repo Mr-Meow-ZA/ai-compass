@@ -2,6 +2,22 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.6.17 - 2026-08-17
+
+### Added
+- New original build guide: **Build a professional infographic with AI: evidence, hierarchy, visuals and verification**.
+- Added a seven-pass visual-communication workflow, visual-form selection guidance, reusable research/layout/image-direction/red-team prompts, accessibility guidance and a publication QA checklist.
+- Grounded the guide in current OpenAI image-generation guidance, Datawrapper accessibility documentation and WCAG 2.2.
+- Added a distinct, attributable Unsplash editorial photograph for the guide card with provenance preserved in the stylesheet.
+
+### Changed
+- Original guide library increases from 33 to 34 guides.
+- Registered the infographic guide in the application and syntax/content validation paths, raised the cumulative preservation floor to 34 and added an explicit required-slug/verification check.
+- Advanced the application build marker to `2026-08-17.1` and package version to `0.6.17`.
+
+### News scan
+- Reviewed current official OpenAI, Anthropic, Google and Microsoft AI announcement channels for material developments since the previous successful curator pass. No post-16-August item met the significance and source-quality threshold, so no filler news item was added.
+
 ## 0.6.16 - 2026-08-16
 
 ### Added
