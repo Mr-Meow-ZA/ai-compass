@@ -1,10 +1,13 @@
 'use strict';
 const {loadRuntimeData}=require('./load-runtime-data');
+const fs=require('fs');
+const path=require('path');
 
 (async()=>{
 const context=await loadRuntimeData();
 const D=context.window.AI_COMPASS_DATA;
 const L=context.window.AI_COMPASS_LIBRARY;
+const manifest=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../content/manifest.json'),'utf8'));
 const errors=[];
 if(!D||!Array.isArray(D.articles))errors.push('AI_COMPASS_DATA.articles is missing');
 if(!L||!Array.isArray(L.learningPaths))errors.push('AI_COMPASS_LIBRARY.learningPaths is missing');
@@ -52,13 +55,14 @@ if(dashboardGuide?.verified!=='2026-08-13')errors.push('Dashboard guide verifica
 if((dashboardGuide?.sources||[]).length<4)errors.push('Dashboard guide source set is incomplete');
 const dashboardHtml=(dashboardGuide?.sections||[]).map(section=>section.html||'').join('\n');
 for(const token of ['dashboard-guide-hero','dashboard-gallery','mobile-comparison','quality-ladder','prompt-stack']) if(!dashboardHtml.includes(token))errors.push(`Dashboard guide contract missing: ${token}`);
-for(const path of L.learningPaths||[]){if(!path.steps?.length)errors.push(`Learning path has no steps: ${path.id}`);for(const slug of path.steps||[])if(!slugs.has(slug))errors.push(`Learning path ${path.id} references missing article ${slug}`);}
+for(const pathItem of L.learningPaths||[]){if(!pathItem.steps?.length)errors.push(`Learning path has no steps: ${pathItem.id}`);for(const slug of pathItem.steps||[])if(!slugs.has(slug))errors.push(`Learning path ${pathItem.id} references missing article ${slug}`);}
 for(const tip of L.tips||[])if(!slugs.has(tip.related))errors.push(`Tip ${tip.id} references missing article ${tip.related}`);
 const terms=new Set();
 for(const item of L.references||[]){const key=(item.term||'').toLowerCase();if(!key)errors.push('Reference term is missing');if(terms.has(key))errors.push(`Duplicate reference term: ${item.term}`);terms.add(key);if(item.sourceUrl&&!/^https:\/\//.test(item.sourceUrl))errors.push(`Invalid reference source URL: ${item.term}`);}
 for(const [slug,date] of [['content-provenance-c2pa','2026-08-14'],['open-weight-model','2026-08-14'],['structured-outputs','2026-08-15']]){const item=(L.references||[]).find(entry=>entry.slug===slug);if(!item)errors.push(`Maintained reference missing: ${slug}`);if(item?.verified!==date||!item?.source||!item?.sourceUrl)errors.push(`Maintained reference metadata incomplete: ${slug}`);}
 for(const tipId of ['provenance-is-a-signal','schema-before-ai-extraction'])if(!(L.tips||[]).some(item=>item.id===tipId))errors.push(`Maintained tip did not load: ${tipId}`);
-if(context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS?.release!=='0.7.0')errors.push('Structured content runtime did not apply during content validation');
+const structuredStatus=context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS;
+if(structuredStatus?.release!==manifest.release||structuredStatus?.build!==manifest.build)errors.push(`Structured content runtime identity mismatch: expected ${manifest.release}/${manifest.build}, found ${structuredStatus?.release||'missing'}/${structuredStatus?.build||'missing'}`);
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Content valid: ${D.articles.length} guides, ${L.learningPaths.length} paths, ${L.tips.length} tips, ${L.references.length} reference terms.`);
 })().catch(error=>{console.error(error);process.exit(1)});

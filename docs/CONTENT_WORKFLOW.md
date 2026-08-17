@@ -2,11 +2,11 @@
 
 ## Content types
 
-AI Compass maintains deliberately distinct content types:
+AI Compass keeps materially different content types separate:
 
 - Original guide / build guide / decision guide
-- Learning path and learning-path lesson
-- Curriculum level / path progression metadata
+- Learning path and lesson
+- Curriculum level / progression metadata
 - Practical pattern / prompt recipe / checklist / quick tip
 - Reference or glossary entry
 - Tool profile
@@ -16,225 +16,241 @@ AI Compass maintains deliberately distinct content types:
 - AI Compass reusable resource/template/framework
 - Curated repository
 - External article/video/podcast/paper/report preview
-- AI Compass news intelligence record / external news preview
-- Community question/comment/forum post (future user-generated content)
+- AI Compass News intelligence record / external News preview
+- Community thread / reply / profile / social signal / report (user-generated or governance data)
+- My Compass follow / like / learning-progress record (reader state, not editorial content)
 
-Do not collapse different types merely because they mention the same provider. A product such as ChatGPT is a Tool; GPT is a model family; an OpenAI Academy course is Training; an OpenAI announcement can be News; a sourced explanation can be an AI Compass Guide.
+Do not collapse types merely because they mention the same provider. A product such as ChatGPT is a Tool; GPT is a model family; OpenAI Academy is Training; an OpenAI announcement can be News; a sourced explanation can be an AI Compass Guide; a forum post is Community content.
 
 ## Canonical maintained-content rule
 
-For collections migrated into `content/maintained/*.json`, the structured JSON record is the single editorial source of truth.
+For collections migrated into `content/maintained/*.json`, the JSON record is the single editorial source of truth. Runtime globals are compatibility adapters, not editorial stores.
 
-Do **not** recreate parallel maintained JavaScript data modules. Runtime globals are compatibility adapters for the current static renderer, not canonical editorial stores.
+Current structured editorial sources:
 
-Current structured sources:
+- `content/maintained/discovery.json`
+- `content/maintained/curriculum.json`
+- `content/maintained/news-intelligence.json`
+- `content/maintained/freshness.json`
 
-- `content/maintained/discovery.json` — Tools, Models, Courses, Resources.
-- `content/maintained/curriculum.json` — curriculum levels, Power User path and progression metadata.
-- `content/maintained/news-intelligence.json` — News signal/status/analysis/action metadata.
-- `content/maintained/freshness.json` — review classes/windows and guide overrides.
+`content/manifest.json` owns registration, release/build identity, preservation floors and source/schema references.
 
-`content/manifest.json` owns registration, release/build identity, collection floors and structured-source/schema references.
+Do not recreate deleted parallel maintained JavaScript sources.
 
-## Required metadata
+## Editorial metadata
 
-Every published item should include, where relevant:
+Every published editorial item should include where relevant:
 
-- Stable ID or slug
-- Title
-- Short summary
+- Stable ID/slug
+- Title and short summary
 - Content type
-- Topic and tags
-- Intended skill level
-- Goal/use case and audience/role when useful
-- Publication or verification date
+- Topic/tags
+- Intended level and audience/role
+- Publication/verification/review date
 - Source name and canonical source URL
-- Original, external editorial preview or user-generated status
+- Original vs external editorial preview status
 - Confidence/editorial status
-- Related content and learning path
-- Freshness class / last reviewed date for volatile material
-- Superseded, archived or abandoned status when applicable
+- Related content/learning path
+- Freshness class
+- Superseded/archive/abandoned state
 
-### Learning/curriculum metadata
+### Learning/curriculum
 
-Learning paths should record audience, duration, ordered lesson slugs and a clear description. The maintained curriculum should record:
+Each active path must belong to exactly one curriculum level and every lesson slug must resolve to a published guide. Curriculum should record prerequisite, outcomes, stage/skills and recommended next path. Reusing a good guide is preferred to creating duplicate lessons merely to make a curriculum appear larger.
 
-- One curriculum level for every active learning path
-- Intended audience and stage for each level
-- Skills the level is intended to build
-- A practical `move on when` criterion rather than completion-for-completion's-sake
-- Path prerequisite
-- Explicit learning outcomes
-- Recommended next path when one exists
+### Tools/models
 
-A learning path may reuse an existing source-backed guide; creating duplicate lessons solely to make a curriculum appear larger is discouraged. Every path step must resolve to a published guide and every active path must belong to exactly one curriculum level.
+Tool profiles record provider, product type, best-fit tasks, cautions, tags, official source and review date. Model-family profiles record provider, access/deployment style, openness/licence caveat, best-fit workloads, tags, current docs and review date.
 
-### Tool/model metadata
+Do not treat product pricing as stable model metadata.
 
-Tool profiles should additionally record provider, product type, best-fit tasks, cautions, tags, official source and review date. Model-family profiles should record provider, access/deployment style, openness/licence caveat, best-fit workloads, tags, official current documentation and review date.
+### Courses
 
-Do not treat tool/subscription pricing as stable model metadata.
+Every vetted course should record provider/URL, level/audience, time, verified/variable cost, credential context, AI Compass verdict/score, rationale, value, limitations, related path and review date. Ratings are editorial judgement and must never be bought or affiliate-driven without disclosure.
 
-### Course-review metadata
+### News intelligence
 
-Every vetted course should include:
+Preserve two layers:
 
-- Provider and canonical course URL
-- Level and intended audience
-- Time commitment
-- Price only when verified or explicitly marked variable
-- Certificate/credential context without overstating its value
-- AI Compass editorial score or verdict
-- Why the course is recommended
-- What value it provides
-- Who should skip it / limitations
-- Related AI Compass learning path
-- Verification/review date
+**Publisher/source layer:** what changed, source/publisher, source type, URL, publication date, review date, optional independent context.
 
-Ratings are editorial judgement, not objective fact. They must be supported by the written review and never purchased, sponsored or affiliate-driven without explicit disclosure.
+**AI Compass layer:** signal/importance, real-world status, source-quality label, why it matters, who should care, next move, related content and optional watch-next/unknowns.
 
-### News-intelligence metadata
-
-Every maintained News record should preserve the source-backed publisher layer first, then add a clearly separate AI Compass interpretation layer.
-
-**Publisher/source layer:**
-
-- What changed / concise sourced summary
-- Publisher/source name and source type
-- Canonical source URL
-- Publication date
-- Verification/review date where maintained
-- Optional independent context URL/source when it adds material context
-
-**AI Compass intelligence layer:**
-
-- Importance/signal label
-- Real-world status such as available, rolling out, limited/preview, research or retirement/migration
-- Source-quality label
-- Why AI Compass thinks it matters
-- Who should care
-- Recommended next move
-- Related guide/reference/tool/model/course/resource where useful
-- What remains unknown / watch next when uncertainty materially affects action
-
-Signal labels are editorial triage, not objective scores. Broad categories such as Safety or Models **must not automatically earn high-signal status**. High-signal elevation should be deliberate and supported by practical impact/durability. The UI must visually distinguish sourced `What changed` content from AI Compass analysis.
-
-Do not create analysis solely to increase volume. If the source scan produces no meaningful development, publishing nothing is preferable to manufacturing a daily story.
+High signal is deliberate editorial elevation, not something a broad category inherits automatically. Publishing nothing is preferable to manufacturing daily volume.
 
 ## Freshness policy
 
-Freshness is maintenance metadata, not a quality score.
+Freshness is maintenance state, not quality.
 
-The shared policy currently uses three classes:
+- **news** — fast-moving developments;
+- **volatile** — provider-controlled products/models/courses/subscriptions and selected comparisons;
+- **durable** — concepts/curriculum/engineering guidance.
 
-- **news** — fast-moving current developments;
-- **volatile** — provider-controlled products, models, courses, subscriptions and selected hardware/comparison guidance;
-- **durable** — concepts, curriculum structure and engineering guidance with longer review windows.
-
-Reader-facing states include `Current`, `Recent`, `Archive`, `Review soon`, `Needs review` and `Review date not recorded`.
-
-Rules:
-
-1. A freshness warning is a prompt to re-verify; it is not evidence that the content is wrong.
-2. Archived News remains part of historical editorial record unless the original item itself was materially incorrect.
-3. Volatile content marked `Needs review` should not be promoted as a current recommendation until its provider-controlled claims are rechecked.
-4. When an item is superseded or abandoned, mark that explicitly instead of using freshness alone to imply the change.
-5. Update the canonical review/verification date only after a real source check, not simply because a file was edited.
+`Current`, `Recent`, `Archive`, `Review soon` and `Needs review` are reader-facing maintenance states. Update review dates only after an actual source check.
 
 ## Source standards
 
-Prefer:
+Prefer, in order:
 
-1. Official documentation and product announcements.
+1. Official documentation/announcements.
 2. Research papers and standards.
 3. Maintainer-owned repositories.
 4. Reputable technical publications.
 5. Independent commentary when it adds clearly labelled context.
 
-Do not publish unverified rumours or low-confidence claims as fact.
+Do not publish rumours or low-confidence claims as fact. Vendor examples must not silently become universal engineering rules.
 
-For technical build guides, primary sources should support architecture or implementation claims; avoid turning vendor-specific examples into universal requirements. Separate durable engineering principles from product-specific capabilities that can change.
-
-For course vetting, inspect the provider's current curriculum/course page rather than relying on third-party course aggregators. External reviews can inform context but should not replace curriculum verification.
-
-For News, prefer a primary source for establishing what changed. Independent reporting is useful for impact/context, but its interpretation should remain attributable and must not be presented as if it were the provider's own statement.
+For Courses, inspect the current provider curriculum. For News, prefer primary evidence for what changed and use independent reporting as attributable context.
 
 ## External content
 
-- Use a short original summary or preview.
-- Link to the canonical publisher/provider.
-- Do not reproduce full articles, transcripts, courses or copyrighted media.
-- Display publisher/provider and date clearly.
-- Separate sponsored or affiliate material explicitly.
-- Do not imply AI Compass ownership of external training, artwork or repositories.
+- Write short original summaries/previews.
+- Link to canonical publisher/provider.
+- Do not reproduce full copyrighted works.
+- Show publisher/date.
+- Disclose sponsored/affiliate content.
+- Never imply ownership of third-party artwork/training/repositories.
 
 ## Community/editorial separation
 
-Future community content must be clearly labelled user-generated content and stored separately from editorial truth/status.
+Community is now a real product layer in the 0.8 candidate, so this separation is mandatory rather than aspirational.
 
-- Likes, votes or popularity do not turn a claim into an editorial fact.
-- Community course/tool experiences may add reader context but do not automatically change the editorial verdict.
-- Moderators may remove abuse/spam without silently rewriting editorial history.
-- Editorial corrections remain versioned editorial actions.
-- Public profiles should expose only fields users deliberately make public.
+### Community content is user-generated
 
-## Updating existing content
+Threads, replies, profile bios, likes, helpful votes and accepted answers are **not** AI Compass editorial claims.
 
-Before adding or changing an item:
+- A popular post does not become an editorial fact.
+- Helpful votes indicate reader usefulness, not verification.
+- Accepted answers indicate the thread author's chosen answer, not AI Compass certification.
+- Community tool/course experiences may inform future editorial review, but never silently change an editorial verdict.
+- A linked guide discussion sits adjacent to the guide; it does not modify the guide body.
+
+### Public vs private reader state
+
+Public community fields can include username, display name, experience level, bio and published contributions.
+
+Authentication email is not a profile field and must not be displayed.
+
+Private My Compass state includes:
+
+- content follows;
+- learning progress;
+- later notification preferences/recently viewed unless explicitly designed otherwise.
+
+Do not build a public learning-progress activity feed by default.
+
+### User-generated content safety
+
+- Render user content as escaped plain text unless a future rich-text format has an explicit sanitizer/security review.
+- Never render arbitrary user HTML.
+- Warn users not to post company-confidential data, credentials, private personal data or copyrighted material they cannot share.
+- Substantial AI-assisted technical/community content should be disclosed when that context helps readers judge it.
+- Do not encourage high-volume AI-generated posting.
+
+### Moderation workflow
+
+- Users can report a thread/reply for spam, harassment, unsafe material, potentially harmful misinformation, off-topic content or other concerns.
+- Reports are private to reporter/moderators.
+- Moderation actions are logged separately from editorial corrections.
+- Moderator/admin authority is stored outside editable profile fields.
+- Normal browser profile updates are self-only.
+- Broad moderator access to arbitrary profile fields is prohibited; suspension should use a narrowly scoped operation.
+- Removing spam/abuse does not rewrite editorial history.
+
+`docs/COMMUNITY_GUIDELINES.md` is the community behaviour standard.
+
+## My Compass state
+
+Likes, follows and progress are reader continuity signals, not content-ranking inputs.
+
+- Like counts may be shown as social context.
+- Follows stay private to the owner.
+- Learning completion stays private to the learner.
+- Mark-complete language should encourage applied learning, not gamified page opening.
+- Social/learning state must never directly update News signal, course ratings, guide freshness or editorial ranking.
+
+## Community backend changes
+
+All shared Supabase objects must use the `ai_compass_*` namespace.
+
+For each schema/security change:
+
+1. Add an ordered migration under `supabase/migrations/`.
+2. Apply it through the approved Supabase project workflow.
+3. Confirm RLS on every exposed table.
+4. Use only the public publishable key in browser configuration.
+5. Do not expose service-role or secret keys.
+6. Review database posting/authority constraints, not only frontend controls.
+7. Run Supabase security-advisor checks and distinguish new AI Compass findings from unrelated shared-project findings.
+8. Update `scripts/validate-community.js` when a security invariant is added.
+9. Render public community routes against the real backend.
+10. Complete a real signed-in acceptance test before production for auth/persistence changes.
+
+## Updating existing editorial content
+
+Before adding/changing an item:
 
 1. Search titles, IDs, tags, claims and source URLs.
-2. Update the best existing record when possible.
-3. Avoid duplicate or near-duplicate pages.
-4. Preserve meaningful history.
-5. Mark obsolete items as superseded, archived or abandoned rather than silently presenting them as current.
-6. Preserve every existing original guide by default; an unexplained count reduction or missing guide slug is a release blocker.
-7. Re-review volatile tool/model/course/news records when provider documentation materially changes or the freshness policy says review is due.
-8. Re-check curriculum assignments whenever a path is added, removed or substantially reordered.
-9. For structured collections, edit the JSON source rather than runtime globals or deleted legacy data modules.
-10. If a schema genuinely changes, update the schema and validators in the same branch.
+2. Update the best existing record where possible.
+3. Avoid duplicates.
+4. Preserve history.
+5. Mark obsolete material superseded/archived/abandoned.
+6. Preserve every existing original guide by default.
+7. Re-review volatile records when provider docs change or review is due.
+8. Re-check curriculum assignments when paths change.
+9. Edit canonical structured JSON rather than compatibility globals where migrated.
+10. Change schemas and validators together when the contract genuinely changes.
 
 ## Current source locations
 
-### Historical/original content
+### Historical/original editorial content
 
-- `data.js` — imported guides, comparisons, repositories, community records and historical curated external feed data.
-- `knowledge.js` and maintained guide modules — cumulative original guide library.
-- `content.js` — foundational learning paths, practical items, reference terms and goal cards.
-- `enterprise-learning-path.js` — corporate AI builder route.
-- dated reference/news refresh modules — preserved source-backed additions.
+- `data.js`
+- `knowledge.js` and guide modules
+- `content.js`
+- `enterprise-learning-path.js`
+- dated reference/news refresh modules
 
-### Structured maintained content
+### Structured maintained editorial content
 
-- `content/manifest.json` — registration/preservation/freshness manifest.
-- `content/maintained/discovery.json` — Tools, Models, Courses, Resources.
-- `content/maintained/curriculum.json` — curriculum and Power User path.
-- `content/maintained/news-intelligence.json` — News intelligence analysis metadata.
-- `content/maintained/freshness.json` — shared freshness policy.
-- `content/schemas/*.schema.json` — structured content contracts.
-- `structured-content-loader.js` — browser JSON/manifest loader.
-- `maintained-content-runtime.js` — compatibility adapter into current runtime globals.
-- `freshness-runtime.js` / `freshness-ui.js` — shared freshness calculation and presentation.
-- `site-evolution.js`, `learning-intelligence.js`, `news-intelligence.js` — structured-content-aware presentation layers.
+- `content/manifest.json`
+- `content/maintained/*.json`
+- `content/schemas/*.schema.json`
+- `structured-content-loader.js`
+- `maintained-content-runtime.js`
+- `freshness-runtime.js` / `freshness-ui.js`
+- `site-evolution.js`, `learning-intelligence.js`, `news-intelligence.js`
 
-The migration is intentionally incremental. Guide bodies and foundational tips/references can move later only when the schema provides a clear maintenance benefit and cumulative-history risks are controlled.
+### Community/My Compass
+
+- `community-config.js`
+- `community-data.js`
+- `community.js`
+- `community.css` / `community-controls.css`
+- `my-compass-data.js`
+- `my-compass.js` / `my-compass-live.js`
+- `my-compass.css`
+- `supabase/migrations/20260818*.sql`
+- `docs/COMMUNITY_GUIDELINES.md`
 
 ## Release gates
 
-Every meaningful editorial/product release should:
+Every meaningful release should:
 
-1. Fetch/read the current canonical repository and shared workflow lessons before editing.
-2. Keep structured collection IDs and source relationships stable unless a deliberate correction/migration requires change.
-3. Run schema/manifest validation and verify `index.html` registration agrees with `content/manifest.json`.
+1. Read canonical repository and shared workflow lessons.
+2. Preserve stable content IDs/relationships unless deliberate migration/correction.
+3. Validate schemas and manifest/runtime alignment.
 4. Run syntax/content/source validation.
-5. Validate affected search, filters, taxonomy and internal relationships.
-6. Validate course-to-learning-path, toolkit-to-guide, curriculum-to-path and News-related-content links.
-7. Preserve cumulative guide identities/count floors.
-8. Verify structured-dependent presentation modules wait for content readiness rather than assuming network timing.
-9. For News changes, verify sourced facts and AI Compass analysis remain visibly distinct.
-10. For freshness changes, test deterministic threshold boundaries rather than only today's state.
-11. Run rendered browser checks for meaningful visual/navigation/runtime changes at desktop and mobile sizes.
-12. Inspect actual screenshots rather than relying only on build success or DOM counts when presentation changed.
-13. Preserve image provenance and accessible treatment for prominent imagery.
-14. Update changelog and relevant README/architecture/roadmap/quality documentation.
-15. Merge only after required checks and Vercel Preview pass for the exact branch head.
-16. Confirm the exact merged `main` SHA has a successful post-merge GitHub Actions run and successful Vercel deployment status before calling it published.
+5. Validate affected search/filter/taxonomy/relationship behaviour.
+6. Preserve cumulative guide identities/count floors.
+7. Verify structured-dependent modules wait for readiness.
+8. Keep News facts vs analysis visibly distinct.
+9. Test freshness thresholds deterministically.
+10. For community/backend changes, validate RLS/security contracts and run security-advisor review.
+11. Render meaningful desktop/mobile routes and inspect screenshots.
+12. For authenticated changes, perform a real signed-in flow against the exact release candidate; anonymous smoke is insufficient proof.
+13. Update changelog and relevant architecture/roadmap/quality docs.
+14. Require exact-head GitHub CI and Vercel Preview before merge.
+15. Confirm exact merged `main` SHA in post-merge GitHub Actions and Vercel Production before calling it live.
+
+A Vercel quota/rate-limit failure is a release gate, not a reason to generate repeated no-op commits.

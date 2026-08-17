@@ -1,93 +1,76 @@
 # Quality Score
 
-## Review — 2026-08-17 maintainability and freshness foundation (0.7.0)
+## Review — 2026-08-18 Community + My Compass candidate (0.8.0)
 
-Build `2026-08-17.6` is primarily an architecture/trust release rather than a content-volume release. It preserves the 41-guide library and all current reader experiences while moving the highest-maintenance editorial data into schema-validated structured collections behind a shared manifest, adding visible freshness states and eliminating parallel maintained data modules.
+Build `2026-08-18.1` is the first AI Compass release candidate with a real account/community backend. It adds public forum reading, passwordless profiles, threads/replies, social/follow signals, accepted/helpful answers, reporting/moderation, guide-linked discussions and private My Compass learning/follow state while preserving the editorial architecture and 41-guide baseline.
 
-| Area | Score | Evidence and remaining limitations |
-|---|---:|---|
-| Mobile usability | 9.4 | Existing mobile navigation and responsive content remain intact. Structured-content/freshness smoke routes render Guides, volatile article, Tools, Models, Courses, Reference, Learn and News at mobile/desktop sizes without losing the 0.6.21 hierarchy. Physical iOS/Android testing remains desirable. |
-| Navigation | 9.5 | Reader-first Home/Learn/Guides/Practical/Tools/Models/Courses/Resources/News structure remains stable. The five-level learning hierarchy and News intelligence desk are preserved through the data migration. |
-| Visual design | 9.4 | Freshness badges/maintenance strips are deliberately subordinate to article/tool/course/news hierarchy rather than becoming decorative UI. The publication-style visual system remains coherent. |
-| Accessibility | 9.2 | Existing labelled filters, semantic headings, focus states and mobile target-size foundations remain. Freshness is presented as text rather than colour alone. A dedicated assistive-technology audit is still outstanding. |
-| Performance | 8.8 | The app remains framework-free/static. Structured JSON adds small fetches at startup, but duplicate maintained JavaScript datasets are removed. A later generated index/content split can reduce global-script weight further. |
-| Reliability | 9.8 | CI now validates schemas, manifest/index registration, source relationships, 41-guide preservation, all seven paths/five levels, News intelligence, deterministic freshness boundaries and five independent Chromium suites. Structured-dependent presentation modules explicitly wait for content readiness instead of relying on fast-network timing. |
-| Information architecture | 9.7 | Tools, Models, Courses, Resources, Curriculum, News intelligence and freshness now have explicit structured ownership. Historical/original content remains separate rather than being rewritten into one ambiguous store. |
-| Search and filtering | 9.3 | Guide and News filters remain strong, but the site still lacks one generated cross-content taxonomy/search index across all directories and learning records. |
-| Content discovery | 9.7 | Existing goal entry points, tags, five-level curriculum, course-to-path links, toolkit resources and News-to-learning links survive the migration. Freshness metadata adds useful trust context to discovery. |
-| Trustworthiness | 9.8 | Source-backed facts versus AI Compass analysis remain separated; high-signal elevation remains deliberate; provider-controlled content now carries review state; manifest/schema contracts reduce accidental editorial drift. Universal item-level superseded/source objects are still future work. |
-| Usefulness to beginners | 9.6 | The five-level curriculum still gives a clear first step and move-on criteria. Maintenance labels are plain-language rather than technical version metadata. |
-| Usefulness to experienced users | 9.7 | Enterprise guides, RAG/agent/evaluation learning, tool/model/course directories and source/freshness metadata now sit on a more maintainable foundation for deeper technical coverage. |
-
-**Current overall product score: 9.4/10.** The increase from 9.3 reflects a material improvement in reliability, freshness transparency and maintainability rather than a claim that AI Compass is feature-complete. Shared accounts/community, generated cross-site taxonomy/search, deeper per-tool/model pages, role-based paths, physical-device testing and full structured migration remain significant gaps.
-
-## Validation completed for 0.7.0 release candidate
-
-- `npm run check` validates JavaScript syntax plus schema, manifest, guide/source, discovery, curriculum, News intelligence, visual-system and freshness contracts.
-- Cumulative preservation remains at **41 original guides**, **7 learning paths** and **5 curriculum levels**.
-- `content/manifest.json` is checked against `index.html` runtime registration, package version/build marker and all structured source/schema paths.
-- Discovery, Curriculum, News Intelligence and Freshness load from canonical JSON collections; superseded parallel data modules are absent.
-- Deterministic freshness tests verify the exact threshold transitions for news, volatile and durable material and guide-specific overrides.
-- Core visual regression, Enterprise AI Builder, discovery/navigation, signal/curriculum and structured-content/freshness Chromium suites pass.
-- The structured-content/freshness suite verifies real browser loading rather than only validating JSON on disk.
-- Desktop screenshots for Guides, a volatile subscription guide, Tools, Courses and News were inspected during the release-candidate pass; freshness presentation remained subordinate to the primary content hierarchy.
-- A startup-timing review identified a potential async race even though CI was green. `site-evolution.js`, `learning-intelligence.js`, `news-intelligence.js` and `freshness-ui.js` were changed to wait explicitly for `AI_COMPASS_CONTENT_READY`; all suites must pass again from the final documentation-complete head before merge.
-
-## Known limitations / next quality targets
-
-- Browser testing uses headless Chromium rather than physical iOS Safari and Android Chrome devices.
-- Structured migration currently covers the highest-maintenance Discovery, Curriculum, News Intelligence and Freshness collections; original guide bodies and foundational tips/references still live in JavaScript modules.
-- Search does not yet expose one generated taxonomy across Guides, Practical, Reference, Tools, Models, Courses, Resources, News and curriculum.
-- Freshness is shared at collection/class level with selected guide overrides; more explicit item-level `superseded`, `abandoned` and source metadata is still needed.
-- News does not yet expose a dedicated `what remains unknown / watch next` field for every item; it should be added only where uncertainty materially helps action.
-- Course editorial scoring has an explicit methodology, but the directory is intentionally small.
-- Current saved/question interactions remain browser-local; free profiles, synced learning progress, comments and forum participation need a real authenticated backend with moderation/privacy controls.
-- Every release still requires exact merged-SHA GitHub Actions and Vercel deployment evidence before it is treated as published.
-
-## Historical review — 2026-08-17 signal and curriculum pass (0.6.21)
-
-Build `2026-08-17.5` turned News into a source-first intelligence briefing, established a five-level curriculum across seven learning paths and added the missing AI Power User bridge.
+This score is for the **candidate architecture**, not a claim that 0.8 is production-approved. Real signed-in acceptance and the underlying 0.7 deployment remain release gates.
 
 | Area | Score | Evidence and remaining limitations |
 |---|---:|---|
-| Mobile usability | 9.4 | News and five-level Learn rendered cleanly at 390px in Chromium. |
-| Navigation | 9.5 | Reader-first navigation remained intact; Learn gained progression and News gained Top Signals plus a full filtered briefing. |
-| Visual design | 9.4 | Fact/analysis blocks and curriculum cards fit the existing publication system. |
-| Accessibility | 9.2 | Labelled filters and structured headings remained; full assistive-technology testing was still pending. |
-| Performance | 8.7 | Static/dependency-free, but more browser-global modules increased maintainability pressure. |
-| Reliability | 9.6 | CI validated 41 guides, seven paths, five levels and complete intelligence metadata across 20 curated News records. |
-| Information architecture | 9.7 | Learning and News gained explicit internal structure without collapsing other content types. |
-| Search and filtering | 9.3 | News added signal/topic/status filters; one generated cross-site taxonomy was still missing. |
-| Content discovery | 9.7 | The Power User bridge and News-related learning materially improved onward journeys. |
-| Trustworthiness | 9.6 | Publisher facts and AI Compass analysis were visibly separated and high-signal status became deliberate. |
-| Usefulness to beginners | 9.6 | AI Essentials became the visible first curriculum level. |
-| Usefulness to experienced users | 9.6 | Power User → Builder → Enterprise became a continuous advanced route. |
+| Mobile usability | 9.4 | Community home renders all 11 live categories cleanly at 390px and preserves existing bottom navigation. Profile/category/My Compass/guide/learning surfaces are responsive. Real signed-in testing on physical iOS/Android remains outstanding. |
+| Navigation | 9.6 | Community becomes a real destination and My Compass supplies a personal return route without replacing reader-first editorial navigation. Guide discussions and learning progress are contextual rather than separate silos. |
+| Visual design | 9.5 | Community uses the calm publication system rather than a generic social-network aesthetic. Manual screenshot review caught default button styling; dedicated community-control styling corrected it before release documentation. |
+| Accessibility | 9.2 | Forum forms use labels, dialog semantics and plain-text content; controls retain responsive target sizing. Keyboard/screen-reader testing of authenticated flows remains outstanding. |
+| Performance | 8.8 | Editorial app remains static. Supabase JS is lazy-loaded asynchronously so backend/client failure cannot block editorial rendering. Community adds network reads and still needs pagination/aggregation work for large real-world volume. |
+| Reliability | 9.7 | RLS exists on all 13 new forum/My Compass tables; database guards constrain posting authority/rate limits; trigger functions are removed from browser RPC; live anonymous browser smoke reads real Supabase data. Signed-in persistence still needs manual acceptance. |
+| Information architecture | 9.8 | Editorial, user-generated content and private reader state have explicit separate roles. One linked-content discussion model can support Guides now and Tools/Models/Courses/Resources/Paths later without duplicating comment systems. |
+| Search and filtering | 9.3 | Forum has local discussion search and category routing; editorial search remains strong. Cross-site generated taxonomy/search including community is still future work. |
+| Content discovery | 9.8 | Readers can move Guide → Discussion, Path → Progress, Community → relevant topic, and My Compass → followed/learning state. This materially improves return journeys. |
+| Trustworthiness | 9.8 | Community popularity cannot change editorial truth/rankings. Auth email is excluded from public profile data, follows/progress are private, user text is escaped, reports/moderation are explicit, and community guidelines define evidence/AI-assistance/privacy boundaries. |
+| Usefulness to beginners | 9.7 | Beginner Help provides an explicit low-barrier discussion area while AI Essentials remains the structured learning entry point. |
+| Usefulness to experienced users | 9.8 | Agents, builders, enterprise and showcase categories plus guide-linked implementation discussion create a useful practitioner layer on top of the technical guide library. |
+| Retention / continuity | 9.4 | My Compass introduces cross-device follows and learning progress plus community identity. Notifications, recently viewed and new-since-last-visit are not implemented yet. |
+| Community safety/readiness | 8.8 | RLS, protected roles, reporting, moderation logging, plain-text rendering, database rate guards and thread-bump prevention are implemented. Account-data export/deletion semantics, moderator suspension tooling and signed-in production acceptance are still open. |
 
-**Historical 0.6.21 overall product score: 9.3/10.**
+**Candidate overall product score: 9.4/10.** The headline score remains deliberately conservative. Community and My Compass materially increase product value, but a higher score before real magic-link acceptance, privacy/account lifecycle completion, physical-device accessibility testing and Vercel release verification would overstate readiness.
 
-## Historical review — 2026-08-17 navigation and discovery foundation (0.6.20)
+## 0.8 validation completed so far
 
-Build `2026-08-17.4` preserved the 41-guide library while separating Tools and Models, introducing vetted Courses, strengthening Practical and Resources and giving the homepage clearer goal-based entry points.
+- All new Supabase forum/My Compass objects are namespaced `ai_compass_*` inside the existing shared project.
+- RLS is enabled on 10 forum/profile tables plus 3 My Compass retention tables.
+- The browser uses only Supabase URL + publishable key; no service-role/secret is committed.
+- Passwordless sign-in is implemented with `signInWithOtp`.
+- Public profiles omit auth email.
+- Roles are separate from editable profiles.
+- Database guards enforce author identity, active-profile requirement, accepted-answer integrity and posting/reply limits.
+- Abuse hardening prevents authors from manually bumping thread activity timestamps.
+- Trigger functions are explicitly removed from the browser-callable RPC surface.
+- Supabase security-advisor review shows no new AI Compass forum/My Compass findings; unrelated pre-existing shared-project warnings were left untouched.
+- `scripts/validate-community.js` checks database/security/runtime contracts alongside the existing manifest/content validators.
+- `scripts/smoke-community.sh` reads the real Supabase backend anonymously and renders Community, Profile, category, mobile, My Compass, a guide discussion surface and a learning-progress surface.
+- One complete pre-My-Compass implementation head passed all six Chromium suites; later My Compass heads continue through the same gate.
 
-| Area | Score |
-|---|---:|
-| Mobile usability | 9.3 |
-| Navigation | 9.5 |
-| Visual design | 9.3 |
-| Accessibility | 9.2 |
-| Performance | 8.8 |
-| Reliability | 9.5 |
-| Information architecture | 9.6 |
-| Search and filtering | 9.1 |
-| Content discovery | 9.6 |
-| Trustworthiness | 9.4 |
-| Usefulness to beginners | 9.5 |
-| Usefulness to experienced users | 9.5 |
+## 0.8 release blockers / next quality targets
 
-**Historical 0.6.20 overall product score: 9.3/10.**
+- PR #27 / 0.7.0 must safely merge/deploy first; its Vercel Preview is currently blocked by a free-plan build-rate limit, not a code failure.
+- Supabase Auth redirect allow-list must include the canonical AI Compass production host and an approved test preview without changing unrelated shared-project auth settings.
+- A real signed-in acceptance test must verify magic-link return, profile creation, thread/reply, Like/Follow, guide-linked discussion, learning completion and persistence after refresh/reopen.
+- Moderator queue/role behaviour needs one controlled signed-in acceptance path before public moderator use.
+- Account/community-data export and deletion semantics are not finished. Shared Supabase Auth means “delete account” cannot blindly delete the shared auth user without considering other apps.
+- Notification preferences/delivery, recently viewed and new-since-last-visit are not implemented.
+- Forum count queries should be replaced with more scalable aggregate/pagination patterns before large community volume.
+- Physical iOS Safari / Android Chrome and assistive-technology testing remain desirable.
+- Exact merged-SHA GitHub Actions and Vercel production evidence remain mandatory for publication.
 
-## Historical review — 2026-08-06 content depth and mobile pass (0.6.2)
+## Historical review — 0.7.0 Maintainability & Freshness candidate
 
-Build `2026-08-06.2` established the balanced-platform/mobile baseline with broader guides, learning paths, practical/reference depth and deliberate mobile interactions.
+Build `2026-08-17.6` moved Discovery, Curriculum, News Intelligence and Freshness into schema-validated JSON behind a shared manifest, removed parallel maintained JS sources and added visible maintenance state.
 
-**Historical 0.6.2 overall product score: 9.2/10.**
+**Historical/candidate 0.7.0 score: 9.4/10.** It remained unmerged while Vercel Preview was rate-limited.
+
+## Historical review — 0.6.21 Signal & Curriculum
+
+Build `2026-08-17.5` established source-first News intelligence, five curriculum levels and the AI Power User bridge.
+
+**Historical 0.6.21 score: 9.3/10.**
+
+## Historical review — 0.6.20 Navigation & Discovery
+
+Build `2026-08-17.4` separated Tools/Models, added Courses, strengthened Practical/Resources and reader-first navigation.
+
+**Historical 0.6.20 score: 9.3/10.**
+
+## Historical review — 0.6.2 content/mobile baseline
+
+**Historical 0.6.2 score: 9.2/10.**

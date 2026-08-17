@@ -9,32 +9,33 @@ AI Compass is an independent AI learning, discovery, reference and community pla
 
 ## Product direction
 
-AI Compass is **not primarily a news website**. It should help a reader learn AI, build useful things, choose tools and models, find trustworthy training and resources, understand important developments and eventually learn with a community.
+AI Compass is **not primarily a news website**. It should help a reader learn AI, build useful things, choose tools and models, find trustworthy training and resources, understand important developments and learn with other people.
 
-The intended product pillars are:
+The product pillars are:
 
 1. **Learn** — a five-level curriculum from AI Essentials through workplace use, power-user skills, controlled building and enterprise AI.
 2. **Guides** — substantial original explainers, decision guides and practical build walkthroughs.
 3. **Practical Library** — concise prompt recipes, patterns, checklists and techniques linked to deeper guidance.
 4. **Tools** — product profiles and practical recommendations by task, audience and constraint.
 5. **Models** — model-family reference separated from end-user products and subscriptions.
-6. **Courses** — vetted external training with an AI Compass editorial review, audience fit and value assessment.
+6. **Courses** — vetted external training with AI Compass editorial review, audience fit and value assessment.
 7. **Resources** — reusable AI Compass templates/frameworks plus carefully curated repositories and external material.
 8. **Reference** — glossary, concepts, standards and durable technical explanations.
 9. **News** — a selective source-first intelligence briefing that separates publisher facts from AI Compass analysis, status and recommended action.
-10. **Community** — questions today, with free profiles, follows, progress, comments and forums planned as a governed future layer.
+10. **Community** — a governed public forum with free profiles, discussions, replies, follows, helpful/accepted answers, reporting and moderation.
+11. **My Compass** — the signed-in return experience for followed content, private learning progress, likes and community identity.
 
-The homepage should orient readers by **what they want to achieve**, not force them to understand the product taxonomy first. News should support discovery without dominating the experience.
+The homepage should orient readers by **what they want to achieve**, not force them to understand the product taxonomy first. News should support discovery without dominating the experience. Community popularity must never silently replace editorial evidence.
 
 ## Current architecture
 
-AI Compass remains a self-contained static web application with no runtime framework and no server-side database. Release 0.7.0 introduces a manifest-driven maintained-content layer so fast-changing editorial records no longer need duplicate browser-global source modules.
+AI Compass keeps its editorial experience as a static web application. Release 0.7.0 introduces the manifest-driven maintained-content layer; the 0.8.0 candidate adds an authenticated community/personalization layer backed by the existing shared Supabase project.
 
-### Stable application and historical content
+### Stable application and editorial content
 
-- `index.html` — static application entry point and script registration.
-- `app.js` — stable hash routing, core rendering, search, filters, saved guides and browser-local prototype interactions.
-- `data.js` — imported guides, comparisons, repositories, community records and historical curated feed records.
+- `index.html` — static application entry point and manifest-checked script registration.
+- `app.js` — stable hash routing, core rendering, search, filters and historical browser-local interactions.
+- `data.js` — imported guides, comparisons, repositories and historical curated feed records.
 - `knowledge.js` and maintained guide modules — the cumulative original-guide library.
 - `content.js` — foundational learning paths, practical tips, reference terms and goal cards.
 - `enterprise-learning-path.js` — maintained **Build AI systems at work** path.
@@ -42,35 +43,78 @@ AI Compass remains a self-contained static web application with no runtime frame
 
 ### Structured maintained content
 
-- `content/manifest.json` — canonical release/build manifest, source-collection registry, runtime-module registry, preservation floors and freshness classes.
+- `content/manifest.json` — release/build manifest, source-collection registry, runtime-module registry, preservation floors and freshness classes.
 - `content/maintained/discovery.json` — Tools, Models, Courses and reusable Resources.
 - `content/maintained/curriculum.json` — five-level curriculum, **Become an AI power user**, prerequisites, outcomes and next-path metadata.
 - `content/maintained/news-intelligence.json` — signal/status/source-quality/impact metadata applied to the curated News feed.
 - `content/maintained/freshness.json` — shared freshness classes, review windows and guide overrides.
-- `content/schemas/*.schema.json` — JSON Schema contracts for the manifest and maintained collections.
-- `structured-content-loader.js` — loads the manifest and declared JSON collections in the browser.
-- `maintained-content-runtime.js` — adapts structured records into the existing runtime globals while the stable renderer is preserved.
-- `freshness-runtime.js` / `freshness-ui.js` / `freshness.css` — deterministic freshness classification and visible maintenance state.
+- `content/schemas/*.schema.json` — JSON Schema contracts for maintained collections and manifest.
+- `structured-content-loader.js` / `maintained-content-runtime.js` — manifest-driven browser loading and adaptation into the proven renderer.
+- `freshness-runtime.js` / `freshness-ui.js` / `freshness.css` — deterministic maintenance states.
 
-The superseded `discovery-data.js`, `curriculum-data.js` and `news-intelligence-data.js` modules are intentionally removed in 0.7.0 so the maintained records have one source of truth.
+The superseded `discovery-data.js`, `curriculum-data.js` and `news-intelligence-data.js` modules are intentionally removed by 0.7.0 so maintained records have one source of truth.
 
-### Presentation layers
+### Community and My Compass
 
-- `site-evolution.js` / `site-evolution.css` — Tools, Models, Courses, Practical, Resources, guide tags and reader-first discovery.
-- `learning-intelligence.js` / `intelligence.css` — five-level curriculum and path progression.
-- `news-intelligence.js` / `intelligence.css` — source-first News intelligence desk.
-- `visual-system.css`, `editorial-photo-overrides.css`, guide-specific styles and `mobile.css` — responsive publication-style visual system.
-- `enhancements.js` — progressive mobile/search/article interaction refinements.
+The 0.8.0 candidate uses the existing Supabase project `rapha-personal-apps`, with every new table namespaced `ai_compass_*` so AI Compass remains logically isolated from other applications sharing the project.
+
+Browser code receives only the Supabase project URL and **publishable** client key. No service-role key or secret is stored in the frontend.
+
+Community runtime:
+
+- `community-config.js` — public client configuration and feature enablement.
+- `community-data.js` — lazy-loads Supabase JS, initializes passwordless email authentication and exposes profile/forum actions.
+- `community.js` — public forum, categories, thread/reply views, profile setup, reporting and moderator queue.
+- `community.css` / `community-controls.css` — responsive publication-style community UI.
+- `docs/COMMUNITY_GUIDELINES.md` — community behaviour, evidence, privacy and moderation standard.
+
+My Compass runtime:
+
+- `my-compass-data.js` — content likes/follows, private learning progress and guide-linked forum discussions.
+- `my-compass.js` — signed-in dashboard, guide Like/Follow/Discuss controls and learning-path completion UI.
+- `my-compass-live.js` — redraws progressive controls immediately after persisted state changes without rewriting the stable core router.
+- `my-compass.css` — personal dashboard/progress/discussion styling.
+
+### Community database boundaries
+
+Forum tables cover profiles, protected roles, categories, threads, replies, thread likes, helpful votes, thread follows, reports and moderation logs. My Compass adds content likes, private content follows and private learning progress.
+
+Every community/My Compass table has Row Level Security enabled. Important boundaries include:
+
+- Forum reading is public; posting requires an authenticated active AI Compass profile with a username.
+- Profile email addresses come from Supabase Auth and are never rendered in the public profile model.
+- User-editable profile fields cannot change account status or community role.
+- Moderator/admin roles live in a separate protected table.
+- Thread authors cannot pin/lock threads or manipulate activity timestamps to bump them.
+- Database triggers enforce posting/reply rate limits in addition to UI controls.
+- Reports are private to the reporter and moderators.
+- My Compass **follows and learning progress are private** to the signed-in user.
+- Like counts may be public social signals but never change editorial rankings, course verdicts or News signal status.
+- User post bodies are rendered as escaped plain text; arbitrary user HTML/Markdown is not executed.
+
+Supabase security-advisor checks are part of the backend review. Existing unrelated warnings in the shared project are not treated as AI Compass findings and must not be “fixed” by editing other apps.
+
+## Community routes in the 0.8 candidate
+
+- `#community` — public forum home.
+- `#community/category/:id` — one of 11 discussion categories.
+- `#community/thread/:id` — thread and replies.
+- `#community/new` — authenticated discussion composer.
+- `#community/profile` — passwordless sign-in and profile setup.
+- `#community/moderation` — moderator-only report queue.
+- `#my-compass` — personal dashboard for progress, follows, likes and community identity.
+
+Guides progressively expose Like, Follow and linked Community discussions. Learning-path pages progressively expose private lesson-completion state and path follows.
 
 ## Freshness model
 
-AI Compass now distinguishes content by how quickly it can become misleading:
+AI Compass distinguishes content by how quickly it can become misleading:
 
-- **News** — fast-moving developments. Reader states progress from `Current` to `Recent` to `Archive`.
-- **Volatile** — provider-controlled details such as tools, models, courses, subscriptions and selected hardware/comparison guides. States progress from `Current` to `Review soon` to `Needs review`.
+- **News** — `Current` → `Recent` → `Archive`.
+- **Volatile** — tools, models, courses, subscriptions and selected comparisons: `Current` → `Review soon` → `Needs review`.
 - **Durable** — concepts, learning structure and engineering guidance with longer review windows.
 
-Freshness is maintenance metadata, not a quality score. An archived news item remains historically valid if its source/summary was accurate; a `Needs review` label means the current recommendation or provider-controlled detail should be re-verified before relying on it.
+Freshness is maintenance metadata, not a quality score.
 
 ## Local development
 
@@ -80,7 +124,7 @@ python -m http.server 4173
 
 Then open `http://localhost:4173`.
 
-Do not open `index.html` directly from the filesystem. The 0.7.0 maintained-content loader fetches JSON collections, so a served HTTP environment is required.
+Do not open `index.html` directly from the filesystem. Structured editorial collections and the community client require a served HTTP environment.
 
 ## Deployment
 
@@ -92,60 +136,60 @@ The canonical workflow is:
 4. Review actual desktop/mobile screenshots for meaningful visual changes.
 5. Open/review a pull request.
 6. Require repository validation and Vercel Preview for the exact PR head.
-7. Merge to `main` only after required checks pass.
-8. Let the connected Vercel project deploy `main`.
-9. Verify the exact merged SHA has a successful post-merge GitHub Actions run and successful Vercel deployment status before calling the release published.
+7. For authenticated releases, complete a real signed-in acceptance flow against the exact preview before merge.
+8. Merge to `main` only after required checks pass.
+9. Let the connected Vercel project deploy `main`.
+10. Verify the exact merged SHA has successful post-merge GitHub Actions and Vercel production evidence before calling it published.
 
-Older payload-based deployments from `Mr-Meow-ZA/yeet` are legacy migration history and are not part of the current production workflow.
+Do not generate no-op commits merely to retry Vercel quota failures.
 
-## Editing structured maintained content
+## Editing community/backend code
 
-For Tools, Models, Courses, Resources, Curriculum, News intelligence or freshness policy:
-
-1. Edit the appropriate file under `content/maintained/`.
-2. Keep stable IDs and existing canonical relationships unless an editorial correction requires a change.
-3. Add/update schema fields if the content contract genuinely changes.
-4. Update `content/manifest.json` only when a collection/module/preservation contract changes.
-5. Run `npm run check`.
-6. Render the affected route before merge.
-
-Do not recreate parallel JavaScript source modules for structured collections. The manifest/JSON record is the canonical maintained source.
+- Keep all shared-project objects namespaced `ai_compass_*`.
+- Commit every schema/RLS change as an ordered migration under `supabase/migrations/`.
+- Never place service-role keys, auth tokens or secret values in browser code, GitHub, documentation or tests.
+- Review RLS and Supabase security-advisor output after migrations.
+- Keep editorial data and user-generated content in separate storage/presentation paths.
+- Do not make popularity a proxy for editorial truth.
+- Preserve a graceful failure boundary: the editorial site must remain usable if Supabase or the community client is unavailable.
 
 ## Product guardrails
 
-- Do not let news displace guides, learning, reference, tools, models, courses or reusable resources.
-- Preserve every original guide by default; an unexplained guide-count reduction or missing required identity is a validation failure.
-- Keep Tools and Models conceptually separate: a product/subscription is not the same thing as the underlying model family.
-- Course ratings are editorial judgements supported by explicit reasons, limitations, audience fit and current source verification—not affiliate rankings.
-- News signal labels are editorial triage, not objective scores. A category never earns high-signal status automatically.
-- Separate source-backed `what changed` facts from AI Compass interpretation, audience impact and recommended action.
-- Prefer primary sources for establishing what changed; use independent reporting as clearly labelled context.
-- Keep external previews short and link to the original publisher.
-- Clearly identify AI Compass original content versus third-party material and future user-generated community content.
-- Preserve source URLs, verification/review dates and superseded/archive state where relevant.
-- Use imagery only when provenance is clear and rendering is reliable.
-- Do not publish low-confidence rumours, unsupported rankings or unverified pricing as fact.
-- Do not represent browser-local saves/questions as shared-account features.
-- Authentication, database schemas, profile/community persistence, moderation systems, paid services or secrets require an explicitly reviewed backend phase.
+- Preserve every original guide by default; unexplained guide-count reduction is a validation failure.
+- Keep Tools and Models conceptually separate.
+- Course ratings are editorial judgements, never purchased rankings.
+- News signal labels are editorial triage, not popularity scores.
+- Separate source-backed facts from AI Compass interpretation.
+- Prefer primary sources for establishing what changed.
+- Clearly identify original, external-preview and user-generated content.
+- Use imagery only when provenance is clear.
+- Do not publish rumours, unsupported rankings or unverified pricing as fact.
+- Never expose private follow/progress state as public community activity.
+- Helpful votes and accepted answers are community signals, not editorial certification.
 
 ## Status
 
-**Release candidate: 0.7.0 / build `2026-08-17.6`.**
+**0.8.0 candidate / build `2026-08-18.1` is under review on a stacked draft branch. It is not production yet.**
 
-The current library preserves at least **41 original guides**, **7 learning paths** across **5 curriculum levels**, a source-first **20-item News intelligence briefing**, **6 Tools**, **6 model families**, **6 vetted Courses** and **8 reusable toolkit resources**.
+The candidate preserves at least **41 original guides**, **7 learning paths** across **5 curriculum levels**, the source-first **20-item News intelligence briefing**, **6 Tools**, **6 model families**, **6 vetted Courses** and **8 reusable toolkit resources**.
 
-0.7.0 is primarily an architecture/trust release: Discovery, Curriculum, News Intelligence and Freshness are now canonical schema-validated JSON collections behind a shared manifest; duplicate JavaScript sources are removed; visible freshness states are shared across volatile content; and CI validates manifest registration, schemas, relationships, freshness behaviour and all existing browser routes.
+It additionally introduces a real Supabase-backed Community with **11 forum categories**, free passwordless profiles, threads/replies, social/follow signals, accepted/helpful answers, reporting/moderation, guide-linked discussion, My Compass follows/likes and private learning progress.
 
-This is an incremental migration, not a risky rewrite. Original guide bodies, foundational tips/references and imported historical data remain in their proven modules and can move into structured collections during later 0.7.x work.
+The new public/anonymous community routes have rendered successfully against the live Supabase backend in CI. Production publication remains gated by:
 
-Run `npm run check` before committing. The full release gate also includes:
+1. safe completion/merge of the underlying 0.7.0 structured-content release;
+2. Supabase Auth redirect allow-list configuration for the AI Compass host/approved preview;
+3. real signed-in magic-link acceptance covering profile creation, thread/reply, Like/Follow, guide discussion and learning-progress persistence;
+4. final exact-head CI + Vercel Preview, then exact merged-SHA production verification.
+
+Full local/CI validation now includes:
 
 ```bash
+npm run check
 bash scripts/smoke-visuals.sh
 bash scripts/smoke-enterprise.sh
 bash scripts/smoke-discovery.sh
 bash scripts/smoke-intelligence.sh
 bash scripts/smoke-freshness.sh
+bash scripts/smoke-community.sh
 ```
-
-The next product priorities after 0.7.0 are generated cross-site taxonomy/search, deeper per-item freshness/source metadata, role-based learning paths and richer resource/tool/model coverage; the separately reviewed free-profile/community backend remains an approved product goal rather than a static-frontend shortcut.

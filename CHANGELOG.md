@@ -2,6 +2,46 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.8.0 - 2026-08-18
+
+### Added
+- Real Supabase-backed **AI Compass Community** replacing the browser-local question-board concept with public forum reading and 11 maintained categories spanning beginner help, AI for work, prompting/research, automation, agents, coding, models/local AI, courses, enterprise AI, showcases and general discussion.
+- Free passwordless email magic-link sign-in plus public AI Compass profiles with username, display name, experience level and optional bio. Authentication email remains outside the public profile model.
+- Shared threads/replies, thread likes, helpful reply votes, thread follows and accepted answers.
+- Linked-content fields so Community threads can belong to a Guide now and Tools, Models, Courses, Resources or Learning Paths later without creating separate comment systems.
+- Community reporting with private reporter/moderator access and a moderator-only queue/action log.
+- `docs/COMMUNITY_GUIDELINES.md` covering privacy, evidence, AI-assisted content, spam/promotion, intellectual property, helpful/accepted answer semantics and editorial/community separation.
+- New **My Compass** account layer with a signed-in return dashboard, content Likes/Follows, private learning progress, Continue Learning cards and community identity.
+- Guide-level **Like / Follow / Discuss** controls plus guide-linked Community discussions.
+- Learning-path **Follow** and private per-lesson **Mark complete** controls.
+- `my-compass-live.js` to redraw progressive guide/learning controls after persisted/auth state changes without rewriting the stable router.
+- Four ordered Supabase community/My Compass migration groups under `supabase/migrations/`, all namespaced `ai_compass_*` in the existing shared project.
+- `scripts/validate-community.js` and a sixth rendered Chromium suite, `scripts/smoke-community.sh`, including live anonymous reads from the real Supabase backend.
+
+### Security and privacy
+- Enabled RLS on **10 forum/profile tables** plus **3 My Compass retention tables**.
+- Kept editable profile data separate from protected member/moderator/admin roles so a profile cannot self-promote.
+- Added database-level author checks, active-profile checks, accepted-answer integrity and posting/reply rate limits.
+- Hardened function privileges so trigger-only functions are not callable through the browser RPC surface; small role/post helpers use security-invoker behaviour.
+- Added thread-bump protection so authors cannot manipulate `last_activity_at` directly.
+- Restricted normal browser profile updates to the profile owner rather than granting broad moderator profile edits.
+- Kept content Follows and learning progress private to the owning user. Like counts are social context only and cannot alter editorial rankings, course verdicts, guide freshness or News signal.
+- User post bodies are rendered as escaped plain text rather than executable HTML/Markdown.
+- Lazy-loaded Supabase JS asynchronously so a community dependency failure cannot block the editorial site.
+- Reviewed Supabase security-advisor output after migrations; no new AI Compass Community/My Compass findings remain. Pre-existing unrelated shared-project warnings were not modified.
+
+### Changed
+- Advanced manifest/package release identity to `0.8.0` and application build marker to `2026-08-18.1` on the candidate branch.
+- Added Community to reader navigation and **My Compass** to the personal utility experience.
+- Preserved all **41 original guides**, **7 learning paths**, **5 curriculum levels**, source-first News intelligence and 0.7 structured/freshness architecture.
+- Fixed historical validators that incorrectly hard-coded structured runtime release `0.7.0`; runtime validation now compares against the current manifest release/build.
+- Manual visual review corrected default forum button styling, removed duplicate My Compass utility wording and moved guide engagement beneath the existing article actions so the guide title remains primary.
+
+### Validation / release status
+- A complete implementation head passed all six GitHub Actions browser suites, including live public Community reads from Supabase and rendered Community desktop/mobile, profile, category, My Compass, guide discussion and learning-progress states.
+- Production publication remains intentionally gated by the underlying 0.7.0 release, Supabase Auth redirect allow-list configuration, a real signed-in magic-link acceptance flow, final exact-head Vercel Preview and exact merged-SHA production verification.
+- 0.8 remains a **candidate**, not a production claim, until those authenticated/deployment gates are satisfied.
+
 ## 0.7.0 - 2026-08-17
 
 ### Added
@@ -136,7 +176,7 @@ Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHA
 - Advanced the application build marker to `2026-08-17.1` and package version to `0.6.17`.
 
 ### News scan
-- Reviewed current official OpenAI, Anthropic, Google and Microsoft AI announcement channels for material developments since the previous successful curator pass. No post-16-August item met the significance and source-quality threshold, so no filler news item was added.
+- Reviewed current official OpenAI, Anthropic, Google and Microsoft AI announcement channels for material developments since the previous successful curator pass. No post-16-August item met the significance/source-quality threshold, so no filler news item was added.
 
 ## 0.6.16 - 2026-08-16
 
@@ -149,10 +189,10 @@ Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHA
 - Original guide library increases from 32 to 33 guides.
 - Registered the new research guide in the application and syntax/content validation paths, raised the cumulative preservation floor to 33 and added an explicit required-slug/verification check.
 - Restored attributable photographic guide-card imagery for the dashboard and three earlier practical-build guides after rendered validation exposed legacy SVG/gradient overrides.
-- Advanced the application build marker to `2026-08-16.1` and package version to `0.6.16`.
+- Advanced application build marker to `2026-08-16.1` and package version to `0.6.16`.
 
 ### News scan
-- Reviewed current official OpenAI, Anthropic, Google and Microsoft AI announcement channels for material developments since the previous successful curator pass. No post-15-August item met the significance and source-quality threshold, so no filler news item was added.
+- Reviewed current official OpenAI, Anthropic, Google and Microsoft AI announcement channels for material developments since the previous successful curator pass. No post-15-August item met the significance/source-quality threshold, so no filler news item was added.
 
 ## 0.6.15 - 2026-08-15
 

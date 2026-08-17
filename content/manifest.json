@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "release": "0.7.0",
-  "build": "2026-08-17.6",
+  "release": "0.8.0",
+  "build": "2026-08-18.1",
   "sourceCollections": [
     {"id": "discovery", "runtimeKey": "discovery", "path": "content/maintained/discovery.json", "schema": "content/schemas/discovery.schema.json"},
     {"id": "curriculum", "runtimeKey": "curriculum", "path": "content/maintained/curriculum.json", "schema": "content/schemas/curriculum.schema.json"},
@@ -35,7 +35,13 @@
     {"path": "enhancements.js", "role": "interaction-enhancement"},
     {"path": "learning-intelligence.js", "role": "learning-renderer"},
     {"path": "news-intelligence.js", "role": "news-renderer"},
-    {"path": "freshness-ui.js", "role": "freshness-renderer"}
+    {"path": "freshness-ui.js", "role": "freshness-renderer"},
+    {"path": "community-config.js", "role": "community-config"},
+    {"path": "community-data.js", "role": "community-data-runtime"},
+    {"path": "my-compass-data.js", "role": "profile-preference-runtime"},
+    {"path": "community.js", "role": "community-renderer"},
+    {"path": "my-compass.js", "role": "personalization-renderer"},
+    {"path": "my-compass-live.js", "role": "personalization-live-refresh"}
   ],
   "collections": [
     {"id": "guides", "global": "AI_COMPASS_DATA.articles", "minimum": 41, "freshnessClass": "durable"},

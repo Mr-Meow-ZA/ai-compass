@@ -11,7 +11,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 16
+    timeout-minutes: 22
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,6 +19,8 @@ jobs:
           node-version: '22'
       - name: Validate source and content relationships
         run: npm run check
+      - name: Verify anonymous Community API boundaries
+        run: node scripts/check-community-anon-api.js
       - name: Render visual smoke routes in Chrome
         run: bash scripts/smoke-visuals.sh
       - name: Render enterprise builder routes in Chrome
@@ -29,6 +31,8 @@ jobs:
         run: bash scripts/smoke-intelligence.sh
       - name: Render structured content and freshness routes in Chrome
         run: bash scripts/smoke-freshness.sh
+      - name: Render live public community routes in Chrome
+        run: bash scripts/smoke-community.sh
       - name: Upload visual smoke diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -67,6 +71,13 @@ jobs:
             visual-smoke-freshness-news.png
             visual-smoke-freshness-guides-mobile.png
             visual-smoke-freshness-news-mobile.png
+            visual-smoke-community.png
+            visual-smoke-community-profile.png
+            visual-smoke-community-category.png
+            visual-smoke-community-mobile.png
+            visual-smoke-my-compass.png
+            visual-smoke-community-guide.png
+            visual-smoke-community-learning.png
             visual-smoke-home.html
             visual-smoke-guides.html
             visual-smoke-news.html
@@ -104,5 +115,12 @@ jobs:
             visual-smoke-freshness-news.html
             visual-smoke-freshness-guides-mobile.html
             visual-smoke-freshness-news-mobile.html
+            visual-smoke-community.html
+            visual-smoke-community-profile.html
+            visual-smoke-community-category.html
+            visual-smoke-community-mobile.html
+            visual-smoke-my-compass.html
+            visual-smoke-community-guide.html
+            visual-smoke-community-learning.html
           if-no-files-found: ignore
           retention-days: 7
