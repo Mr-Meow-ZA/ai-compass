@@ -45,6 +45,8 @@ Prefer:
 
 Do not publish unverified rumours or low-confidence claims as fact.
 
+For technical build guides, primary sources should support the architecture or implementation claims; avoid turning vendor-specific examples into universal requirements. Separate durable engineering principles from product-specific capabilities that can change.
+
 ## External content
 
 - Use a short original summary or preview.
@@ -62,13 +64,30 @@ Before adding an item:
 3. Avoid duplicate or near-duplicate pages.
 4. Preserve meaningful history.
 5. Mark obsolete items as superseded, archived or abandoned rather than silently presenting them as current.
+6. Preserve every existing original guide by default; an unexplained count reduction or missing guide slug is a release blocker.
 
 ## Current source locations
 
 - `data.js` contains the imported long-form guides, comparisons, repositories, community records and curated external feed.
 - `knowledge.js` contains maintained original guides that extend the imported library.
+- `dashboard-guide.js`, `practical-build-guides.js`, `research-build-guide.js`, `infographic-build-guide.js`, `agentic-build-guides.js` and `enterprise-ai-builder-guides.js` contain maintained practical build-guide series.
 - `template-library.js` contains reusable prompt and workflow templates.
-- `sector-starter-packs.js` contains sector-specific practical adoption guides.
-- `content.js` contains learning paths, concise tips, reference terms and goal-based homepage entry points.
+- `sector-starter-packs.js` and `education-starter-pack.js` contain context-specific adoption guides.
+- `content.js` contains foundational learning paths, concise tips, reference terms and goal-based homepage entry points.
+- `enterprise-learning-path.js` extends the learning-path library with the corporate AI builder route.
+- dated reference-refresh modules add maintained references/tips without rewriting the historical collection.
 
 This split is an interim static model. Future work should move each collection into separate schema-validated JSON or Markdown files without changing the visible distinction between AI Compass originals and third-party previews.
+
+## Release gates
+
+Every meaningful editorial release should:
+
+1. Register every new module in both the application and validation paths.
+2. Run syntax/content/source validation.
+3. Validate affected search, filters and internal learning relationships.
+4. Run rendered browser checks for meaningful visual changes at desktop and mobile sizes.
+5. Preserve photographic provenance and accessible treatment for prominent imagery.
+6. Update the changelog.
+7. Merge only after required checks pass.
+8. Confirm that the exact merged `main` commit reached Vercel production before calling it live.
