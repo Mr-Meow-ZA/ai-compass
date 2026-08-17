@@ -3,7 +3,7 @@ const fs=require('fs');
 const vm=require('vm');
 const context={window:{}};
 vm.createContext(context);
-for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','practical-build-guides.js','research-build-guide.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','reference-refresh-2026-08-14.js','reference-refresh-2026-08-15.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','practical-build-guides.js','infographic-build-guide.js','research-build-guide.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','reference-refresh-2026-08-14.js','reference-refresh-2026-08-15.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 const D=context.window.AI_COMPASS_DATA;
 const L=context.window.AI_COMPASS_LIBRARY;
 const errors=[];
@@ -18,10 +18,13 @@ for(const article of D.articles||[]){
   if(!Array.isArray(article.sources)||article.sources.length===0)errors.push(`Article has no sources: ${article.slug}`);
   for(const source of article.sources||[])if(!/^https:\/\//.test(source.url||''))errors.push(`Invalid source URL in ${article.slug}: ${source.url||'missing'}`);
 }
-if((D.articles||[]).length<33)errors.push(`Guide preservation failure: expected at least 33 guides, found ${(D.articles||[]).length}`);
-for(const requiredSlug of ['create-professional-dashboards-with-ai','build-an-ai-powered-executive-presentation','build-a-smart-excel-tracker-with-ai','build-your-first-ai-assisted-workflow-automation','build-a-professional-research-report-with-ai']){
+if((D.articles||[]).length<34)errors.push(`Guide preservation failure: expected at least 34 guides, found ${(D.articles||[]).length}`);
+for(const requiredSlug of ['create-professional-dashboards-with-ai','build-an-ai-powered-executive-presentation','build-a-smart-excel-tracker-with-ai','build-your-first-ai-assisted-workflow-automation','build-a-professional-infographic-with-ai','build-a-professional-research-report-with-ai']){
   if(!slugs.has(requiredSlug))errors.push(`Required guide missing: ${requiredSlug}`);
 }
+const infographicGuide=(D.articles||[]).find(item=>item.slug==='build-a-professional-infographic-with-ai');
+if(infographicGuide?.verified!=='2026-08-17')errors.push('Infographic guide verification date is missing');
+if((infographicGuide?.sources||[]).length<4)errors.push('Infographic guide source set is incomplete');
 const researchGuide=(D.articles||[]).find(item=>item.slug==='build-a-professional-research-report-with-ai');
 if(researchGuide?.verified!=='2026-08-16')errors.push('Research report guide verification date is missing');
 if((researchGuide?.sources||[]).length<3)errors.push('Research report guide source set is incomplete');
