@@ -23,7 +23,7 @@ required(!/sb_secret_|service_role/i.test(config),'Community browser config must
 required(config.includes("enabled:true"),'Community must be explicitly feature-enabled on the community branch.');
 for(const stylesheet of ['community.css','community-controls.css','my-compass.css'])required(index.includes(stylesheet),`${stylesheet} is not registered.`);
 required(data.includes('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/'),'Community data layer must lazy-load the pinned-major Supabase browser client.');
-required(data.includes("script.async=true"),'Community library should load asynchronously so it cannot block the editorial site.');
+required(data.includes('script.async=true'),'Community library should load asynchronously so it cannot block the editorial site.');
 required(index.indexOf('community-config.js')<index.indexOf('community-data.js'),'Community config must load before community-data.js.');
 required(index.indexOf('community-data.js')<index.indexOf('my-compass-data.js'),'My Compass data layer must load after the community account client.');
 required(index.indexOf('my-compass-data.js')<index.indexOf('community.js'),'My Compass data layer must be ready before UI enhancement modules.');
@@ -40,27 +40,27 @@ required(migration.includes('ai_compass_forum_threads_accepted_reply_fk'),'Accep
 required(hardening.includes('security invoker'),'Identity helpers must be hardened to security-invoker mode.');
 for(const fn of ['ai_compass_guard_profile_update','ai_compass_guard_thread_insert','ai_compass_guard_thread_update','ai_compass_guard_reply_insert','ai_compass_guard_reply_update','ai_compass_touch_thread_from_reply'])required(hardening.includes(`revoke execute on function public.${fn}()`),`Trigger function ${fn} remains browser-callable.`);
 required(abuseHardening.includes("current_setting('ai_compass.internal_thread_touch'"),'Thread activity updates need an internal-only touch guard.');
-required(abuseHardening.includes("or new.last_activity_at is distinct from old.last_activity_at"),'Thread authors must not be able to bump last_activity_at directly.');
-required(abuseHardening.includes('ai_compass_profiles_self_update'),'Normal profile updates must be self-only.');
-required(!abuseHardening.includes('ai_compass_profiles_self_or_mod_update'),'Broad moderator profile-edit policy must not be restored by abuse hardening.');
+required(abuseHardening.includes('or new.last_activity_at is distinct from old.last_activity_at'),'Thread authors must not be able to bump last_activity_at directly.');
+required(abuseHardening.includes('create policy ai_compass_profiles_self_update'),'Normal profile updates must be self-only.');
+required(!/create\s+policy\s+ai_compass_profiles_self_or_mod_update/i.test(abuseHardening),'Broad moderator profile-edit policy must not be restored by abuse hardening.');
 
 const myTables=['ai_compass_content_likes','ai_compass_content_follows','ai_compass_learning_progress'];
 for(const table of myTables){required(myMigration.includes(`create table public.${table}`),`Missing My Compass table ${table}.`);required(myMigration.includes(`alter table public.${table} enable row level security`),`RLS is not enabled for ${table}.`);}
 required(myMigration.includes('ai_compass_content_likes_public_read'),'Guide/content like counts must remain readable without exposing follow/progress state.');
 required(myMigration.includes('ai_compass_content_follows_self_read'),'Content follows must be private to the signed-in user.');
 required(myMigration.includes('ai_compass_learning_progress_self_read'),'Learning progress must be private to the signed-in learner.');
-required(myData.includes("ai_compass_content_likes")&&myData.includes("ai_compass_content_follows")&&myData.includes("ai_compass_learning_progress"),'My Compass data runtime is missing retention tables.');
-required(myUi.includes("#my-compass")&&myUi.includes("data-mc-action=\"lesson\"")&&myUi.includes('linked_content_type:\'guide\''),'My Compass UI must expose dashboard, lesson progress and guide-linked discussions.');
+required(myData.includes('ai_compass_content_likes')&&myData.includes('ai_compass_content_follows')&&myData.includes('ai_compass_learning_progress'),'My Compass data runtime is missing retention tables.');
+required(myUi.includes('#my-compass')&&myUi.includes("control.dataset.mcAction='lesson'")&&myUi.includes("linked_content_type:'guide'"),'My Compass UI must expose dashboard, lesson progress and guide-linked discussions.');
 required(myLive.includes('ai-compass-my-updated')&&myLive.includes("['toggleLike','toggleFollow','setStep']"),'My Compass persisted actions must trigger live UI refresh.');
 required(myLive.includes("document.querySelector('.my-guide-engagement')?.remove()")&&myLive.includes("document.querySelector('.my-learning-progress')?.remove()"),'Live refresh must clear progressive guide/learning widgets before rerendering.');
 
 for(const routeMarker of ['#community/thread/','#community/category/','#community/profile','#community/new','#community/moderation'])required(ui.includes(routeMarker),`Community route marker missing: ${routeMarker}`);
-required(ui.includes("bodyText=value=>esc(value).replace"),'Community post body rendering must escape user text before adding line breaks.');
+required(ui.includes('bodyText=value=>esc(value).replace'),'Community post body rendering must escape user text before adding line breaks.');
 required(data.includes('signInWithOtp'),'Community auth must use passwordless email magic links.');
 required(data.includes('emailRedirectTo:`${location.origin}${location.pathname}`'),'Magic-link redirects must stay on the current AI Compass origin.');
-required(data.includes("ai_compass_current_role"),'Community client must resolve the server-side role helper.');
-required(data.includes("ai_compass_forum_reports"),'Community client must support reporting.');
-required(data.includes("ai_compass_forum_moderation_actions"),'Community client must log moderation actions.');
+required(data.includes('ai_compass_current_role'),'Community client must resolve the server-side role helper.');
+required(data.includes('ai_compass_forum_reports'),'Community client must support reporting.');
+required(data.includes('ai_compass_forum_moderation_actions'),'Community client must log moderation actions.');
 
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Community contracts valid: ${forumTables.length} forum RLS tables, ${myTables.length} My Compass RLS tables, 11 categories, passwordless auth, retention, live refresh, reporting, moderation and abuse hardening.`);
