@@ -11,7 +11,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -23,6 +23,8 @@ jobs:
         run: bash scripts/smoke-visuals.sh
       - name: Render enterprise builder routes in Chrome
         run: bash scripts/smoke-enterprise.sh
+      - name: Render discovery and navigation routes in Chrome
+        run: bash scripts/smoke-discovery.sh
       - name: Upload visual smoke diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -41,6 +43,14 @@ jobs:
             visual-smoke-enterprise-architecture-mobile.png
             visual-smoke-enterprise-path.png
             visual-smoke-enterprise-path-mobile.png
+            visual-smoke-tools.png
+            visual-smoke-models.png
+            visual-smoke-courses.png
+            visual-smoke-practical.png
+            visual-smoke-resources.png
+            visual-smoke-learn.png
+            visual-smoke-courses-mobile.png
+            visual-smoke-discovery-home-mobile.png
             visual-smoke-home.html
             visual-smoke-guides.html
             visual-smoke-news.html
@@ -54,5 +64,13 @@ jobs:
             visual-smoke-enterprise-architecture-mobile.html
             visual-smoke-enterprise-path.html
             visual-smoke-enterprise-path-mobile.html
+            visual-smoke-tools.html
+            visual-smoke-models.html
+            visual-smoke-courses.html
+            visual-smoke-practical.html
+            visual-smoke-resources.html
+            visual-smoke-learn.html
+            visual-smoke-courses-mobile.html
+            visual-smoke-discovery-home-mobile.html
           if-no-files-found: ignore
           retention-days: 7
