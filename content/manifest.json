@@ -3,30 +3,10 @@
   "release": "0.7.0",
   "build": "2026-08-17.6",
   "sourceCollections": [
-    {
-      "id": "discovery",
-      "runtimeKey": "discovery",
-      "path": "content/maintained/discovery.json",
-      "schema": "content/schemas/discovery.schema.json"
-    },
-    {
-      "id": "curriculum",
-      "runtimeKey": "curriculum",
-      "path": "content/maintained/curriculum.json",
-      "schema": "content/schemas/curriculum.schema.json"
-    },
-    {
-      "id": "news-intelligence",
-      "runtimeKey": "newsIntelligence",
-      "path": "content/maintained/news-intelligence.json",
-      "schema": "content/schemas/news-intelligence.schema.json"
-    },
-    {
-      "id": "freshness",
-      "runtimeKey": "freshness",
-      "path": "content/maintained/freshness.json",
-      "schema": "content/schemas/freshness.schema.json"
-    }
+    {"id": "discovery", "runtimeKey": "discovery", "path": "content/maintained/discovery.json", "schema": "content/schemas/discovery.schema.json"},
+    {"id": "curriculum", "runtimeKey": "curriculum", "path": "content/maintained/curriculum.json", "schema": "content/schemas/curriculum.schema.json"},
+    {"id": "news-intelligence", "runtimeKey": "newsIntelligence", "path": "content/maintained/news-intelligence.json", "schema": "content/schemas/news-intelligence.schema.json"},
+    {"id": "freshness", "runtimeKey": "freshness", "path": "content/maintained/freshness.json", "schema": "content/schemas/freshness.schema.json"}
   ],
   "runtimeModules": [
     {"path": "data.js", "role": "historical-core"},
@@ -54,7 +34,8 @@
     {"path": "site-evolution.js", "role": "discovery-renderer"},
     {"path": "enhancements.js", "role": "interaction-enhancement"},
     {"path": "learning-intelligence.js", "role": "learning-renderer"},
-    {"path": "news-intelligence.js", "role": "news-renderer"}
+    {"path": "news-intelligence.js", "role": "news-renderer"},
+    {"path": "freshness-ui.js", "role": "freshness-renderer"}
   ],
   "collections": [
     {"id": "guides", "global": "AI_COMPASS_DATA.articles", "minimum": 41, "freshnessClass": "durable"},
