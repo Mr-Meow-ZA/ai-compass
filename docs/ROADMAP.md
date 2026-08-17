@@ -67,30 +67,70 @@ Target experience:
 - [x] Add structural intelligence/curriculum validation plus dedicated desktop/mobile Chromium smoke routes.
 - [x] Preserve all 41 original guides and existing public article routes.
 
-## Next — 0.7.0 Maintainability & Freshness
+## 0.7.0 — Maintainability & Freshness foundation
 
-The next structural release should make the growing library easier and safer to maintain before another large feature wave.
+This release establishes the structured-content boundary without risking an all-at-once rewrite of the cumulative guide library.
 
-### Required outcomes
+### Completed outcomes
 
-- [ ] Move actively maintained guides, practical items, references, tools, models, courses, resources and news into structured JSON or Markdown collections with schemas.
-- [ ] Add a shared content manifest so app registration and validation cannot drift.
-- [ ] Add visible `last reviewed`, freshness class and superseded/archive metadata across volatile content.
-- [ ] Establish reusable source metadata and source-quality indicators across every volatile content type, reusing the concepts already proven in News.
-- [ ] Generate internal related-content relationships/search indexes from metadata where practical.
-- [ ] Move curriculum and News intelligence overlays into structured collections rather than browser-global modules.
-- [ ] Preserve all 41+ original guides and existing public routes during migration.
-- [ ] Keep `npm run check`, rendered browser smoke tests and Vercel Preview as release gates.
+- [x] Add a shared content manifest containing release/build identity, structured source registry, runtime-module registration, collection preservation floors and freshness classes.
+- [x] Move **Tools, Models, Courses, reusable Resources, Curriculum and News Intelligence** into canonical structured JSON collections.
+- [x] Add JSON Schema contracts and repository validation without adding a runtime framework or package dependency.
+- [x] Remove superseded `discovery-data.js`, `curriculum-data.js` and `news-intelligence-data.js` maintained sources.
+- [x] Add a manifest-driven browser loader and runtime adapter while preserving the stable hash router and all public routes.
+- [x] Add a shared freshness policy with `news`, `volatile` and `durable` classes.
+- [x] Surface visible **Current / Recent / Archive / Review soon / Needs review** states across affected guides, Tools, Models, Courses, Reference, Learn and News.
+- [x] Add guide-specific freshness overrides for provider-controlled subscription/comparison/hardware material.
+- [x] Add deterministic freshness boundary tests.
+- [x] Add manifest/index registration-drift validation.
+- [x] Make structured-dependent presentation modules wait explicitly for the content-ready promise so slow network timing cannot silently disable discovery/curriculum/intelligence layers.
+- [x] Add a dedicated desktop/mobile structured-content/freshness Chromium suite in addition to all existing visual regressions.
+- [x] Preserve at least **41 guides**, **7 paths**, **5 curriculum levels** and the full source-first News intelligence hierarchy.
+
+### Deliberately incremental
+
+The following remain in their proven modules for later 0.7.x migration rather than being rewritten in one risky release:
+
+- original guide bodies;
+- foundational practical tips;
+- foundational reference entries;
+- historical imported comparisons/repositories/community records;
+- dated source-backed overlays where preservation history is useful.
+
+## Next — 0.7.x Taxonomy, Search & Deeper Freshness
+
+### Structured-content expansion
+
+- [ ] Move actively maintained reference/practical records into schema-validated collections incrementally.
+- [ ] Add a structured guide metadata index before considering migration of full guide bodies.
+- [ ] Add reusable source objects so canonical URL, source type, verified date and provenance are not repeated inconsistently.
+- [ ] Add explicit item-level superseded / archived / abandoned metadata where applicable.
+- [ ] Add optional `watch next / unknowns` fields to News intelligence when uncertainty materially helps action.
+
+### Generated discovery/search
+
+- [ ] Generate one cross-site taxonomy/search index covering Guides, Practical, Reference, Tools, Models, Courses, Resources, News and learning paths.
+- [ ] Use stable tags for level, topic, goal, role, tool/model and freshness class.
+- [ ] Generate deterministic related-content candidates while retaining editorial overrides for important journeys.
+- [ ] Add URL/state-safe filters that can be linked/shared.
+- [ ] Add better role/goal landing experiences without duplicating source content.
+
+### Tool/model/course depth
+
+- [ ] Expand the Tools directory with proper per-tool profiles, reviewed strengths/limitations, alternatives and related learning.
+- [ ] Expand Model pages with model-level freshness, licensing/openness context and careful benchmark interpretation.
+- [ ] Continue vetting high-quality training from provider academies, Microsoft Learn, DeepLearning.AI, universities and other reputable sources.
+- [ ] Add course comparison/filtering by level, time, free/paid, certificate and technical/non-technical audience once the directory is large enough to justify it.
 
 ## News evolution — next depth
 
-The 0.6.21 release establishes the first structured intelligence layer. Remaining improvements:
+The 0.6.21 intelligence model and 0.7.0 freshness layer are established. Remaining improvements:
 
-- [ ] Audit the historical news archive for duplicate, low-value and outdated previews without erasing meaningful history.
-- [ ] Add an explicit **what remains unknown / watch next** field where it materially helps the reader.
+- [ ] Audit the historical archive for duplicate, low-value and outdated previews without erasing meaningful history.
+- [ ] Add `what remains unknown / watch next` only where uncertainty materially affects action.
 - [ ] Expand related links from guides/reference into relevant tools, models, courses and resources.
-- [ ] Add visible freshness/review indicators as part of the shared 0.7 metadata model.
-- [ ] Keep primary announcements visible and use reputable independent reporting only where it adds clearly labelled context.
+- [ ] Use the shared structured source model once available.
+- [ ] Keep primary announcements visible and independent reporting clearly labelled as context.
 - [ ] Continue preferring a few meaningful developments to high-volume headline aggregation.
 
 ## Learning evolution — next depth
@@ -98,18 +138,21 @@ The 0.6.21 release establishes the first structured intelligence layer. Remainin
 The five-level curriculum and AI Power User bridge are now established. Remaining improvements:
 
 - [ ] Audit every lesson sequence for duplicated material, prerequisites and opportunities for practical exercises.
-- [ ] Add role-oriented paths such as Manager, Analyst/Researcher, Developer, Educator and Enterprise Leader where the existing library can support them without filler.
+- [ ] Add role-oriented paths such as Manager, Analyst/Researcher, Developer, Educator and Enterprise Leader where the library can support them without filler.
 - [ ] Add vetted course recommendations and reusable resources directly inside learning paths.
-- [ ] Add practice tasks / checkpoints to selected paths where completion can be meaningfully demonstrated.
+- [ ] Add practice tasks / checkpoints where completion can be meaningfully demonstrated.
 - [ ] Add progress/completion metadata in preparation for synced user profiles.
 
-## Discovery/content expansion priorities
+## Practical guide expansion priorities
 
-- [ ] Expand the Tools directory with proper per-tool profiles, reviewed strengths/limitations, alternatives and related learning.
-- [ ] Expand Model pages with model-level freshness, licensing/openness context and careful benchmark interpretation.
-- [ ] Continue vetting high-quality training from provider academies, Microsoft Learn, DeepLearning.AI, universities and other reputable sources.
-- [ ] Expand reusable resources into downloadable/copyable templates where appropriate.
-- [ ] Add human-in-the-loop design, AI observability/LLMOps, cost engineering/model routing, reliable tool calling, durable long-running workflows, prompt-injection testing and business-value measurement guides.
+- [ ] Human-in-the-loop workflow design.
+- [ ] AI observability / LLMOps dashboard and operating model.
+- [ ] Cost engineering, model routing and caching.
+- [ ] Reliable tool-calling patterns and idempotency.
+- [ ] Durable long-running agent workflows.
+- [ ] Prompt-injection and adversarial testing.
+- [ ] Document-processing pipelines.
+- [ ] Business-value / ROI measurement for AI systems.
 
 ## Community & free profiles — approved product goal, backend implementation still gated
 
@@ -131,11 +174,11 @@ Planned free-profile capabilities:
 
 ### Required architecture before community launch
 
-- [ ] Select/approve authentication and backend (Supabase is a likely option but not assumed until designed/reviewed).
+- [ ] Select/approve authentication and backend (Supabase remains a likely option but is not assumed until designed/reviewed).
 - [ ] Define profiles, follows, saves, progress, comments, threads, replies, notifications and moderation schemas.
 - [ ] Define RLS/authorization and editorial-versus-user-generated data boundaries.
 - [ ] Threat-model abuse, impersonation, spam, unsafe links and moderation privileges.
-- [ ] Build behind preview/feature flags with anonymous-reader behavior preserved.
+- [ ] Build behind preview/feature flags with anonymous-reader behaviour preserved.
 - [ ] Add authenticated and signed-out browser tests before production.
 
 ## Explicitly deferred until their foundations exist
