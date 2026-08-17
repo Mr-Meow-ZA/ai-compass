@@ -9,13 +9,14 @@ window.AI_COMPASS_CONTENT_READY=ready.then(maintained=>{
   if(!discovery||!curriculum||!news)throw new Error('Structured maintained content is incomplete');
 
   const reviewedDiscovery=items=>(items||[]).map(item=>({...item,reviewed:item.verified||item.reviewed||discovery.reviewed}));
-  window.AI_COMPASS_DISCOVERY={
+  const discoveryTarget=window.AI_COMPASS_DISCOVERY||(window.AI_COMPASS_DISCOVERY={});
+  Object.assign(discoveryTarget,{
     ...discovery,
     tools:reviewedDiscovery(discovery.tools),
     models:reviewedDiscovery(discovery.models),
     courses:reviewedDiscovery(discovery.courses),
     resources:reviewedDiscovery(discovery.resources)
-  };
+  });
 
   const library=window.AI_COMPASS_LIBRARY;
   if(!library||!Array.isArray(library.learningPaths))throw new Error('Learning library is unavailable when structured curriculum loads');
@@ -25,7 +26,7 @@ window.AI_COMPASS_CONTENT_READY=ready.then(maintained=>{
     library.learningPaths.splice(builderIndex>=0?builderIndex:library.learningPaths.length,0,{...powerUserPath});
   }
   const {powerUserPath:ignoredPowerUserPath,...curriculumMeta}=curriculum;
-  window.AI_COMPASS_CURRICULUM=curriculumMeta;
+  Object.assign(window.AI_COMPASS_CURRICULUM||(window.AI_COMPASS_CURRICULUM={}),curriculumMeta);
 
   const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
   const inferStatus=item=>{
@@ -54,7 +55,7 @@ window.AI_COMPASS_CONTENT_READY=ready.then(maintained=>{
       reviewed:item.verified||news.reviewed
     };
   }
-  window.AI_COMPASS_NEWS_INTELLIGENCE={reviewed:news.reviewed,methodVersion:news.methodVersion,method:news.method};
+  Object.assign(window.AI_COMPASS_NEWS_INTELLIGENCE||(window.AI_COMPASS_NEWS_INTELLIGENCE={}),{reviewed:news.reviewed,methodVersion:news.methodVersion,method:news.method});
   window.AI_COMPASS_STRUCTURED_CONTENT_STATUS={
     release:maintained.manifest.release,
     build:maintained.manifest.build,
