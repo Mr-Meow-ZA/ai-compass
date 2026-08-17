@@ -11,7 +11,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 16
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,6 +27,8 @@ jobs:
         run: bash scripts/smoke-discovery.sh
       - name: Render signal and curriculum routes in Chrome
         run: bash scripts/smoke-intelligence.sh
+      - name: Render structured content and freshness routes in Chrome
+        run: bash scripts/smoke-freshness.sh
       - name: Upload visual smoke diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,6 +60,13 @@ jobs:
             visual-smoke-power-user-path.png
             visual-smoke-intelligence-news-mobile.png
             visual-smoke-intelligence-learn-mobile.png
+            visual-smoke-freshness-guides.png
+            visual-smoke-freshness-article.png
+            visual-smoke-freshness-tools.png
+            visual-smoke-freshness-courses.png
+            visual-smoke-freshness-news.png
+            visual-smoke-freshness-guides-mobile.png
+            visual-smoke-freshness-news-mobile.png
             visual-smoke-home.html
             visual-smoke-guides.html
             visual-smoke-news.html
@@ -85,5 +94,15 @@ jobs:
             visual-smoke-intelligence-enterprise.html
             visual-smoke-intelligence-news-mobile.html
             visual-smoke-intelligence-learn-mobile.html
+            visual-smoke-freshness-guides.html
+            visual-smoke-freshness-article.html
+            visual-smoke-freshness-tools.html
+            visual-smoke-freshness-models.html
+            visual-smoke-freshness-courses.html
+            visual-smoke-freshness-reference.html
+            visual-smoke-freshness-learn.html
+            visual-smoke-freshness-news.html
+            visual-smoke-freshness-guides-mobile.html
+            visual-smoke-freshness-news-mobile.html
           if-no-files-found: ignore
           retention-days: 7

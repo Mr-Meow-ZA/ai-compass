@@ -2,6 +2,38 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.7.0 - 2026-08-17
+
+### Added
+- New canonical `content/manifest.json` containing release/build identity, structured source registration, runtime-module order, collection preservation floors and freshness classes.
+- Schema-validated maintained collections for **Discovery**, **Curriculum**, **News Intelligence** and **Freshness** under `content/maintained/` with contracts under `content/schemas/`.
+- Manifest-driven browser loading plus a compatibility runtime adapter so the stable static renderer can consume structured records without a full application rewrite.
+- Shared freshness policy with `news`, `volatile` and `durable` classes and visible **Current / Recent / Archive / Review soon / Needs review** states.
+- Guide-specific freshness overrides for provider-controlled subscription/comparison/hardware guidance.
+- `scripts/validate-structured-content.js`, `scripts/validate-manifest.js` and `scripts/validate-freshness.js` plus a dedicated structured-content/freshness Chromium suite.
+- Permanent CI guards that fail if deleted legacy maintained-data modules reappear or if structured-content presentation modules stop waiting for the shared readiness promise.
+
+### Changed
+- Tools, Models, Courses and reusable Resources now come from canonical JSON rather than `discovery-data.js`.
+- The five-level curriculum and **Become an AI power user** path now come from canonical JSON rather than `curriculum-data.js`.
+- News signal/status/source-quality/analysis/action metadata now comes from canonical JSON rather than `news-intelligence-data.js`.
+- Removed the superseded `discovery-data.js`, `curriculum-data.js` and `news-intelligence-data.js` maintained sources so these records no longer have parallel editorial truth.
+- `site-evolution.js`, `learning-intelligence.js`, `news-intelligence.js` and `freshness-ui.js` now wait explicitly for `AI_COMPASS_CONTENT_READY` before reading structured globals, eliminating a network-timing startup race that fast CI/network conditions could otherwise hide.
+- Corrected the legacy learning-lane fallback to match the current five-level curriculum and dedicated AI Power User path.
+- Preserved all **41 original guides**, **7 learning paths**, **5 curriculum levels**, the complete source-first News briefing and all existing public article routes.
+- Advanced application build marker to `2026-08-17.6` and package version to `0.7.0`.
+
+### Validation and review
+- Schema/manifest validation checks structured shape, unique IDs, HTTPS sources, path relationships, runtime registration, release/build alignment and deleted-source invariants.
+- Freshness validation uses fixed dates to verify exact state transitions rather than relying on whatever day CI happens to run.
+- Core visual regression, Enterprise AI Builder, discovery/navigation, signal/curriculum and structured-content/freshness Chromium suites are release gates.
+- The initial 0.7.0 release-candidate head passed all five suites before documentation closeout; the startup-readiness guard was then strengthened and requires the complete suite to pass again on the final head before merge.
+- Manual rendered review confirmed the freshness layer remains subordinate to primary content hierarchy on Guides, a volatile subscription guide, Tools, Courses and News.
+
+### Scope
+- This is an incremental architecture migration, not a rewrite. Original guide bodies, foundational practical/reference records and historical imported data remain in their proven modules for later 0.7.x migration where the maintenance benefit justifies the risk.
+- No filler News item was added as part of this architecture release.
+
 ## 0.6.21 - 2026-08-17
 
 ### Added

@@ -3,8 +3,7 @@
 const F=window.AI_COMPASS_FEED||[];
 const D=window.AI_COMPASS_DATA||{articles:[]};
 const L=window.AI_COMPASS_LIBRARY||{references:[]};
-const I=window.AI_COMPASS_NEWS_INTELLIGENCE;
-if(!I)return;
+let I=null;
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const ext=' target="_blank" rel="noopener noreferrer"';
 const fmtDate=value=>{try{return new Intl.DateTimeFormat('en-ZA',{day:'numeric',month:'short',year:'numeric'}).format(new Date(`${value}T12:00:00`))}catch{return value||''}};
@@ -49,7 +48,7 @@ function compactRow(item){
 }
 
 function renderNews(){
-  if(current()!=='news')return;
+  if(!I||current()!=='news')return;
   const main=document.getElementById('main');if(!main)return;
   const all=sorted();
   const top=[...all].sort((a,b)=>(b.intelligence?.importance||0)-(a.intelligence?.importance||0)||String(b.date).localeCompare(String(a.date))).slice(0,3);
@@ -88,6 +87,15 @@ function wireFilters(all){
 }
 
 function enhance(){if(current()==='news')renderNews();}
-document.addEventListener('DOMContentLoaded',()=>setTimeout(enhance,60));
-addEventListener('hashchange',()=>setTimeout(enhance,60));
+function start(){
+ const ready=window.AI_COMPASS_CONTENT_READY||Promise.resolve();
+ ready.then(()=>{
+  I=window.AI_COMPASS_NEWS_INTELLIGENCE||null;
+  if(!I)return;
+  const run=()=>setTimeout(enhance,60);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+  addEventListener('hashchange',run);
+ }).catch(error=>console.error('AI Compass news intelligence could not start',error));
+}
+start();
 })();

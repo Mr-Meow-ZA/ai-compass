@@ -67,6 +67,8 @@ AI Compass should give readers recurring reasons to return for:
 - **What are other people doing?** — future community discussion and project experience.
 - **New since my last visit** — future profile-aware updates on followed topics.
 
+Visible freshness is part of retention and trust: readers should be able to tell whether a provider-controlled recommendation is current, approaching review or needs re-verification without assuming all older content is wrong.
+
 ## Core experience
 
 The homepage should begin with reader intent rather than taxonomy:
@@ -107,20 +109,33 @@ Supporting experiences:
 
 ## Learning architecture
 
-AI Compass should support two ways into learning:
+AI Compass should support two ways into learning.
 
 ### By experience
 
-1. AI Essentials
-2. AI for Work
-3. AI Power User
-4. AI Builder & Enterprise
+1. **AI Essentials** — safe first use, prompting, privacy and verification.
+2. **AI at Work** — repeatable professional workflows and office/productivity use.
+3. **AI Power User** — evidence-led research, reusable instructions, RAG fundamentals, automation choice and evaluation.
+4. **AI Builder & Team Lead** — tools, agents, orchestration, governance and human authority boundaries.
+5. **Enterprise AI Builder** — architecture, permission-aware RAG, identity/security, release gates and lifecycle governance.
+
+The progression is a map, not a certificate ladder. Readers should move up only when their work needs the additional complexity.
 
 ### By role or goal
 
 Examples: Manager, Analyst/Researcher, Developer, Educator, Small Business and Enterprise Leader. Role-based paths should only be added when the library can support them with genuinely useful content.
 
 External courses should complement, not replace, AI Compass learning. A vetted course should show where it fits in an AI Compass path and what the reader still needs beyond it.
+
+## Trust and freshness
+
+AI Compass should make maintenance visible without turning dates into decoration.
+
+- **News** can age into an archive while remaining historically useful.
+- **Volatile content** such as tools, models, courses, subscriptions and selected hardware/comparison guides should show when it is current, due for review or no longer safe to rely on without re-checking.
+- **Durable content** such as concepts and engineering principles should have longer review windows.
+- Superseded or abandoned material should be labelled rather than silently rewritten out of history.
+- Freshness state is not an editorial score and does not replace source quality.
 
 ## Community vision
 
@@ -148,7 +163,7 @@ AI Compass should not try to have the most AI content. It should combine qualiti
 - **Source-backed** — primary evidence and verification dates stay visible.
 - **Level-aware** — beginners and enterprise builders can coexist without confusing one another.
 - **Connected** — news → concept → guide → tool/model → course/resource → next lesson.
-- **Maintained** — volatile pages visibly carry freshness and review metadata as the architecture evolves.
+- **Maintained** — volatile pages visibly carry freshness/review state instead of pretending provider-controlled details are timeless.
 - **Willing to judge** — AI Compass can recommend, caution or say “not worth it” when evidence supports that conclusion.
 
 The goal is not another AI database. It is **judgement readers can trust**.
@@ -163,4 +178,4 @@ AI Compass should feel calm, technically credible, useful and publication-qualit
 - Repackaged third-party content.
 - Artificial content volume.
 - Affiliate-style course lists disguised as recommendations.
-- Hiding important sources, dates, uncertainty or community/editorial boundaries.
+- Hiding important sources, dates, uncertainty, freshness state or community/editorial boundaries.
