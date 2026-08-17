@@ -1,0 +1,37 @@
+{
+  "reviewed": "2026-08-17",
+  "classes": {
+    "news": {
+      "reviewEveryDays": 21,
+      "warnAfterDays": 10,
+      "description": "Fast-moving announcements and current developments."
+    },
+    "volatile": {
+      "reviewEveryDays": 45,
+      "warnAfterDays": 30,
+      "description": "Tools, models, courses, subscriptions and other provider-controlled details."
+    },
+    "durable": {
+      "reviewEveryDays": 180,
+      "warnAfterDays": 150,
+      "description": "Concepts, learning structure and engineering guidance that should change less frequently."
+    }
+  },
+  "collectionDefaults": {
+    "guides": "durable",
+    "references": "durable",
+    "learning-paths": "durable",
+    "tips": "durable",
+    "tools": "volatile",
+    "models": "volatile",
+    "courses": "volatile",
+    "resources": "durable",
+    "news": "news"
+  },
+  "guideOverrides": {
+    "choose-your-first-ai-subscription": "volatile",
+    "chatgpt-vs-claude-vs-gemini-2026": "volatile",
+    "coding-plans-codex-claude-code-copilot-cursor": "volatile",
+    "local-ai-hardware-guide": "volatile"
+  }
+}
