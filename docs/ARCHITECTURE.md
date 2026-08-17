@@ -2,54 +2,74 @@
 
 ## Current application
 
-AI Compass is a static single-page application:
+AI Compass is a static single-page application with a stable core renderer plus maintained content/discovery layers:
 
-- `index.html` loads the application and SEO metadata.
+- `index.html` loads the application, SEO metadata and explicit content modules.
 - `data.js` contains the imported original guides, comparisons, repositories, community items and curated external feed.
 - `knowledge.js` adds maintained original guides without rewriting the imported historical collection.
-- `dashboard-guide.js` contains the flagship visual dashboard guide.
-- `practical-build-guides.js` contains maintained outcome-first guides for presentations, Excel trackers and workflow automation.
-- `research-build-guide.js` and `infographic-build-guide.js` contain maintained research and visual-communication build guides.
-- `agentic-build-guides.js` contains maintained agent-orchestration and governed workplace-agent guides.
-- `enterprise-ai-builder-guides.js` contains maintained enterprise architecture, RAG, evaluation, identity/security and AI-development-lifecycle guides.
-- `template-library.js` contains maintained reusable prompt and workflow templates.
-- `sector-starter-packs.js` and `education-starter-pack.js` contain maintained adoption guides for specific contexts.
-- `content.js` contains foundational learning paths, tips, reference terms and goal-based homepage entry points.
-- `enterprise-learning-path.js` adds the maintained Build AI systems at work path after the foundational library loads.
-- dated reference-refresh modules maintain verified reference and tip additions without rewriting the historical collection.
-- `app.js` provides hash routing, rendering, unified search, filters, saved guides and local prototype interactions.
-- `enhancements.js` provides progressive mobile navigation, mobile search and article contents controls.
-- `styles.css`, `visual-system.css`, `editorial-photo-overrides.css` and `mobile.css` provide the responsive and photographic visual system.
+- `dashboard-guide.js`, `practical-build-guides.js`, `research-build-guide.js`, `infographic-build-guide.js`, `agentic-build-guides.js` and `enterprise-ai-builder-guides.js` contain maintained original guide collections.
+- `template-library.js`, `sector-starter-packs.js` and `education-starter-pack.js` contain maintained reusable/sector guidance.
+- `content.js` contains foundational learning paths, practical tips, reference terms and goal-based homepage entry points.
+- `enterprise-learning-path.js` adds the maintained **Build AI systems at work** path after the foundational library loads.
+- dated reference-refresh modules maintain verified reference and practical additions without rewriting historical collections.
+- `discovery-data.js` contains the maintained Tools, Models, Courses and reusable Resources directories, including verification and editorial-review metadata.
+- `app.js` is the stable core hash router/renderer with unified search, filters, saved guides and browser-local prototype interactions.
+- `site-evolution.js` progressively adds the 0.6.20 information architecture: separate Tools and Models, Courses, Practical Library, expanded Resources, learning lanes, guide tags and community-roadmap messaging. It deliberately avoids a broad core-router rewrite during this foundation release.
+- `enhancements.js` provides mobile navigation, mobile search and article-contents refinements.
+- `styles.css`, `visual-system.css`, `editorial-photo-overrides.css`, `site-evolution.css` and `mobile.css` provide the responsive/editorial visual system.
 
-There is no compile step and no server-side database in this snapshot.
+There is no compile step and no server-side database in the current production architecture.
 
-## Main routes
+## User-facing routes
+
+Primary navigation after the discovery layer loads:
 
 - `#home`
 - `#learn` and `#learn/:path`
 - `#guides` and `#article/:slug`
-- `#tips`
-- `#reference`
+- `#practical` (legacy `#tips` resolves to the same evolved practical experience)
 - `#tools`
+- `#models`
+- `#courses`
 - `#resources`
 - `#news`
+
+Supporting routes include:
+
+- `#reference`
 - `#community`
 - `#search?q=`
+- `#saved`
+- `#about`
 
-Legacy routes such as `#compare`, `#repos`, `#videos` and `#explore` resolve to the relevant new collection.
+Legacy routes such as `#compare`, `#repos`, `#videos` and `#explore` remain accepted and are routed to the appropriate maintained experience.
+
+## Content/discovery boundaries
+
+The evolved information architecture deliberately separates concepts that were previously bundled:
+
+- **Tool** — an end-user product or work/developer application.
+- **Model** — an underlying model family/ecosystem, which may be exposed through several products/APIs.
+- **Course** — external training that receives an AI Compass editorial review and verification date.
+- **Resource** — a reusable template/checklist/framework or curated external project useful for doing work.
+- **Guide** — substantial AI Compass original content.
+- **Practical item** — a concise pattern/recipe linked to deeper guidance.
+- **Community content** — future user-generated material that must never be silently presented as editorial guidance.
 
 ## Current persistence
 
-Saved guides and some community or editorial interactions use browser-local storage. They are not shared between users or devices.
+Saved guides and some community/editorial prototype interactions use browser-local storage. They are not shared between users or devices. The UI must continue to label these limitations honestly until a real account backend exists.
 
 ## Validation architecture
 
-- `npm run check` validates JavaScript syntax, guide/source metadata, internal relationships and cumulative guide preservation.
+- `npm run check` validates JavaScript syntax, guide/source metadata, internal learning relationships, cumulative guide preservation, maintained news/reference metadata and discovery-directory contracts.
+- `scripts/validate-discovery.js` verifies minimum discovery coverage, unique IDs, official URLs, course-review completeness, course-to-learning-path relationships, toolkit-to-guide relationships and the 41-guide preservation floor.
 - `scripts/smoke-visuals.sh` renders core desktop/mobile routes and flagship visual guides in Chromium.
-- `scripts/smoke-enterprise.sh` renders the Enterprise AI Builder architecture guide and learning path at desktop/mobile sizes.
-- GitHub Actions runs both validation layers and uploads rendered screenshots/DOM diagnostics before merge.
+- `scripts/smoke-enterprise.sh` renders Enterprise AI Builder content and learning routes at desktop/mobile sizes.
+- `scripts/smoke-discovery.sh` renders Tools, Models, Courses, Practical, Resources and Learn at desktop sizes plus Courses/Home at mobile sizes.
+- GitHub Actions runs all validation layers and uploads rendered screenshots/DOM diagnostics before merge.
 
-The application and content validator currently use explicit module registration. Adding or renaming a published module therefore requires updating both load paths in the same release. The planned 0.7.x content-manifest work should remove this drift risk.
+The application and validators still use explicit module registration. Adding or renaming a published module requires updating both load and validation paths in the same release. The planned 0.7.x manifest/schema work should remove this drift risk.
 
 ## Production infrastructure
 
@@ -62,34 +82,49 @@ The application and content validator currently use explicit module registration
 
 ## Legacy deployment
 
-Before this repository existed, production was deployed through compressed HTML payload chunks stored in the unrelated public repository `Mr-Meow-ZA/yeet`, notably the branches `ai-compass-site` and `ai-compass-news-v5`.
-
-That was a recovery workaround, not the target architecture. New development happens only in this repository. Vercel is now connected directly to `Mr-Meow-ZA/ai-compass`; legacy payload branches should not be used for new releases.
+Before this repository existed, production was deployed through compressed HTML payload chunks stored in the unrelated public repository `Mr-Meow-ZA/yeet`. That was a recovery workaround, not the target architecture. New development happens only in this repository and the canonical Vercel deployment follows `main`.
 
 ## Recommended evolution
 
-### Phase 1 — stable static source
+### Phase 1 — discovery/navigation foundation (0.6.20)
 
-- Keep source readable and directly deployable.
-- Maintain repeatable link, schema and browser smoke tests.
-- Keep Vercel connected directly to this repository.
+- Separate Tools and Models in the reader experience.
+- Add vetted Courses and stronger Resources/Practical experiences.
+- Add guide tags and experience-based learning lanes.
+- Preserve the stable 41-guide library and routes while the information architecture is proven in rendered browsers.
 
-### Phase 2 — maintainable content model
+### Phase 2 — maintainable content model (0.7.x)
 
-- Move guides, tips, references, news and resources into separate JSON or Markdown collections.
-- Add content schemas and required source metadata.
-- Generate search indexes automatically.
-- Add editorial status and change-history fields.
-- Replace hard-coded module lists with a shared manifest so application registration and validation cannot drift apart.
+- Move maintained guides, practical items, references, news, tools, models, courses and resources into schema-validated JSON or Markdown collections.
+- Add shared source/freshness/editorial-status metadata.
+- Add visible `last reviewed` and superseded indicators.
+- Generate search indexes and related-content relationships automatically.
+- Replace hard-coded module lists with a shared manifest.
+- Expand news records from headline previews toward structured AI Compass analysis (`what happened`, `why it matters`, `who should care`, `what changes`, `unknowns`, related learning).
 
-### Phase 3 — shared backend
+### Phase 3 — free profiles and community backend
 
-Only after explicit approval:
+Requires a separately reviewed backend/authentication change. Intended capabilities:
 
-- User accounts and shared saved items.
-- Community questions and moderation.
-- Editorial approval queue.
-- Automated RSS/API ingestion.
-- Duplicate detection and source-quality scoring.
+- Free user accounts/profiles.
+- Synced saves, likes/follows and recently viewed content.
+- Learning-path progress and “continue learning”.
+- Followed topics, tools, models, courses and guides.
+- Guide comments and discussion threads.
+- Community forum/questions/replies and accepted/helpful answers.
+- Notification preferences.
+- Reporting, moderation, block/abuse controls and community roles.
+- Privacy controls, account export/deletion and retention rules.
 
-Any database, authentication, secret, paid-service or domain change requires owner approval.
+Editorial and user-generated content must remain separate at the data-model and presentation layers. Community reputation must not automatically alter editorial truth/status.
+
+### Phase 4 — selective automation/personalization
+
+Only after the editorial and community models are stable:
+
+- Personalised “new since your last visit” and recommended-next-content views.
+- Automated ingestion candidates into an editorial approval queue, never automatic publication.
+- Duplicate/near-duplicate detection.
+- Source-quality scoring and freshness reminders.
+
+Any database, authentication, secret, paid-service or domain change requires explicit owner approval and preview/security validation before production.
