@@ -2,188 +2,167 @@
 
 ## Product destination
 
-AI Compass should become an independent **Learn + Build + Choose + Understand + Stay Current + Participate** platform.
+AI Compass is evolving into an independent **Learn + Build + Choose + Understand + Stay Current + Participate + Continue** platform.
 
-A first-time reader should be able to arrive with a problem rather than AI vocabulary. A returning reader should have reasons to come back for learning progress, updated recommendations, important developments, reusable resources and eventually community discussion.
+A first-time reader should be able to arrive with a problem rather than AI vocabulary. A returning reader should have reasons to come back for progress, followed material, current recommendations, important developments, reusable resources and relevant community discussion.
 
 Target experience:
 
 - **Learn** — AI Essentials → AI at Work → AI Power User → AI Builder & Team Lead → Enterprise AI Builder, plus role/goal paths.
-- **Guides** — substantial source-backed original content with level/topic/tool/goal metadata.
+- **Guides** — substantial source-backed original content.
 - **Practical** — prompt recipes, patterns, checklists and quick techniques.
-- **Tools** — end-user/developer product profiles and comparisons.
-- **Models** — model-family reference independent from product branding.
-- **Courses** — vetted training with explicit AI Compass editorial judgement and audience fit.
-- **Resources** — reusable templates/frameworks/checklists and curated repositories/external material.
-- **Reference** — glossary, concepts, standards and durable explainers.
-- **News** — selective source-first intelligence about developments that matter, connected back to learning.
-- **Community / My Compass** — future free profiles, follows/saves, progress, comments, forum and personal return experience.
+- **Tools / Models** — separate maintained product and model-family reference.
+- **Courses** — vetted training with explicit AI Compass judgement.
+- **Resources / Reference** — reusable material plus durable concepts/standards.
+- **News** — selective source-first intelligence connected to learning.
+- **Community** — governed public discussion and implementation experience.
+- **My Compass** — private continuity across follows and learning progress.
 
-## Foundation completed
+## Foundations completed through 0.6.21
 
-- [x] Connect Vercel production directly to `Mr-Meow-ZA/ai-compass` on `main`.
-- [x] Remove new-release dependence on historical payload deployments.
-- [x] Establish source/content validation and cumulative guide preservation.
-- [x] Establish desktop/mobile rendered browser validation.
-- [x] Maintain changelog, architecture, workflow and quality documentation.
-- [x] Preserve AI Compass original versus external-content distinctions.
-- [x] Keep news as one product section rather than the product identity.
+- [x] Direct canonical GitHub → Vercel production workflow.
+- [x] Source/content validation and cumulative guide preservation.
+- [x] Desktop/mobile rendered browser validation.
+- [x] At least 41 original guides including practical/agentic/enterprise build series.
+- [x] Reader-first navigation; separate Tools and Models; vetted Courses; stronger Practical and Resources.
+- [x] Source-first News intelligence with deliberate Top Signals.
+- [x] Seven learning paths organised into five curriculum levels including AI Power User.
+- [x] Publication-quality photographic editorial system.
 
-## Content depth completed through 0.6.19
+## 0.7.0 — Maintainability & Freshness candidate
 
-- [x] Preserve and expand the original guide library to at least 41 guides.
-- [x] Add beginner, work, responsible-adoption and builder learning paths.
-- [x] Add reusable prompt/workflow templates and sector starter packs.
-- [x] Add flagship build guides for dashboards, presentations, Excel, automation, research and infographics.
-- [x] Add agent orchestration and workplace-agent testing guides.
-- [x] Add Enterprise AI Builder guides for architecture, RAG, evaluation, identity/security and development lifecycle.
-- [x] Add **Build AI systems at work** as a coherent corporate builder route.
-- [x] Establish professional photographic editorial treatment and visual validation.
+Implemented and reviewed on PR #27:
 
-## 0.6.20 — Navigation & Discovery foundation
+- [x] Shared manifest with release/build identity, runtime registration and preservation floors.
+- [x] Canonical JSON + schemas for Discovery, Curriculum, News Intelligence and Freshness.
+- [x] Removal of duplicate maintained JavaScript data sources.
+- [x] Manifest-driven browser loader and readiness contract.
+- [x] Visible Current / Recent / Archive / Review soon / Needs review states.
+- [x] Deterministic freshness tests and manifest-drift checks.
+- [x] Full existing regression suites remain green.
+- [x] Startup-race prevention for structured presentation modules.
+- [ ] Merge/deploy after Vercel free-plan build-rate limit clears and exact reviewed Preview can succeed.
 
-- [x] Add reader-first homepage entry points based on goals rather than product taxonomy.
-- [x] Split **Tools** and **Models** into distinct reader experiences.
-- [x] Introduce a vetted **Courses** directory with rating, audience, value, limitations and related learning path.
-- [x] Evolve Tips & Tricks into a stronger **Practical Library** presentation.
-- [x] Expand **Resources** around reusable AI Compass frameworks/checklists plus curated repositories.
-- [x] Add visible guide topic tags and topic shortcuts.
-- [x] Add initial experience-based learning lanes.
-- [x] Add an explicit community/profile roadmap without pretending browser-local prototype features are shared accounts.
-- [x] Add structural validation for tool/model/course/resource metadata and relationships.
-- [x] Add dedicated desktop/mobile Chromium smoke routes for the new discovery experiences.
+Do not create no-op commits or deployment loops to work around the Vercel quota.
 
-## 0.6.21 — Signal & Curriculum
+## 0.8.0 — Community + My Compass candidate
 
-- [x] Turn News from a flat link feed into a source-first intelligence briefing.
-- [x] Clearly separate publisher-backed **What changed** from **Why AI Compass thinks it matters**.
-- [x] Add signal, real-world status, source-quality, audience and recommended-next-action metadata across the full curated feed.
-- [x] Reserve high-signal status for deliberate editorial elevation rather than inheriting it from broad categories.
-- [x] Add Top Signals ranked by practical impact/durability while preserving the complete 20-item briefing with search and filters.
-- [x] Connect selected developments to relevant AI Compass guides/reference topics.
-- [x] Organise all seven learning paths into a formal five-level curriculum.
-- [x] Add a dedicated six-lesson **Become an AI power user** path bridging weekly AI use and controlled agent/enterprise building.
-- [x] Add prerequisites, learning outcomes, curriculum position and recommended next path to learning-path pages.
-- [x] Add structural intelligence/curriculum validation plus dedicated desktop/mobile Chromium smoke routes.
-- [x] Preserve all 41 original guides and existing public article routes.
+Implemented as draft PR #28 stacked on the reviewed 0.7 branch.
 
-## 0.7.0 — Maintainability & Freshness foundation
+### Community foundation implemented
 
-This release establishes the structured-content boundary without risking an all-at-once rewrite of the cumulative guide library.
+- [x] Reuse the existing shared Supabase project with strict `ai_compass_*` namespacing.
+- [x] Passwordless email magic-link authentication using public client configuration only.
+- [x] Public forum reading and **11 categories** aligned with AI Compass topics.
+- [x] Free public profiles with username, display name, experience level and optional bio.
+- [x] Threads and replies.
+- [x] Thread likes, helpful reply votes and thread follows.
+- [x] Accepted answers.
+- [x] Guide/content link fields so one forum can support guide discussions and future tool/model/course/resource/path discussions.
+- [x] Reporting plus moderator-only queue/action log.
+- [x] Community guidelines covering privacy, evidence, AI assistance, promotion/spam and moderation.
+- [x] Plain-text escaped user content; no executable user HTML/Markdown.
+- [x] Database-level posting rate limits and thread-bump protection.
+- [x] Separate protected role table so editable profiles cannot self-promote.
+- [x] RLS on every new forum/profile table.
+- [x] Supabase security-advisor review with no new AI Compass community findings.
+- [x] Lazy-load Supabase so community failure cannot block the editorial site.
+- [x] Live anonymous-reader browser tests against the real Supabase backend.
 
-### Completed outcomes
+### My Compass foundation implemented
 
-- [x] Add a shared content manifest containing release/build identity, structured source registry, runtime-module registration, collection preservation floors and freshness classes.
-- [x] Move **Tools, Models, Courses, reusable Resources, Curriculum and News Intelligence** into canonical structured JSON collections.
-- [x] Add JSON Schema contracts and repository validation without adding a runtime framework or package dependency.
-- [x] Remove superseded `discovery-data.js`, `curriculum-data.js` and `news-intelligence-data.js` maintained sources.
-- [x] Add a manifest-driven browser loader and runtime adapter while preserving the stable hash router and all public routes.
-- [x] Add a shared freshness policy with `news`, `volatile` and `durable` classes.
-- [x] Surface visible **Current / Recent / Archive / Review soon / Needs review** states across affected guides, Tools, Models, Courses, Reference, Learn and News.
-- [x] Add guide-specific freshness overrides for provider-controlled subscription/comparison/hardware material.
-- [x] Add deterministic freshness boundary tests.
-- [x] Add manifest/index registration-drift validation.
-- [x] Make structured-dependent presentation modules wait explicitly for the content-ready promise so slow network timing cannot silently disable discovery/curriculum/intelligence layers.
-- [x] Add a dedicated desktop/mobile structured-content/freshness Chromium suite in addition to all existing visual regressions.
-- [x] Preserve at least **41 guides**, **7 paths**, **5 curriculum levels** and the full source-first News intelligence hierarchy.
+- [x] `#my-compass` personal return experience.
+- [x] Content Likes.
+- [x] Private content Follows.
+- [x] Private per-lesson learning progress.
+- [x] Continue-learning cards derived from progress.
+- [x] Guide Like / Follow / Discuss controls.
+- [x] Guide-linked forum threads.
+- [x] Learning-path Follow and Mark-complete controls.
+- [x] Cross-device persistence model through Supabase.
+- [x] Explicit rule that likes/follows/community popularity cannot alter editorial rankings or truth state.
 
-### Deliberately incremental
+### 0.8 production gates still open
 
-The following remain in their proven modules for later 0.7.x migration rather than being rewritten in one risky release:
+- [ ] 0.7.0 dependency merges and deploys safely first.
+- [ ] Add the AI Compass canonical host and approved preview URL/pattern to Supabase Auth redirect URLs without changing unrelated shared-project auth settings.
+- [ ] Complete a real signed-in magic-link acceptance test: sign in → profile → thread → reply → Like/Follow → guide-linked discussion → lesson completion → refresh/reopen → verify persistence.
+- [ ] Verify signed-out users cannot post/update private state.
+- [ ] Verify moderation role/queue with an explicitly assigned test/admin user before public moderator use.
+- [ ] Final exact-head GitHub CI and Vercel Preview.
+- [ ] Exact merged-SHA GitHub Actions + Vercel Production verification.
 
-- original guide bodies;
-- foundational practical tips;
-- foundational reference entries;
-- historical imported comparisons/repositories/community records;
-- dated source-backed overlays where preservation history is useful.
+## 0.8.x — Community depth after real usage
 
-## Next — 0.7.x Taxonomy, Search & Deeper Freshness
+Priority items:
+
+- [ ] Narrowly scoped suspend/unsuspend moderation action instead of broad browser profile updates.
+- [ ] Notification preferences and delivery for followed threads/content.
+- [ ] Community profile pages and contribution history.
+- [ ] Recently viewed and “new since your last visit”.
+- [ ] Topic/tool/model/course follows once taxonomy/search is generated.
+- [ ] Safe AI Compass community-data export/deletion semantics that account for the shared Supabase Auth project.
+- [ ] Additional anti-spam/reputation controls based on observed abuse rather than speculative complexity.
+- [ ] Rate-limit/abuse telemetry that does not expose private content.
+- [ ] Accessibility/physical-device testing of signed-in community flows.
+
+Do not add public leaderboards or gamification that rewards volume before contribution quality/moderation is proven.
+
+## 0.7.x / 0.9 — Taxonomy, Search & Content Depth
 
 ### Structured-content expansion
 
 - [ ] Move actively maintained reference/practical records into schema-validated collections incrementally.
-- [ ] Add a structured guide metadata index before considering migration of full guide bodies.
-- [ ] Add reusable source objects so canonical URL, source type, verified date and provenance are not repeated inconsistently.
-- [ ] Add explicit item-level superseded / archived / abandoned metadata where applicable.
-- [ ] Add optional `watch next / unknowns` fields to News intelligence when uncertainty materially helps action.
+- [ ] Add a structured guide metadata index before moving full guide bodies.
+- [ ] Add reusable source objects and item-level superseded/archive metadata.
+- [ ] Add optional `watch next / unknowns` to News where uncertainty materially helps action.
 
 ### Generated discovery/search
 
-- [ ] Generate one cross-site taxonomy/search index covering Guides, Practical, Reference, Tools, Models, Courses, Resources, News and learning paths.
-- [ ] Use stable tags for level, topic, goal, role, tool/model and freshness class.
-- [ ] Generate deterministic related-content candidates while retaining editorial overrides for important journeys.
-- [ ] Add URL/state-safe filters that can be linked/shared.
-- [ ] Add better role/goal landing experiences without duplicating source content.
+- [ ] Generate one cross-site taxonomy/search index covering Guides, Practical, Reference, Tools, Models, Courses, Resources, News, learning paths and eligible Community links.
+- [ ] Stable tags for level, topic, goal, role, tool/model and freshness.
+- [ ] Shareable URL/filter state.
+- [ ] Deterministic related-content candidates with editorial override support.
+- [ ] Role/goal landing experiences without duplicate source content.
 
-### Tool/model/course depth
+### Tool/model/course/resource depth
 
-- [ ] Expand the Tools directory with proper per-tool profiles, reviewed strengths/limitations, alternatives and related learning.
-- [ ] Expand Model pages with model-level freshness, licensing/openness context and careful benchmark interpretation.
-- [ ] Continue vetting high-quality training from provider academies, Microsoft Learn, DeepLearning.AI, universities and other reputable sources.
-- [ ] Add course comparison/filtering by level, time, free/paid, certificate and technical/non-technical audience once the directory is large enough to justify it.
+- [ ] Proper per-tool profiles with strengths, limits, alternatives and related learning.
+- [ ] Deeper model pages with licensing/openness and careful benchmark interpretation.
+- [ ] Continue course vetting across provider academies, Microsoft Learn, DeepLearning.AI, universities and other reputable sources.
+- [ ] Course filtering by level/time/cost/certificate/audience once inventory justifies it.
+- [ ] More downloadable/copyable resources and templates.
 
-## News evolution — next depth
+## News evolution
 
-The 0.6.21 intelligence model and 0.7.0 freshness layer are established. Remaining improvements:
+- [ ] Audit historical archive for duplicate/low-value previews while preserving meaningful history.
+- [ ] Add `what remains unknown / watch next` when it changes reader action.
+- [ ] Expand related links into Tools, Models, Courses, Resources and relevant Community discussions.
+- [ ] Keep primary-source-first, low-volume editorial signal.
 
-- [ ] Audit the historical archive for duplicate, low-value and outdated previews without erasing meaningful history.
-- [ ] Add `what remains unknown / watch next` only where uncertainty materially affects action.
-- [ ] Expand related links from guides/reference into relevant tools, models, courses and resources.
-- [ ] Use the shared structured source model once available.
-- [ ] Keep primary announcements visible and independent reporting clearly labelled as context.
-- [ ] Continue preferring a few meaningful developments to high-volume headline aggregation.
+## Learning evolution
 
-## Learning evolution — next depth
-
-The five-level curriculum and AI Power User bridge are now established. Remaining improvements:
-
-- [ ] Audit every lesson sequence for duplicated material, prerequisites and opportunities for practical exercises.
-- [ ] Add role-oriented paths such as Manager, Analyst/Researcher, Developer, Educator and Enterprise Leader where the library can support them without filler.
-- [ ] Add vetted course recommendations and reusable resources directly inside learning paths.
-- [ ] Add practice tasks / checkpoints where completion can be meaningfully demonstrated.
-- [ ] Add progress/completion metadata in preparation for synced user profiles.
+- [ ] Audit lesson sequences for duplication, prerequisites and practical exercises.
+- [ ] Role paths for Manager, Analyst/Researcher, Developer, Educator and Enterprise Leader where depth supports them.
+- [ ] Embed vetted Courses/Resources directly into learning paths.
+- [ ] Add practical checkpoints where competence can be demonstrated.
+- [ ] Use My Compass progress to recommend the next *relevant* step without turning completion into gamification.
 
 ## Practical guide expansion priorities
 
 - [ ] Human-in-the-loop workflow design.
 - [ ] AI observability / LLMOps dashboard and operating model.
 - [ ] Cost engineering, model routing and caching.
-- [ ] Reliable tool-calling patterns and idempotency.
+- [ ] Reliable tool calling and idempotency.
 - [ ] Durable long-running agent workflows.
-- [ ] Prompt-injection and adversarial testing.
+- [ ] Prompt-injection/adversarial testing.
 - [ ] Document-processing pipelines.
 - [ ] Business-value / ROI measurement for AI systems.
 
-## Community & free profiles — approved product goal, backend implementation still gated
+## Explicitly deferred
 
-The product goal is a genuine learning community, not an unmoderated comment layer.
-
-Planned free-profile capabilities:
-
-- [ ] Account/profile creation with clear privacy controls.
-- [ ] Synced saved items and likes/follows.
-- [ ] Follow guides, topics, tools, models, courses and discussion threads.
-- [ ] Learning-path progress and **Continue learning**.
-- [ ] Recently viewed / new since last visit.
-- [ ] Guide comments and structured questions.
-- [ ] Forum categories for beginner help, AI for work, automation, agents, coding, models/local AI, courses, enterprise AI and general discussion.
-- [ ] Replies, helpful/accepted answers and lightweight contributor reputation.
-- [ ] Reporting, moderation queues, spam/abuse controls and clear community guidelines.
-- [ ] Notification preferences.
-- [ ] Account data export/deletion and retention rules.
-
-### Required architecture before community launch
-
-- [ ] Select/approve authentication and backend (Supabase remains a likely option but is not assumed until designed/reviewed).
-- [ ] Define profiles, follows, saves, progress, comments, threads, replies, notifications and moderation schemas.
-- [ ] Define RLS/authorization and editorial-versus-user-generated data boundaries.
-- [ ] Threat-model abuse, impersonation, spam, unsafe links and moderation privileges.
-- [ ] Build behind preview/feature flags with anonymous-reader behaviour preserved.
-- [ ] Add authenticated and signed-out browser tests before production.
-
-## Explicitly deferred until their foundations exist
-
-- Automated publishing from RSS/APIs before an editorial approval/source-quality model exists.
-- Personalised AI recommendations before accounts, preferences and privacy controls are defined.
-- Gamification that rewards volume over useful contributions.
+- Automated publishing from feeds/APIs without editorial approval.
+- Personalised AI-generated recommendations before privacy/preferences are proven.
+- Public learning leaderboards.
+- Reputation systems that reward posting volume.
 - More content purely to increase counts.
