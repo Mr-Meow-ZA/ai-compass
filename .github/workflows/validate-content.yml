@@ -11,7 +11,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 16
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,6 +29,8 @@ jobs:
         run: bash scripts/smoke-intelligence.sh
       - name: Render structured content and freshness routes in Chrome
         run: bash scripts/smoke-freshness.sh
+      - name: Render live public community routes in Chrome
+        run: bash scripts/smoke-community.sh
       - name: Upload visual smoke diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -67,6 +69,10 @@ jobs:
             visual-smoke-freshness-news.png
             visual-smoke-freshness-guides-mobile.png
             visual-smoke-freshness-news-mobile.png
+            visual-smoke-community.png
+            visual-smoke-community-profile.png
+            visual-smoke-community-category.png
+            visual-smoke-community-mobile.png
             visual-smoke-home.html
             visual-smoke-guides.html
             visual-smoke-news.html
@@ -104,5 +110,9 @@ jobs:
             visual-smoke-freshness-news.html
             visual-smoke-freshness-guides-mobile.html
             visual-smoke-freshness-news-mobile.html
+            visual-smoke-community.html
+            visual-smoke-community-profile.html
+            visual-smoke-community-category.html
+            visual-smoke-community-mobile.html
           if-no-files-found: ignore
           retention-days: 7
