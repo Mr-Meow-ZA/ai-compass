@@ -9,15 +9,17 @@ AI Compass is a static single-page application:
 - `knowledge.js` adds maintained original guides without rewriting the imported historical collection.
 - `dashboard-guide.js` contains the flagship visual dashboard guide.
 - `practical-build-guides.js` contains maintained outcome-first guides for presentations, Excel trackers and workflow automation.
-- `research-build-guide.js` contains the maintained source-backed research/report build guide.
+- `research-build-guide.js` and `infographic-build-guide.js` contain maintained research and visual-communication build guides.
+- `agentic-build-guides.js` contains maintained agent-orchestration and governed workplace-agent guides.
+- `enterprise-ai-builder-guides.js` contains maintained enterprise architecture, RAG, evaluation, identity/security and AI-development-lifecycle guides.
 - `template-library.js` contains maintained reusable prompt and workflow templates.
-- `sector-starter-packs.js` contains maintained sector-focused adoption guides.
-- `content.js` contains learning paths, tips, reference terms and goal-based homepage entry points.
+- `sector-starter-packs.js` and `education-starter-pack.js` contain maintained adoption guides for specific contexts.
+- `content.js` contains foundational learning paths, tips, reference terms and goal-based homepage entry points.
+- `enterprise-learning-path.js` adds the maintained Build AI systems at work path after the foundational library loads.
 - dated reference-refresh modules maintain verified reference and tip additions without rewriting the historical collection.
 - `app.js` provides hash routing, rendering, unified search, filters, saved guides and local prototype interactions.
 - `enhancements.js` provides progressive mobile navigation, mobile search and article contents controls.
-- `styles.css` contains the core responsive visual system.
-- `mobile.css` contains content-type identity and narrow-screen interaction refinements.
+- `styles.css`, `visual-system.css`, `editorial-photo-overrides.css` and `mobile.css` provide the responsive and photographic visual system.
 
 There is no compile step and no server-side database in this snapshot.
 
@@ -40,6 +42,15 @@ Legacy routes such as `#compare`, `#repos`, `#videos` and `#explore` resolve to 
 
 Saved guides and some community or editorial interactions use browser-local storage. They are not shared between users or devices.
 
+## Validation architecture
+
+- `npm run check` validates JavaScript syntax, guide/source metadata, internal relationships and cumulative guide preservation.
+- `scripts/smoke-visuals.sh` renders core desktop/mobile routes and flagship visual guides in Chromium.
+- `scripts/smoke-enterprise.sh` renders the Enterprise AI Builder architecture guide and learning path at desktop/mobile sizes.
+- GitHub Actions runs both validation layers and uploads rendered screenshots/DOM diagnostics before merge.
+
+The application and content validator currently use explicit module registration. Adding or renaming a published module therefore requires updating both load paths in the same release. The planned 0.7.x content-manifest work should remove this drift risk.
+
 ## Production infrastructure
 
 - Vercel project: `ai-compass-hub`
@@ -60,7 +71,7 @@ That was a recovery workaround, not the target architecture. New development hap
 ### Phase 1 — stable static source
 
 - Keep source readable and directly deployable.
-- Add repeatable link, schema and browser smoke tests.
+- Maintain repeatable link, schema and browser smoke tests.
 - Keep Vercel connected directly to this repository.
 
 ### Phase 2 — maintainable content model

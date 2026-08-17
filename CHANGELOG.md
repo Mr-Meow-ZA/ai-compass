@@ -2,6 +2,32 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.6.19 - 2026-08-17
+
+### Added
+- New original guide: **Design an enterprise AI architecture: models, RAG, tools, agents and business systems**.
+- New original guide: **Build a trustworthy enterprise RAG system: retrieval, permissions, citations and evaluation**.
+- New original guide: **Build an enterprise AI evaluation framework: golden sets, graders, regressions and release gates**.
+- New original guide: **Secure enterprise AI agents: identity, permissions and least privilege**.
+- New original guide: **Build an enterprise AI development lifecycle: idea to pilot, production and retirement**.
+- New **Build AI systems at work** learning path connecting workflow automation, agent orchestration, workplace agent testing and the five enterprise builder guides.
+- Added a dedicated enterprise desktop/mobile Chromium smoke suite and subject-specific photographic guide-card treatment using the existing attributable editorial photo library.
+
+### Changed
+- Original guide library increases from 36 to 41 guides.
+- Raised cumulative preservation validation to 41 guides and added explicit verification/source checks for all five enterprise builder guide slugs plus the new learning path.
+- Refreshed README, architecture and content-workflow documentation to match the real module structure and current guide baseline.
+- Advanced application build marker to `2026-08-17.3` and package version to `0.6.19`.
+
+### Research basis
+- Enterprise architecture guidance is grounded in current Microsoft agent architecture/data-planning documentation, OpenAI agent/tool guidance and NIST AI RMF material.
+- RAG guidance is grounded in current Microsoft RAG architecture/evaluation and secure multitenant retrieval guidance plus OpenAI vector-store metadata/chunking documentation.
+- Evaluation guidance uses current Microsoft iterative agent-evaluation guidance, OpenAI Evals and NIST risk/evaluation material.
+- Identity/security guidance uses current Microsoft Entra Agent ID and authorization guidance plus NIST risk-management material.
+
+### News scan
+- Reviewed current official OpenAI, Anthropic, Google and Microsoft AI announcement channels for material developments since the previous successful curator pass. No new item surfaced that cleared the significance and source-quality threshold, so no filler news item was added.
+
 ## 0.6.18 - 2026-08-17
 
 ### Added
