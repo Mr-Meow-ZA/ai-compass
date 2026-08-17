@@ -1,12 +1,11 @@
 (()=>{
 'use strict';
 const L=window.AI_COMPASS_LIBRARY||{learningPaths:[]};
-const C=window.AI_COMPASS_CURRICULUM;
-if(!C)return;
+let C=null;
 const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const current=()=>{const raw=(location.hash||'#home').slice(1);const [path]=raw.split('?');const parts=path.split('/').filter(Boolean);return{page:parts[0]||'home',arg:parts[1]||''}};
 const pathById=id=>L.learningPaths.find(item=>item.id===id);
-const levelById=id=>C.levels.find(item=>item.id===id);
+const levelById=id=>C?.levels?.find(item=>item.id===id);
 
 function pathLink(id){
   const path=pathById(id);if(!path)return'';
@@ -25,7 +24,7 @@ function curriculumCard(level){
 }
 
 function renderOverview(){
-  if(current().page!=='learn'||current().arg)return;
+  if(!C||current().page!=='learn'||current().arg)return;
   const hero=document.querySelector('#main .page-hero');if(!hero)return;
   const existing=document.querySelector('.curriculum-intelligence');if(existing)return;
   const legacy=document.querySelector('.learning-lanes');if(legacy)legacy.hidden=true;
@@ -40,7 +39,7 @@ function renderOverview(){
 }
 
 function renderPathContext(){
-  const r=current();if(r.page!=='learn'||!r.arg)return;
+  const r=current();if(!C||r.page!=='learn'||!r.arg)return;
   if(document.querySelector('.path-intelligence'))return;
   const meta=C.pathMeta[r.arg];if(!meta)return;
   const level=levelById(meta.level);const path=pathById(r.arg);if(!level||!path)return;
@@ -61,6 +60,15 @@ function renderPathContext(){
 }
 
 function enhance(){renderOverview();renderPathContext();}
-document.addEventListener('DOMContentLoaded',()=>setTimeout(enhance,40));
-addEventListener('hashchange',()=>setTimeout(enhance,40));
+function start(){
+ const ready=window.AI_COMPASS_CONTENT_READY||Promise.resolve();
+ ready.then(()=>{
+  C=window.AI_COMPASS_CURRICULUM||null;
+  if(!C)return;
+  const run=()=>setTimeout(enhance,40);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+  addEventListener('hashchange',run);
+ }).catch(error=>console.error('AI Compass learning intelligence could not start',error));
+}
+start();
 })();
