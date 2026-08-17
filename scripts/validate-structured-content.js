@@ -73,7 +73,16 @@ for(const [collection,className] of Object.entries(freshness.collectionDefaults|
 for(const [slug,className] of Object.entries(freshness.guideOverrides||{}))if(!freshness.classes?.[className])errors.push(`Unknown guide freshness class ${className} for ${slug}`);
 
 const legacy=['discovery-data.js','curriculum-data.js','news-intelligence-data.js'];
-for(const file of legacy)if(manifest.runtimeModules.some(module=>module.path===file))errors.push(`Legacy maintained data module remains registered: ${file}`);
+for(const file of legacy){
+  if(fs.existsSync(path.join(root,file)))errors.push(`Superseded maintained data module must not reappear: ${file}`);
+  if(manifest.runtimeModules.some(module=>module.path===file))errors.push(`Legacy maintained data module remains registered: ${file}`);
+}
+
+const readinessDependents=['site-evolution.js','learning-intelligence.js','news-intelligence.js','freshness-ui.js'];
+for(const file of readinessDependents){
+  const source=fs.readFileSync(path.join(root,file),'utf8');
+  if(!source.includes('AI_COMPASS_CONTENT_READY'))errors.push(`Structured-content presentation module does not wait for readiness: ${file}`);
+}
 
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`Structured content valid: ${manifest.sourceCollections.length} source collections, ${manifest.runtimeModules.length} runtime modules, ${manifest.collections.length} registered content collections.`);
+console.log(`Structured content valid: ${manifest.sourceCollections.length} source collections, ${manifest.runtimeModules.length} runtime modules, ${manifest.collections.length} registered content collections; readiness guards present.`);
