@@ -1,9 +1,8 @@
 'use strict';
-const fs=require('fs');
-const vm=require('vm');
-const context={window:{}};
-vm.createContext(context);
-for(const file of ['data.js','subscription-refresh.js','knowledge.js','dashboard-guide.js','practical-build-guides.js','infographic-build-guide.js','research-build-guide.js','agentic-build-guides.js','enterprise-ai-builder-guides.js','template-library.js','sector-starter-packs.js','education-starter-pack.js','content.js','enterprise-learning-path.js','curriculum-data.js','reference-refresh-2026-08-14.js','reference-refresh-2026-08-15.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+const {loadRuntimeData}=require('./load-runtime-data');
+
+(async()=>{
+const context=await loadRuntimeData();
 const D=context.window.AI_COMPASS_DATA;
 const L=context.window.AI_COMPASS_LIBRARY;
 const errors=[];
@@ -59,5 +58,7 @@ const terms=new Set();
 for(const item of L.references||[]){const key=(item.term||'').toLowerCase();if(!key)errors.push('Reference term is missing');if(terms.has(key))errors.push(`Duplicate reference term: ${item.term}`);terms.add(key);if(item.sourceUrl&&!/^https:\/\//.test(item.sourceUrl))errors.push(`Invalid reference source URL: ${item.term}`);}
 for(const [slug,date] of [['content-provenance-c2pa','2026-08-14'],['open-weight-model','2026-08-14'],['structured-outputs','2026-08-15']]){const item=(L.references||[]).find(entry=>entry.slug===slug);if(!item)errors.push(`Maintained reference missing: ${slug}`);if(item?.verified!==date||!item?.source||!item?.sourceUrl)errors.push(`Maintained reference metadata incomplete: ${slug}`);}
 for(const tipId of ['provenance-is-a-signal','schema-before-ai-extraction'])if(!(L.tips||[]).some(item=>item.id===tipId))errors.push(`Maintained tip did not load: ${tipId}`);
+if(context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS?.release!=='0.7.0')errors.push('Structured content runtime did not apply during content validation');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Content valid: ${D.articles.length} guides, ${L.learningPaths.length} paths, ${L.tips.length} tips, ${L.references.length} reference terms.`);
+})().catch(error=>{console.error(error);process.exit(1)});
