@@ -2,6 +2,30 @@
 
 Historical release entries from 0.1.0 through 0.6.11 are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.6.11.md).
 
+## 0.6.20 - 2026-08-17
+
+### Added
+- New reader-first homepage entry points for learning, building, practical help, tools, models, courses, resources and current developments.
+- Separate **Tools** directory with six initial vetted product profiles and official-source links.
+- Separate **Models** directory with six model-family profiles covering access, openness/deployment context, practical fit and cautions.
+- New **Courses** section with six vetted training recommendations from OpenAI Academy, Anthropic, Google for Developers and Microsoft Learn. Each review includes audience, level, time/cost context, editorial score, why it is recommended, value, limitations and a related AI Compass learning path.
+- Expanded **Resources** experience with eight reusable AI Compass templates/frameworks/checklists plus curated repositories.
+- New experience-based learning lanes: **AI Essentials**, **AI for Work**, **AI Power User**, and **AI Builder & Enterprise**.
+- Visible guide-topic shortcuts and article/guide tags for better discovery.
+- Explicit community/profile roadmap describing future free accounts, synced saves/follows, progress, comments, forums and moderation while keeping current browser-local prototypes honestly labelled.
+
+### Changed
+- Evolved **Tips & Tricks** into a stronger **Practical Library** presentation with prompt/workflow/quality/safety entry points while preserving the existing practical records and legacy route.
+- Refreshed the primary navigation to Home, Learn, Guides, Practical, Tools, Models, Courses, Resources and News, while retaining supporting Reference and Community routes.
+- Preserved all 41 existing original guides and public article routes; this release adds discovery/navigation structure rather than replacing guide assets.
+- Updated product vision, README, architecture, roadmap and content workflow to define the acquisition, retention, course-vetting and community strategy.
+- Advanced application build marker to `2026-08-17.4` and package version to `0.6.20`.
+
+### Validation
+- Added `scripts/validate-discovery.js` to validate tool/model/course/resource IDs, URLs, course-review completeness, learning-path relationships, internal toolkit links and the 41-guide preservation floor.
+- Added `scripts/smoke-discovery.sh` to render Tools, Models, Courses, Practical, Resources and Learn on desktop plus Courses and the evolved homepage on mobile.
+- Expanded GitHub Actions visual artifacts so the actual new discovery/navigation screenshots can be inspected before merge.
+
 ## 0.6.19 - 2026-08-17
 
 ### Added
