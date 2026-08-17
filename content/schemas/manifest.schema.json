@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Compass content manifest",
+  "type": "object",
+  "required": ["schemaVersion", "release", "build", "generatedBundle", "sourceCollections", "runtimeModules", "collections"],
+  "properties": {
+    "schemaVersion": {"type": "number"},
+    "release": {"type": "string"},
+    "build": {"type": "string"},
+    "generatedBundle": {"type": "string"},
+    "sourceCollections": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "schema"],
+        "properties": {"id": {"type": "string"}, "path": {"type": "string"}, "schema": {"type": "string"}}
+      }
+    },
+    "runtimeModules": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["path", "role"],
+        "properties": {"path": {"type": "string"}, "role": {"type": "string"}}
+      }
+    },
+    "collections": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "object",
+        "required": ["id", "global", "minimum", "freshnessClass"],
+        "properties": {
+          "id": {"type": "string"}, "global": {"type": "string"}, "minimum": {"type": "number"},
+          "freshnessClass": {"type": "string", "enum": ["news", "volatile", "durable"]}
+        }
+      }
+    }
+  }
+}
