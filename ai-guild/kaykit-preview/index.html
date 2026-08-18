@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Guild — KayKit 3D Preview</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+<style>
+:root{--bg:#dceafb;--ink:#172943;--muted:#6e7f96;--line:rgba(52,81,118,.2);--blue:#5f9fe0;--gold:#d6b15e}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 75% 8%,#fff 0 6%,transparent 28%),linear-gradient(180deg,#b9d9f5,#e7f1fa 55%,#fff);min-height:100vh}.wrap{max-width:1280px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.top h1{font-family:Georgia,serif;margin:0;font-size:30px}.top p{margin:5px 0 0;color:var(--muted);font-size:12px}.badge{border:1px solid var(--line);background:#ffffff99;border-radius:999px;padding:7px 10px;font-size:10px}.stage{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}.viewer{height:590px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:radial-gradient(circle,#ffffff88,transparent 58%)}model-viewer{width:100%;height:100%;--poster-color:transparent;filter:drop-shadow(0 26px 22px rgba(33,63,99,.16))}.hint{position:absolute;right:10px;bottom:10px;background:#ffffffc9;border:1px solid var(--line);border-radius:999px;padding:6px 8px;font-size:9px}.info{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0}.school{font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:#4e7eb4}.info h2{font:28px Georgia,serif;margin:5px 0 2px}.role{color:var(--muted);font-size:12px}.map{margin-top:18px;display:grid;gap:8px}.hero{border:1px solid var(--line);background:#ffffff9c;border-radius:12px;padding:9px;text-align:left;color:var(--ink)}.hero.active{outline:2px solid var(--gold);background:#fff}.hero b{font-size:11px}.hero small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.license{margin-top:18px;padding:11px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:10px;line-height:1.5}.source{margin-top:10px;color:#55769d;font-size:9px}.poster{height:100%;display:grid;place-items:center;color:var(--muted);font-size:11px}@media(max-width:800px){.stage{grid-template-columns:1fr}.viewer{height:480px}.top{display:block}.badge{display:inline-block;margin-top:10px}.wrap{padding:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div><h1>AI Guild — KayKit 3D Character Test</h1><p>Actual CC0 KayKit Adventurers models rendered live in-browser.</p></div><div class="badge">Real GLB models · drag to rotate</div></div>
+  <div class="stage">
+    <div class="viewer"><model-viewer id="viewer" camera-controls auto-rotate autoplay shadow-intensity="1" exposure="1.1" tone-mapping="neutral" camera-orbit="25deg 76deg 2.7m" interaction-prompt="none"><div class="poster" slot="poster">Loading character…</div></model-viewer><div class="hint">Drag · rotate · pinch to zoom</div></div>
+    <aside class="info"><div class="school" id="school"></div><h2 id="name"></h2><div class="role" id="role"></div><div class="map" id="heroes"></div><div class="license"><b>Usage:</b> KayKit Adventurers is CC0. The creator explicitly permits personal and commercial use with no attribution required. We will still keep a third-party asset record inside the project for provenance.</div><div class="source">Preview uses KayKit's official GitHub-hosted GLB files.</div></aside>
+  </div>
+</div>
+<script>
+const base='https://raw.githubusercontent.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0/main/addons/kaykit_character_pack_adventures/Characters/gltf/';
+const heroes=[
+{id:'gpt',name:'ChatGPT',role:'Strategist Mage',school:'Strategy School',model:base+'Mage.glb'},
+{id:'claude',name:'Claude',role:'Archive Sage',school:'Archive School',model:base+'Rogue_Hooded.glb'},
+{id:'cursor',name:'Cursor',role:'Forgeblade',school:'Forge School',model:base+'Barbarian.glb'},
+{id:'copilot',name:'Copilot',role:'Sentinel Knight',school:'Sentinel School',model:base+'Knight.glb'},
+{id:'codex',name:'Codex',role:'Runesmith',school:'Rune School',model:base+'Rogue.glb'}];
+let current=heroes[0];const q=s=>document.querySelector(s);
+function render(){q('#name').textContent=current.name;q('#role').textContent=current.role;q('#school').textContent=current.school;q('#viewer').src=current.model;q('#viewer').alt=current.name+' — '+current.role;q('#heroes').innerHTML=heroes.map(h=>`<button class="hero ${h.id===current.id?'active':''}" data-id="${h.id}"><b>${h.name}</b><small>${h.role} · ${h.model.split('/').pop()}</small></button>`).join('');document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{current=heroes.find(h=>h.id===b.dataset.id);render()})}render();
+</script>
+</body></html>
