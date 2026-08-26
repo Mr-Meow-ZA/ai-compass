@@ -6,8 +6,9 @@ const current=()=>{const raw=(location.hash||'#home').slice(1);return raw.split(
 const feed=()=>window.AI_COMPASS_FEED||[];
 const articles=()=>window.AI_COMPASS_DATA?.articles||[];
 const tier=item=>{const score=item.intelligence?.importance||0;if(score>=4)return'Must know';if(score>=3)return'Worth knowing';return'Watch'};
-const format=item=>{const related=item.intelligence?.related;return related&&articles().some(article=>article.slug===related)?'Deep Analysis':'Daily Brief'};
-const internalHref=item=>{const related=item.intelligence?.related;return related&&articles().some(article=>article.slug===related)?`#article/${related}`:''};
+const relatedArticle=item=>{const related=item.intelligence?.related;return related?articles().find(article=>article.slug===related):null};
+const format=item=>relatedArticle(item)?.type==='News analysis'?'Deep Analysis':'Daily Brief';
+const internalHref=item=>relatedArticle(item)?.type==='News analysis'?`#article/${relatedArticle(item).slug}`:'';
 const sortedRecent=()=>[...feed()].sort((a,b)=>String(b.date).localeCompare(String(a.date))||((b.intelligence?.importance||0)-(a.intelligence?.importance||0)));
 let scan=null;
 
