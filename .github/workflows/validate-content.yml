@@ -55,6 +55,8 @@ jobs:
             visual-smoke-learn.png
             visual-smoke-courses-mobile.png
             visual-smoke-discovery-home-mobile.png
+            visual-smoke-daily-intelligence-home.png
+            visual-smoke-daily-intelligence-home-mobile.png
             visual-smoke-intelligence-news.png
             visual-smoke-xiaomi-ai-cube.png
             visual-smoke-xiaomi-ai-cube-mobile.png
@@ -90,6 +92,8 @@ jobs:
             visual-smoke-learn.html
             visual-smoke-courses-mobile.html
             visual-smoke-discovery-home-mobile.html
+            visual-smoke-daily-intelligence-home.html
+            visual-smoke-daily-intelligence-home-mobile.html
             visual-smoke-intelligence-news.html
             visual-smoke-xiaomi-ai-cube.html
             visual-smoke-xiaomi-ai-cube-mobile.html

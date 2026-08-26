@@ -1,0 +1,23 @@
+name: Check AI Compass Daily News Health
+
+on:
+  schedule:
+    - cron: '30 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  news-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Require today's editorial scan
+        env:
+          AIC_REQUIRE_TODAY: '1'
+        run: node scripts/validate-news-health.js

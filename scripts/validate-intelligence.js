@@ -55,7 +55,9 @@ for(const id of ['anthropic-claude-watermarking-provenance','openai-atlas-retire
 if(!FR?.policy?.classes?.volatile||!FR?.policy?.classes?.durable||!FR?.policy?.classes?.news)errors.push('Freshness runtime did not load all policy classes');
 const subscription=(D?.articles||[]).find(item=>item.slug==='choose-your-first-ai-subscription');
 if(subscription&&FR.classFor('guides',subscription.slug)!=='volatile')errors.push('Subscription guide is not classified as volatile');
-if(context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS?.release!=='0.7.0')errors.push('Structured content runtime status is missing the 0.7.0 release');
+const manifest=context.window.AI_COMPASS_CONTENT_MANIFEST;
+const runtime=context.window.AI_COMPASS_STRUCTURED_CONTENT_STATUS;
+if(!manifest||!runtime||runtime.release!==manifest.release||runtime.build!==manifest.build)errors.push('Structured content runtime identity does not match the current manifest');
 
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
 console.log(`Intelligence valid: ${D.articles.length} guides, ${L.learningPaths.length} paths across ${C.levels.length} levels, ${F.length} news items, ${highSignal} high-signal developments; freshness runtime loaded.`);
