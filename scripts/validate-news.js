@@ -29,8 +29,9 @@ if(provenance?.url!=='https://support.claude.com/en/articles/16266773-how-claude
 if(provenance?.verified!=='2026-08-14')errors.push('Anthropic provenance item verification date is stale');
 const xiaomi=(feed||[]).find(item=>item.id==='xiaomi-ai-cube-prototype');
 if(!xiaomi)errors.push('Xiaomi AI Cube news item is missing');
-if(xiaomi?.url!=='https://weibo.com/2/detail/5335498025601317')errors.push('Xiaomi AI Cube item must remain primary-source led');
-if(xiaomi?.contextSource!=='Notebookcheck')errors.push('Xiaomi AI Cube item is missing the supplied Notebookcheck context source');
+if(xiaomi?.url!=='https://www.notebookcheck.net/Xiaomi-unveils-AI-Cube-mini-PC-with-three-Xring-chips-and-150-W-performance.1376717.0.html')errors.push('Xiaomi AI Cube reader-facing link must use the vetted English Notebookcheck source');
+if(xiaomi?.contextUrl!=='https://weibo.com/2/detail/5335498025601317')errors.push('Xiaomi AI Cube item must retain the Xiaomi / Lei Jun primary source');
+if(!/primary source, Chinese/i.test(xiaomi?.contextSource||''))errors.push('Xiaomi AI Cube primary-source language label is missing');
 if(xiaomi?.verified!=='2026-08-26')errors.push('Xiaomi AI Cube verification date is stale');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`News valid: ${feed.length} items; maintained provenance and Xiaomi AI Cube sources verified.`);
+console.log(`News valid: ${feed.length} items; maintained provenance and Xiaomi AI Cube English-reader/primary-source contracts verified.`);
