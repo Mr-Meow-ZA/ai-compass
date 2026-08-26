@@ -11,9 +11,9 @@
   "runtimeModules": [
     {"path": "data.js", "role": "historical-core"},
     {"path": "subscription-refresh.js", "role": "maintained-overlay"},
+    {"path": "news-2026-08-26-xiaomi-ai-cube.js", "role": "news-analysis"},
     {"path": "news-refresh.js", "role": "news-feed"},
     {"path": "news-2026-08-13.js", "role": "news-feed"},
-    {"path": "news-2026-08-26-xiaomi-ai-cube.js", "role": "news-analysis"},
     {"path": "knowledge.js", "role": "guide-module"},
     {"path": "dashboard-guide.js", "role": "guide-module"},
     {"path": "practical-build-guides.js", "role": "guide-module"},
