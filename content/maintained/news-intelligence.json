@@ -47,7 +47,7 @@
       "why": "Reliable real-time transcription is a foundational capability for meeting capture, voice agents, accessibility and document workflows. The useful question is how the new model behaves on your languages, noise conditions, specialist vocabulary and latency requirements rather than whether Google calls it its most precise model.",
       "audience": "People building voice workflows, meeting tools, accessibility features and multimodal agents",
       "action": "Test representative audio, languages, jargon and latency before replacing an existing transcription model.",
-      "related": "evaluate-ai-models-with-your-own-tasks"
+      "related": "build-and-test-agentic-ai-at-work"
     },
     "openai-admin-plugin-work-codex": {
       "importance": 4,
@@ -56,7 +56,7 @@
       "why": "This is a concrete example of agentic administration inside an enterprise AI workspace: authorized admins can move from usage insight to permission-aware action without building a separate internal admin application. It also illustrates a useful governance pattern — agents inherit existing role boundaries instead of bypassing them.",
       "audience": "Enterprise AI administrators, IT leaders, AI program owners and builders designing permission-aware operational agents",
       "action": "Review whether similar high-volume administrative workflows in your environment can be safely exposed as permission-aware tools rather than manual tickets.",
-      "related": "secure-enterprise-ai-agents"
+      "related": "secure-enterprise-ai-agents-with-identity-and-least-privilege"
     },
     "openai-jalapeno-inference-chip": {
       "importance": 4,
@@ -65,7 +65,7 @@
       "why": "Inference cost, latency and power efficiency increasingly determine what agentic systems can do economically. OpenAI publishing working custom silicon results is therefore strategically important, but the numbers remain vendor-run measurements until independent comparisons reproduce them.",
       "audience": "AI infrastructure teams, builders, hardware researchers and people tracking inference economics",
       "action": "Treat the results as a direction-of-travel signal; wait for broader independent testing before using them for hardware or cost forecasts.",
-      "related": "choose-local-or-cloud-ai"
+      "related": "design-an-enterprise-ai-architecture"
     },
     "xiaomi-ai-cube-prototype": {
       "importance": 4,
