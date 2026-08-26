@@ -65,11 +65,11 @@ if(Array.isArray(articles)){
       }
     ],
     sources:[
-      {title:'Lei Jun on Weibo — Xiaomi AI Cube prototype announcement',url:'https://weibo.com/2/detail/5335498025601317',publisher:'Xiaomi / Lei Jun'},
       {title:'Notebookcheck — Xiaomi unveils AI Cube mini PC with three Xring chips and 150 W performance',url:'https://www.notebookcheck.net/Xiaomi-unveils-AI-Cube-mini-PC-with-three-Xring-chips-and-150-W-performance.1376717.0.html',publisher:'Notebookcheck'},
       {title:'Reuters — Xiaomi launches new Xring chip and expands in-house silicon',url:'https://www.reuters.com/world/china/xiaomi-launches-new-xring-chip-partners-with-tsmc-production-sources-say-2026-08-24/',publisher:'Reuters'},
-      {title:'ITHome — Xiaomi AI Cube prototype with O3, O100 and D100',url:'https://www.ithome.com/0/993/546.htm',publisher:'ITHome'},
-      {title:'VideoCardz — AI Cube prototype architecture and O100 near-memory bandwidth',url:'https://videocardz.com/newz/xiaomi-shows-150w-ai-cube-mini-pc-with-xring-processor-lpddr6-memory-and-16-core-g2-ultra-nx-gpu',publisher:'VideoCardz'}
+      {title:'VideoCardz — AI Cube prototype architecture and O100 near-memory bandwidth',url:'https://videocardz.com/newz/xiaomi-shows-150w-ai-cube-mini-pc-with-xring-processor-lpddr6-memory-and-16-core-g2-ultra-nx-gpu',publisher:'VideoCardz'},
+      {title:'Primary source (Chinese) — Lei Jun on Weibo: Xiaomi AI Cube prototype announcement',url:'https://weibo.com/2/detail/5335498025601317',publisher:'Xiaomi / Lei Jun'},
+      {title:'Additional Chinese reporting — ITHome: Xiaomi AI Cube prototype with O3, O100 and D100',url:'https://www.ithome.com/0/993/546.htm',publisher:'ITHome'}
     ],
     updated:'2026-08-26'
   };
@@ -82,18 +82,18 @@ const item={
   id:'xiaomi-ai-cube-prototype',
   title:'Xiaomi shows AI Cube prototype for local 120B + 3B model workloads',
   dek:'Xiaomi has demonstrated an engineering desktop AI system combining its Xring O3, O100 and D100 chips, 80GB of unified memory and local 120B + 3B model deployment in a chassis rated for a 150W sustained power envelope. No retail price or release date has been announced.',
-  source:'Xiaomi / Lei Jun',
-  sourceType:'Official announcement, independently contextualised',
+  source:'Notebookcheck',
+  sourceType:'English-language reporting; Xiaomi primary source retained in AI Compass analysis',
   category:'Products',
   format:'Hardware prototype',
   date:'2026-08-24',
   readTime:'10 min',
-  url:'https://weibo.com/2/detail/5335498025601317',
-  contextUrl:'https://www.notebookcheck.net/Xiaomi-unveils-AI-Cube-mini-PC-with-three-Xring-chips-and-150-W-performance.1376717.0.html',
-  contextSource:'Notebookcheck',
+  url:'https://www.notebookcheck.net/Xiaomi-unveils-AI-Cube-mini-PC-with-three-Xring-chips-and-150-W-performance.1376717.0.html',
+  contextUrl:'https://weibo.com/2/detail/5335498025601317',
+  contextSource:'Xiaomi / Lei Jun (primary source, Chinese)',
   verified:'2026-08-26',
   visual:'hardware-blue'
 };
-const existing=feed.findIndex(entry=>entry.id===item.id||entry.url===item.url);
+const existing=feed.findIndex(entry=>entry.id===item.id||entry.url===item.url||entry.contextUrl===item.url);
 if(existing>=0)feed[existing]={...feed[existing],...item};else feed.unshift(item);
 })();
