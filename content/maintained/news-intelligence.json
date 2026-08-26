@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-08-17",
+  "reviewed": "2026-08-26",
   "methodVersion": "1.0",
   "categoryDefaults": {
     "Safety": {
@@ -40,6 +40,15 @@
     }
   },
   "explicit": {
+    "xiaomi-ai-cube-prototype": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Engineering prototype",
+      "why": "The important signal is not a retail mini PC launch; it is Xiaomi combining mobile, near-memory AI acceleration and automotive silicon in one local-AI desktop architecture. If commercialised, that points toward more capable high-memory local inference outside the usual NVIDIA/Apple/PC workstation choices. The prototype still lacks the independent benchmarks and software details needed for a purchase comparison.",
+      "audience": "Local-AI users, builders, hardware researchers and teams considering private on-device inference",
+      "action": "Track retail availability, independent 120B inference results, software/framework support, memory behaviour and whole-system power before treating AI Cube as a product option.",
+      "related": "xiaomi-ai-cube-local-ai-prototype"
+    },
     "anthropic-claude-watermarking-provenance": {
       "importance": 4,
       "signal": "High signal",

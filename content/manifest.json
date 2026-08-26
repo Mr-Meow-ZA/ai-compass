@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "release": "0.7.0",
-  "build": "2026-08-17.6",
+  "build": "2026-08-26.1",
   "sourceCollections": [
     {"id": "discovery", "runtimeKey": "discovery", "path": "content/maintained/discovery.json", "schema": "content/schemas/discovery.schema.json"},
     {"id": "curriculum", "runtimeKey": "curriculum", "path": "content/maintained/curriculum.json", "schema": "content/schemas/curriculum.schema.json"},
@@ -11,6 +11,7 @@
   "runtimeModules": [
     {"path": "data.js", "role": "historical-core"},
     {"path": "subscription-refresh.js", "role": "maintained-overlay"},
+    {"path": "news-2026-08-26-xiaomi-ai-cube.js", "role": "news-analysis"},
     {"path": "news-refresh.js", "role": "news-feed"},
     {"path": "news-2026-08-13.js", "role": "news-feed"},
     {"path": "knowledge.js", "role": "guide-module"},
