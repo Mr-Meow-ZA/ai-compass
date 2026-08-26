@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "lastScan": "2026-08-26",
+  "lastSuccessfulPublish": "2026-08-26",
+  "scanWindow": "Previous 48 hours plus material missed developments",
+  "result": "publish",
+  "publishedIds": [
+    "xiaomi-ai-cube-prototype",
+    "openai-jalapeno-inference-chip",
+    "openai-admin-plugin-work-codex",
+    "gemini-3-5-transcribe"
+  ],
+  "notes": "Daily intelligence bootstrap scan. Primary-source review found three additional developments that clear the Daily Brief threshold after the Xiaomi Deep Analysis publication.",
+  "nextScanDue": "2026-08-27"
+}
