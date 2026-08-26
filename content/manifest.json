@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "release": "0.7.1",
-  "build": "2026-08-26.2",
+  "release": "0.7.2",
+  "build": "2026-08-27.1",
   "sourceCollections": [
     {"id": "discovery", "runtimeKey": "discovery", "path": "content/maintained/discovery.json", "schema": "content/schemas/discovery.schema.json"},
     {"id": "curriculum", "runtimeKey": "curriculum", "path": "content/maintained/curriculum.json", "schema": "content/schemas/curriculum.schema.json"},
@@ -38,6 +38,7 @@
     {"path": "learning-intelligence.js", "role": "learning-renderer"},
     {"path": "news-intelligence.js", "role": "news-renderer"},
     {"path": "daily-intelligence.js", "role": "daily-intelligence-renderer"},
+    {"path": "reader-navigation.js", "role": "reader-navigation-renderer"},
     {"path": "freshness-ui.js", "role": "freshness-renderer"}
   ],
   "collections": [
