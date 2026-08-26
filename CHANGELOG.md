@@ -2,6 +2,25 @@
 
 Historical release entries through **0.7.0** are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md). The earlier archive through 0.6.11 remains preserved inside that history.
 
+## 0.7.2 - 2026-08-27
+
+### Added
+- New **Start** hub that routes readers by situation rather than by AI Compass taxonomy: new to AI, AI at work, power user, builder, AI leader/governance, private/local AI and stay-current readers.
+- New **Build** hub connecting workflow automation, agent orchestration, RAG, evaluation, security and enterprise architecture into one practical builder entry point.
+- New **Choose** hub connecting Tools, Models, Courses, subscriptions, local-AI decisions and curated resources around the decision a reader is trying to make.
+- New homepage shortcut: **“Not sure where to begin? Tell us what kind of reader you are.”**
+- Dedicated desktop/mobile rendered validation for Start, Build and Choose.
+
+### Changed
+- Primary navigation is simplified from nine equal-weight content categories to **Home · Start · Learn · Build · Choose · News · Community**.
+- Existing Guides, Practical, Resources, Tools, Models and Courses remain fully available; they are grouped under clearer Build/Choose decision hubs rather than removed.
+- The footer is reorganised around **Start & learn**, **Build & choose** and **Stay informed**.
+- Active navigation state maps Guides/Practical/Resources to Build and Tools/Models/Courses to Choose so the information hierarchy stays visible while readers move through deeper pages.
+- Application version advances to **0.7.2** and build marker to **2026-08-27.1**.
+
+### Reader principle
+- AI Compass should not require readers to learn the site's information architecture before they can learn AI. The top-level menu answers **where do I start, what do I learn, what do I build, what do I choose, and what changed?**
+
 ## 0.7.1 - 2026-08-26
 
 ### Added
