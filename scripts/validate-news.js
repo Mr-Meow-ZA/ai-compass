@@ -4,7 +4,7 @@ const vm=require('vm');
 const document={addEventListener(){},querySelectorAll(){return[]},getElementById(){return null}};
 const context={window:{},document,MutationObserver:class{observe(){}},Intl,Date,URL,console};
 vm.createContext(context);
-for(const file of ['data.js','news-2026-08-26-xiaomi-ai-cube.js','news-2026-08-26-daily-brief.js','news-refresh.js','news-2026-08-13.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+for(const file of ['data.js','news-2026-08-26-xiaomi-ai-cube.js','news-daily.js','news-refresh.js','news-2026-08-13.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 const feed=context.window.AI_COMPASS_FEED;
 const errors=[];
 if(!Array.isArray(feed))errors.push('AI_COMPASS_FEED is missing');
@@ -46,4 +46,4 @@ for(const [id,url] of Object.entries(daily)){
   if(item?.verified!=='2026-08-26')errors.push(`Daily Brief verification date is stale: ${id}`);
 }
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`News valid: ${feed.length} items; English-reader, primary-source and Daily Brief contracts verified.`);
+console.log(`News valid: ${feed.length} items; English-reader, primary-source and maintained Daily Brief contracts verified.`);
