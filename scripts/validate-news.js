@@ -4,7 +4,7 @@ const vm=require('vm');
 const document={addEventListener(){},querySelectorAll(){return[]},getElementById(){return null}};
 const context={window:{},document,MutationObserver:class{observe(){}},Intl,Date,URL,console};
 vm.createContext(context);
-for(const file of ['data.js','news-refresh.js','news-2026-08-13.js','news-2026-08-26-xiaomi-ai-cube.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
+for(const file of ['data.js','news-2026-08-26-xiaomi-ai-cube.js','news-2026-08-26-daily-brief.js','news-refresh.js','news-2026-08-13.js']) vm.runInContext(fs.readFileSync(file,'utf8'),context,{filename:file});
 const feed=context.window.AI_COMPASS_FEED;
 const errors=[];
 if(!Array.isArray(feed))errors.push('AI_COMPASS_FEED is missing');
@@ -33,5 +33,17 @@ if(xiaomi?.url!=='https://www.notebookcheck.net/Xiaomi-unveils-AI-Cube-mini-PC-w
 if(xiaomi?.contextUrl!=='https://weibo.com/2/detail/5335498025601317')errors.push('Xiaomi AI Cube item must retain the Xiaomi / Lei Jun primary source');
 if(!/primary source, Chinese/i.test(xiaomi?.contextSource||''))errors.push('Xiaomi AI Cube primary-source language label is missing');
 if(xiaomi?.verified!=='2026-08-26')errors.push('Xiaomi AI Cube verification date is stale');
+const daily={
+  'gemini-3-5-transcribe':'https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/',
+  'openai-admin-plugin-work-codex':'https://openai.com/index/introducing-admin-plugin/',
+  'openai-jalapeno-inference-chip':'https://openai.com/index/jalapeno-first-results/'
+};
+for(const [id,url] of Object.entries(daily)){
+  const item=(feed||[]).find(entry=>entry.id===id);
+  if(!item)errors.push(`Daily Brief missing: ${id}`);
+  if(item?.url!==url)errors.push(`Daily Brief does not use its canonical official source: ${id}`);
+  if(item?.format!=='Daily brief')errors.push(`Daily Brief format label is missing: ${id}`);
+  if(item?.verified!=='2026-08-26')errors.push(`Daily Brief verification date is stale: ${id}`);
+}
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`News valid: ${feed.length} items; maintained provenance and Xiaomi AI Cube English-reader/primary-source contracts verified.`);
+console.log(`News valid: ${feed.length} items; English-reader, primary-source and Daily Brief contracts verified.`);
