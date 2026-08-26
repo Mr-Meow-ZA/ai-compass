@@ -9,7 +9,7 @@ async function loadRuntimeData({includeNews=false,includeFreshness=false}={}){
   const document={addEventListener(){},querySelectorAll(){return[]},getElementById(){return null}};
   const context={window:{},document,MutationObserver:class{observe(){}},Intl,Date,URL,console,Promise,setTimeout,clearTimeout};
   vm.createContext(context);
-  const files=['data.js','subscription-refresh.js'];
+  const files=['data.js','subscription-refresh.js','news-2026-08-26-xiaomi-ai-cube.js'];
   if(includeNews)files.push('news-refresh.js','news-2026-08-13.js');
   files.push(
     'knowledge.js','dashboard-guide.js','practical-build-guides.js','infographic-build-guide.js','research-build-guide.js',
