@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "readerLanguage": "English",
+  "dailyTarget": {
+    "briefs": "1-3 when warranted",
+    "deepAnalysis": "0-1 when a development needs durable explanation",
+    "noPublishAllowed": true
+  },
+  "signalTiers": [
+    {"id":"must-know","label":"Must know","minimumScore":16},
+    {"id":"worth-knowing","label":"Worth knowing","minimumScore":11},
+    {"id":"watch","label":"Watch","minimumScore":7},
+    {"id":"skip","label":"Skip","minimumScore":0}
+  ],
+  "scoringDimensions": [
+    {"id":"impact","max":5,"question":"Could this materially change what readers can do, buy, build, deploy or govern?"},
+    {"id":"readerValue","max":5,"question":"Is there a useful decision, action or learning outcome for AI Compass readers?"},
+    {"id":"novelty","max":4,"question":"Is this meaningfully new rather than a minor extension or repeat announcement?"},
+    {"id":"evidence","max":4,"question":"Is the claim supported by a primary source, paper, standard or maintainer-owned repository?"},
+    {"id":"durability","max":2,"question":"Will this still matter after the launch-day cycle?"}
+  ],
+  "primarySources": [
+    {"name":"OpenAI","url":"https://openai.com/news/","topics":["models","products","agents","enterprise","safety","infrastructure"]},
+    {"name":"Anthropic","url":"https://www.anthropic.com/news","topics":["models","agents","enterprise","safety","research"]},
+    {"name":"Google DeepMind","url":"https://deepmind.google/blog/","topics":["models","research","science","robotics"]},
+    {"name":"Google AI","url":"https://blog.google/innovation-and-ai/","topics":["models","products","developers"]},
+    {"name":"Microsoft AI","url":"https://blogs.microsoft.com/ai/","topics":["enterprise","copilot","infrastructure","responsible-ai"]},
+    {"name":"Meta AI","url":"https://ai.meta.com/blog/","topics":["open-models","research","multimodal"]},
+    {"name":"NVIDIA","url":"https://blogs.nvidia.com/blog/category/deep-learning/","topics":["hardware","inference","developer-tools"]},
+    {"name":"Hugging Face","url":"https://huggingface.co/blog","topics":["open-source","models","agents","developer-tools"]},
+    {"name":"Mistral AI","url":"https://mistral.ai/news","topics":["models","enterprise","open-models"]}
+  ],
+  "secondarySources": [
+    {"name":"Reuters","purpose":"Independent confirmation, commercial context and policy reporting"},
+    {"name":"Notebookcheck","purpose":"Hardware context and reader-friendly English reporting when primary sources are inaccessible or non-English"},
+    {"name":"The Verge","purpose":"Product context and independent reporting where primary sources need interpretation"}
+  ],
+  "publishingRules": [
+    "Prefer an English reader-facing link. Retain non-English primary sources in Sources and verification when they are the underlying evidence.",
+    "Daily Briefs may be concise but must include what changed, why it matters, verification date, source quality, status and next move.",
+    "Deep Analysis is reserved for developments that benefit from durable explanation, claim checking or practical comparison.",
+    "Do not publish rumours, unsupported benchmark comparisons, unverified pricing or launch-day availability claims that the source does not support.",
+    "A day with no published item is acceptable only when the scan log records that the editorial scan completed and nothing cleared the threshold."
+  ]
+}
