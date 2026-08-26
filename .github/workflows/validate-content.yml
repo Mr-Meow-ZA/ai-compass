@@ -53,6 +53,12 @@ jobs:
             visual-smoke-practical.png
             visual-smoke-resources.png
             visual-smoke-learn.png
+            visual-smoke-start.png
+            visual-smoke-build.png
+            visual-smoke-choose.png
+            visual-smoke-start-mobile.png
+            visual-smoke-build-mobile.png
+            visual-smoke-choose-mobile.png
             visual-smoke-courses-mobile.png
             visual-smoke-discovery-home-mobile.png
             visual-smoke-daily-intelligence-home.png
@@ -90,6 +96,12 @@ jobs:
             visual-smoke-practical.html
             visual-smoke-resources.html
             visual-smoke-learn.html
+            visual-smoke-start.html
+            visual-smoke-build.html
+            visual-smoke-choose.html
+            visual-smoke-start-mobile.html
+            visual-smoke-build-mobile.html
+            visual-smoke-choose-mobile.html
             visual-smoke-courses-mobile.html
             visual-smoke-discovery-home-mobile.html
             visual-smoke-daily-intelligence-home.html
