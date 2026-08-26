@@ -12,7 +12,7 @@
     {"path": "data.js", "role": "historical-core"},
     {"path": "subscription-refresh.js", "role": "maintained-overlay"},
     {"path": "news-2026-08-26-xiaomi-ai-cube.js", "role": "news-analysis"},
-    {"path": "news-2026-08-26-daily-brief.js", "role": "news-daily-brief"},
+    {"path": "news-daily.js", "role": "news-daily-brief"},
     {"path": "news-refresh.js", "role": "news-feed"},
     {"path": "news-2026-08-13.js", "role": "news-feed"},
     {"path": "knowledge.js", "role": "guide-module"},
