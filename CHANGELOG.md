@@ -2,6 +2,19 @@
 
 Historical release entries through **0.7.0** are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md). The earlier archive through 0.6.11 remains preserved inside that history.
 
+## Daily intelligence - 2026-08-27
+
+### Published
+- **Deep Analysis:** *OpenAI–Hugging Face incident: what the agent escape actually proves*, grounded in OpenAI's 38-page technical incident report and the independent METR/Redwood investigation. The analysis distinguishes agent capability and security evidence from anthropomorphic interpretations and translates the incident into concrete controls for agent builders.
+- **Daily Brief:** GitHub Copilot Code Review enters public preview for Azure Repos, including organization/project/repository controls, custom instructions, automatic branch-policy reviews, Managed DevOps Pool support and project-level cost attribution.
+- **Daily Brief:** Perplexity Portable Computer launches for local-first agent workflows on NVIDIA DGX Spark, with local orchestration and optional authorized cloud escalation.
+
+### Editorial
+- The daily scan ledger records all three items with explicit scores across impact, reader value, novelty, evidence quality and durability.
+- OpenAI's incident is classified **Must know**; Portable Computer **Must know**; Azure Repos Copilot Code Review **Worth knowing**.
+- Other scanned developments were duplicates, outside the active window or below the publication threshold.
+- Build marker advances to **2026-08-27.1** without changing the 0.7.1 product release number.
+
 ## 0.7.1 - 2026-08-26
 
 ### Added
