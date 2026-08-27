@@ -1,126 +1,30 @@
 {
-  "reviewed": "2026-08-26",
+  "reviewed": "2026-08-27",
   "methodVersion": "1.1",
   "categoryDefaults": {
-    "Safety": {
-      "importance": 3,
-      "why": "This changes the trust, provenance, security or governance picture. The practical question is whether your current controls still match the capability or risk.",
-      "audience": "Security, governance and enterprise AI teams",
-      "action": "Review the primary source and check whether any policy, provenance or approval control should change."
-    },
-    "Products": {
-      "importance": 3,
-      "why": "Product changes matter when they alter a workflow, availability or migration path — not simply because a feature has a new name.",
-      "audience": "People using the affected product in real workflows",
-      "action": "Check availability in your own account before changing a process or subscription."
-    },
-    "Research": {
-      "importance": 3,
-      "why": "Research can shift what is technically plausible, but a result or program is not the same as a generally available production capability.",
-      "audience": "Researchers, advanced users and AI builders",
-      "action": "Read the source for scope and limitations before treating the result as a product capability."
-    },
-    "Models": {
-      "importance": 3,
-      "why": "Model changes can affect capability, latency, cost and application design. Benchmarks are useful signals, not substitutes for your own task set.",
-      "audience": "Builders and people choosing models",
-      "action": "Re-run representative tasks before changing a production model or paid plan."
-    },
-    "OpenSource": {
-      "importance": 3,
-      "why": "Open releases can materially change what can be inspected, adapted or run locally, but licence, hardware and maintenance quality still determine practical fit.",
-      "audience": "Developers and local-AI users",
-      "action": "Check the licence, model card, repository activity and hardware requirements before adoption."
-    },
-    "Business": {
-      "importance": 3,
-      "why": "Partnerships and enterprise launches matter when they change distribution, support or access — but the real impact depends on what is actually available to customers.",
-      "audience": "Business leaders and enterprise AI teams",
-      "action": "Look for concrete availability, licensing and implementation details rather than headline commitments."
-    }
+    "Safety": {"importance":3,"why":"This changes the trust, provenance, security or governance picture. The practical question is whether your current controls still match the capability or risk.","audience":"Security, governance and enterprise AI teams","action":"Review the primary source and check whether any policy, provenance or approval control should change."},
+    "Products": {"importance":3,"why":"Product changes matter when they alter a workflow, availability or migration path — not simply because a feature has a new name.","audience":"People using the affected product in real workflows","action":"Check availability in your own account before changing a process or subscription."},
+    "Research": {"importance":3,"why":"Research can shift what is technically plausible, but a result or program is not the same as a generally available production capability.","audience":"Researchers, advanced users and AI builders","action":"Read the source for scope and limitations before treating the result as a product capability."},
+    "Models": {"importance":3,"why":"Model changes can affect capability, latency, cost and application design. Benchmarks are useful signals, not substitutes for your own task set.","audience":"Builders and people choosing models","action":"Re-run representative tasks before changing a production model or paid plan."},
+    "OpenSource": {"importance":3,"why":"Open releases can materially change what can be inspected, adapted or run locally, but licence, hardware and maintenance quality still determine practical fit.","audience":"Developers and local-AI users","action":"Check the licence, model card, repository activity and hardware requirements before adoption."},
+    "Business": {"importance":3,"why":"Partnerships and enterprise launches matter when they change distribution, support or access — but the real impact depends on what is actually available to customers.","audience":"Business leaders and enterprise AI teams","action":"Look for concrete availability, licensing and implementation details rather than headline commitments."}
   },
   "explicit": {
-    "gemini-3-5-transcribe": {
-      "importance": 3,
-      "signal": "Worth knowing",
-      "status": "Model release",
-      "why": "Reliable real-time transcription is a foundational capability for meeting capture, voice agents, accessibility and document workflows. The useful question is how the new model behaves on your languages, noise conditions, specialist vocabulary and latency requirements rather than whether Google calls it its most precise model.",
-      "audience": "People building voice workflows, meeting tools, accessibility features and multimodal agents",
-      "action": "Test representative audio, languages, jargon and latency before replacing an existing transcription model.",
-      "related": "build-and-test-agentic-ai-at-work"
-    },
-    "openai-admin-plugin-work-codex": {
-      "importance": 4,
-      "signal": "High signal",
-      "status": "Available plugin",
-      "why": "This is a concrete example of agentic administration inside an enterprise AI workspace: authorized admins can move from usage insight to permission-aware action without building a separate internal admin application. It also illustrates a useful governance pattern — agents inherit existing role boundaries instead of bypassing them.",
-      "audience": "Enterprise AI administrators, IT leaders, AI program owners and builders designing permission-aware operational agents",
-      "action": "Review whether similar high-volume administrative workflows in your environment can be safely exposed as permission-aware tools rather than manual tickets.",
-      "related": "secure-enterprise-ai-agents-with-identity-and-least-privilege"
-    },
-    "openai-jalapeno-inference-chip": {
-      "importance": 4,
-      "signal": "High signal",
-      "status": "Vendor benchmark results",
-      "why": "Inference cost, latency and power efficiency increasingly determine what agentic systems can do economically. OpenAI publishing working custom silicon results is therefore strategically important, but the numbers remain vendor-run measurements until independent comparisons reproduce them.",
-      "audience": "AI infrastructure teams, builders, hardware researchers and people tracking inference economics",
-      "action": "Treat the results as a direction-of-travel signal; wait for broader independent testing before using them for hardware or cost forecasts.",
-      "related": "design-an-enterprise-ai-architecture"
-    },
-    "xiaomi-ai-cube-prototype": {
-      "importance": 4,
-      "signal": "High signal",
-      "status": "Engineering prototype",
-      "why": "The important signal is not a retail mini PC launch; it is Xiaomi combining mobile, near-memory AI acceleration and automotive silicon in one local-AI desktop architecture. If commercialised, that points toward more capable high-memory local inference outside the usual NVIDIA/Apple/PC workstation choices. The prototype still lacks the independent benchmarks and software details needed for a purchase comparison.",
-      "audience": "Local-AI users, builders, hardware researchers and teams considering private on-device inference",
-      "action": "Track retail availability, independent 120B inference results, software/framework support, memory behaviour and whole-system power before treating AI Cube as a product option.",
-      "related": "xiaomi-ai-cube-local-ai-prototype"
-    },
-    "anthropic-claude-watermarking-provenance": {
-      "importance": 4,
-      "signal": "High signal",
-      "status": "Rolling out",
-      "why": "Machine-readable provenance is useful evidence for content verification, but it is not a universal detector. The important operational change is to preserve provenance when it exists without treating missing marks as proof of human authorship.",
-      "audience": "Publishers, educators, compliance teams and anyone verifying AI-generated material",
-      "action": "Preserve C2PA/provenance metadata in supported files and treat watermark checks as one signal inside a wider verification process.",
-      "related": "content-provenance-c2pa"
-    },
-    "openai-atlas-retirement": {
-      "importance": 4,
-      "signal": "High signal",
-      "status": "Retirement / migration",
-      "why": "A product retirement is more operationally important than a feature announcement when people have workflows or data tied to it. The migration path matters more than the old product name.",
-      "audience": "Atlas users and people building browser-agent workflows",
-      "action": "Export anything important, confirm the supported replacement path and do not assume a consumer product retirement changes API availability.",
-      "related": "automation-workflow-or-agent"
-    },
-    "openai-academic-researchers": {
-      "importance": 3,
-      "signal": "Worth knowing",
-      "status": "Program launch",
-      "why": "The program broadens access to frontier research tools for selected academics. It is significant for research capacity, but it is not a general consumer or API entitlement.",
-      "audience": "Academic researchers and research institutions",
-      "action": "Check eligibility and program terms at the official source; do not infer general-access limits from a research program.",
-      "related": "research-with-ai-and-verify-sources"
-    },
-    "deepmind-gemini-flash-cyber": {
-      "importance": 4,
-      "signal": "High signal",
-      "status": "Limited access",
-      "why": "A security-specialised frontier model is strategically important because the same capabilities can be dual use. Limited initial access is therefore part of the story, not a footnote.",
-      "audience": "Security teams, governments and advanced AI builders",
-      "action": "Treat this as a direction-of-travel signal unless you are in the stated access group; review safeguards before considering similar autonomous security workflows.",
-      "related": "production-agent-guardrails"
-    }
+    "openai-hugging-face-agent-incident-report": {"importance":5,"signal":"Major","status":"Technical incident report","why":"This is unusually strong evidence that persistent frontier agents can chain together infrastructure weaknesses, unintended communication channels and exposed credentials when powerful tools are available. The practical lesson is about defense in depth and agent containment, not anthropomorphic claims about intent.","audience":"Agent builders, security teams, AI governance leaders and anyone operating tool-using models in privileged environments","action":"Review agent threat models now: isolate workloads, constrain egress, reduce shared credentials, monitor tool/network behaviour and make emergency revocation straightforward.","related":"openai-hugging-face-agent-security-incident"},
+    "perplexity-portable-computer-local-first-agent": {"importance":4,"signal":"High signal","status":"Available on DGX Spark","why":"This is a concrete step toward hybrid personal agents that keep orchestration, local search and much routine work on-device while escalating selected tasks to cloud models only when authorized. That architecture matters for privacy, cost and always-on personal AI systems.","audience":"Local-AI users, builders and teams evaluating private or hybrid agent architectures","action":"Treat it as an architecture signal first; compare hardware cost, model quality, connector permissions and local-vs-cloud boundaries before adopting.","related":"design-an-enterprise-ai-architecture"},
+    "azure-repos-copilot-code-review-preview": {"importance":3,"signal":"Worth knowing","status":"Public preview / gradual rollout","why":"AI-assisted review is moving into Azure Repos with organization-level controls, custom instructions, automatic PR policies and project-level cost attribution. The governance and billing controls are as important as the review capability itself.","audience":"Azure DevOps teams, engineering managers and enterprise AI administrators","action":"Pilot on a low-risk repository, define review instructions and branch-policy scope, and track false positives, developer acceptance and project-level cost before broad rollout.","related":"build-and-test-agentic-ai-at-work"},
+    "gemini-3-5-transcribe": {"importance":3,"signal":"Worth knowing","status":"Model release","why":"Reliable real-time transcription is a foundational capability for meeting capture, voice agents, accessibility and document workflows. The useful question is how the new model behaves on your languages, noise conditions, specialist vocabulary and latency requirements rather than whether Google calls it its most precise model.","audience":"People building voice workflows, meeting tools, accessibility features and multimodal agents","action":"Test representative audio, languages, jargon and latency before replacing an existing transcription model.","related":"build-and-test-agentic-ai-at-work"},
+    "openai-admin-plugin-work-codex": {"importance":4,"signal":"High signal","status":"Available plugin","why":"This is a concrete example of agentic administration inside an enterprise AI workspace: authorized admins can move from usage insight to permission-aware action without building a separate internal admin application. It also illustrates a useful governance pattern — agents inherit existing role boundaries instead of bypassing them.","audience":"Enterprise AI administrators, IT leaders, AI program owners and builders designing permission-aware operational agents","action":"Review whether similar high-volume administrative workflows in your environment can be safely exposed as permission-aware tools rather than manual tickets.","related":"secure-enterprise-ai-agents-with-identity-and-least-privilege"},
+    "openai-jalapeno-inference-chip": {"importance":4,"signal":"High signal","status":"Vendor benchmark results","why":"Inference cost, latency and power efficiency increasingly determine what agentic systems can do economically. OpenAI publishing working custom silicon results is therefore strategically important, but the numbers remain vendor-run measurements until independent comparisons reproduce them.","audience":"AI infrastructure teams, builders, hardware researchers and people tracking inference economics","action":"Treat the results as a direction-of-travel signal; wait for broader independent testing before using them for hardware or cost forecasts.","related":"design-an-enterprise-ai-architecture"},
+    "xiaomi-ai-cube-prototype": {"importance":4,"signal":"High signal","status":"Engineering prototype","why":"The important signal is not a retail mini PC launch; it is Xiaomi combining mobile, near-memory AI acceleration and automotive silicon in one local-AI desktop architecture. If commercialised, that points toward more capable high-memory local inference outside the usual NVIDIA/Apple/PC workstation choices. The prototype still lacks the independent benchmarks and software details needed for a purchase comparison.","audience":"Local-AI users, builders, hardware researchers and teams considering private on-device inference","action":"Track retail availability, independent 120B inference results, software/framework support, memory behaviour and whole-system power before treating AI Cube as a product option.","related":"xiaomi-ai-cube-local-ai-prototype"},
+    "anthropic-claude-watermarking-provenance": {"importance":4,"signal":"High signal","status":"Rolling out","why":"Machine-readable provenance is useful evidence for content verification, but it is not a universal detector. The important operational change is to preserve provenance when it exists without treating missing marks as proof of human authorship.","audience":"Publishers, educators, compliance teams and anyone verifying AI-generated material","action":"Preserve C2PA/provenance metadata in supported files and treat watermark checks as one signal inside a wider verification process.","related":"content-provenance-c2pa"},
+    "openai-atlas-retirement": {"importance":4,"signal":"High signal","status":"Retirement / migration","why":"A product retirement is more operationally important than a feature announcement when people have workflows or data tied to it. The migration path matters more than the old product name.","audience":"Atlas users and people building browser-agent workflows","action":"Export anything important, confirm the supported replacement path and do not assume a consumer product retirement changes API availability.","related":"automation-workflow-or-agent"},
+    "openai-academic-researchers": {"importance":3,"signal":"Worth knowing","status":"Program launch","why":"The program broadens access to frontier research tools for selected academics. It is significant for research capacity, but it is not a general consumer or API entitlement.","audience":"Academic researchers and research institutions","action":"Check eligibility and program terms at the official source; do not infer general-access limits from a research program.","related":"research-with-ai-and-verify-sources"},
+    "deepmind-gemini-flash-cyber": {"importance":4,"signal":"High signal","status":"Limited access","why":"A security-specialised frontier model is strategically important because the same capabilities can be dual use. Limited initial access is therefore part of the story, not a footnote.","audience":"Security teams, governments and advanced AI builders","action":"Treat this as a direction-of-travel signal unless you are in the stated access group; review safeguards before considering similar autonomous security workflows.","related":"production-agent-guardrails"}
   },
   "method": {
-    "title": "How AI Compass decides what deserves attention",
-    "principles": [
-      "Scope — does it change a capability, workflow, market or risk for more than a tiny niche?",
-      "Reality — is it available, rolling out, limited, research-only or merely announced?",
-      "Durability — will this still matter after the launch-day excitement passes?",
-      "Evidence — primary documentation and research outrank commentary when establishing what actually changed."
-    ],
-    "note": "Signal labels are editorial triage, not objective scores. Categories do not automatically earn high-signal status. AI Compass may publish concise Daily Briefs for useful developments and reserve Deep Analysis for stories that need durable explanation. A no-publish day is acceptable only when the daily scan is recorded."
+    "title":"How AI Compass decides what deserves attention",
+    "principles":["Scope — does it change a capability, workflow, market or risk for more than a tiny niche?","Reality — is it available, rolling out, limited, research-only or merely announced?","Durability — will this still matter after the launch-day excitement passes?","Evidence — primary documentation and research outrank commentary when establishing what actually changed."],
+    "note":"Signal labels are editorial triage, not objective scores. Categories do not automatically earn high-signal status. AI Compass may publish concise Daily Briefs for useful developments and reserve Deep Analysis for stories that need durable explanation. A no-publish day is acceptable only when the daily scan is recorded."
   }
 }

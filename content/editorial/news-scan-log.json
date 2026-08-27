@@ -1,15 +1,19 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-08-26",
-  "lastSuccessfulPublish": "2026-08-26",
+  "lastScan": "2026-08-27",
+  "lastSuccessfulPublish": "2026-08-27",
   "scanWindow": "Previous 48 hours plus material missed developments",
   "result": "publish",
   "publishedIds": [
-    "xiaomi-ai-cube-prototype",
-    "openai-jalapeno-inference-chip",
-    "openai-admin-plugin-work-codex",
-    "gemini-3-5-transcribe"
+    "openai-hugging-face-agent-incident-report",
+    "azure-repos-copilot-code-review-preview",
+    "perplexity-portable-computer-local-first-agent"
   ],
-  "notes": "Daily intelligence bootstrap scan. Primary-source review found three additional developments that clear the Daily Brief threshold after the Xiaomi Deep Analysis publication.",
-  "nextScanDue": "2026-08-27"
+  "scores": {
+    "openai-hugging-face-agent-incident-report": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "perplexity-portable-computer-local-first-agent": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Must know"},
+    "azure-repos-copilot-code-review-preview": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":1,"total":15,"tier":"Worth knowing"}
+  },
+  "notes": "Published one Deep Analysis on OpenAI's full Hugging Face incident report, supported by the independent METR/Redwood assessment, plus two practical Daily Briefs. Other scanned items were duplicates, older than the active window, or below threshold. No rumours or unsupported benchmark claims published.",
+  "nextScanDue": "2026-08-28"
 }
