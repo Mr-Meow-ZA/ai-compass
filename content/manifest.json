@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "release": "0.7.1",
-  "build": "2026-08-27.1",
+  "release": "0.7.2",
+  "build": "2026-08-28.2",
   "sourceCollections": [
     {"id":"discovery","runtimeKey":"discovery","path":"content/maintained/discovery.json","schema":"content/schemas/discovery.schema.json"},
     {"id":"curriculum","runtimeKey":"curriculum","path":"content/maintained/curriculum.json","schema":"content/schemas/curriculum.schema.json"},
@@ -13,9 +13,11 @@
     {"path":"subscription-refresh.js","role":"maintained-overlay"},
     {"path":"news-2026-08-26-xiaomi-ai-cube.js","role":"news-analysis"},
     {"path":"news-2026-08-27-openai-hugging-face-incident.js","role":"news-analysis"},
+    {"path":"news-2026-08-28-qwen38-ngram.js","role":"news-analysis"},
     {"path":"news-daily.js","role":"news-daily-brief"},
     {"path":"news-refresh.js","role":"news-feed"},
     {"path":"news-2026-08-13.js","role":"news-feed"},
+    {"path":"personal-ai-design-series.js","role":"guide-module"},
     {"path":"knowledge.js","role":"guide-module"},
     {"path":"dashboard-guide.js","role":"guide-module"},
     {"path":"practical-build-guides.js","role":"guide-module"},
@@ -42,7 +44,7 @@
     {"path":"freshness-ui.js","role":"freshness-renderer"}
   ],
   "collections": [
-    {"id":"guides","global":"AI_COMPASS_DATA.articles","minimum":42,"freshnessClass":"durable"},
+    {"id":"guides","global":"AI_COMPASS_DATA.articles","minimum":51,"freshnessClass":"durable"},
     {"id":"learning-paths","global":"AI_COMPASS_LIBRARY.learningPaths","minimum":7,"freshnessClass":"durable"},
     {"id":"tips","global":"AI_COMPASS_LIBRARY.tips","minimum":22,"freshnessClass":"durable"},
     {"id":"references","global":"AI_COMPASS_LIBRARY.references","minimum":25,"freshnessClass":"durable"},
