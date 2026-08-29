@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'anthropic-model-hardware-standard-preview',
+    title:'Anthropic previews a Model Hardware Standard for agents controlling physical devices',
+    dek:'Anthropic has opened a research preview of Model Hardware Standard (MHS), a shared specification intended to let AI agents operate multiple scientific and manufacturing instruments such as microscopes, liquid handlers and robotic arms. The preview is initially limited to selected labs and manufacturers, so this is an interoperability signal rather than a mature universal standard.',
+    source:'Anthropic',sourceType:'Official research preview',category:'Agents',format:'Daily brief',date:'2026-08-27',readTime:'4 min',
+    url:'https://www.anthropic.com/news/model-hardware-standard-research-preview',verified:'2026-08-28',visual:'developer-blue'
+  },
+  {
+    id:'gemini-omni-1-1-flash-developer-controls',
+    title:'Google makes Gemini Omni 1.1 Flash production-ready for generative video developers',
+    dek:'Google has introduced Gemini Omni 1.1 Flash with additional creative controls and says the model is now production-ready through the Gemini API in Google AI Studio. The release matters mainly to builders of generative-video workflows; Google’s performance and quality claims remain vendor evidence until broader independent testing is available.',
+    source:'Google',sourceType:'Official developer announcement',category:'Models',format:'Daily brief',date:'2026-08-27',readTime:'4 min',
+    url:'https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/',verified:'2026-08-28',visual:'models-blue'
+  },
+  {
     id:'azure-repos-copilot-code-review-preview',
     title:'GitHub Copilot Code Review enters public preview for Azure Repos',
     dek:'Microsoft has opened GitHub Copilot Code Review to Azure DevOps customers in public preview, with organization/project/repository controls, custom instructions, automatic PR review policies, Managed DevOps Pool support and project-level cost attribution. Rollout is gradual and self-hosted agents are not currently supported.',
