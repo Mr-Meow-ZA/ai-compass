@@ -1,21 +1,18 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-08-28",
-  "lastSuccessfulPublish": "2026-08-28",
-  "scanWindow": "Previous 48 hours plus material missed developments",
+  "lastScan": "2026-08-29",
+  "lastSuccessfulPublish": "2026-08-29",
+  "scanWindow": "Since the 2026-08-28 successful scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
   "publishedIds": [
-    "anthropic-model-hardware-standard-preview",
-    "gemini-omni-1-1-flash-developer-controls"
+    "tencent-hy4-preview-open-weights"
   ],
   "scores": {
-    "anthropic-model-hardware-standard-preview": {"impact":4,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":19,"tier":"Must know"},
-    "gemini-omni-1-1-flash-developer-controls": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":1,"total":15,"tier":"Worth knowing"},
-    "google-khan-academy-khanmigo-visual-tools": {"impact":2,"readerValue":3,"novelty":2,"evidence":4,"durability":1,"total":12,"tier":"Worth knowing"},
-    "google-ai-mode-travel-booking": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":1,"total":13,"tier":"Worth knowing"},
-    "ai-agent-cyber-insurance-policy-shift": {"impact":3,"readerValue":3,"novelty":2,"evidence":3,"durability":2,"total":13,"tier":"Worth knowing"},
-    "nvidia-ai-cloud-revenue-sharing-pause": {"impact":2,"readerValue":2,"novelty":2,"evidence":2,"durability":1,"total":9,"tier":"Watch"}
+    "tencent-hy4-preview-open-weights": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Must know"},
+    "anthropic-pentagon-blacklisting-ruling": {"impact":3,"readerValue":3,"novelty":3,"evidence":3,"durability":2,"total":14,"tier":"Worth knowing"},
+    "openai-cursor-agreement-ending": {"impact":3,"readerValue":4,"novelty":3,"evidence":2,"durability":1,"total":13,"tier":"Worth knowing"},
+    "gnani-artha-sovereign-ai-stack": {"impact":2,"readerValue":3,"novelty":2,"evidence":2,"durability":1,"total":10,"tier":"Watch"}
   },
-  "notes": "Published two source-checked Daily Briefs. Anthropic MHS cleared Must know because it introduces a concrete interoperability specification for agents operating physical lab/manufacturing hardware, while remaining explicitly a limited research preview. Gemini Omni 1.1 Flash cleared Worth knowing for generative-video builders because Google says it is production-ready in the Gemini API with new controls; vendor quality claims were not repeated as independently proven. Khan Academy/Gemini classroom tools, Google AI Mode travel booking and the emerging cyber-insurance response to agents cleared numerical Worth knowing thresholds but were not published to avoid overfilling the daily brief and because their reader value is narrower or primarily a market/application signal. NVIDIA financing reporting remains Watch because the underlying report is second-hand. The Aug 26 OpenAI/Hugging Face incident and Aug 27 follow-on coverage were deduplicated against yesterday's Deep Analysis. Rumours, anonymous-model speculation and unsupported benchmark claims were skipped.",
-  "nextScanDue": "2026-08-29"
+  "notes": "Published one Daily Brief on Tencent Hy4 preview because the official Tencent model card confirms a new Apache-2.0 open-weight 770B MoE release with 49B activated parameters, 1M context and practical vLLM/SGLang deployment support. Vendor benchmark and internal preference claims were deliberately not treated as independent proof. The Anthropic/Pentagon court ruling and reported OpenAI-Cursor agreement termination were scored Worth knowing but not published in this run: both are primarily legal/commercial developments, and the Cursor report lacks a matched primary-source announcement. Gnani Artha remains Watch because available evidence is secondary reporting. Aug 28 Anthropic MHS and Gemini Omni 1.1 Flash coverage were deduplicated as already published. Rumours, unsupported rankings and unverifiable pricing claims were skipped.",
+  "nextScanDue": "2026-08-30"
 }
