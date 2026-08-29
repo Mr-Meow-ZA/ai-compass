@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'tencent-hy4-preview-open-weights',
+    title:'Tencent releases Hy4 preview as an Apache-2.0 open-weight flagship model',
+    dek:'Tencent has released Hy4 preview and an FP8 variant with model weights under Apache 2.0. The Mixture-of-Experts model has 770B backbone parameters with 49B activated per token and a 1M-token context window, with deployment recipes for vLLM and SGLang. Tencent’s benchmark and internal preference results remain vendor evidence; the durable signal is a very large permissively licensed model with practical self-hosting support.',
+    source:'Tencent',sourceType:'Official model release',category:'OpenSource',format:'Daily brief',date:'2026-08-28',readTime:'4 min',
+    url:'https://huggingface.co/tencent/Hy4-preview',verified:'2026-08-29',visual:'models-blue'
+  },
+  {
     id:'anthropic-model-hardware-standard-preview',
     title:'Anthropic previews a Model Hardware Standard for agents controlling physical devices',
     dek:'Anthropic has opened a research preview of Model Hardware Standard (MHS), a shared specification intended to let AI agents operate multiple scientific and manufacturing instruments such as microscopes, liquid handlers and robotic arms. The preview is initially limited to selected labs and manufacturers, so this is an interoperability signal rather than a mature universal standard.',
