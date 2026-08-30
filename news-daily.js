@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'openai-cursor-contract-wind-down',
+    title:'OpenAI plans to end model access for Cursor after its SpaceX acquisition',
+    dek:'OpenAI says it has notified SpaceX that it intends to wind down the contract supplying OpenAI models to Cursor, with a proposed shutoff date of November 12, 2026. OpenAI says the decision follows Cursor\'s change of control and concerns about enforcing its terms with SpaceX. Cursor users should treat the date as a migration signal rather than assume every model disappears immediately: OpenAI says the parties still have a notice period, and Reuters reports Cursor is continuing discussions with OpenAI.',
+    source:'OpenAI',sourceType:'Official company announcement',category:'Business',format:'Daily brief',date:'2026-08-28',readTime:'4 min',
+    url:'https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/',contextUrl:'https://www.reuters.com/business/media-telecom/openai-end-partnership-with-spacexs-cursor-2026-08-29/',verified:'2026-08-30',visual:'developer-blue'
+  },
+  {
     id:'tencent-hy4-preview-open-weights',
     title:'Tencent releases Hy4 preview as an Apache-2.0 open-weight flagship model',
     dek:'Tencent has released Hy4 preview and an FP8 variant with model weights under Apache 2.0. The Mixture-of-Experts model has 770B backbone parameters with 49B activated per token and a 1M-token context window, with deployment recipes for vLLM and SGLang. Tencent’s benchmark and internal preference results remain vendor evidence; the durable signal is a very large permissively licensed model with practical self-hosting support.',
