@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-08-29",
-  "lastSuccessfulPublish": "2026-08-29",
-  "scanWindow": "Since the 2026-08-28 successful scan, plus material missed developments from the previous 48 hours",
+  "lastScan": "2026-08-30",
+  "lastSuccessfulPublish": "2026-08-30",
+  "scanWindow": "Since the 2026-08-29 successful scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
   "publishedIds": [
-    "tencent-hy4-preview-open-weights"
+    "openai-cursor-contract-wind-down"
   ],
   "scores": {
-    "tencent-hy4-preview-open-weights": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Must know"},
+    "openai-cursor-contract-wind-down": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Must know"},
+    "nvidia-hugging-face-acquisition-report": {"impact":5,"readerValue":4,"novelty":4,"evidence":2,"durability":2,"total":17,"tier":"Watch"},
     "anthropic-pentagon-blacklisting-ruling": {"impact":3,"readerValue":3,"novelty":3,"evidence":3,"durability":2,"total":14,"tier":"Worth knowing"},
-    "openai-cursor-agreement-ending": {"impact":3,"readerValue":4,"novelty":3,"evidence":2,"durability":1,"total":13,"tier":"Worth knowing"},
-    "gnani-artha-sovereign-ai-stack": {"impact":2,"readerValue":3,"novelty":2,"evidence":2,"durability":1,"total":10,"tier":"Watch"}
+    "openai-thailand-startup-accelerator": {"impact":1,"readerValue":2,"novelty":1,"evidence":4,"durability":1,"total":9,"tier":"Watch"}
   },
-  "notes": "Published one Daily Brief on Tencent Hy4 preview because the official Tencent model card confirms a new Apache-2.0 open-weight 770B MoE release with 49B activated parameters, 1M context and practical vLLM/SGLang deployment support. Vendor benchmark and internal preference claims were deliberately not treated as independent proof. The Anthropic/Pentagon court ruling and reported OpenAI-Cursor agreement termination were scored Worth knowing but not published in this run: both are primarily legal/commercial developments, and the Cursor report lacks a matched primary-source announcement. Gnani Artha remains Watch because available evidence is secondary reporting. Aug 28 Anthropic MHS and Gemini Omni 1.1 Flash coverage were deduplicated as already published. Rumours, unsupported rankings and unverifiable pricing claims were skipped.",
-  "nextScanDue": "2026-08-30"
+  "notes": "Published one Daily Brief on OpenAI's planned Cursor contract wind-down because the development previously held for lack of a primary source now has an official OpenAI announcement. OpenAI states a proposed November 12, 2026 shutoff date following Cursor's acquisition by SpaceX; Reuters provides independent commercial context and reports that Cursor discussions with OpenAI continue. The reported NVIDIA acquisition of Hugging Face scores as potentially major but remains Watch because current evidence is secondary reporting without a matched NVIDIA or Hugging Face primary announcement. The Anthropic/Pentagon ruling remains Worth knowing but was not published because it is primarily a legal/government procurement development and no new primary filing was established in this scan. OpenAI's Thailand accelerator is official but below publication threshold for broad AI Compass readers. Existing Aug 27-29 stories were deduplicated; rumours, unsupported rankings and unverifiable pricing claims were skipped.",
+  "nextScanDue": "2026-08-31"
 }
