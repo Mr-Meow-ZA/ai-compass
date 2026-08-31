@@ -1,18 +1,17 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-08-30",
+  "lastScan": "2026-08-31",
   "lastSuccessfulPublish": "2026-08-30",
-  "scanWindow": "Since the 2026-08-29 successful scan, plus material missed developments from the previous 48 hours",
-  "result": "publish",
-  "publishedIds": [
-    "openai-cursor-contract-wind-down"
-  ],
+  "scanWindow": "Since the 2026-08-30 successful scan, plus material missed developments from the previous 48 hours",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
-    "openai-cursor-contract-wind-down": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Must know"},
     "nvidia-hugging-face-acquisition-report": {"impact":5,"readerValue":4,"novelty":4,"evidence":2,"durability":2,"total":17,"tier":"Watch"},
-    "anthropic-pentagon-blacklisting-ruling": {"impact":3,"readerValue":3,"novelty":3,"evidence":3,"durability":2,"total":14,"tier":"Worth knowing"},
-    "openai-thailand-startup-accelerator": {"impact":1,"readerValue":2,"novelty":1,"evidence":4,"durability":1,"total":9,"tier":"Watch"}
+    "github-spark-retirement-effective": {"impact":3,"readerValue":4,"novelty":1,"evidence":4,"durability":1,"total":13,"tier":"Worth knowing"},
+    "self-improving-ai-monitoring-act": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":1,"total":11,"tier":"Watch"},
+    "openai-brazil-expansion": {"impact":1,"readerValue":2,"novelty":1,"evidence":4,"durability":1,"total":9,"tier":"Watch"},
+    "llama-cpp-routine-release": {"impact":1,"readerValue":2,"novelty":1,"evidence":4,"durability":0,"total":8,"tier":"Skip"}
   },
-  "notes": "Published one Daily Brief on OpenAI's planned Cursor contract wind-down because the development previously held for lack of a primary source now has an official OpenAI announcement. OpenAI states a proposed November 12, 2026 shutoff date following Cursor's acquisition by SpaceX; Reuters provides independent commercial context and reports that Cursor discussions with OpenAI continue. The reported NVIDIA acquisition of Hugging Face scores as potentially major but remains Watch because current evidence is secondary reporting without a matched NVIDIA or Hugging Face primary announcement. The Anthropic/Pentagon ruling remains Worth knowing but was not published because it is primarily a legal/government procurement development and no new primary filing was established in this scan. OpenAI's Thailand accelerator is official but below publication threshold for broad AI Compass readers. Existing Aug 27-29 stories were deduplicated; rumours, unsupported rankings and unverifiable pricing claims were skipped.",
-  "nextScanDue": "2026-08-31"
+  "notes": "Completed the 2026-08-31 editorial scan and published nothing because no new development cleared the publication gate with sufficient novelty and primary-source support. The reported NVIDIA acquisition of Hugging Face remains potentially major but stays Watch: Reuters reports an agreed deal, yet no matching NVIDIA or Hugging Face primary announcement was found. GitHub Spark reaches its previously announced retirement date today, but the underlying deprecation was announced on August 4 and is therefore not a fresh development suitable for a new Daily Brief. A reported bipartisan Self-Improving AI Monitoring Act is potentially relevant governance news but remains Watch because this scan did not establish a sufficiently strong primary legislative source for publication. OpenAI's Brazil expansion is official but below the broad-reader threshold, and routine llama.cpp release activity is normal maintainer churn rather than a durable editorial event. Existing Aug 27-30 stories were deduplicated; rumours, unsupported rankings, unverified pricing and recycled launch coverage were skipped.",
+  "nextScanDue": "2026-09-01"
 }
