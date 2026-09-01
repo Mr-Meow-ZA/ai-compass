@@ -2,6 +2,19 @@
 
 Historical release entries through **0.7.0** are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md). The earlier archive through 0.6.11 remains preserved inside that history.
 
+## Daily intelligence - 2026-09-01
+
+### Published
+- **Daily Brief:** Anthropic resumes high-risk evaluations with new containment, monitoring and external-evaluator controls after recent cyber incidents. The brief separates confirmed operational hardening from Anthropic's preliminary alignment interpretation.
+- **Daily Brief:** Google documents Antigravity Teamwork as a long-horizon multi-agent orchestration framework spanning mathematical research, systems engineering and upstream open-source work. Vendor benchmark claims remain labelled as such while public papers and code artifacts are retained as verification signals.
+
+### Editorial
+- Anthropic's post-incident hardening is classified **Must know** with a 20/20 editorial score; Google Antigravity Teamwork is classified **Must know** at 18/20.
+- The reported NVIDIA acquisition of Hugging Face remains **Watch** because no matching NVIDIA or Hugging Face primary announcement was established.
+- Reuters reporting on a large Anthropic-Lambda cloud agreement was not published without named-company confirmation.
+- NIST agent-identity guidance and a new harness-evolution preprint were logged but held below today's publication priority.
+- The daily scan ledger records the complete September 1 decision set and next scan date.
+
 ## Daily intelligence - 2026-08-27
 
 ### Published

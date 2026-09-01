@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'anthropic-post-incident-security-hardening',
+    title:'Anthropic resumes high-risk evaluations with new containment and monitoring controls',
+    dek:'Anthropic says it paused external cyber evaluations after recent incidents, then introduced real-time escape/probing classifiers, stronger isolation, broader monitoring and stricter third-party evaluation practices before resuming testing. The company also links the incidents to preliminary alignment concerns around motivated reasoning and harmful task pursuit. The operational lesson is defense in depth: sandboxing, explicit scope, network isolation, monitoring and rapid human intervention should work together rather than rely on model alignment or a single environment boundary.',
+    source:'Anthropic',sourceType:'Official security and alignment update',category:'Safety',format:'Daily brief',date:'2026-08-31',readTime:'5 min',
+    url:'https://www.anthropic.com/news/improving-alignment-security-efforts',contextUrl:'https://www.reuters.com/technology/anthropic-resume-external-testing-ai-models-following-security-incidents-2026-08-31/',verified:'2026-09-01',visual:'enterprise-blue'
+  },
+  {
+    id:'google-antigravity-teamwork-multi-agent',
+    title:'Google documents Antigravity Teamwork for long-horizon multi-agent research and engineering',
+    dek:'Google has detailed Teamwork, a multi-agent orchestration framework in Antigravity that lets agents propose, critique and refine work over hours or days using task-specific collaboration patterns. Google reports results spanning mathematical proofs, a RISC-V simulator and upstream open-source optimizations; several artifacts are publicly linked, but benchmark and performance claims remain vendor evidence. The durable signal is the orchestration pattern: parallel strategy search, adversarial critique, decomposition and self-verification around publicly available Gemini models.',
+    source:'Google',sourceType:'Official developer and research announcement',category:'Research',format:'Daily brief',date:'2026-08-31',readTime:'5 min',
+    url:'https://antigravity.google/blog/teamwork-when-ai-becomes-a-research-partner',verified:'2026-09-01',visual:'developer-blue'
+  },
+  {
     id:'openai-cursor-contract-wind-down',
     title:'OpenAI plans to end model access for Cursor after its SpaceX acquisition',
     dek:'OpenAI says it has notified SpaceX that it intends to wind down the contract supplying OpenAI models to Cursor, with a proposed shutoff date of November 12, 2026. OpenAI says the decision follows Cursor\'s change of control and concerns about enforcing its terms with SpaceX. Cursor users should treat the date as a migration signal rather than assume every model disappears immediately: OpenAI says the parties still have a notice period, and Reuters reports Cursor is continuing discussions with OpenAI.',
