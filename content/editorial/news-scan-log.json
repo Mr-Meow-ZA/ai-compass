@@ -1,21 +1,22 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-01",
-  "lastSuccessfulPublish": "2026-09-01",
-  "scanWindow": "Since the 2026-08-31 completed scan, plus material missed developments from the previous 48 hours",
+  "lastScan": "2026-09-02",
+  "lastSuccessfulPublish": "2026-09-02",
+  "scanWindow": "Since the 2026-09-01 completed scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
   "publishedIds": [
-    "anthropic-post-incident-security-hardening",
-    "google-antigravity-teamwork-multi-agent"
+    "openai-astra-critical-cyber-threshold",
+    "anthropic-fable-mythos-5-1"
   ],
   "scores": {
-    "anthropic-post-incident-security-hardening": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
-    "google-antigravity-teamwork-multi-agent": {"impact":4,"readerValue":4,"novelty":4,"evidence":4,"durability":2,"total":18,"tier":"Must know"},
-    "nvidia-hugging-face-acquisition-report": {"impact":5,"readerValue":4,"novelty":4,"evidence":2,"durability":2,"total":17,"tier":"Watch"},
-    "anthropic-lambda-cloud-deal-report": {"impact":3,"readerValue":2,"novelty":2,"evidence":1,"durability":2,"total":10,"tier":"Watch"},
-    "nist-agent-identity-foundation": {"impact":3,"readerValue":4,"novelty":2,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
-    "jit-harness-evolution-preprint": {"impact":3,"readerValue":3,"novelty":3,"evidence":3,"durability":2,"total":14,"tier":"Watch"}
+    "openai-astra-critical-cyber-threshold": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "anthropic-fable-mythos-5-1": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "anthropic-enterprise-frontier-safeguards": {"impact":4,"readerValue":5,"novelty":3,"evidence":4,"durability":2,"total":18,"tier":"Worth knowing"},
+    "huggingface-webgpu-kernels": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":1,"total":15,"tier":"Worth knowing"},
+    "openai-healthcare-ehr-connectors": {"impact":4,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Worth knowing"},
+    "nvidia-crowdstrike-agentic-cybersecurity": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":1,"total":13,"tier":"Watch"},
+    "nvidia-hugging-face-acquisition-report": {"impact":5,"readerValue":4,"novelty":4,"evidence":2,"durability":2,"total":17,"tier":"Watch"}
   },
-  "notes": "Completed the 2026-09-01 editorial scan. Published two Daily Briefs. Anthropic's August 31 security/alignment update is Must know because it documents concrete post-incident changes to evaluation containment, monitoring, partner requirements and training-environment quality controls, while clearly marking its alignment conclusions as preliminary. Reuters independently confirms that external cyber evaluations resumed after the pause. Google's August 31 Antigravity Teamwork update is Must know as a durable multi-agent orchestration signal: Google documents parallel strategy search, critique, decomposition and self-verification across mathematics, systems and open-source engineering, and links public papers/code artifacts; benchmark and performance claims remain framed as vendor evidence. The reported NVIDIA acquisition of Hugging Face remains Watch because no matching NVIDIA or Hugging Face primary announcement was established. Reuters reporting on a large Anthropic-Lambda cloud agreement is not published because the named companies did not publicly confirm it. NIST's August 28 agent-identity guidance scored Worth knowing but was not published in this run because it falls outside the freshest window and is guidance rather than a new standard or binding control. A new harness-evolution preprint is interesting but remains Watch pending broader evidence and durability. Existing Aug 27-31 stories were deduplicated; rumours, unsupported rankings, unverified pricing and recycled launch coverage were skipped.",
-  "nextScanDue": "2026-09-02"
+  "notes": "Completed the 2026-09-02 editorial scan. Published two Daily Briefs. OpenAI's September 1 Astra safety update is Must know because Astra is the first model OpenAI says has crossed the Critical cybersecurity capability threshold in its Preparedness Framework, triggering stronger safeguards and restricted access; OpenAI's benchmark and exploit measurements remain vendor-run evidence, while Reuters independently confirms the threshold activation and release constraints. Anthropic's September 1 Claude Fable 5.1 / Mythos 5.1 release is Must know because the same underlying model is now split across general and trusted-access safeguard configurations, with meaningful changes to cyber/life-sciences access, cache-read pricing and enterprise privacy controls; benchmark and savings claims remain vendor evidence. Anthropic's Enterprise Frontier Safeguards scored Worth knowing but was folded into the model brief rather than published separately to avoid duplicating the same underlying launch. Hugging Face's WebGPU kernels, OpenAI's healthcare/EHR connectors and NVIDIA/CrowdStrike agentic-security work were logged but held below today's publication priority. The reported NVIDIA acquisition of Hugging Face remains Watch because no matching NVIDIA or Hugging Face primary announcement was established. Existing August 27-September 1 stories were deduplicated; rumours, unsupported rankings, unverified pricing and recycled launch coverage were skipped.",
+  "nextScanDue": "2026-09-03"
 }
