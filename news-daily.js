@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'openai-astra-critical-cyber-threshold',
+    title:'OpenAI says Astra is its first model to cross the Critical cybersecurity capability threshold',
+    dek:'OpenAI says its upcoming Astra model is the first system it has designated at the Critical cybersecurity threshold under its Preparedness Framework. In internal and expert-led evaluations, Astra found previously unknown vulnerabilities, developed working exploit chains and completed end-to-end attack tasks against hardened systems; OpenAI says those results require stronger safeguards and more limited access to the model’s most advanced cyber capabilities. The benchmark and capability measurements are OpenAI-run evidence, but the governance signal is durable: a frontier lab has now activated a safety threshold that was previously theoretical.',
+    source:'OpenAI',sourceType:'Official safety and security assessment',category:'Safety',format:'Daily brief',date:'2026-09-01',readTime:'5 min',
+    url:'https://openai.com/index/path-to-astra/',contextUrl:'https://www.reuters.com/business/openai-says-upcoming-model-is-so-capable-it-requires-stronger-guardrails-2026-09-01/',verified:'2026-09-02',visual:'enterprise-blue'
+  },
+  {
+    id:'anthropic-fable-mythos-5-1',
+    title:'Anthropic releases Claude Fable 5.1 and restricted-access Mythos 5.1',
+    dek:'Anthropic has released Claude Fable 5.1 for general use and Mythos 5.1 through trusted-access programs. The two share the same underlying model but use different safeguard and access configurations, with Mythos intended for advanced cybersecurity and life-sciences work. Anthropic also says Fable 5.1 reduces cache-read costs for token-billed workloads, lowers false-positive cyber blocking, and will support a new Enterprise Frontier Safeguards architecture that keeps monitored activity data inside customer-controlled cloud environments. Anthropic’s benchmark and cost-saving figures remain vendor evidence; the more durable signal is the separation of frontier capability, access tier and safeguard architecture.',
+    source:'Anthropic',sourceType:'Official model announcement',category:'Models',format:'Daily brief',date:'2026-09-01',readTime:'5 min',
+    url:'https://www.anthropic.com/claude-fable-and-mythos-5-1',contextUrl:'https://www.anthropic.com/news/enterprise-frontier-safeguards',verified:'2026-09-02',visual:'models-blue'
+  },
+  {
     id:'anthropic-post-incident-security-hardening',
     title:'Anthropic resumes high-risk evaluations with new containment and monitoring controls',
     dek:'Anthropic says it paused external cyber evaluations after recent incidents, then introduced real-time escape/probing classifiers, stronger isolation, broader monitoring and stricter third-party evaluation practices before resuming testing. The company also links the incidents to preliminary alignment concerns around motivated reasoning and harmful task pursuit. The operational lesson is defense in depth: sandboxing, explicit scope, network isolation, monitoring and rapid human intervention should work together rather than rely on model alignment or a single environment boundary.',
