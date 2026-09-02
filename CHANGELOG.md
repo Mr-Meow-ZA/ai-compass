@@ -2,6 +2,20 @@
 
 Historical release entries through **0.7.0** are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md). The earlier archive through 0.6.11 remains preserved inside that history.
 
+## Daily intelligence - 2026-09-02
+
+### Published
+- **Daily Brief:** OpenAI says Astra is the first model it has designated at the **Critical** cybersecurity capability threshold under its Preparedness Framework, activating stronger safeguards and restricted access to its most advanced cyber capabilities. OpenAI-run exploit and benchmark results are framed as vendor evidence; Reuters provides independent context on the threshold activation and release constraints.
+- **Daily Brief:** Anthropic releases Claude Fable 5.1 for general use and Mythos 5.1 through trusted-access programs. The brief focuses on the durable split between capability, safeguard configuration and access tier, while treating benchmark and cost-saving claims as vendor evidence.
+
+### Editorial
+- Astra is classified **Must know** at 20/20 because a previously theoretical frontier-safety threshold has now been activated in practice.
+- Claude Fable/Mythos 5.1 is classified **Must know** at 20/20 because the launch combines a new frontier model with materially different safeguard/access configurations and enterprise privacy controls.
+- Anthropic Enterprise Frontier Safeguards scored **Worth knowing** but is folded into the model brief to avoid duplicate coverage of the same launch cluster.
+- Hugging Face WebGPU kernels, OpenAI healthcare/EHR connectors and NVIDIA/CrowdStrike agentic-security work were logged but held below today's publication priority.
+- The reported NVIDIA acquisition of Hugging Face remains **Watch** because no matching NVIDIA or Hugging Face primary announcement was established.
+- The daily scan ledger records the complete September 2 decision set and next scan date.
+
 ## Daily intelligence - 2026-09-01
 
 ### Published
