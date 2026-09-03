@@ -3,7 +3,7 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
-    id:'google-gemini-3-8-flash-cyber',
+    id:'deepmind-gemini-flash-cyber',
     title:'Google releases Gemini 3.8 Flash and a restricted Gemini 3.8 Flash Cyber variant',
     dek:'Google has introduced Gemini 3.8 Flash for general agentic, coding and reasoning workloads alongside Gemini 3.8 Flash Cyber, a security-specialised variant available to trusted defenders through Google DeepMind’s Fairwind Program. Google says the general model keeps the introductory pricing of 3.7 Flash and reports substantial benchmark gains, but those performance claims remain vendor-run evidence. The durable signal is the product split: a broadly available frontier model and a more capable cyber configuration whose access is governed separately because of dual-use risk.',
     source:'Google',sourceType:'Official model announcement',category:'Models',format:'Daily brief',date:'2026-09-02',readTime:'5 min',
