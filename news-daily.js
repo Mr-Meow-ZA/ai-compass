@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'deepmind-gemini-flash-cyber',
+    title:'Google releases Gemini 3.8 Flash and a restricted Gemini 3.8 Flash Cyber variant',
+    dek:'Google has introduced Gemini 3.8 Flash for general agentic, coding and reasoning workloads alongside Gemini 3.8 Flash Cyber, a security-specialised variant available to trusted defenders through Google DeepMind’s Fairwind Program. Google says the general model keeps the introductory pricing of 3.7 Flash and reports substantial benchmark gains, but those performance claims remain vendor-run evidence. The durable signal is the product split: a broadly available frontier model and a more capable cyber configuration whose access is governed separately because of dual-use risk.',
+    source:'Google',sourceType:'Official model announcement',category:'Models',format:'Daily brief',date:'2026-09-02',readTime:'5 min',
+    url:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/',verified:'2026-09-03',visual:'models-blue'
+  },
+  {
     id:'openai-astra-critical-cyber-threshold',
     title:'OpenAI says Astra is its first model to cross the Critical cybersecurity capability threshold',
     dek:'OpenAI says its upcoming Astra model is the first system it has designated at the Critical cybersecurity threshold under its Preparedness Framework. In internal and expert-led evaluations, Astra found previously unknown vulnerabilities, developed working exploit chains and completed end-to-end attack tasks against hardened systems; OpenAI says those results require stronger safeguards and more limited access to the model’s most advanced cyber capabilities. The benchmark and capability measurements are OpenAI-run evidence, but the governance signal is durable: a frontier lab has now activated a safety threshold that was previously theoretical.',

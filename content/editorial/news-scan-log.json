@@ -1,22 +1,20 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-02",
-  "lastSuccessfulPublish": "2026-09-02",
-  "scanWindow": "Since the 2026-09-01 completed scan, plus material missed developments from the previous 48 hours",
+  "lastScan": "2026-09-03",
+  "lastSuccessfulPublish": "2026-09-03",
+  "scanWindow": "Since the 2026-09-02 completed scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
   "publishedIds": [
-    "openai-astra-critical-cyber-threshold",
-    "anthropic-fable-mythos-5-1"
+    "deepmind-gemini-flash-cyber"
   ],
   "scores": {
-    "openai-astra-critical-cyber-threshold": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
-    "anthropic-fable-mythos-5-1": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
-    "anthropic-enterprise-frontier-safeguards": {"impact":4,"readerValue":5,"novelty":3,"evidence":4,"durability":2,"total":18,"tier":"Worth knowing"},
-    "huggingface-webgpu-kernels": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":1,"total":15,"tier":"Worth knowing"},
-    "openai-healthcare-ehr-connectors": {"impact":4,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Worth knowing"},
-    "nvidia-crowdstrike-agentic-cybersecurity": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":1,"total":13,"tier":"Watch"},
+    "deepmind-gemini-flash-cyber": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "huggingface-benchmirt-benchmark-measurement": {"impact":2,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
+    "microsoft-ai-at-work-roadmap-transition": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
+    "huggingface-webgpu-kernels": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":1,"total":15,"tier":"Skip"},
+    "openai-healthcare-ehr-connectors": {"impact":4,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Skip"},
     "nvidia-hugging-face-acquisition-report": {"impact":5,"readerValue":4,"novelty":4,"evidence":2,"durability":2,"total":17,"tier":"Watch"}
   },
-  "notes": "Completed the 2026-09-02 editorial scan. Published two Daily Briefs. OpenAI's September 1 Astra safety update is Must know because Astra is the first model OpenAI says has crossed the Critical cybersecurity capability threshold in its Preparedness Framework, triggering stronger safeguards and restricted access; OpenAI's benchmark and exploit measurements remain vendor-run evidence, while Reuters independently confirms the threshold activation and release constraints. Anthropic's September 1 Claude Fable 5.1 / Mythos 5.1 release is Must know because the same underlying model is now split across general and trusted-access safeguard configurations, with meaningful changes to cyber/life-sciences access, cache-read pricing and enterprise privacy controls; benchmark and savings claims remain vendor evidence. Anthropic's Enterprise Frontier Safeguards scored Worth knowing but was folded into the model brief rather than published separately to avoid duplicating the same underlying launch. Hugging Face's WebGPU kernels, OpenAI's healthcare/EHR connectors and NVIDIA/CrowdStrike agentic-security work were logged but held below today's publication priority. The reported NVIDIA acquisition of Hugging Face remains Watch because no matching NVIDIA or Hugging Face primary announcement was established. Existing August 27-September 1 stories were deduplicated; rumours, unsupported rankings, unverified pricing and recycled launch coverage were skipped.",
-  "nextScanDue": "2026-09-03"
+  "notes": "Completed the 2026-09-03 editorial scan. Published one Daily Brief on Google's September 2 Gemini 3.8 Flash and Gemini 3.8 Flash Cyber release. It is Must know because Google is pairing a broadly available frontier Flash model with a security-specialised configuration whose access is separately governed through a trusted-defender program; Google's benchmark and performance claims remain vendor evidence. Hugging Face/Ai2 BenchMIRT and Microsoft's AI at Work roadmap transition scored Worth knowing but were held below today's publication priority because neither changes reader decisions as materially as the Gemini release. Hugging Face WebGPU kernels and OpenAI healthcare/EHR connectors were deduplicated from the September 2 scan rather than republished. The reported NVIDIA acquisition of Hugging Face remains Watch because no matching NVIDIA or Hugging Face primary announcement was established. Rumours, unsupported rankings, unverified pricing and recycled launch coverage were skipped. The first pre-merge run caught an identifier mismatch that prevented the newest brief from rendering on Today in AI; the feed identifier was aligned with the maintained intelligence record before the full validation gate was rerun.",
+  "nextScanDue": "2026-09-04"
 }
