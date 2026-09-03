@@ -5,16 +5,16 @@
   "scanWindow": "Since the 2026-09-02 completed scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
   "publishedIds": [
-    "google-gemini-3-8-flash-cyber"
+    "deepmind-gemini-flash-cyber"
   ],
   "scores": {
-    "google-gemini-3-8-flash-cyber": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "deepmind-gemini-flash-cyber": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
     "huggingface-benchmirt-benchmark-measurement": {"impact":2,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
     "microsoft-ai-at-work-roadmap-transition": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
     "huggingface-webgpu-kernels": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":1,"total":15,"tier":"Skip"},
     "openai-healthcare-ehr-connectors": {"impact":4,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Skip"},
     "nvidia-hugging-face-acquisition-report": {"impact":5,"readerValue":4,"novelty":4,"evidence":2,"durability":2,"total":17,"tier":"Watch"}
   },
-  "notes": "Completed the 2026-09-03 editorial scan. Published one Daily Brief on Google's September 2 Gemini 3.8 Flash and Gemini 3.8 Flash Cyber release. It is Must know because Google is pairing a broadly available frontier Flash model with a security-specialised configuration whose access is separately governed through a trusted-defender program; Google's benchmark and performance claims remain vendor evidence. Hugging Face/Ai2 BenchMIRT and Microsoft's AI at Work roadmap transition scored Worth knowing but were held below today's publication priority because neither changes reader decisions as materially as the Gemini release. Hugging Face WebGPU kernels and OpenAI healthcare/EHR connectors were deduplicated from the September 2 scan rather than republished. The reported NVIDIA acquisition of Hugging Face remains Watch because no matching NVIDIA or Hugging Face primary announcement was established. Rumours, unsupported rankings, unverified pricing and recycled launch coverage were skipped.",
+  "notes": "Completed the 2026-09-03 editorial scan. Published one Daily Brief on Google's September 2 Gemini 3.8 Flash and Gemini 3.8 Flash Cyber release. It is Must know because Google is pairing a broadly available frontier Flash model with a security-specialised configuration whose access is separately governed through a trusted-defender program; Google's benchmark and performance claims remain vendor evidence. Hugging Face/Ai2 BenchMIRT and Microsoft's AI at Work roadmap transition scored Worth knowing but were held below today's publication priority because neither changes reader decisions as materially as the Gemini release. Hugging Face WebGPU kernels and OpenAI healthcare/EHR connectors were deduplicated from the September 2 scan rather than republished. The reported NVIDIA acquisition of Hugging Face remains Watch because no matching NVIDIA or Hugging Face primary announcement was established. Rumours, unsupported rankings, unverified pricing and recycled launch coverage were skipped. The first pre-merge run caught an identifier mismatch that prevented the newest brief from rendering on Today in AI; the feed identifier was aligned with the maintained intelligence record before the full validation gate was rerun.",
   "nextScanDue": "2026-09-04"
 }
