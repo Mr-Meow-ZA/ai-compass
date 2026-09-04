@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'nvidia-hugging-face-acquisition-confirmed',
+    title:'NVIDIA agrees to acquire Hugging Face for $12.93 billion',
+    dek:'NVIDIA has officially agreed to acquire Hugging Face for $12.93 billion, confirming a deal AI Compass had kept on Watch while it was supported only by reporting. NVIDIA says Hugging Face will remain an open platform where developers can choose models, frameworks, clouds, inference providers and compute platforms without requiring NVIDIA hardware. Reuters independently confirms the agreement. The durable question is whether that promised neutrality holds as one of the AI ecosystem’s most important open-model hubs comes under the ownership of the dominant accelerated-computing supplier.',
+    source:'NVIDIA',sourceType:'Official acquisition announcement',category:'Business',format:'Daily brief',date:'2026-09-03',readTime:'5 min',
+    url:'https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/',contextUrl:'https://www.reuters.com/business/nvidia-buy-hugging-face-nearly-13-billion-big-bet-open-ai-models-2026-09-03/',verified:'2026-09-04',visual:'enterprise-blue'
+  },
+  {
     id:'deepmind-gemini-flash-cyber',
     title:'Google releases Gemini 3.8 Flash and a restricted Gemini 3.8 Flash Cyber variant',
     dek:'Google has introduced Gemini 3.8 Flash for general agentic, coding and reasoning workloads alongside Gemini 3.8 Flash Cyber, a security-specialised variant available to trusted defenders through Google DeepMind’s Fairwind Program. Google says the general model keeps the introductory pricing of 3.7 Flash and reports substantial benchmark gains, but those performance claims remain vendor-run evidence. The durable signal is the product split: a broadly available frontier model and a more capable cyber configuration whose access is governed separately because of dual-use risk.',
