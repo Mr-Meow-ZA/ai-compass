@@ -20,12 +20,14 @@ render '#article/xiaomi-ai-cube-local-ai-prototype' "$TMP/xiaomi-mobile.html" 39
 render '#learn' "$TMP/learn-mobile.html" 390 1300;shot '#learn' "$ROOT/visual-smoke-intelligence-learn-mobile.png" 390 1300;cp "$TMP/learn-mobile.html" "$ROOT/visual-smoke-intelligence-learn-mobile.html"
 grep -q 'Today in AI' "$TMP/home.html" || { echo 'Today in AI homepage section did not render' >&2; exit 1; }
 grep -q 'Daily editorial scan' "$TMP/home.html" || { echo 'Daily scan state did not render on home' >&2; exit 1; }
-grep -q 'Tencent releases Hy4 preview' "$TMP/home.html" || { echo 'Newest Daily Brief did not render on home' >&2; exit 1; }
+grep -q 'NVIDIA agrees to acquire Hugging Face' "$TMP/home.html" || { echo 'Newest Daily Brief did not render on home' >&2; exit 1; }
 grep -q 'Today in AI' "$TMP/home-mobile.html" || { echo 'Today in AI did not render on mobile' >&2; exit 1; }
+grep -q 'NVIDIA agrees to acquire Hugging Face' "$TMP/home-mobile.html" || { echo 'Newest Daily Brief did not render on mobile home' >&2; exit 1; }
 grep -q 'AI news that tells you what changed' "$TMP/news.html" || { echo 'Intelligence news hero did not render' >&2; exit 1; }
 grep -q 'Why AI Compass thinks it matters' "$TMP/news.html" || { echo 'Editorial analysis labelling did not render' >&2; exit 1; }
 grep -q 'Daily Brief' "$TMP/news.html" || { echo 'Daily Brief format key did not render' >&2; exit 1; }
 grep -q 'Deep Analysis' "$TMP/news.html" || { echo 'Deep Analysis format key did not render' >&2; exit 1; }
+grep -q 'NVIDIA agrees to acquire Hugging Face' "$TMP/news.html" || { echo 'NVIDIA Hugging Face brief did not render' >&2; exit 1; }
 grep -q 'Tencent releases Hy4 preview' "$TMP/news.html" || { echo 'Tencent Hy4 brief did not render' >&2; exit 1; }
 grep -q 'Jalapeño' "$TMP/news.html" || { echo 'OpenAI Jalapeño brief did not render' >&2; exit 1; }
 grep -q 'Admin plugin' "$TMP/news.html" || { echo 'OpenAI Admin plugin brief did not render' >&2; exit 1; }
