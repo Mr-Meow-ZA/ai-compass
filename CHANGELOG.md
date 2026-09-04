@@ -2,6 +2,18 @@
 
 Historical release entries through **0.7.0** are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md). The earlier archive through 0.6.11 remains preserved inside that history.
 
+## Daily intelligence - 2026-09-04
+
+### Published
+- **Daily Brief:** NVIDIA officially confirms an agreement to acquire Hugging Face for **$12.93 billion**. The brief pairs NVIDIA's primary announcement with Reuters independent confirmation and focuses on the durable ecosystem question: whether Hugging Face remains neutral across models, frameworks, clouds, inference providers and compute platforms after the transaction closes.
+
+### Editorial
+- The NVIDIA–Hugging Face acquisition is classified **Must know** at 20/20. It moves from Watch only after NVIDIA supplied primary-source confirmation.
+- OpenAI's GPT-6 Astra launch scored highly but was deduplicated against the existing Astra Critical-cyber-threshold brief rather than generating repetitive coverage of the same underlying model development.
+- OpenAI Daybreak for Frontline Defenders, NVIDIA's IFA local-AI announcements and Hugging Face NeoMME were logged as Worth knowing but held below today's publication priority.
+- The first rendered validation run caught a stale smoke assertion that still hard-coded Tencent Hy4 as the newest homepage brief. The test was updated to require the new NVIDIA–Hugging Face brief on both desktop and mobile while preserving the historical-feed and route checks.
+- The daily scan ledger records the complete September 4 decision set and next scan date.
+
 ## Daily intelligence - 2026-09-02
 
 ### Published
