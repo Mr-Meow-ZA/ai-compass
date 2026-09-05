@@ -2,6 +2,18 @@
 
 Historical release entries through **0.7.0** are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md). The earlier archive through 0.6.11 remains preserved inside that history.
 
+## Daily intelligence - 2026-09-05
+
+### Published
+- **Daily Brief:** Google DeepMind and Google Research introduce **WeatherNext 3**, a global AI weather model that ingests live geostationary satellite observations, produces a fresh forecast every hour, resolves key surface variables down to 5 kilometers and is already being integrated into Search, Gemini, Maps, Maps Platform, Earth Engine and Cloud data products.
+
+### Editorial
+- WeatherNext 3 is classified **Must know** at 20/20 because it combines a material modelling change with immediate deployment into consumer and enterprise infrastructure. Google's claimed precipitation-accuracy improvement remains labelled as vendor evidence, and the brief preserves the distinction between AI forecasts and authoritative severe-weather warnings.
+- Lyria 3.5 moving into Gemini and the Gemini API scored **Worth knowing** but was held below the publication threshold for today's limited slot because it is primarily a creative-model distribution expansion.
+- Gemini agentic video understanding was scored **Worth knowing** but is a September 1 development and did not displace the stronger WeatherNext item in this run.
+- GPT-6 Astra follow-up coverage was deduplicated against existing Astra Critical-cyber-threshold coverage; NVIDIA local-AI follow-up was deduplicated against the September 4 scan.
+- The daily scan ledger records the complete September 5 decision set and next scan date.
+
 ## Daily intelligence - 2026-09-04
 
 ### Published
