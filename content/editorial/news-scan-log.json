@@ -1,20 +1,19 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-04",
-  "lastSuccessfulPublish": "2026-09-04",
-  "scanWindow": "Since the 2026-09-03 completed scan, plus material missed developments from the previous 48 hours",
+  "lastScan": "2026-09-05",
+  "lastSuccessfulPublish": "2026-09-05",
+  "scanWindow": "Since the 2026-09-04 completed scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
   "publishedIds": [
-    "nvidia-hugging-face-acquisition-confirmed"
+    "google-weathernext-3"
   ],
   "scores": {
-    "nvidia-hugging-face-acquisition-confirmed": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
-    "openai-gpt6-astra-launch": {"impact":5,"readerValue":5,"novelty":3,"evidence":4,"durability":2,"total":19,"tier":"Skip"},
-    "openai-daybreak-frontline-defenders": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Worth knowing"},
-    "nvidia-local-ai-ifa-2026": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Worth knowing"},
-    "huggingface-neomme": {"impact":2,"readerValue":3,"novelty":3,"evidence":4,"durability":1,"total":13,"tier":"Worth knowing"},
-    "huggingface-grpo-structured-output": {"impact":1,"readerValue":3,"novelty":2,"evidence":4,"durability":1,"total":11,"tier":"Skip"}
+    "google-weathernext-3": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "google-lyria-3-5-gemini": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":1,"total":15,"tier":"Worth knowing"},
+    "google-agentic-video-understanding": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Worth knowing"},
+    "openai-gpt6-astra-launch-followup": {"impact":5,"readerValue":5,"novelty":2,"evidence":4,"durability":2,"total":18,"tier":"Skip"},
+    "nvidia-local-ai-ifa-followup": {"impact":3,"readerValue":4,"novelty":2,"evidence":4,"durability":1,"total":14,"tier":"Skip"}
   },
-  "notes": "Completed the 2026-09-04 editorial scan. Published one Daily Brief after NVIDIA officially confirmed its $12.93 billion agreement to acquire Hugging Face, moving a previously held Watch candidate to Must know. NVIDIA states that Hugging Face will remain open across models, frameworks, clouds, inference providers and compute platforms and that NVIDIA hardware will not be required; Reuters independently confirms the agreement. GPT-6 Astra launched on September 3 and scored highly, but was not given a second brief because AI Compass already covered the same underlying Astra development and Critical cyber threshold on the September 2 scan; the launch is treated as a continuation rather than duplicate coverage. OpenAI's Daybreak for Frontline Defenders and NVIDIA's IFA local-AI announcements scored Worth knowing but were held below today's publication priority. Hugging Face NeoMME was logged as Worth knowing but is narrower in reader impact. Minor tutorial-style Hugging Face posts and recycled acquisition commentary were skipped. Rumours, unsupported rankings and unverified pricing were excluded.",
-  "nextScanDue": "2026-09-05"
+  "notes": "Completed the 2026-09-05 editorial scan. Published one Daily Brief on Google WeatherNext 3, a material development missed in the prior narrow scan window. Google DeepMind and Google Research say the model ingests live geostationary satellite mosaics, generates a fresh global forecast every hour, resolves key surface variables down to 5 kilometers and is being integrated into Search, Gemini, Maps, Maps Platform, Earth Engine and Cloud data products. Google reports up to 50% better precipitation accuracy for forecasts a day or more ahead; AI Compass treats that figure as vendor evidence and retains the explicit warning that official meteorological agencies remain authoritative for severe-weather alerts. Lyria 3.5 moving into Gemini and the Gemini API was scored Worth knowing but held because it is primarily a creative-model distribution expansion rather than a broader architectural or governance shift. Agentic video understanding was also scored Worth knowing but is a September 1 development that did not justify displacing the stronger WeatherNext item today. GPT-6 Astra follow-up coverage was deduplicated against existing Astra cyber-threshold coverage. NVIDIA local-AI IFA follow-up was deduplicated against the September 4 scan. Rumours, unsupported rankings and unverified pricing were excluded.",
+  "nextScanDue": "2026-09-06"
 }
