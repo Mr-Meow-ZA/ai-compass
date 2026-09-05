@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'google-weathernext-3',
+    title:'Google deploys WeatherNext 3 with hourly satellite-grounded global forecasts',
+    dek:'Google DeepMind and Google Research have introduced WeatherNext 3, a global AI weather model that ingests live geostationary satellite mosaics and generates a fresh forecast every hour. Key surface variables reach 5-kilometer resolution, versus WeatherNext 2’s 25-kilometer grid and six-hour cadence, and Google is already integrating the model into Search, Gemini, Maps, Maps Platform Weather API, Earth Engine and Cloud data products. Google reports up to 50% better precipitation accuracy for forecasts a day or more ahead; that figure remains vendor evidence, while the durable signal is the move from experimental AI weather models into continuously refreshed consumer and enterprise infrastructure.',
+    source:'Google',sourceType:'Official Google DeepMind and Google Research announcement',category:'Research',format:'Daily brief',date:'2026-09-03',readTime:'5 min',
+    url:'https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/',verified:'2026-09-05',visual:'research-blue'
+  },
+  {
     id:'nvidia-hugging-face-acquisition-confirmed',
     title:'NVIDIA agrees to acquire Hugging Face for $12.93 billion',
     dek:'NVIDIA has officially agreed to acquire Hugging Face for $12.93 billion, confirming a deal AI Compass had kept on Watch while it was supported only by reporting. NVIDIA says Hugging Face will remain an open platform where developers can choose models, frameworks, clouds, inference providers and compute platforms without requiring NVIDIA hardware. Reuters independently confirms the agreement. The durable question is whether that promised neutrality holds as one of the AI ecosystem’s most important open-model hubs comes under the ownership of the dominant accelerated-computing supplier.',
