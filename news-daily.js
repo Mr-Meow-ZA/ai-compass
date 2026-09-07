@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'openai-automated-research-intern',
+    title:'OpenAI says its research agents have reached an “automated research intern” milestone',
+    dek:'OpenAI says its internal coding and research agents can now carry out well-defined research tasks under human direction that would take a skilled researcher a few days, meeting the “automated research intern” milestone it announced last year. OpenAI reports that by mid-August its research organization was using 3.1 agent-workdays for every human workday, while more than half of successful 4–8 hour tasks still required at least one human intervention. Those measurements are vendor-run evidence, but the durable signal is concrete: frontier-model R&D itself is becoming an agentic workflow, and OpenAI is publicly targeting an automated AI researcher by March 2028.',
+    source:'OpenAI',sourceType:'Official research report',category:'Research',format:'Daily brief',date:'2026-09-06',readTime:'5 min',
+    url:'https://openai.com/index/research-acceleration-view-inside-openai/',verified:'2026-09-07',visual:'research-blue'
+  },
+  {
     id:'google-weathernext-3',
     title:'Google deploys WeatherNext 3 with hourly satellite-grounded global forecasts',
     dek:'Google DeepMind and Google Research have introduced WeatherNext 3, a global AI weather model that ingests live geostationary satellite mosaics and generates a fresh forecast every hour. Key surface variables reach 5-kilometer resolution, versus WeatherNext 2’s 25-kilometer grid and six-hour cadence, and Google is already integrating the model into Search, Gemini, Maps, Maps Platform Weather API, Earth Engine and Cloud data products. Google reports up to 50% better precipitation accuracy for forecasts a day or more ahead; that figure remains vendor evidence, while the durable signal is the move from experimental AI weather models into continuously refreshed consumer and enterprise infrastructure.',
