@@ -2,6 +2,19 @@
 
 Historical release entries through **0.7.0** are preserved in [`docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md`](docs/CHANGELOG_ARCHIVE_THROUGH_0.7.0.md). The earlier archive through 0.6.11 remains preserved inside that history.
 
+## Daily intelligence - 2026-09-07
+
+### Published
+- **Daily Brief:** OpenAI reports that its internal research agents have reached the “automated research intern” milestone it announced last year: under its definition, agents can now complete well-defined research tasks under human direction that would take a skilled researcher a few days. OpenAI’s internal usage and productivity measurements remain labelled as vendor evidence.
+
+### Editorial
+- The automated research intern milestone is classified **Must know** at 20/20 because it changes the operating model of frontier-model R&D itself and gives a concrete, time-bounded signal toward more automated AI research.
+- OpenAI reports 3.1 agent-workdays per human research workday by mid-August, but more than half of successful 4–8 hour tasks still required at least one human intervention; both figures are presented as internal measurements rather than independent proof of autonomous research.
+- The September 7 GPT-6 Astra launch is deduplicated against the existing Astra Critical-cyber-threshold coverage rather than creating a repetitive launch brief.
+- Reuters reporting on Taiwan chip diplomacy scored **Worth knowing** but was held as infrastructure/geopolitical context. Reported U.S.-China AI safety talks remain **Watch** pending stronger official confirmation.
+- Further German-wiki incident coverage was deduplicated against the existing OpenAI–Hugging Face Deep Analysis and the September 6 no-publish decision.
+- The daily scan ledger records the complete September 7 decision set and next scan date.
+
 ## Daily intelligence - 2026-09-05
 
 ### Published
