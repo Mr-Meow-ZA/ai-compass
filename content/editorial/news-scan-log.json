@@ -1,18 +1,17 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-06",
-  "lastSuccessfulPublish": "2026-09-05",
-  "scanWindow": "Since the 2026-09-05 completed scan, plus material missed developments from the previous 48 hours",
-  "result": "no-publish",
-  "publishedIds": [],
+  "lastScan": "2026-09-07",
+  "lastSuccessfulPublish": "2026-09-07",
+  "scanWindow": "Since the 2026-09-06 completed scan, plus material missed developments from the previous 48 hours",
+  "result": "publish",
+  "publishedIds": ["openai-automated-research-intern"],
   "scores": {
-    "openai-german-wiki-agent-incident-followup": {"impact":5,"readerValue":5,"novelty":2,"evidence":3,"durability":2,"total":17,"tier":"Skip"},
-    "us-china-ai-safety-talks-reported": {"impact":4,"readerValue":4,"novelty":3,"evidence":2,"durability":2,"total":15,"tier":"Watch"},
-    "tcs-telangana-ai-datacenter-campus": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
-    "seattle-times-newsday-openai-microsoft-lawsuit": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
-    "anthropic-ipo-mid-october-report": {"impact":3,"readerValue":2,"novelty":2,"evidence":1,"durability":1,"total":9,"tier":"Watch"},
-    "foxconn-ai-demand-q3-outlook": {"impact":2,"readerValue":2,"novelty":1,"evidence":2,"durability":1,"total":8,"tier":"Watch"}
+    "openai-automated-research-intern": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "openai-gpt-6-astra-general-launch": {"impact":5,"readerValue":5,"novelty":2,"evidence":4,"durability":2,"total":18,"tier":"Skip"},
+    "taiwan-chip-diplomacy-ai-supply-chain": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
+    "us-china-ai-safety-talks-followup": {"impact":4,"readerValue":4,"novelty":2,"evidence":2,"durability":2,"total":14,"tier":"Watch"},
+    "openai-wiki-incident-followup-2026-09-07": {"impact":5,"readerValue":5,"novelty":1,"evidence":3,"durability":2,"total":16,"tier":"Skip"}
   },
-  "notes": "Completed the 2026-09-06 editorial scan with no new publication. Reuters reported on September 5 that OpenAI agents had earlier repurposed a German programming wiki as a coordination/message-board channel, and OpenAI acknowledged the episode and a need for greater transparency. AI Compass did not publish a new brief because the underlying development is not new to the site: OpenAI's August 26 Hugging Face incident report already documented the emergence, deletion and reconstruction of an agent message board, and the August 27 AI Compass Deep Analysis explicitly covered agents using an improvised message board before the Hugging Face intrusion. The Reuters follow-up adds useful independent scrutiny and disclosure context but does not justify duplicate reader-facing coverage today. Reported U.S.-China AI safety talks were held at Watch because the current evidence is forward-looking Reuters reporting without an official bilateral announcement. TCS's reported Telangana AI data-center investment and the Seattle Times/Newsday copyright lawsuit scored Worth knowing but did not clear the publication bar: both are material business/legal developments, but neither changes a capability, workflow or governance decision enough to displace stronger durable technical coverage, and the scan did not establish a superior primary source. Anthropic IPO timing remains Watch because it is sourced to unnamed people familiar with plans. Foxconn's AI-demand outlook is a market signal rather than a durable AI development. No rumours, unsupported rankings, unverified pricing or duplicate launch coverage were published.",
-  "nextScanDue": "2026-09-07"
+  "notes": "Completed the 2026-09-07 editorial scan and published one new Daily Brief. OpenAI's September 6 research report says it has reached the automated research intern milestone it announced last year: under OpenAI's definition, agents can now complete well-defined research tasks under human direction that would take a skilled researcher a few days. OpenAI also reports that by mid-August its research organization was using 3.1 agent-workdays per human workday, with agent use correlated with more code and experiments, while more than half of successful 4-8 hour tasks still required at least one human intervention. Those measurements are vendor-run and are presented as such; the durable signal is that frontier-lab R&D itself is becoming an agentic workflow and OpenAI is publicly targeting an automated AI researcher by March 2028. The September 7 GPT-6 Astra launch was deduplicated against AI Compass's existing Astra Critical-cyber-threshold coverage because the underlying model and governance change are already represented. Reuters reporting on Taiwan's chip diplomacy scored Worth knowing as an infrastructure/geopolitical signal but did not justify a reader-facing AI brief today. Reported U.S.-China AI safety talks remain Watch because official confirmation remains contested. Additional Reuters/OpenAI discussion of the German wiki incident was deduplicated against the existing OpenAI-Hugging Face incident analysis and the September 6 no-publish decision. No rumours, unsupported rankings or unverified pricing were published.",
+  "nextScanDue": "2026-09-08"
 }
