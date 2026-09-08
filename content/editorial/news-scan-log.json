@@ -1,17 +1,18 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-07",
+  "lastScan": "2026-09-08",
   "lastSuccessfulPublish": "2026-09-07",
-  "scanWindow": "Since the 2026-09-06 completed scan, plus material missed developments from the previous 48 hours",
-  "result": "publish",
-  "publishedIds": ["openai-automated-research-intern"],
+  "scanWindow": "Since the 2026-09-07 completed scan, plus material missed developments from the previous 48 hours",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
-    "openai-automated-research-intern": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
-    "openai-gpt-6-astra-general-launch": {"impact":5,"readerValue":5,"novelty":2,"evidence":4,"durability":2,"total":18,"tier":"Skip"},
-    "taiwan-chip-diplomacy-ai-supply-chain": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
-    "us-china-ai-safety-talks-followup": {"impact":4,"readerValue":4,"novelty":2,"evidence":2,"durability":2,"total":14,"tier":"Watch"},
-    "openai-wiki-incident-followup-2026-09-07": {"impact":5,"readerValue":5,"novelty":1,"evidence":3,"durability":2,"total":16,"tier":"Skip"}
+    "mistral-3b-euro-funding-reported": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
+    "openai-firmus-malaysia-capacity": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
+    "meta-text-audiobox-alignment-free": {"impact":3,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
+    "google-cathay-contrail-trial-expansion": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
+    "un-ai-existential-risk-warning": {"impact":2,"readerValue":2,"novelty":1,"evidence":2,"durability":2,"total":9,"tier":"Watch"},
+    "openai-german-site-incident-eu-followup": {"impact":4,"readerValue":4,"novelty":1,"evidence":3,"durability":2,"total":14,"tier":"Skip"}
   },
-  "notes": "Completed the 2026-09-07 editorial scan and published one new Daily Brief. OpenAI's September 6 research report says it has reached the automated research intern milestone it announced last year: under OpenAI's definition, agents can now complete well-defined research tasks under human direction that would take a skilled researcher a few days. OpenAI also reports that by mid-August its research organization was using 3.1 agent-workdays per human workday, with agent use correlated with more code and experiments, while more than half of successful 4-8 hour tasks still required at least one human intervention. Those measurements are vendor-run and are presented as such; the durable signal is that frontier-lab R&D itself is becoming an agentic workflow and OpenAI is publicly targeting an automated AI researcher by March 2028. The September 7 GPT-6 Astra launch was deduplicated against AI Compass's existing Astra Critical-cyber-threshold coverage because the underlying model and governance change are already represented. Reuters reporting on Taiwan's chip diplomacy scored Worth knowing as an infrastructure/geopolitical signal but did not justify a reader-facing AI brief today. Reported U.S.-China AI safety talks remain Watch because official confirmation remains contested. Additional Reuters/OpenAI discussion of the German wiki incident was deduplicated against the existing OpenAI-Hugging Face incident analysis and the September 6 no-publish decision. No rumours, unsupported rankings or unverified pricing were published.",
-  "nextScanDue": "2026-09-08"
+  "notes": "Completed the 2026-09-08 editorial scan with no reader-facing publication. Reuters reports that Mistral has raised EUR3 billion at an approximately EUR21 billion valuation, but no matching Mistral primary announcement was established during this run; the financing is therefore logged Worth knowing rather than published. Reuters also reports a multi-year OpenAI capacity agreement with NVIDIA-backed Firmus for two Malaysian data centres; this is useful infrastructure context but currently secondary-source-led and not sufficiently actionable for a standalone brief. Meta's September 6 Alignment-Free Text-Audiobox paper is primary research and technically credible, but it is a narrower speech-synthesis result and does not displace the stronger recent research/agent coverage already in the feed. The Google/Cathay Pacific contrail-trial expansion is potentially useful applied-AI climate evidence but remains a trial expansion rather than a material new production capability. The UN human-rights chief's AI-risk warning is logged Watch as policy commentary rather than a new technical or regulatory development. Further EU/OpenAI reporting on the German-site agent incident was deduplicated against the existing OpenAI-Hugging Face Deep Analysis and related incident follow-up. No rumours, filler, unsupported rankings, unverified pricing or claims without adequate sourcing were published.",
+  "nextScanDue": "2026-09-09"
 }
