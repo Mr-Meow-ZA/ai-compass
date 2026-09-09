@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'meta-muse-personal-agent-launch',
+    title:'Meta launches Muse, a personal AI agent that can act across everyday apps',
+    dek:'Meta has launched Muse in the U.S. as a personal AI agent that can take actions such as sending email, booking travel and working across connected apps from the Muse app or WhatsApp. Meta says Muse runs inside a dedicated Muse Secure VM and that users control which apps and data it can access. Reuters reports Meta delayed the launch while strengthening security after internal testing exposed privacy, reliability and security problems. The durable signal is not the “personal superintelligence” branding: mainstream assistants are moving from answering questions to operating across a user’s real accounts, making permission boundaries, monitoring and revocation central product requirements.',
+    source:'Meta',sourceType:'Official product announcement',category:'Products',format:'Daily brief',date:'2026-09-08',readTime:'5 min',
+    url:'https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/',contextUrl:'https://www.reuters.com/business/meta-launches-ai-agent-that-can-access-other-apps-send-emails-make-payments-2026-09-08/',verified:'2026-09-09',visual:'developer-blue'
+  },
+  {
     id:'openai-automated-research-intern',
     title:'OpenAI says its research agents have reached an “automated research intern” milestone',
     dek:'OpenAI says its internal coding and research agents can now carry out well-defined research tasks under human direction that would take a skilled researcher a few days, meeting the “automated research intern” milestone it announced last year. OpenAI reports that by mid-August its research organization was using 3.1 agent-workdays for every human workday, while more than half of successful 4–8 hour tasks still required at least one human intervention. Those measurements are vendor-run evidence, but the durable signal is concrete: frontier-model R&D itself is becoming an agentic workflow, and OpenAI is publicly targeting an automated AI researcher by March 2028.',

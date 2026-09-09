@@ -1,18 +1,17 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-08",
-  "lastSuccessfulPublish": "2026-09-07",
-  "scanWindow": "Since the 2026-09-07 completed scan, plus material missed developments from the previous 48 hours",
-  "result": "no-publish",
-  "publishedIds": [],
+  "lastScan": "2026-09-09",
+  "lastSuccessfulPublish": "2026-09-09",
+  "scanWindow": "Since the 2026-09-08 completed scan, plus material missed developments from the previous 48 hours",
+  "result": "publish",
+  "publishedIds": ["meta-muse-personal-agent-launch"],
   "scores": {
-    "mistral-3b-euro-funding-reported": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
-    "openai-firmus-malaysia-capacity": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
-    "meta-text-audiobox-alignment-free": {"impact":3,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
-    "google-cathay-contrail-trial-expansion": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
-    "un-ai-existential-risk-warning": {"impact":2,"readerValue":2,"novelty":1,"evidence":2,"durability":2,"total":9,"tier":"Watch"},
-    "openai-german-site-incident-eu-followup": {"impact":4,"readerValue":4,"novelty":1,"evidence":3,"durability":2,"total":14,"tier":"Skip"}
+    "meta-muse-personal-agent-launch": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "us-chinese-ai-distillation-accusations": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
+    "openai-chip-design-enterprise-expansion": {"impact":3,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":13,"tier":"Worth knowing"},
+    "qualcomm-amazon-ai-chip-deal": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
+    "cognition-series-e-funding": {"impact":2,"readerValue":2,"novelty":2,"evidence":2,"durability":1,"total":9,"tier":"Watch"}
   },
-  "notes": "Completed the 2026-09-08 editorial scan with no reader-facing publication. Reuters reports that Mistral has raised EUR3 billion at an approximately EUR21 billion valuation, but no matching Mistral primary announcement was established during this run; the financing is therefore logged Worth knowing rather than published. Reuters also reports a multi-year OpenAI capacity agreement with NVIDIA-backed Firmus for two Malaysian data centres; this is useful infrastructure context but currently secondary-source-led and not sufficiently actionable for a standalone brief. Meta's September 6 Alignment-Free Text-Audiobox paper is primary research and technically credible, but it is a narrower speech-synthesis result and does not displace the stronger recent research/agent coverage already in the feed. The Google/Cathay Pacific contrail-trial expansion is potentially useful applied-AI climate evidence but remains a trial expansion rather than a material new production capability. The UN human-rights chief's AI-risk warning is logged Watch as policy commentary rather than a new technical or regulatory development. Further EU/OpenAI reporting on the German-site agent incident was deduplicated against the existing OpenAI-Hugging Face Deep Analysis and related incident follow-up. No rumours, filler, unsupported rankings, unverified pricing or claims without adequate sourcing were published.",
-  "nextScanDue": "2026-09-09"
+  "notes": "Completed the 2026-09-09 editorial scan and published one Daily Brief. Meta's September 8 Muse launch cleared the Must know threshold because it moves a mainstream consumer assistant into real cross-app action, with an official English primary source describing the Muse Secure VM and permission model and Reuters providing useful independent security context. The brief avoids Meta's unsupported 'world's first' framing and focuses on the durable shift toward assistants operating privileged user accounts. Reuters reporting on U.S. accusations that several Chinese AI firms copied U.S. model technology was logged Worth knowing but not published because the claims are contested government allegations rather than a new technical release or standard. Reuters reporting on OpenAI using its models in chip design and expanding industry-specific enterprise offerings was also held because the strongest new claims were conference remarks rather than a dedicated primary technical release. Qualcomm-Amazon AI infrastructure reporting scored Worth knowing but did not displace the stronger agent launch and currently lacks enough primary technical detail for a concise AI Compass brief. Cognition's funding round was logged Watch as financing news with limited durable reader action. No rumours, filler, unsupported rankings, unverified pricing or unsourced claims were published.",
+  "nextScanDue": "2026-09-10"
 }
