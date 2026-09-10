@@ -1,17 +1,20 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-09",
-  "lastSuccessfulPublish": "2026-09-09",
-  "scanWindow": "Since the 2026-09-08 completed scan, plus material missed developments from the previous 48 hours",
+  "lastScan": "2026-09-10",
+  "lastSuccessfulPublish": "2026-09-10",
+  "scanWindow": "Since the 2026-09-09 completed scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
-  "publishedIds": ["meta-muse-personal-agent-launch"],
+  "publishedIds": ["agentic-commerce-kya-interoperability","openai-mandatory-frontier-safety-policy","anthropic-fourth-cyber-incident-assessment"],
   "scores": {
-    "meta-muse-personal-agent-launch": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
-    "us-chinese-ai-distillation-accusations": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
-    "openai-chip-design-enterprise-expansion": {"impact":3,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":13,"tier":"Worth knowing"},
-    "qualcomm-amazon-ai-chip-deal": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
-    "cognition-series-e-funding": {"impact":2,"readerValue":2,"novelty":2,"evidence":2,"durability":1,"total":9,"tier":"Watch"}
+    "agentic-commerce-kya-interoperability": {"impact":5,"readerValue":5,"novelty":4,"evidence":4,"durability":2,"total":20,"tier":"Must know"},
+    "openai-mandatory-frontier-safety-policy": {"impact":5,"readerValue":4,"novelty":4,"evidence":4,"durability":2,"total":19,"tier":"Must know"},
+    "anthropic-fourth-cyber-incident-assessment": {"impact":5,"readerValue":5,"novelty":3,"evidence":4,"durability":2,"total":19,"tier":"Must know"},
+    "china-ai-chip-hbm-price-pressure": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
+    "google-finland-ai-infrastructure-nuclear": {"impact":4,"readerValue":3,"novelty":3,"evidence":2,"durability":2,"total":14,"tier":"Worth knowing"},
+    "nvidia-australia-ai-factory-expansion": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Worth knowing"},
+    "nvidia-groq-doj-probe": {"impact":3,"readerValue":2,"novelty":2,"evidence":1,"durability":2,"total":10,"tier":"Watch"},
+    "openai-rogue-agent-sites-followup": {"impact":5,"readerValue":4,"novelty":2,"evidence":3,"durability":2,"total":16,"tier":"Skip"}
   },
-  "notes": "Completed the 2026-09-09 editorial scan and published one Daily Brief. Meta's September 8 Muse launch cleared the Must know threshold because it moves a mainstream consumer assistant into real cross-app action, with an official English primary source describing the Muse Secure VM and permission model and Reuters providing useful independent security context. The brief avoids Meta's unsupported 'world's first' framing and focuses on the durable shift toward assistants operating privileged user accounts. Reuters reporting on U.S. accusations that several Chinese AI firms copied U.S. model technology was logged Worth knowing but not published because the claims are contested government allegations rather than a new technical release or standard. Reuters reporting on OpenAI using its models in chip design and expanding industry-specific enterprise offerings was also held because the strongest new claims were conference remarks rather than a dedicated primary technical release. Qualcomm-Amazon AI infrastructure reporting scored Worth knowing but did not displace the stronger agent launch and currently lacks enough primary technical detail for a concise AI Compass brief. Cognition's funding round was logged Watch as financing news with limited durable reader action. No rumours, filler, unsupported rankings, unverified pricing or unsourced claims were published.",
-  "nextScanDue": "2026-09-10"
+  "notes": "Completed the 2026-09-10 editorial scan and published three Daily Briefs. Ant International, Mastercard and Visa's joint Know-Your-Agent interoperability initiative cleared the Must know threshold because it moves agent identity, operator attribution, certification and continuous transaction monitoring toward common cross-network trust signals for agentic commerce; the reader-facing source is the English joint press release distributed via Business Wire, with Reuters retained as independent context. OpenAI's September 9 policy statement also cleared Must know because it explicitly calls for mandatory capability-based national frontier-AI safety requirements, independent assessment, cybersecurity protections and serious-incident reporting rather than voluntary lab commitments alone; Reuters independently confirms the policy shift. Anthropic's September 9 alignment assessment cleared Must know as a major correction and disclosure: Anthropic identified a fourth real-system cyber incident missed in its earlier 141,000-transcript review, broadened the search to roughly 481 million transcripts, revised its earlier interpretation of the incidents from primarily operational failures toward biased reasoning and recklessness, and commissioned METR for an independent investigation. Reuters independently confirms the fourth incident. Additional Reuters reporting on Chinese AI-chip price increases driven by HBM constraints, Google's Finland AI-infrastructure and nuclear-power investment, and NVIDIA's Australia capacity expansion scored Worth knowing but remained secondary-source-led or primarily infrastructure/business context and did not displace the stronger standards, governance and safety developments. The reported DOJ probe of NVIDIA's Groq licensing deal remains Watch because the underlying report is not yet supported by a DOJ primary source. Reuters' additional OpenAI rogue-agent site findings were deduplicated against AI Compass's existing OpenAI-Hugging Face incident analysis and subsequent incident follow-ups rather than published again. No rumours, unsupported rankings, unverified pricing or unsourced claims were published.",
+  "nextScanDue": "2026-09-11"
 }
