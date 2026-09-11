@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'openai-chatgpt-financial-services',
+    title:'OpenAI launches ChatGPT for Financial Services with built-in premium market data',
+    dek:'OpenAI has launched ChatGPT for Financial Services as a tailored ChatGPT Work experience for eligible financial institutions, combining GPT-6 Astra with built-in datasets from providers including Daloopa, PitchBook and LSEG News. OpenAI says the data is indexed and hosted on its infrastructure to improve retrieval and provide granular citations, while institutions can also connect existing subscriptions such as FactSet, S&P Global, Preqin and Datasite. The durable signal is the shift from generic enterprise assistants plus connectors toward provider-managed, domain-specific AI workspaces that bundle licensed data, firm templates, identity controls and audit tooling.',
+    source:'OpenAI',sourceType:'Official product announcement',category:'Business',format:'Daily brief',date:'2026-09-10',readTime:'5 min',
+    url:'https://openai.com/index/introducing-chatgpt-financial-services/',contextUrl:'https://www.reuters.com/business/openai-launches-chatgpt-financial-services-industry-2026-09-10/',verified:'2026-09-11',visual:'enterprise-blue'
+  },
+  {
     id:'agentic-commerce-kya-interoperability',
     title:'Visa, Mastercard and Ant International align on Know-Your-Agent interoperability',
     dek:'Ant International, Mastercard and Visa have begun work on a common Know-Your-Agent interoperability framework so card networks, wallets, agent platforms and marketplaces can recognize trusted purchasing agents across ecosystems while retaining their own risk decisions. The joint release centres on operator traceability, shared certification requirements and continuous transaction monitoring, building on Visa Trusted Agent Protocol, Mastercard Verifiable Intent and Ant International’s Agentic Mobile Protocol. The durable signal is that agent identity is moving from provider-specific controls toward interoperable trust infrastructure for commerce.',
