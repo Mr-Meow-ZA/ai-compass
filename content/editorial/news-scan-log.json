@@ -1,19 +1,18 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-11",
-  "lastSuccessfulPublish": "2026-09-11",
-  "scanWindow": "Since the 2026-09-10 completed scan, plus material missed developments from the previous 48 hours",
+  "lastScan": "2026-09-12",
+  "lastSuccessfulPublish": "2026-09-12",
+  "scanWindow": "Since the 2026-09-11 completed scan, plus material missed developments from the previous 48 hours",
   "result": "publish",
-  "publishedIds": ["openai-chatgpt-financial-services"],
+  "publishedIds": ["anthropic-threat-intelligence-september-2026"],
   "scores": {
-    "openai-chatgpt-financial-services": {"impact":4,"readerValue":4,"novelty":2,"evidence":4,"durability":1,"total":15,"tier":"Worth knowing"},
-    "anthropic-threat-intelligence-september-2026": {"impact":4,"readerValue":4,"novelty":3,"evidence":2,"durability":2,"total":15,"tier":"Worth knowing"},
-    "nasa-ibm-lunar-foundation-model": {"impact":3,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
-    "nvidia-palantir-sovereign-supply-chain-ai": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
-    "openai-government-access-expansion": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":1,"total":13,"tier":"Worth knowing"},
-    "enisa-mythos-astra-evaluation-access": {"impact":3,"readerValue":2,"novelty":2,"evidence":2,"durability":2,"total":11,"tier":"Worth knowing"},
-    "openai-slowdown-staff-report": {"impact":4,"readerValue":3,"novelty":2,"evidence":1,"durability":1,"total":11,"tier":"Watch"}
+    "anthropic-threat-intelligence-september-2026": {"impact":4,"readerValue":4,"novelty":1,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
+    "mistral-cloudera-sovereign-enterprise-ai": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
+    "us-senate-ai-duty-of-care-negotiations": {"impact":5,"readerValue":4,"novelty":3,"evidence":1,"durability":2,"total":15,"tier":"Watch"},
+    "nvidia-anthropic-ipo-anchor-talks": {"impact":3,"readerValue":2,"novelty":2,"evidence":1,"durability":1,"total":9,"tier":"Watch"},
+    "chatgpt-new-mexico-legal-sanctions": {"impact":2,"readerValue":3,"novelty":1,"evidence":2,"durability":1,"total":9,"tier":"Skip"},
+    "openai-government-access-expansion-followup": {"impact":3,"readerValue":3,"novelty":1,"evidence":4,"durability":1,"total":12,"tier":"Skip"}
   },
-  "notes": "Completed the 2026-09-11 editorial scan and published one Daily Brief. OpenAI's September 10 ChatGPT for Financial Services launch scored Worth knowing because it packages a frontier model, built-in licensed financial datasets, provider-hosted indexing, granular citations, firm templates, identity controls, retention settings and audit exports into a domain-specific enterprise workspace. The brief uses OpenAI's primary announcement and Reuters for independent context, while avoiding OpenAI's unverified accuracy claims and treating citations as a verification aid rather than proof of correctness. Anthropic's newly reported Threat Intelligence findings scored Worth knowing but were held because Reuters and other strong reporting were discoverable while the corresponding new Anthropic primary report was not reliably accessible during this scan; the underlying allegations therefore did not meet AI Compass's preferred primary-source publication bar. NASA and IBM's open-source Lunar Foundation Model also scored Worth knowing on strong primary evidence, but its reader value is more specialized and it did not displace the finance-workspace story. NVIDIA and Palantir's sovereign supply-chain AI collaboration and OpenAI's expanded U.S. government access offer were logged Worth knowing as substantial enterprise/public-sector developments but primarily represent deployment and distribution expansion. ENISA access to Mythos 5 and GPT-6 Astra was logged Worth knowing but is derivative of already-covered restricted cyber-model releases. Reporting that OpenAI leadership is open to slowing development remains Watch because the current evidence is secondary reporting about internal remarks rather than a formal policy or operational change. No rumours, unsupported rankings, unverified pricing or unsourced claims were published.",
-  "nextScanDue": "2026-09-12"
+  "notes": "Completed the 2026-09-12 editorial scan and published one Daily Brief. Anthropic's September 10 Threat Intelligence report had been held in the previous scan because the corresponding primary report was not reliably accessible; the primary report is now directly available from Anthropic, clearing the evidence bar. The brief focuses on the durable security signal rather than sensational examples: Anthropic says AI-enabled cyber tradecraft has diffused across actor classes, that a majority of the cyber operations in its case set used AI for direct execution or orchestration, and that some observed multi-agent frameworks performed reconnaissance, exploitation and data exfiltration with humans retaining target selection and review. These are Anthropic's observations from notable disrupted cases, not a prevalence estimate for all cyber activity. Reuters is retained as independent context. Mistral and Cloudera's sovereign-enterprise-AI partnership scored Worth knowing on primary evidence but is primarily a deployment/distribution partnership and did not displace the stronger security story. Reuters reporting that U.S. Senate negotiators are considering an AI duty-of-care regime scored highly on potential impact but remains Watch because negotiations are unfinished and no stable primary legislative text was established in this scan. Reuters reporting on a possible NVIDIA anchor investment in an Anthropic IPO also remains Watch because it is deal-talk reporting without company confirmation. A New Mexico sanctions case involving fabricated ChatGPT-generated legal material was logged but skipped as another instance of the established verification failure pattern rather than a new AI capability or governance development. OpenAI's September 10 government-access expansion was deduplicated against the prior scan. No rumours, unsupported rankings, unverified pricing or unsourced claims were published.",
+  "nextScanDue": "2026-09-13"
 }
