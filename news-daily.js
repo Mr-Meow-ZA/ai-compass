@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'anthropic-threat-intelligence-september-2026',
+    title:'Anthropic says AI-enabled cyber tradecraft is proliferating across threat actors',
+    dek:'Anthropic’s September threat-intelligence report covers notable misuse it says it disrupted from December 2025 through August 2026 across cyber operations, influence, surveillance, fraud, biological misuse, conventional weapons and illicit distillation. In its cyber case set, Anthropic says a majority of operations used AI for direct execution or orchestration, including multi-agent frameworks conducting reconnaissance, exploitation and data exfiltration while humans retained decisions such as target selection and review. These are Anthropic’s observed cases rather than a prevalence estimate for all cyber activity; the durable signal is that agentic attack scaffolding is diffusing across actor classes and compressing the labor required for complex operations.',
+    source:'Anthropic',sourceType:'Official threat intelligence report',category:'Safety',format:'Daily brief',date:'2026-09-10',readTime:'6 min',
+    url:'https://www.anthropic.com/threat-intelligence-report-september-2026',contextUrl:'https://www.reuters.com/world/china/how-anthropic-says-claude-was-used-weapons-spying-cyber-operations-2026-09-11/',verified:'2026-09-12',visual:'enterprise-blue'
+  },
+  {
     id:'openai-chatgpt-financial-services',
     title:'OpenAI launches ChatGPT for Financial Services with built-in premium market data',
     dek:'OpenAI has launched ChatGPT for Financial Services as a tailored ChatGPT Work experience for eligible financial institutions, combining GPT-6 Astra with built-in datasets from providers including Daloopa, PitchBook and LSEG News. OpenAI says the data is indexed and hosted on its infrastructure to improve retrieval and provide granular citations, while institutions can also connect existing subscriptions such as FactSet, S&P Global, Preqin and Datasite. The durable signal is the shift from generic enterprise assistants plus connectors toward provider-managed, domain-specific AI workspaces that bundle licensed data, firm templates, identity controls and audit tooling.',
