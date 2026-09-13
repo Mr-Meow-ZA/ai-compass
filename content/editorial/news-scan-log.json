@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-12",
+  "lastScan": "2026-09-13",
   "lastSuccessfulPublish": "2026-09-12",
-  "scanWindow": "Since the 2026-09-11 completed scan, plus material missed developments from the previous 48 hours",
-  "result": "publish",
-  "publishedIds": ["anthropic-threat-intelligence-september-2026"],
+  "scanWindow": "Since the 2026-09-12 completed scan, plus material missed developments from the previous 48 hours",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
-    "anthropic-threat-intelligence-september-2026": {"impact":4,"readerValue":4,"novelty":1,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
-    "mistral-cloudera-sovereign-enterprise-ai": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
-    "us-senate-ai-duty-of-care-negotiations": {"impact":5,"readerValue":4,"novelty":3,"evidence":1,"durability":2,"total":15,"tier":"Watch"},
-    "nvidia-anthropic-ipo-anchor-talks": {"impact":3,"readerValue":2,"novelty":2,"evidence":1,"durability":1,"total":9,"tier":"Watch"},
-    "chatgpt-new-mexico-legal-sanctions": {"impact":2,"readerValue":3,"novelty":1,"evidence":2,"durability":1,"total":9,"tier":"Skip"},
-    "openai-government-access-expansion-followup": {"impact":3,"readerValue":3,"novelty":1,"evidence":4,"durability":1,"total":12,"tier":"Skip"}
+    "anthropic-amodei-slowdown-call": {"impact":4,"readerValue":3,"novelty":2,"evidence":1,"durability":2,"total":12,"tier":"Watch"},
+    "nvidia-dmatrix-nvlink-fusion": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
+    "nvidia-skild-s1-physical-ai-followup": {"impact":3,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
+    "openai-altman-safety-ipo-comments": {"impact":3,"readerValue":2,"novelty":1,"evidence":1,"durability":1,"total":8,"tier":"Watch"},
+    "us-senate-ai-duty-of-care-followup": {"impact":5,"readerValue":4,"novelty":2,"evidence":1,"durability":2,"total":14,"tier":"Watch"},
+    "nvidia-anthropic-ipo-anchor-followup": {"impact":3,"readerValue":2,"novelty":1,"evidence":1,"durability":1,"total":8,"tier":"Watch"}
   },
-  "notes": "Completed the 2026-09-12 editorial scan and published one Daily Brief. Anthropic's September 10 Threat Intelligence report had been held in the previous scan because the corresponding primary report was not reliably accessible; the primary report is now directly available from Anthropic, clearing the evidence bar. The brief focuses on the durable security signal rather than sensational examples: Anthropic says AI-enabled cyber tradecraft has diffused across actor classes, that a majority of the cyber operations in its case set used AI for direct execution or orchestration, and that some observed multi-agent frameworks performed reconnaissance, exploitation and data exfiltration with humans retaining target selection and review. These are Anthropic's observations from notable disrupted cases, not a prevalence estimate for all cyber activity. Reuters is retained as independent context. Mistral and Cloudera's sovereign-enterprise-AI partnership scored Worth knowing on primary evidence but is primarily a deployment/distribution partnership and did not displace the stronger security story. Reuters reporting that U.S. Senate negotiators are considering an AI duty-of-care regime scored highly on potential impact but remains Watch because negotiations are unfinished and no stable primary legislative text was established in this scan. Reuters reporting on a possible NVIDIA anchor investment in an Anthropic IPO also remains Watch because it is deal-talk reporting without company confirmation. A New Mexico sanctions case involving fabricated ChatGPT-generated legal material was logged but skipped as another instance of the established verification failure pattern rather than a new AI capability or governance development. OpenAI's September 10 government-access expansion was deduplicated against the prior scan. No rumours, unsupported rankings, unverified pricing or unsourced claims were published.",
-  "nextScanDue": "2026-09-13"
+  "notes": "Completed the 2026-09-13 editorial scan with no reader-facing publication. Reuters reports that Anthropic CEO Dario Amodei is calling for labs to slow development and strengthen independent evaluation and coordination, but this scan did not establish a matching current Anthropic primary statement; the item is therefore Watch rather than a new policy brief, and AI Compass already carries current frontier-safety governance coverage. NVIDIA's September 10 d-Matrix NVLink Fusion integration and Skild S1 physical-AI collaboration are both primary-source-backed and Worth knowing, but they are narrower infrastructure and robotics follow-ons and do not clear the durable broad-reader publication bar today. Reuters' September 12 comments from Sam Altman on safety and IPO timing are logged Watch as executive commentary rather than a new technical, product or binding governance development. The reported U.S. Senate AI duty-of-care negotiations remain Watch because no stable primary legislative text was established, and reported NVIDIA participation in an Anthropic IPO remains Watch because neither company has confirmed the deal talks. Existing September 10-12 Anthropic threat-intelligence, OpenAI financial-services, Know-Your-Agent interoperability and frontier-safety developments were deduplicated against the current feed. No rumours, filler, unsupported rankings, unverified pricing or unsourced claims were published.",
+  "nextScanDue": "2026-09-14"
 }
