@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "lastScan": "2026-09-16",
   "lastSuccessfulPublish": "2026-09-16",
-  "scanWindow": "Afternoon scan following the 2026-09-16 late-morning Gemini 3.8 Live publication, covering material developments through approximately 16:30 SAST",
-  "result": "publish",
-  "publishedIds": ["openai-sponsored-agents"],
+  "scanWindow": "Evening scan following the 2026-09-16 afternoon Sponsored Agents publication, covering material developments through approximately 21:30 SAST",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
-    "openai-sponsored-agents": {"impact":3,"readerValue":4,"novelty":4,"evidence":4,"durability":2,"total":17,"tier":"Worth knowing"},
-    "cohere-aleph-alpha-merger": {"impact":3,"readerValue":3,"novelty":3,"evidence":3,"durability":3,"total":15,"tier":"Worth knowing"},
-    "anthropic-australia-inference-campus": {"impact":3,"readerValue":2,"novelty":2,"evidence":3,"durability":3,"total":13,"tier":"Worth knowing"},
-    "openai-hugging-face-rogue-agent-followup": {"impact":4,"readerValue":3,"novelty":1,"evidence":3,"durability":3,"total":14,"tier":"Worth knowing"},
-    "openai-anthropic-google-safety-talks": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Watch"}
+    "anthropic-one-claude-docs-slides": {"impact":3,"readerValue":4,"novelty":3,"evidence":3,"durability":3,"total":16,"tier":"Worth knowing"},
+    "perplexity-portable-computer-windows": {"impact":3,"readerValue":4,"novelty":3,"evidence":3,"durability":3,"total":16,"tier":"Worth knowing"},
+    "google-home-mcp-third-party-agents": {"impact":3,"readerValue":3,"novelty":3,"evidence":2,"durability":3,"total":14,"tier":"Worth knowing"},
+    "google-ai-energy-management-alliance": {"impact":3,"readerValue":2,"novelty":2,"evidence":4,"durability":3,"total":14,"tier":"Worth knowing"},
+    "salesforce-agent-harness-self-improvement-research": {"impact":3,"readerValue":3,"novelty":3,"evidence":2,"durability":3,"total":14,"tier":"Watch"}
   },
-  "notes": "Completed the 2026-09-16 afternoon scan. Published OpenAI's September 16 Sponsored Agents announcement as a Worth-knowing Daily Brief. Primary evidence confirms a select-US-advertiser test in which users can choose a clearly labelled conversation with a business-sponsored agent after clicking a ChatGPT ad; OpenAI states that the sponsored conversation is separate from ChatGPT's independent answers and the user's original conversation. The release also includes natural-language campaign management, AI-assisted creative tools, optional contextual text customization, and initial HubSpot and Shopify integrations. Outcome claims were not inferred. Cohere/Aleph Alpha's definitive merger is material enterprise-AI consolidation but was held to keep this run focused on the stronger directly reader-facing AI product development. Anthropic's first Australian inference-focused data-centre agreement was logged but held. Reuters' September 16 Hugging Face incident follow-up was deduplicated against existing AI Compass rogue-agent/cyber coverage rather than republished as a separate underlying story. Cross-lab safety coordination remains Watch because the available Reuters account says it was not independently verified and no concrete joint primary announcement was located. No rumours, unsupported rankings or unverified pricing were published. Publication commits: content a0aab340bba5d22530b1ccc74544412a870ffe15; registration ab7bdc365babc26fe32c8c7e9c85e2634347297a. The resulting ledger commit is the main SHA to validate and deploy.",
-  "nextScanDue": "2026-09-16"
+  "notes": "Completed the 2026-09-16 evening scan. No new brief was published because the public feed is already current for September 16 and the strongest newly surfaced candidates did not clear the evidence-and-priority gate strongly enough to justify another same-day item. Anthropic's reported 'one Claude' consolidation plus Claude Docs and Slides is materially useful and independently corroborated by Reuters and strong technical reporting, but an accessible maintainer-owned announcement was not located in this scan, so it is held for primary-source verification rather than published from secondary reporting alone. Perplexity Portable Computer on Windows is also materially relevant to local-agent readers; multiple reports describe RTX/RTX PRO support with at least 24GB VRAM, while the accessible NVIDIA primary post from September 3 still described Windows support as coming soon, so this run holds the item pending a current maintainer-owned release page. Google Home MCP is potentially important for third-party smart-home agents but remains held pending stronger primary verification of launch details. NVIDIA's AI Energy Management Alliance announcement is primary-sourced but is infrastructure/ecosystem news rather than a sufficiently strong reader-facing development for an additional evening brief. Salesforce agent-harness self-improvement research is interesting but remains Watch until the underlying paper/repository is directly verified. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published. Existing September 16 briefs remain the newest visible News content.",
+  "nextScanDue": "2026-09-17"
 }
