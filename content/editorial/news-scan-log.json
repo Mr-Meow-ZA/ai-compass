@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "lastScan": "2026-09-16",
-  "lastSuccessfulPublish": "2026-09-12",
-  "scanWindow": "Since the 2026-09-15 completed scan, plus material missed developments from the previous 48 hours",
-  "result": "blocked",
-  "publishedIds": [],
+  "lastSuccessfulPublish": "2026-09-16",
+  "scanWindow": "Follow-up scan after the 2026-09-16 morning run, including the previously blocked Must-know candidate and material developments through 11:30 SAST",
+  "result": "published",
+  "publishedIds": ["google-gemini-3-8-live"],
   "scores": {
     "google-gemini-3-8-live": {"impact":4,"readerValue":4,"novelty":4,"evidence":4,"durability":2,"total":18,"tier":"Must know"},
     "openai-anthropic-google-safety-talks": {"impact":3,"readerValue":3,"novelty":2,"evidence":2,"durability":2,"total":12,"tier":"Watch"},
-    "spanish-ai-agent-data-breach": {"impact":4,"readerValue":4,"novelty":3,"evidence":2,"durability":2,"total":15,"tier":"Watch"},
-    "meta-zuckerberg-ai-safety-position": {"impact":2,"readerValue":2,"novelty":1,"evidence":3,"durability":1,"total":9,"tier":"Watch"}
+    "mediatek-dimensity-9600-pro": {"impact":3,"readerValue":2,"novelty":2,"evidence":3,"durability":2,"total":12,"tier":"Watch"},
+    "google-ai-every-language": {"impact":2,"readerValue":3,"novelty":2,"evidence":4,"durability":2,"total":13,"tier":"Worth knowing"}
   },
-  "notes": "Completed the 2026-09-16 06:30 SAST editorial scan. Google officially released Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15 through the Gemini API and Google AI Studio. The primary announcement confirms native speech-to-speech agents that can continue dialogue while making asynchronous function/tool calls, use live visual context, support 97+ languages, and use configurable background thinking in the Extended Thinking variant. Vendor benchmark and pricing claims were not used as independent evidence. This scores 18/20 Must know and warrants a Daily Brief. Reuters/Bloomberg reporting that OpenAI, Anthropic and Google DeepMind have held AI-safety coordination talks remains Watch because Reuters says it did not independently verify the report and no sufficiently concrete joint primary announcement was located. Reuters reporting on a Spanish AEPD AI-agent-linked breach is potentially important, but the investigation is ongoing and stronger direct regulator evidence should be obtained before publication. Zuckerberg's safety-policy comments are commentary rather than a distinct technical development. Publication of the Gemini brief is blocked in this run by the available repository connector: it supports whole-file replacement but not safe patching, while the current news-daily.js content is too large to retrieve in full without truncation for a verified replacement. The repository could therefore not be safely modified without risking existing News content, contrary to the preserve-existing-content rule. No reader-facing content was changed. The scan ledger itself was updated truthfully. A future run should publish the Gemini 3.8 Live brief once safe repository patch/edit access is available, then run the full validation and deployment gates.",
+  "notes": "Completed the 2026-09-16 late-morning editorial scan. The previously blocked Gemini 3.8 Live candidate was published after a safe additive route was identified: a narrowly scoped news module was added and registered immediately after news-daily.js, preserving all existing feed content. Google officially released Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15 through the Gemini API and Google AI Studio. The primary announcement confirms native speech-to-speech interaction, asynchronous tool/API execution during live dialogue, live visual context, 97+ language support, and configurable background thinking in Extended Thinking. Vendor capability claims are labelled as such. Reuters reporting on OpenAI/Anthropic/Google DeepMind safety coordination remains Watch because Reuters says it did not independently verify the report and no concrete joint primary announcement was located. MediaTek's Dimensity 9600 Pro is notable on-device AI hardware but does not clear the publication threshold for this feed. Google's multilingual AI initiative is Worth knowing but is a broad programme update rather than a discrete release strong enough to displace the Gemini brief. No rumours or unsupported benchmark rankings were published. Publication commits: content module 1924f0dc0a40a0d828d8c6a6bed05caa6cde36c9; registration c957b4911cac2bf54d9dc711b221df83477b7e62. This ledger commit becomes the resulting main SHA for the run and must be verified by post-publish CI/deployment checks.",
   "nextScanDue": "2026-09-16"
 }
