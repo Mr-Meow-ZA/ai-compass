@@ -2,15 +2,16 @@
   "schemaVersion": 1,
   "lastScan": "2026-09-17",
   "lastSuccessfulPublish": "2026-09-16",
-  "scanWindow": "Midday scan following the 2026-09-17 morning no-publish run, covering material developments through approximately 11:30 SAST on 2026-09-17",
+  "scanWindow": "Afternoon scan covering material developments through approximately 16:30 SAST on 2026-09-17, following the midday no-publish scan",
   "result": "no-publish",
   "publishedIds": [],
   "scores": {
     "openai-model-misalignment-disclosure-framework": {"impact":4,"readerValue":4,"novelty":2,"evidence":4,"durability":3,"total":17,"tier":"Must know"},
+    "mistral-mozilla-firefox-smart-window": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Must know"},
     "anthropic-one-claude-docs-slides": {"impact":3,"readerValue":4,"novelty":3,"evidence":3,"durability":3,"total":16,"tier":"Worth knowing"},
     "google-home-mcp-third-party-agents": {"impact":3,"readerValue":3,"novelty":3,"evidence":2,"durability":3,"total":14,"tier":"Worth knowing"},
     "cohere-aleph-alpha-merger": {"impact":3,"readerValue":3,"novelty":2,"evidence":3,"durability":3,"total":14,"tier":"Worth knowing"}
   },
-  "notes": "Completed the 2026-09-17 midday scan. No new brief was published. OpenAI's model-misalignment reporting framework now has strong first-party confirmation and clears the score threshold: OpenAI says it will regularly track, investigate and disclose unexpected or concerning model behavior and published six initial reports. However, AI Compass already carries substantial recent coverage of the underlying OpenAI/Hugging Face agent incident, Astra cyber threshold and frontier-safety governance; the framework is therefore logged as Must know but held as a governance follow-up rather than publishing a repetitive safety brief in this run. Anthropic's unified Claude interface with Docs and Slides remains Worth knowing but the scan still did not locate a clear maintainer-owned launch announcement. Google Home MCP remains Worth knowing but held pending stronger primary launch evidence. Reuters-confirmed Cohere/Aleph Alpha merger is Worth knowing as enterprise/sovereign-AI consolidation, but it does not displace higher-value technical coverage. The public feed remains dated September 16 and is still within the 24-hour freshness window at scan time, so the freshness defect rule is not triggered. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published.",
+  "notes": "Completed the 2026-09-17 afternoon scan. No new brief was published. Mistral and Mozilla now have primary-source confirmation for their Firefox Smart Window collaboration: Mistral Small 4 is being integrated into Mozilla's experimental AI browsing surface, with privacy, multilingual support and model choice emphasized. It scores strongly but is held this run because it is a browser integration rather than a new model/capability release and the public feed already has a September 16 publication, so the 24-hour freshness defect rule is not triggered. OpenAI's model-misalignment disclosure framework remains Must know but held as a governance follow-up to substantial existing incident and frontier-safety coverage. Anthropic's unified Claude interface with Docs and Slides remains Worth knowing pending a clear maintainer-owned launch announcement. Google Home MCP remains held pending stronger primary launch evidence. Reuters-confirmed Cohere/Aleph Alpha consolidation remains Worth knowing but below the publication priority threshold for this run. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published.",
   "nextScanDue": "2026-09-17"
 }
