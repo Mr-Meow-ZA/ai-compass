@@ -1,17 +1,18 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-17",
-  "lastSuccessfulPublish": "2026-09-16",
-  "scanWindow": "Evening scan covering material developments through approximately 21:30 SAST on 2026-09-17, following the afternoon no-publish scan",
-  "result": "no-publish",
-  "publishedIds": [],
+  "lastScan": "2026-09-18",
+  "lastSuccessfulPublish": "2026-09-18",
+  "scanWindow": "Morning scan covering material developments through approximately 06:45 SAST on 2026-09-18, including outstanding candidates from the September 17 freshness defect",
+  "result": "publish",
+  "publishedIds": ["openai-model-misalignment-disclosure-framework","openai-astra-for-law"],
   "scores": {
-    "openai-model-misalignment-disclosure-framework": {"impact":4,"readerValue":4,"novelty":2,"evidence":4,"durability":3,"total":17,"tier":"Must know"},
+    "openai-model-misalignment-disclosure-framework": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Must know"},
+    "openai-astra-for-law": {"impact":4,"readerValue":4,"novelty":2,"evidence":4,"durability":2,"total":16,"tier":"Must know"},
     "mistral-mozilla-firefox-smart-window": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Must know"},
     "anthropic-life-sciences-verification-program": {"impact":3,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
-    "google-cc-groups-families": {"impact":2,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
-    "amazon-ai-safety-position": {"impact":2,"readerValue":2,"novelty":2,"evidence":3,"durability":2,"total":11,"tier":"Worth knowing"}
+    "anthropic-biomolecular-modeling": {"impact":3,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
+    "google-cc-groups-families": {"impact":2,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"}
   },
-  "notes": "Completed the 2026-09-17 evening scan. No reader-facing brief was published in this run. OpenAI's model-misalignment disclosure framework remains the strongest Must-know candidate with direct primary evidence; Mistral/Mozilla Firefox Smart Window remains Must know with primary confirmation. New evening candidates include Anthropic's Life Sciences Verification Program (Worth knowing, primary source), Google Labs expanding CC to groups/families (Worth knowing, primary source), and Amazon's AI-safety position (Worth knowing, Reuters context). The public feed's newest recorded successful publication remains September 16, so the >24-hour freshness rule is now a publishing defect while Must-know candidates exist. Publication could not be completed safely in this execution because the available repository interface did not expose a complete, patch-safe path to modify and validate the registered News feed plus run the repository's full rendered desktop/mobile smoke suites. No destructive whole-file replacement or unvalidated content publication was attempted. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published.",
+  "notes": "Published two concise Daily Briefs to correct the >24-hour public-feed freshness defect: OpenAI's model-misalignment disclosure framework and Astra for Law. Both have direct OpenAI evidence; Reuters is retained as independent context. The Mistral/Mozilla Firefox Smart Window partnership remains a strong Must-know candidate but was held to keep this run focused and avoid backfill overload; Anthropic Life Sciences Verification and biomolecular-modeling work remain Worth knowing. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published. Editorial changes are isolated in news-2026-09-18-am.js plus feed registration. Resulting commit SHA is populated by the branch/merge history rather than embedded here to avoid self-referential commit mutation.",
   "nextScanDue": "2026-09-18"
 }
