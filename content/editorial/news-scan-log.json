@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-17",
-  "lastSuccessfulPublish": "2026-09-16",
-  "scanWindow": "Evening scan covering material developments through approximately 21:30 SAST on 2026-09-17, following the afternoon no-publish scan",
-  "result": "no-publish",
-  "publishedIds": [],
+  "lastScan": "2026-09-18",
+  "lastSuccessfulPublish": "2026-09-18",
+  "scanWindow": "Afternoon scan covering material developments through approximately 16:30 SAST on 2026-09-18, including outstanding high-signal items from the previous freshness-defect scan",
+  "result": "publish",
+  "publishedIds": ["anthropic-frontier-lab-pace-metrics", "openai-model-misalignment-disclosure-framework"],
   "scores": {
+    "anthropic-frontier-lab-pace-metrics": {"impact":4,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":17,"tier":"Must know"},
     "openai-model-misalignment-disclosure-framework": {"impact":4,"readerValue":4,"novelty":2,"evidence":4,"durability":3,"total":17,"tier":"Must know"},
     "mistral-mozilla-firefox-smart-window": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Must know"},
-    "anthropic-life-sciences-verification-program": {"impact":3,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
-    "google-cc-groups-families": {"impact":2,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
-    "amazon-ai-safety-position": {"impact":2,"readerValue":2,"novelty":2,"evidence":3,"durability":2,"total":11,"tier":"Worth knowing"}
+    "google-ai-economy-research-expansion": {"impact":2,"readerValue":2,"novelty":1,"evidence":4,"durability":2,"total":11,"tier":"Worth knowing"},
+    "europe-ai-safety-policy-dispute": {"impact":3,"readerValue":2,"novelty":2,"evidence":3,"durability":2,"total":12,"tier":"Worth knowing"}
   },
-  "notes": "Completed the 2026-09-17 evening scan. No reader-facing brief was published in this run. OpenAI's model-misalignment disclosure framework remains the strongest Must-know candidate with direct primary evidence; Mistral/Mozilla Firefox Smart Window remains Must know with primary confirmation. New evening candidates include Anthropic's Life Sciences Verification Program (Worth knowing, primary source), Google Labs expanding CC to groups/families (Worth knowing, primary source), and Amazon's AI-safety position (Worth knowing, Reuters context). The public feed's newest recorded successful publication remains September 16, so the >24-hour freshness rule is now a publishing defect while Must-know candidates exist. Publication could not be completed safely in this execution because the available repository interface did not expose a complete, patch-safe path to modify and validate the registered News feed plus run the repository's full rendered desktop/mobile smoke suites. No destructive whole-file replacement or unvalidated content publication was attempted. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published.",
+  "notes": "Published two concise Daily Briefs to correct the >24-hour News freshness defect: Anthropic's new proposal for measuring AI-development pace inside frontier labs and OpenAI's model-misalignment reporting framework. Both use direct primary evidence and distinguish proposals/vendor processes from adopted independent standards. Mistral/Mozilla Smart Window remains high-signal but was held to avoid over-publishing an older Sep 16 item after the two stronger governance/research developments. Reuters' Sep 18 report on European labs challenging U.S. slowdown calls was retained as context and not promoted above primary technical developments. Google AI & Economy team expansion was Worth knowing but not publication-worthy relative to the selected items. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published. Resulting commit SHA is to be finalized after merge.",
   "nextScanDue": "2026-09-18"
 }
