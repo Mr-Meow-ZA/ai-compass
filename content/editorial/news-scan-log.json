@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-09-17",
+  "lastScan": "2026-09-18",
   "lastSuccessfulPublish": "2026-09-16",
-  "scanWindow": "Evening scan covering material developments through approximately 21:30 SAST on 2026-09-17, following the afternoon no-publish scan",
+  "scanWindow": "Evening scan covering material developments through approximately 21:32 SAST on 2026-09-18, following the 2026-09-17 evening scan",
   "result": "no-publish",
   "publishedIds": [],
   "scores": {
@@ -10,8 +10,10 @@
     "mistral-mozilla-firefox-smart-window": {"impact":3,"readerValue":4,"novelty":3,"evidence":4,"durability":2,"total":16,"tier":"Must know"},
     "anthropic-life-sciences-verification-program": {"impact":3,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":15,"tier":"Worth knowing"},
     "google-cc-groups-families": {"impact":2,"readerValue":3,"novelty":3,"evidence":4,"durability":2,"total":14,"tier":"Worth knowing"},
-    "amazon-ai-safety-position": {"impact":2,"readerValue":2,"novelty":2,"evidence":3,"durability":2,"total":11,"tier":"Worth knowing"}
+    "anthropic-physical-biology-lab": {"impact":4,"readerValue":4,"novelty":4,"evidence":3,"durability":4,"total":19,"tier":"Must know"},
+    "openai-hacktron-security-research": {"impact":3,"readerValue":3,"novelty":2,"evidence":3,"durability":3,"total":14,"tier":"Worth knowing"},
+    "google-ai-economy-research-expansion": {"impact":2,"readerValue":2,"novelty":2,"evidence":4,"durability":3,"total":13,"tier":"Watch"}
   },
-  "notes": "Completed the 2026-09-17 evening scan. No reader-facing brief was published in this run. OpenAI's model-misalignment disclosure framework remains the strongest Must-know candidate with direct primary evidence; Mistral/Mozilla Firefox Smart Window remains Must know with primary confirmation. New evening candidates include Anthropic's Life Sciences Verification Program (Worth knowing, primary source), Google Labs expanding CC to groups/families (Worth knowing, primary source), and Amazon's AI-safety position (Worth knowing, Reuters context). The public feed's newest recorded successful publication remains September 16, so the >24-hour freshness rule is now a publishing defect while Must-know candidates exist. Publication could not be completed safely in this execution because the available repository interface did not expose a complete, patch-safe path to modify and validate the registered News feed plus run the repository's full rendered desktop/mobile smoke suites. No destructive whole-file replacement or unvalidated content publication was attempted. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published.",
-  "nextScanDue": "2026-09-18"
+  "notes": "Completed the 2026-09-18 evening scan. No reader-facing brief was published in this run. Reuters reports Anthropic has established a physical biology laboratory as it expands AI-for-drug-development work; this scores Must know but currently lacks a directly accessible Anthropic primary announcement, so the Reuters report is treated as strong independent evidence rather than upgraded to primary-source confirmation. OpenAI's model-misalignment disclosure framework remains a primary-source-backed Must-know candidate, and Mistral/Mozilla Firefox Smart Window remains a previously identified Must-know candidate. Anthropic's September threat-intelligence report was reviewed but deduplicated against existing AI Compass coverage. Google's AI & Economy research-team expansion is Watch. The public feed's newest recorded successful publication remains September 16, so the >24-hour freshness rule remains a publishing defect while Must-know candidates exist. The repository connector available in this run can safely replace complete files but does not provide a patch-safe edit plus local execution environment for the large registered News feed and required full rendered desktop/mobile validation suites. No destructive whole-file replacement or unvalidated reader-facing publication was attempted. No rumours, unsupported rankings, invented benchmark conclusions or unverified pricing were published.",
+  "nextScanDue": "2026-09-19"
 }
