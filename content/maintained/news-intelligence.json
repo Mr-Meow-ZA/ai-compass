@@ -40,6 +40,22 @@
     }
   },
   "explicit": {
+    "google-ai-flusight-forecast-evaluation": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Retrospective CDC evaluation result",
+      "why": "The result provides an external evaluation signal for AI-assisted scientific forecasting: a Google-developed model ranked first in the CDC's 2025–26 FluSight evaluation for U.S. influenza hospital admissions. It is evidence about one target and season, not proof of general superiority or operational readiness.",
+      "audience": "Public-health teams, epidemiologists, AI-for-science researchers and builders of forecasting systems",
+      "action": "Read the CDC evaluation methodology and assess performance across relevant locations, horizons, seasons and baselines before using AI forecasts in operational planning."
+    },
+    "ai2-olmocore3-open-moe-training": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Open-source MoE training framework release",
+      "why": "Olmo-core 3 makes the training infrastructure behind large mixture-of-experts models more open and reusable, including a stack Ai2 says it has benchmarked at trillion-parameter scale. That is a meaningful change for model-training researchers and open-model builders even though the reported throughput results remain developer-run benchmarks and the largest configurations require very substantial compute.",
+      "audience": "Model-training researchers, open-source AI teams and AI infrastructure engineers",
+      "action": "Review the technical report and repository, check hardware and license requirements, and reproduce performance on representative workloads before using Ai2's benchmark results to plan a training run."
+    },
     "nvidia-vera-rubin-coreweave": {
       "importance": 5,
       "signal": "Must know",

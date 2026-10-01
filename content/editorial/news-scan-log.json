@@ -5,21 +5,21 @@
   "scanWindow": "Routine scan covering 2026-09-29 through 2026-10-01, using primary-source publication dates.",
   "result": "publish",
   "publishedIds": [
-    "nvidia-vera-rubin-coreweave",
-    "nvidia-kumo-tabular"
+    "google-ai-flusight-forecast-evaluation",
+    "ai2-olmocore3-open-moe-training"
   ],
   "scores": {
-    "nvidia-vera-rubin-coreweave": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
+    "google-ai-flusight-forecast-evaluation": {
+      "impact": 3,
+      "readerValue": 4,
+      "novelty": 3,
       "evidence": 4,
       "durability": 2,
-      "total": 20,
+      "total": 16,
       "decision": "publish",
       "sourceDate": "2026-09-30"
     },
-    "nvidia-kumo-tabular": {
+    "ai2-olmocore3-open-moe-training": {
       "impact": 4,
       "readerValue": 4,
       "novelty": 4,
@@ -27,7 +27,62 @@
       "durability": 2,
       "total": 18,
       "decision": "publish",
-      "sourceDate": "2026-09-29"
+      "sourceDate": "2026-10-01"
+    },
+    "intel-agent-toolkit-openshell": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 2,
+      "evidence": 4,
+      "durability": 1,
+      "total": 13,
+      "decision": "reject",
+      "sourceDate": "2026-09-29",
+      "reason": "Adding NVIDIA OpenShell to Intel's existing Agent Toolkit adds policy-enforced sandboxing for agent actions, access and credentials, but is a focused integration update rather than a major platform or capability launch for a broad Daily Brief."
+    },
+    "anthropic-barclays-scales-claude": {
+      "impact": 2,
+      "readerValue": 3,
+      "novelty": 1,
+      "evidence": 3,
+      "durability": 1,
+      "total": 10,
+      "decision": "reject",
+      "sourceDate": "2026-10-01",
+      "reason": "This is an expansion and customer case study for a Claude assistant already live since 2025, not a new product capability; adoption projections are company/customer statements."
+    },
+    "cerebras-alphasense-agentic-research": {
+      "impact": 2,
+      "readerValue": 2,
+      "novelty": 1,
+      "evidence": 3,
+      "durability": 1,
+      "total": 9,
+      "decision": "reject",
+      "sourceDate": "2026-09-30",
+      "reason": "The post describes a customer deployment of fast inference for agentic research, but does not announce a new model, platform capability or broadly consequential infrastructure change."
+    },
+    "huggingface-open-tts-leaderboard": {
+      "impact": 3,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 1,
+      "total": 15,
+      "decision": "reject",
+      "sourceDate": "2026-09-30",
+      "reason": "Useful evaluation infrastructure, but not a major model, capability or ecosystem shift for a Daily Brief."
+    },
+    "huggingface-provenanceguard-mcp-agents": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 3,
+      "evidence": 3,
+      "durability": 1,
+      "total": 13,
+      "decision": "reject",
+      "sourceDate": "2026-09-29",
+      "reason": "The post describes a narrow verification method for MCP agents and links to an earlier paper; it is not a major capability or platform change."
     },
     "google-gemini-4-argon": {
       "impact": 5,
@@ -51,40 +106,29 @@
       "sourceDate": "2026-09-30",
       "reason": "The same announcement is already covered by this feed ID and canonical URL."
     },
-    "huggingface-open-tts-leaderboard": {
-      "impact": 3,
+    "nvidia-vera-rubin-coreweave": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "already-published",
+      "sourceDate": "2026-09-30",
+      "reason": "The same announcement is already covered by this feed ID and canonical URL."
+    },
+    "nvidia-kumo-tabular": {
+      "impact": 4,
       "readerValue": 4,
-      "novelty": 3,
+      "novelty": 4,
       "evidence": 4,
-      "durability": 1,
-      "total": 15,
-      "decision": "reject",
-      "sourceDate": "2026-09-30",
-      "reason": "Useful evaluation infrastructure, but not a major model, capability or ecosystem shift for a Daily Brief."
-    },
-    "apple-llm-conditioning-study": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 1,
-      "total": 14,
-      "decision": "reject",
-      "sourceDate": "2026-09-30",
-      "reason": "A useful methodological paper on conditioning and fluency trade-offs, but it does not materially change AI capability, availability or common workflows."
-    },
-    "huggingface-provenanceguard-mcp-agents": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 3,
-      "durability": 1,
-      "total": 13,
-      "decision": "reject",
+      "durability": 2,
+      "total": 18,
+      "decision": "already-published",
       "sourceDate": "2026-09-29",
-      "reason": "The post describes a narrow verification method for MCP agents and links to an earlier paper; it is not a major capability or platform change."
+      "reason": "The same announcement is already covered by this feed ID and canonical URL."
     }
   },
-  "notes": "Completed the official source-sweep review across OpenAI, Anthropic, Google/DeepMind, Microsoft, Meta, NVIDIA, Mistral, Hugging Face, AMD, Intel, Qualcomm, AWS, Apple, xAI, Qwen, DeepSeek, Tencent, Cerebras and Groq. OpenAI and xAI returned HTTP 403; AMD's fetch was aborted and Tencent returned HTTP 404. Published NVIDIA's Vera Rubin/CoreWeave production deployment and Kumo Tabular open model after canonical-source verification; Gemini 4 Argon and SynthID Bio were already covered in the feed. Rejected the Open TTS leaderboard as evaluation infrastructure rather than an ecosystem shift, Apple's conditioning paper as useful but not a material capability change, and ProvenanceGuard as a narrow method linked to an earlier paper. The NVIDIA graduate-fellowship notice was not an AI product or capability development. Reuters discovery was not required for this routine scan.",
+  "notes": "Completed the official source-sweep review across OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA, Mistral, Hugging Face, AMD, Intel, Qualcomm, AWS, Apple, xAI, Qwen, DeepSeek, Tencent, Cerebras and Groq. Published Ai2's Olmo-core 3 release after verifying its canonical page date (October 1) and Google Research's CDC FluSight result (September 30), with the latter's scope limited to one retrospective seasonal evaluation. Rejected Intel's OpenShell toolkit integration as a focused update, Anthropic's Barclays rollout and Cerebras/AlphaSense as customer stories, and Hugging Face's Open TTS leaderboard and source-aware MCP post as below threshold. Gemini 4 Argon, SynthID Bio, NVIDIA Vera Rubin and Kumo Tabular are already covered in the feed. OpenAI and xAI returned HTTP 403, AMD's fetch was aborted and Tencent returned HTTP 404; accessible official indexes still provided sufficient coverage for this routine scan.",
   "nextScanDue": "2026-10-01"
 }

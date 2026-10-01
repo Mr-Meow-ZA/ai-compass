@@ -3,6 +3,35 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "google-ai-flusight-forecast-evaluation",
+    "title": "Google science-AI model tops CDC's 2025–26 flu forecast evaluation",
+    "dek": "Google says its science-AI model ranked first among 39 eligible systems in the CDC’s retrospective evaluation of forecasts for 2025–26 U.S. flu-related hospital admissions. The CDC’s FluSight program gathered weekly forecasts for admissions nationwide and by jurisdiction, up to three weeks ahead; its evaluation uses final target data published July 1, 2026. Google says its forecasts were developed using Empirical Research Assistance, which generates optimization algorithms for scientific tasks. The result is a meaningful external signal for AI-assisted forecasting, not proof that AI broadly outperforms epidemiologists or that this model is ready for operational deployment: it covers one seasonal target and one evaluation protocol. Public-health teams should inspect the CDC methodology and test performance against local operational needs before applying it.",
+    "source": "Google Research",
+    "sourceType": "Official research result based on CDC FluSight evaluation",
+    "category": "Research",
+    "format": "Daily brief",
+    "date": "2026-09-30",
+    "readTime": "5 min",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-science-ai-flu-forecasts/",
+    "contextUrl": "https://www.cdc.gov/flu-forecasting/evaluation/2025-2026-report.html",
+    "verified": "2026-10-01",
+    "visual": "research-blue"
+  },
+{
+    "id": "ai2-olmocore3-open-moe-training",
+    "title": "Ai2 releases Olmo-core 3, open infrastructure for large-scale MoE training",
+    "dek": "Ai2 has released Olmo-core 3, an open framework for training mixture-of-experts language models, with a redesigned distributed training stack and code on GitHub. Ai2 says an eight-GPU test expanded expert capacity from 4.6B to 47B parameters with less than 5% throughput loss, and a 47B run on eight NVIDIA B300s reached 52,000 tokens per second per GPU versus 19,400 in its earlier implementation. It has also benchmarked a 1.2-trillion-parameter configuration across 512 GPUs; that demonstrates systems scale, not the quality of a fully trained trillion-parameter model. The durable signal is that the training infrastructure behind large open models is becoming more inspectable and reusable. Compute requirements remain substantial, and independent reproduction is needed before treating Ai2’s speedups as general performance expectations.",
+    "source": "Ai2",
+    "sourceType": "Official open-source infrastructure announcement",
+    "category": "OpenSource",
+    "format": "Daily brief",
+    "date": "2026-10-01",
+    "readTime": "5 min",
+    "url": "https://huggingface.co/blog/allenai/olmocore3",
+    "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+{
     "id": "nvidia-vera-rubin-coreweave",
     "title": "NVIDIA brings Vera Rubin AI systems to production on CoreWeave",
     "dek": "NVIDIA and CoreWeave say Vera Rubin NVL72 systems are entering early-access availability through CoreWeave Cloud, with Cognition identified as the first customer running production workloads on the rack-scale platform. NVIDIA describes a 72-GPU, 36-CPU system; its blog says Cognition saw up to 4.8x token throughput over GB200 on sampled software-engineering tasks, a vendor/customer result rather than an independent comparison. CoreWeave will also offer NVIDIA Vera CPU, aimed at agent workloads, and has launched Forge, an environment connecting agent evaluation, sandboxed execution and post-training. The durable signal is that next-generation AI infrastructure is being packaged around the full agent lifecycle—not only model training and inference, but isolated tool use and feedback from production. Buyers should verify capacity, workload fit and independently measured costs before planning migrations.",
