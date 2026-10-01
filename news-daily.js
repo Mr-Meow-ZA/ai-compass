@@ -3,6 +3,13 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
   {
+    id:'anthropic-claude-opus-5',
+    title:'Anthropic releases Claude Opus 5 with stronger agentic performance and lower task cost',
+    dek:'Anthropic has released Claude Opus 5 across Claude, Claude Code, Claude Cowork and the API, positioning it as a more efficient model for coding, knowledge work and scientific research. The company reports state-of-the-art results on its Frontier-Bench and GDPval-AA evaluations, says Opus 5 can approach the capability of Fable 5 at half the price, and lists API pricing of $5 per million input tokens and $25 per million output tokens. Those benchmark and cost-per-task comparisons are Anthropic’s evidence, not independent confirmation. The durable change is the combination of near-frontier agentic performance with broader everyday availability, alongside narrower cyber safeguards, automatic fallbacks and a separate verification program for higher-risk defensive work.',
+    source:'Anthropic',sourceType:'Official model announcement',category:'Models',format:'Daily brief',date:'2026-10-01',readTime:'5 min',
+    url:'https://www.anthropic.com/news/claude-opus-5',verified:'2026-10-01',visual:'models-blue'
+  },
+  {
     id:'anthropic-threat-intelligence-september-2026',
     title:'Anthropic says AI-enabled cyber tradecraft is proliferating across threat actors',
     dek:'Anthropic’s September threat-intelligence report covers notable misuse it says it disrupted from December 2025 through August 2026 across cyber operations, influence, surveillance, fraud, biological misuse, conventional weapons and illicit distillation. In its cyber case set, Anthropic says a majority of operations used AI for direct execution or orchestration, including multi-agent frameworks conducting reconnaissance, exploitation and data exfiltration while humans retained decisions such as target selection and review. These are Anthropic’s observed cases rather than a prevalence estimate for all cyber activity; the durable signal is that agentic attack scaffolding is diffusing across actor classes and compressing the labor required for complex operations.',
