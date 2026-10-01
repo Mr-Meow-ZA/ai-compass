@@ -21,11 +21,23 @@ Before researching, read:
 
 Preserve the existing data structures and editorial style.
 
-## Research window
+## Research window and backlog recovery
 
-Start from the most recent `lastScan` in `news-scan-log.json` and scan through the current date/time.
+Do NOT assume that `lastScan` proves the interval was adequately covered.
 
-Normally that will be only a few hours. If the newsroom has fallen behind, perform a catch-up scan from the last recorded scan through now, up to 14 days, and prioritize the most consequential stories.
+Determine three dates:
+1. `lastScan` from the scan log.
+2. `lastSuccessfulPublish` from the scan log.
+3. the newest actual publication date present in the registered news feed/modules.
+
+For routine healthy operation, research from the last scan through now.
+
+If either `lastSuccessfulPublish` or the newest actual feed publication is more than 72 hours old, enter **catch-up mode** even when `lastScan` is today. In catch-up mode, scan from the later of:
+- 14 days ago, or
+- the day after the newest actual published news item,
+through the current time.
+
+The purpose of catch-up mode is to recover material stories that an earlier scan may have missed. A prior `no-publish` record must never permanently hide an unreviewed backlog.
 
 Search broadly enough to catch important developments, but establish factual claims from authoritative sources.
 
@@ -58,6 +70,36 @@ Primary-source channels have priority, including:
 
 Use Reuters or another strong independent source for confirmation/context when useful. Do not establish a major factual claim only from social-media speculation, reposts, aggregators, SEO blogs, or anonymous leaks.
 
+## Mandatory discovery sweep
+
+Every run must perform a deterministic source sweep before it may conclude `no-publish`.
+
+At minimum inspect recent official announcements from:
+- OpenAI
+- Anthropic
+- Google / Google DeepMind
+- Microsoft / GitHub / Azure
+- Meta
+- NVIDIA
+- Mistral
+
+Also perform a model/open-source/hardware sweep covering:
+- xAI
+- Alibaba / Qwen
+- DeepSeek
+- Hugging Face
+- AMD
+- Intel
+- Qualcomm
+- Amazon / AWS
+- major current AI-chip, robotics and local-AI vendors
+
+In catch-up mode, additionally use a reputable independent news source such as Reuters as a discovery index for the date window, then trace material candidates back to primary sources before publication.
+
+For each core source, compare announcements in the research window against existing feed IDs, URLs, titles and subjects. Do not rely on a generic web search alone.
+
+A catch-up scan covering more than 72 hours must leave a non-empty `scores` candidate record unless every relevant source was genuinely unreachable. If discovery fails or source access is too incomplete to make a credible decision, do NOT record a clean `no-publish`; fail the run so the health alert is raised instead.
+
 ## What deserves publication
 
 Publish a Daily Brief when a development materially changes capability, availability, workflow, infrastructure, market structure, safety/governance, or what serious AI users/builders should know.
@@ -84,7 +126,19 @@ Do NOT publish:
 - unsupported rankings, pricing or availability claims
 - stories where the source cannot be verified
 
-A major new model or meaningful AI hardware release should normally be published unless it is already covered.
+### Presumptive-publication events
+
+The following are publish-by-default once verified and deduplicated; rejecting one requires a specific reason in the scan log:
+- a newly released named frontier model from a major lab
+- a major new open-weight model family or material generation upgrade
+- a major model release that changes modality, context, agentic capability, coding capability, deployment economics or access
+- a major persistent/autonomous agent platform or AI operating environment
+- a new AI accelerator, inference chip, major local-AI computer/device, robotics platform or meaningful hardware architecture
+- a major acquisition or platform shift that materially changes the AI ecosystem
+
+Do not suppress a real model or hardware launch merely because its benchmark gains are vendor-reported. Publish the verified release facts and clearly label benchmark claims as vendor evidence.
+
+For ordinary catch-up runs, publish all qualifying major stories needed to restore coverage; do not impose the normal 1-5 target as a hard cap.
 
 ## Editorial quality
 
@@ -136,7 +190,9 @@ Set:
 - `notes` to a concise factual explanation of what was checked, what was published or rejected, and why
 - `nextScanDue` to today's date; the external scheduler determines the actual next run
 
-If there is no qualifying news, do not invent an article. Record `no-publish`.
+If there is no qualifying news, do not invent an article. Record `no-publish` only after the mandatory source sweep is complete.
+
+For a `no-publish` result, `notes` must name the core sources checked and summarize the strongest candidates rejected. In catch-up mode, an empty `scores` object is invalid.
 
 ## Final validation
 
