@@ -48,7 +48,7 @@ async function capture(src){
     if(!res.ok) throw new Error('HTTP '+res.status);
     const html=await res.text();
     record.ok=true;
-    record.pageText=plain(html).slice(0,60000);
+    record.pageText=plain(html).slice(0,12000);
     const seen=new Set();
     const re=/<a\b[^>]*href\s*=\s*(["'])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi;
     for(const m of html.matchAll(re)){
@@ -61,9 +61,11 @@ async function capture(src){
       if(seen.has(key)) continue;
       seen.add(key);
       const start=Math.max(0,m.index-400),end=Math.min(html.length,m.index+m[0].length+1400);
-      const context=plain(html.slice(start,end)).slice(0,1800);
-      record.links.push({title,url:href,dateHints:dateHints(context),context});
-      if(record.links.length>=180) break;
+      const context=plain(html.slice(start,end)).slice(0,650);
+      const hints=dateHints(context);
+      const candidate=/introduc|launch|release|announc|model|agent|copilot|gpt|claude|gemini|grok|qwen|deepseek|llama|mistral|chip|accelerator|inference|robot|research|acqui|partnership|safety|security/i.test(title+' '+context);
+      if(hints.length||candidate) record.links.push({title,url:href,dateHints:hints,context});
+      if(record.links.length>=90) break;
     }
   }catch(err){
     record.error=String(err?.message||err);
