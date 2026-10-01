@@ -18,6 +18,9 @@ Before researching, read:
 - `content/editorial/news-scan-log.json`
 - `news-daily.js`
 - `content/maintained/news-intelligence.json`
+- `.newsroom/source-sweep.json` — this is generated immediately before you run by directly fetching the maintained official source indexes
+
+Treat the source sweep as your mandatory discovery inventory. It is not a substitute for opening a candidate's canonical page, but you must evaluate material dated announcements it exposes rather than relying only on free-form search.
 
 Preserve the existing data structures and editorial style.
 
@@ -146,6 +149,9 @@ For each published item:
 - use the canonical primary source as `url` whenever possible
 - use `contextUrl` only for useful independent context
 - use the actual announcement/publication date
+- NEVER use the newsroom run date as the article date unless the canonical source itself is explicitly dated that day
+- open the canonical source and confirm its displayed publication date before writing the item
+- record that same date as `sourceDate` in the candidate score for every published item; it must equal the item's `date`
 - set `verified` to today's date
 - use `format: 'Daily brief'`
 - write a concise but substantive `dek`, typically about 90–170 words
@@ -193,6 +199,13 @@ Set:
 If there is no qualifying news, do not invent an article. Record `no-publish` only after the mandatory source sweep is complete.
 
 For a `no-publish` result, `notes` must name the core sources checked and summarize the strongest candidates rejected. In catch-up mode, an empty `scores` object is invalid.
+
+Before concluding the sweep, inspect `.newsroom/source-sweep.json` again. If it contains an official dated announcement inside the research window with a title indicating a new named model, major agent, Copilot/platform release, AI accelerator/chip, or other presumptive-publication event, that announcement must either:
+- already exist in the feed,
+- be published in this run, or
+- appear in `scores` with a specific documented rejection reason.
+
+The surrounding workflow independently fetches every canonical URL in `publishedIds` and checks that the claimed publication date is evidenced on the source page. A fabricated or misclassified date will fail the run.
 
 ## Final validation
 
