@@ -2,44 +2,272 @@
   "schemaVersion": 1,
   "readerLanguage": "English",
   "dailyTarget": {
-    "briefs": "1-3 when warranted",
+    "briefs": "1-5 when warranted; catch-up runs may publish more when several major developments were missed",
     "deepAnalysis": "0-1 when a development needs durable explanation",
     "noPublishAllowed": true
   },
   "signalTiers": [
-    {"id":"must-know","label":"Must know","minimumScore":16},
-    {"id":"worth-knowing","label":"Worth knowing","minimumScore":11},
-    {"id":"watch","label":"Watch","minimumScore":7},
-    {"id":"skip","label":"Skip","minimumScore":0}
+    {
+      "id": "must-know",
+      "label": "Must know",
+      "minimumScore": 16
+    },
+    {
+      "id": "worth-knowing",
+      "label": "Worth knowing",
+      "minimumScore": 11
+    },
+    {
+      "id": "watch",
+      "label": "Watch",
+      "minimumScore": 7
+    },
+    {
+      "id": "skip",
+      "label": "Skip",
+      "minimumScore": 0
+    }
   ],
   "scoringDimensions": [
-    {"id":"impact","max":5,"question":"Could this materially change what readers can do, buy, build, deploy or govern?"},
-    {"id":"readerValue","max":5,"question":"Is there a useful decision, action or learning outcome for AI Compass readers?"},
-    {"id":"novelty","max":4,"question":"Is this meaningfully new rather than a minor extension or repeat announcement?"},
-    {"id":"evidence","max":4,"question":"Is the claim supported by a primary source, paper, standard or maintainer-owned repository?"},
-    {"id":"durability","max":2,"question":"Will this still matter after the launch-day cycle?"}
+    {
+      "id": "impact",
+      "max": 5,
+      "question": "Could this materially change what readers can do, buy, build, deploy or govern?"
+    },
+    {
+      "id": "readerValue",
+      "max": 5,
+      "question": "Is there a useful decision, action or learning outcome for AI Compass readers?"
+    },
+    {
+      "id": "novelty",
+      "max": 4,
+      "question": "Is this meaningfully new rather than a minor extension or repeat announcement?"
+    },
+    {
+      "id": "evidence",
+      "max": 4,
+      "question": "Is the claim supported by a primary source, paper, standard or maintainer-owned repository?"
+    },
+    {
+      "id": "durability",
+      "max": 2,
+      "question": "Will this still matter after the launch-day cycle?"
+    }
   ],
   "primarySources": [
-    {"name":"OpenAI","url":"https://openai.com/news/","topics":["models","products","agents","enterprise","safety","infrastructure"]},
-    {"name":"Anthropic","url":"https://www.anthropic.com/news","topics":["models","agents","enterprise","safety","research"]},
-    {"name":"Google DeepMind","url":"https://deepmind.google/blog/","topics":["models","research","science","robotics"]},
-    {"name":"Google AI","url":"https://blog.google/innovation-and-ai/","topics":["models","products","developers"]},
-    {"name":"Microsoft AI","url":"https://blogs.microsoft.com/ai/","topics":["enterprise","copilot","infrastructure","responsible-ai"]},
-    {"name":"Meta AI","url":"https://ai.meta.com/blog/","topics":["open-models","research","multimodal"]},
-    {"name":"NVIDIA","url":"https://blogs.nvidia.com/blog/category/deep-learning/","topics":["hardware","inference","developer-tools"]},
-    {"name":"Hugging Face","url":"https://huggingface.co/blog","topics":["open-source","models","agents","developer-tools"]},
-    {"name":"Mistral AI","url":"https://mistral.ai/news","topics":["models","enterprise","open-models"]}
+    {
+      "name": "OpenAI",
+      "url": "https://openai.com/news/",
+      "topics": [
+        "models",
+        "products",
+        "agents",
+        "enterprise",
+        "safety",
+        "infrastructure"
+      ]
+    },
+    {
+      "name": "Anthropic",
+      "url": "https://www.anthropic.com/news",
+      "topics": [
+        "models",
+        "agents",
+        "enterprise",
+        "safety",
+        "research"
+      ]
+    },
+    {
+      "name": "Google DeepMind",
+      "url": "https://deepmind.google/blog/",
+      "topics": [
+        "models",
+        "research",
+        "science",
+        "robotics"
+      ]
+    },
+    {
+      "name": "Google AI",
+      "url": "https://blog.google/innovation-and-ai/",
+      "topics": [
+        "models",
+        "products",
+        "developers"
+      ]
+    },
+    {
+      "name": "Microsoft AI",
+      "url": "https://blogs.microsoft.com/ai/",
+      "topics": [
+        "enterprise",
+        "copilot",
+        "infrastructure",
+        "responsible-ai"
+      ]
+    },
+    {
+      "name": "Meta AI",
+      "url": "https://ai.meta.com/blog/",
+      "topics": [
+        "open-models",
+        "research",
+        "multimodal"
+      ]
+    },
+    {
+      "name": "NVIDIA",
+      "url": "https://blogs.nvidia.com/blog/category/deep-learning/",
+      "topics": [
+        "hardware",
+        "inference",
+        "developer-tools"
+      ]
+    },
+    {
+      "name": "Hugging Face",
+      "url": "https://huggingface.co/blog",
+      "topics": [
+        "open-source",
+        "models",
+        "agents",
+        "developer-tools"
+      ]
+    },
+    {
+      "name": "Mistral AI",
+      "url": "https://mistral.ai/news",
+      "topics": [
+        "models",
+        "enterprise",
+        "open-models"
+      ]
+    },
+    {
+      "name": "AMD",
+      "url": "https://www.amd.com/en/newsroom.html",
+      "topics": [
+        "hardware",
+        "accelerators",
+        "inference",
+        "enterprise"
+      ]
+    },
+    {
+      "name": "Intel",
+      "url": "https://newsroom.intel.com/artificial-intelligence",
+      "topics": [
+        "hardware",
+        "accelerators",
+        "edge-ai"
+      ]
+    },
+    {
+      "name": "Qualcomm",
+      "url": "https://www.qualcomm.com/news",
+      "topics": [
+        "edge-ai",
+        "hardware",
+        "devices"
+      ]
+    },
+    {
+      "name": "Amazon AWS",
+      "url": "https://aws.amazon.com/blogs/machine-learning/",
+      "topics": [
+        "models",
+        "agents",
+        "enterprise",
+        "infrastructure"
+      ]
+    },
+    {
+      "name": "Apple Machine Learning Research",
+      "url": "https://machinelearning.apple.com/",
+      "topics": [
+        "models",
+        "research",
+        "on-device-ai"
+      ]
+    },
+    {
+      "name": "xAI",
+      "url": "https://x.ai/news",
+      "topics": [
+        "models",
+        "products",
+        "infrastructure"
+      ]
+    },
+    {
+      "name": "Alibaba Qwen",
+      "url": "https://qwenlm.github.io/",
+      "topics": [
+        "models",
+        "open-models",
+        "agents"
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/news/",
+      "topics": [
+        "models",
+        "developer-tools",
+        "open-models"
+      ]
+    },
+    {
+      "name": "Tencent",
+      "url": "https://www.tencent.com/en-us/articles/2201935.html",
+      "topics": [
+        "models",
+        "research",
+        "infrastructure"
+      ]
+    },
+    {
+      "name": "Cerebras",
+      "url": "https://www.cerebras.ai/blog",
+      "topics": [
+        "hardware",
+        "inference",
+        "models"
+      ]
+    },
+    {
+      "name": "Groq",
+      "url": "https://groq.com/newsroom",
+      "topics": [
+        "hardware",
+        "inference",
+        "infrastructure"
+      ]
+    }
   ],
   "secondarySources": [
-    {"name":"Reuters","purpose":"Independent confirmation, commercial context and policy reporting"},
-    {"name":"Notebookcheck","purpose":"Hardware context and reader-friendly English reporting when primary sources are inaccessible or non-English"},
-    {"name":"The Verge","purpose":"Product context and independent reporting where primary sources need interpretation"}
+    {
+      "name": "Reuters",
+      "purpose": "Independent confirmation, commercial context and policy reporting"
+    },
+    {
+      "name": "Notebookcheck",
+      "purpose": "Hardware context and reader-friendly English reporting when primary sources are inaccessible or non-English"
+    },
+    {
+      "name": "The Verge",
+      "purpose": "Product context and independent reporting where primary sources need interpretation"
+    }
   ],
   "publishingRules": [
     "Prefer an English reader-facing link. Retain non-English primary sources in Sources and verification when they are the underlying evidence.",
     "Daily Briefs may be concise but must include what changed, why it matters, verification date, source quality, status and next move.",
     "Deep Analysis is reserved for developments that benefit from durable explanation, claim checking or practical comparison.",
     "Do not publish rumours, unsupported benchmark comparisons, unverified pricing or launch-day availability claims that the source does not support.",
-    "A day with no published item is acceptable only when the scan log records that the editorial scan completed and nothing cleared the threshold."
+    "A day with no published item is acceptable only when the scan log records that the editorial scan completed and nothing cleared the threshold.",
+    "A newly released named frontier model, major open model, major agent platform, or meaningful AI accelerator/hardware launch is presumptively publishable when verified from a primary source and not already covered.",
+    "A no-publish decision after more than 72 hours without a successful publication requires an explicit catch-up sweep of the major source registry and a non-empty candidate evaluation record."
   ]
 }
