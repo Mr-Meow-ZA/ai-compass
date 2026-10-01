@@ -3,6 +3,49 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "google-gemini-4-argon",
+    "title": "Google releases Gemini 4 Argon for long-horizon coding and enterprise work",
+    "dek": "Google has released Gemini 4 Argon, a frontier model designed for long, multi-step coding, reasoning and multimodal enterprise workflows. Google says Argon reaches 77.9% on DeepSWE v1.1 and leads several finance, legal and end-to-end automation evaluations; those benchmark results are Google-reported evidence and need independent reproduction. The release is nevertheless material because the model is positioned for sustained software engineering, visual document and chart analysis, long-video understanding and action across professional workflows rather than only short conversational tasks. The durable signal is the continued shift from chat-oriented model selection toward models evaluated on complete, multi-step work where planning, tool use, context management and reliable execution determine the useful outcome.",
+    "source": "Google DeepMind",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-09-30",
+    "readTime": "5 min",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+  {
+    "id": "google-synthid-bio",
+    "title": "Google DeepMind introduces SynthID Bio to watermark AI-designed biological sequences",
+    "dek": "Google DeepMind has introduced SynthID Bio, a watermarking system that embeds an imperceptible, verifiable signal into AI-designed protein sequences and predicted 3D structures while aiming to preserve their biological function. Google presents it as a provenance layer for DNA-synthesis screening and scientific databases, where an unfamiliar AI-generated design may not resemble known biological hazards. The company says laboratory tests preserved target-protein performance and that it is publishing methods, code, in-vitro data and research weights; those validation results remain developer-led evidence, and deliberate tampering is an acknowledged open challenge. The durable signal is that provenance is moving beyond media files into synthetic biology, where traceability can help separate trusted model outputs from designs requiring deeper biosecurity review.",
+    "source": "Google DeepMind",
+    "sourceType": "Official research and safety announcement",
+    "category": "Safety",
+    "format": "Daily brief",
+    "date": "2026-09-30",
+    "readTime": "5 min",
+    "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+    "contextUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-bio/",
+    "verified": "2026-10-01",
+    "visual": "enterprise-blue"
+  },
+  {
+    "id": "anthropic-novel-enzyme-system",
+    "title": "Anthropic says Claude helped identify a novel enzyme system with CRISPR-like repeats",
+    "dek": "Anthropic says a group of Claude agents searched more than 200,000 reverse transcriptases, narrowed 3,500 candidate systems to 20, and helped its scientists identify a previously uncharacterized enzyme system in bacteriophages. The system, which Anthropic calls array-associated reverse transcriptases, combines a reverse transcriptase, a partner gene and an array of repeated DNA sequences that resembles a CRISPR array; early experiments found the array is expressed as distinct short RNAs, but its function is not yet known. Anthropic’s account is based on a company-led workflow and an early preprint, not a completed biological application. The durable signal is a concrete example of agents narrowing a large biological search space to a testable discovery that human scientists then validate in the lab.",
+    "source": "Anthropic",
+    "sourceType": "Official research announcement",
+    "category": "Research",
+    "format": "Daily brief",
+    "date": "2026-09-23",
+    "readTime": "5 min",
+    "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+    "verified": "2026-10-01",
+    "visual": "research-blue"
+  },
+{
     "id": "openai-dots-always-on-agents",
     "title": "OpenAI launches Dots as always-on agents with their own cloud computers",
     "dek": "OpenAI has launched Dots, persistent agents powered by GPT-6 Astra that can keep working toward goals without waiting for a new prompt. Each dot has its own cloud computer, can use a browser, learns from feedback over time, and can connect through OpenAI plugins to more than 4,000 apps. Dots are beginning to roll out to Pro and Business Premium users in eligible markets, with Enterprise, Edu and Healthcare beta access controlled by workspace admins. The durable signal is the move from session-based assistants toward long-running personal and enterprise agents with identity, memory, compute, app permissions and continuous responsibilities as first-class product features.",

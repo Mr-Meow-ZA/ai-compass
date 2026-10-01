@@ -2,17 +2,66 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-01",
   "lastSuccessfulPublish": "2026-10-01",
-  "scanWindow": "Corrective catch-up covering major verified AI developments from 2026-09-17 through 2026-10-01, using primary-source publication dates.",
+  "scanWindow": "Routine scan covering 2026-09-29 through 2026-10-01, using primary-source publication dates.",
   "result": "publish",
   "publishedIds": [
-    "openai-dots-always-on-agents",
-    "openai-gpt-6-1-sol",
-    "anthropic-claude-sonnet-5-5",
-    "microsoft-copilot-autopilot",
-    "anthropic-claude-opus-5-5",
-    "openai-gpt-6-sol-luna"
+    "google-gemini-4-argon",
+    "google-synthid-bio",
+    "anthropic-novel-enzyme-system"
   ],
   "scores": {
+    "google-gemini-4-argon": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "publish",
+      "sourceDate": "2026-09-30"
+    },
+    "google-synthid-bio": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "publish",
+      "sourceDate": "2026-09-30"
+    },
+    "anthropic-novel-enzyme-system": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "publish",
+      "sourceDate": "2026-09-23"
+    },
+    "huggingface-open-tts-leaderboard": {
+      "impact": 3,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 1,
+      "total": 15,
+      "decision": "reject",
+      "sourceDate": "2026-09-30",
+      "reason": "Useful evaluation infrastructure, but not a major model, capability or ecosystem shift for a Daily Brief."
+    },
+    "anthropic-accenture-embedded-evaluation": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 2,
+      "total": 17,
+      "decision": "reject",
+      "sourceDate": "2026-09-18",
+      "reason": "Important evaluation-governance direction, but the partnership’s operating standards and public outputs are not yet established enough for a separate brief."
+    },
     "openai-gpt-6-sol-luna": {
       "impact": 5,
       "readerValue": 5,
@@ -74,6 +123,6 @@
       "sourceDate": "2026-09-29"
     }
   },
-  "notes": "Corrective catch-up after detecting a date-classification error in the autonomous run. Removed the incorrectly dated Claude Opus 5 catch-up item (the canonical source is dated 2026-07-24) and published six material, primary-source-verified developments from the actual catch-up window: GPT-6 Sol/Luna, Claude Opus 5.5, Microsoft Copilot Autopilot, Claude Sonnet 5.5, GPT-6.1 Sol and OpenAI Dots. Publication dates are taken from canonical source pages rather than the newsroom run date.",
+  "notes": "Completed the required official-source sweep across OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA, Mistral, xAI, Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, AWS and other hardware/model sources; OpenAI and xAI returned access blocks and AMD was unavailable in the snapshot, while the remaining accessible sources were checked for new material. Published Gemini 4 Argon, SynthID Bio and Anthropic’s novel enzyme-system discovery after canonical-source verification. Rejected Hugging Face’s Open TTS leaderboard as useful but not a major ecosystem change, and deferred Anthropic’s embedded-evaluation partnership pending concrete operating standards or outputs. Reuters discovery was not required because this was a routine, healthy scan.",
   "nextScanDue": "2026-10-01"
 }

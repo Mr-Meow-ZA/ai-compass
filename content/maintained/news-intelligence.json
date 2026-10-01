@@ -40,6 +40,33 @@
     }
   },
   "explicit": {
+    "google-gemini-4-argon": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Model release / enterprise-focused frontier model",
+      "why": "Argon is positioned around sustained coding, reasoning and multimodal enterprise work rather than short conversational answers. Google’s benchmark results remain vendor evidence, but the release reflects a durable shift toward evaluating models on complete long-horizon workflows where planning, context management, tool use and execution reliability determine practical value.",
+      "audience": "AI builders, software teams, enterprise architects, model buyers and organizations evaluating long-horizon agents",
+      "action": "Benchmark Argon on complete representative workflows, including tool use, context retention, failure recovery and human review, rather than relying on launch benchmarks or isolated prompts.",
+      "related": "build-and-test-agentic-ai-at-work"
+    },
+    "google-synthid-bio": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Research release / provenance and biosecurity tooling",
+      "why": "SynthID Bio extends AI-output provenance into synthetic biology, where identifying AI-designed sequences can support synthesis screening and the integrity of open biological databases. Google’s laboratory validation and robustness claims remain developer-led evidence, but publishing methods, code, data and weights makes the approach testable and relevant to biosecurity governance.",
+      "audience": "Biosecurity teams, synthetic-biology researchers, DNA-synthesis providers, AI safety practitioners and policy teams",
+      "action": "Treat watermarking as one layer in a defence-in-depth provenance process. Track robustness to tampering, interoperability with synthesis screening and whether independent labs reproduce the reported functional preservation.",
+      "related": "content-provenance-c2pa"
+    },
+    "anthropic-novel-enzyme-system": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Early biological discovery / preprint and laboratory validation",
+      "why": "Anthropic reports a concrete agent-assisted discovery workflow in which Claude searched a large sequence space, identified a candidate with CRISPR-like repeat architecture and helped scientists validate it experimentally. The enzyme’s function is not yet known and the evidence is company-led, but the result is more substantive than a benchmark: agents narrowed an open-ended biological search to a novel, testable system.",
+      "audience": "Researchers, life-sciences teams, AI builders, science leaders and people tracking agentic research",
+      "action": "Read the preprint for scope and limitations, and distinguish candidate discovery from functional understanding. For similar workflows, require human experimental validation, provenance of hypotheses and biosafety review before acting on model-generated biology.",
+      "related": "research-with-ai-and-verify-sources"
+    },
     "openai-chatgpt-financial-services": {
       "importance": 3,
       "signal": "Worth knowing",
