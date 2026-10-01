@@ -1,0 +1,108 @@
+name: AI Compass Autonomous Newsroom
+
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+      timezone: 'Africa/Johannesburg'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/newsroom.yml'
+      - '.github/newsroom-agent.md'
+
+permissions:
+  contents: write
+  issues: write
+  copilot-requests: write
+
+concurrency:
+  group: ai-compass-newsroom
+  cancel-in-progress: false
+
+jobs:
+  newsroom:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout AI Compass
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install GitHub Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Scan and publish material AI news
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TZ: Africa/Johannesburg
+        run: |
+          NOW="$(date '+%Y-%m-%d %H:%M:%S %Z')"
+          {
+            printf 'Current newsroom run time: %s\n\n' "$NOW"
+            cat .github/newsroom-agent.md
+          } > /tmp/newsroom-prompt.md
+
+          copilot -p "$(cat /tmp/newsroom-prompt.md)" \
+            -s \
+            --allow-tool='write,shell(npm:*)' \
+            --allow-all-urls \
+            --no-ask-user \
+            | tee /tmp/newsroom-agent-output.txt
+
+      - name: Enforce newsroom edit boundary
+        run: |
+          allowed='^(news-daily\.js|content/maintained/news-intelligence\.json|content/editorial/news-scan-log\.json)$'
+          unexpected="$(git diff --name-only | grep -Ev "$allowed" || true)"
+          if [ -n "$unexpected" ]; then
+            echo "Newsroom agent modified files outside its allowed boundary:"
+            echo "$unexpected"
+            exit 1
+          fi
+
+      - name: Validate AI Compass
+        run: npm run check
+
+      - name: Commit newsroom changes
+        env:
+          TZ: Africa/Johannesburg
+        run: |
+          git add news-daily.js content/maintained/news-intelligence.json content/editorial/news-scan-log.json
+          if git diff --cached --quiet; then
+            echo "No repository changes required for this scan."
+            exit 0
+          fi
+          git config user.name "AI Compass Newsroom"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "newsroom: automated AI scan $(date '+%Y-%m-%d %H:%M SAST')"
+          git push origin HEAD:main
+
+      - name: Close stale newsroom alert after success
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          issue="$(gh issue list --state open --search '"AI Compass newsroom automation unhealthy" in:title' --json number --jq '.[0].number // empty')"
+          if [ -n "$issue" ]; then
+            gh issue close "$issue" --comment "The autonomous newsroom completed successfully again."
+          fi
+
+      - name: Raise newsroom alert on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          issue="$(gh issue list --state open --search '"AI Compass newsroom automation unhealthy" in:title' --json number --jq '.[0].number // empty')"
+          run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          body="The autonomous AI Compass newsroom failed on $(date -u '+%Y-%m-%d %H:%M UTC').\n\nRun: $run_url\n\nUntil this is resolved, the News section may become stale."
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body "$body"
+          else
+            gh issue create --title "AI Compass newsroom automation unhealthy" --body "$body"
+          fi
