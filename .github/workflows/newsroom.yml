@@ -36,6 +36,9 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Capture official source indexes
+        run: node scripts/newsroom-source-sweep.mjs
+
       - name: Install GitHub Copilot CLI
         run: npm install -g @github/copilot
 
@@ -66,6 +69,9 @@ jobs:
             echo "$unexpected"
             exit 1
           fi
+
+      - name: Verify canonical publication dates
+        run: node scripts/validate-newsroom-source-dates.mjs
 
       - name: Validate AI Compass
         run: npm run check
