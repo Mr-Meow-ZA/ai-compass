@@ -40,6 +40,23 @@
     }
   },
   "explicit": {
+    "nvidia-vera-rubin-coreweave": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Production deployment / early-access availability",
+      "why": "Vera Rubin's arrival on CoreWeave Cloud moves NVIDIA's next-generation rack-scale platform into customer workloads and pairs it with a CPU, isolated agent execution and a post-training environment. NVIDIA and Cognition's throughput results remain vendor/customer evidence, but the infrastructure availability and production deployment are the material change.",
+      "audience": "AI infrastructure teams, model builders, cloud buyers, agent developers and enterprise architects",
+      "action": "Check actual regional capacity, workload compatibility, isolation controls and total cost. Reproduce throughput and latency comparisons on representative workloads before planning a hardware migration.",
+      "related": "design-an-enterprise-ai-architecture"
+    },
+    "nvidia-kumo-tabular": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Open model release",
+      "why": "Kumo Tabular brings pretrained in-context learning to common structured-data classification and regression tasks, potentially reducing per-dataset training and feature-engineering work. The model weights and inference code are available, while NVIDIA's benchmark leadership claims still need independent testing.",
+      "audience": "Data scientists, ML engineers, analytics teams and builders evaluating alternatives for structured-data prediction",
+      "action": "Compare it with current baselines on representative datasets, measuring accuracy, calibration, latency, memory and behavior with missing or high-cardinality values; review the OpenMDW 1.1 model license before adoption."
+    },
     "google-gemini-4-argon": {
       "importance": 5,
       "signal": "Must know",

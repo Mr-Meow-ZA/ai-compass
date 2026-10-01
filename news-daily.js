@@ -3,6 +3,34 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "nvidia-vera-rubin-coreweave",
+    "title": "NVIDIA brings Vera Rubin AI systems to production on CoreWeave",
+    "dek": "NVIDIA and CoreWeave say Vera Rubin NVL72 systems are entering early-access availability through CoreWeave Cloud, with Cognition identified as the first customer running production workloads on the rack-scale platform. NVIDIA describes a 72-GPU, 36-CPU system; its blog says Cognition saw up to 4.8x token throughput over GB200 on sampled software-engineering tasks, a vendor/customer result rather than an independent comparison. CoreWeave will also offer NVIDIA Vera CPU, aimed at agent workloads, and has launched Forge, an environment connecting agent evaluation, sandboxed execution and post-training. The durable signal is that next-generation AI infrastructure is being packaged around the full agent lifecycle—not only model training and inference, but isolated tool use and feedback from production. Buyers should verify capacity, workload fit and independently measured costs before planning migrations.",
+    "source": "NVIDIA",
+    "sourceType": "Official infrastructure and product announcement",
+    "category": "Products",
+    "format": "Daily brief",
+    "date": "2026-09-30",
+    "readTime": "5 min",
+    "url": "https://blogs.nvidia.com/blog/coreweave-agentic-ai-vera-rubin/",
+    "verified": "2026-10-01",
+    "visual": "hardware-blue"
+  },
+  {
+    "id": "nvidia-kumo-tabular",
+    "title": "NVIDIA releases Kumo Tabular, an open foundation model for structured data",
+    "dek": "NVIDIA has released Kumo Tabular, an open foundation model for tabular classification and regression that predicts labels from labeled rows without task-specific training, tuning or feature engineering. The collection spans 28M–215M parameters; NVIDIA has published weights, an inference library and a commercial-use OpenMDW 1.1 license. NVIDIA reports leading results across four tabular benchmarks, but those are vendor-reported comparisons, not independent evidence. The practical shift is applying in-context learning to structured business data, where teams have traditionally trained or tuned a separate model for each dataset. This does not make gradient-boosted trees obsolete: builders should compare quality, latency and memory on representative tables, and check license terms plus limits on data size and missing values before considering a production change.",
+    "source": "NVIDIA",
+    "sourceType": "Official model announcement on Hugging Face",
+    "category": "OpenSource",
+    "format": "Daily brief",
+    "date": "2026-09-29",
+    "readTime": "5 min",
+    "url": "https://huggingface.co/blog/nvidia/kumo-tabular",
+    "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+{
     "id": "google-gemini-4-argon",
     "title": "Google releases Gemini 4 Argon for long-horizon coding and enterprise work",
     "dek": "Google has released Gemini 4 Argon, a frontier model designed for long, multi-step coding, reasoning and multimodal enterprise workflows. Google says Argon reaches 77.9% on DeepSWE v1.1 and leads several finance, legal and end-to-end automation evaluations; those benchmark results are Google-reported evidence and need independent reproduction. The release is nevertheless material because the model is positioned for sustained software engineering, visual document and chart analysis, long-video understanding and action across professional workflows rather than only short conversational tasks. The durable signal is the continued shift from chat-oriented model selection toward models evaluated on complete, multi-step work where planning, tool use, context management and reliable execution determine the useful outcome.",

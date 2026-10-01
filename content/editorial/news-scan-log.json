@@ -5,12 +5,11 @@
   "scanWindow": "Routine scan covering 2026-09-29 through 2026-10-01, using primary-source publication dates.",
   "result": "publish",
   "publishedIds": [
-    "google-gemini-4-argon",
-    "google-synthid-bio",
-    "anthropic-novel-enzyme-system"
+    "nvidia-vera-rubin-coreweave",
+    "nvidia-kumo-tabular"
   ],
   "scores": {
-    "google-gemini-4-argon": {
+    "nvidia-vera-rubin-coreweave": {
       "impact": 5,
       "readerValue": 5,
       "novelty": 4,
@@ -19,6 +18,27 @@
       "total": 20,
       "decision": "publish",
       "sourceDate": "2026-09-30"
+    },
+    "nvidia-kumo-tabular": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 18,
+      "decision": "publish",
+      "sourceDate": "2026-09-29"
+    },
+    "google-gemini-4-argon": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "already-published",
+      "sourceDate": "2026-09-30",
+      "reason": "The same announcement is already covered by this feed ID and canonical URL."
     },
     "google-synthid-bio": {
       "impact": 5,
@@ -27,18 +47,9 @@
       "evidence": 4,
       "durability": 2,
       "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-30"
-    },
-    "anthropic-novel-enzyme-system": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-23"
+      "decision": "already-published",
+      "sourceDate": "2026-09-30",
+      "reason": "The same announcement is already covered by this feed ID and canonical URL."
     },
     "huggingface-open-tts-leaderboard": {
       "impact": 3,
@@ -51,78 +62,29 @@
       "sourceDate": "2026-09-30",
       "reason": "Useful evaluation infrastructure, but not a major model, capability or ecosystem shift for a Daily Brief."
     },
-    "anthropic-accenture-embedded-evaluation": {
-      "impact": 4,
-      "readerValue": 4,
+    "apple-llm-conditioning-study": {
+      "impact": 3,
+      "readerValue": 3,
       "novelty": 3,
       "evidence": 4,
-      "durability": 2,
-      "total": 17,
+      "durability": 1,
+      "total": 14,
       "decision": "reject",
-      "sourceDate": "2026-09-18",
-      "reason": "Important evaluation-governance direction, but the partnership’s operating standards and public outputs are not yet established enough for a separate brief."
+      "sourceDate": "2026-09-30",
+      "reason": "A useful methodological paper on conditioning and fluency trade-offs, but it does not materially change AI capability, availability or common workflows."
     },
-    "openai-gpt-6-sol-luna": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-22"
-    },
-    "anthropic-claude-opus-5-5": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-22"
-    },
-    "microsoft-copilot-autopilot": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-25"
-    },
-    "anthropic-claude-sonnet-5-5": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-28"
-    },
-    "openai-gpt-6-1-sol": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-29"
-    },
-    "openai-dots-always-on-agents": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-09-29"
+    "huggingface-provenanceguard-mcp-agents": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 3,
+      "evidence": 3,
+      "durability": 1,
+      "total": 13,
+      "decision": "reject",
+      "sourceDate": "2026-09-29",
+      "reason": "The post describes a narrow verification method for MCP agents and links to an earlier paper; it is not a major capability or platform change."
     }
   },
-  "notes": "Completed the required official-source sweep across OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA, Mistral, xAI, Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, AWS and other hardware/model sources; OpenAI and xAI returned access blocks and AMD was unavailable in the snapshot, while the remaining accessible sources were checked for new material. Published Gemini 4 Argon, SynthID Bio and Anthropic’s novel enzyme-system discovery after canonical-source verification. Rejected Hugging Face’s Open TTS leaderboard as useful but not a major ecosystem change, and deferred Anthropic’s embedded-evaluation partnership pending concrete operating standards or outputs. Reuters discovery was not required because this was a routine, healthy scan.",
+  "notes": "Completed the official source-sweep review across OpenAI, Anthropic, Google/DeepMind, Microsoft, Meta, NVIDIA, Mistral, Hugging Face, AMD, Intel, Qualcomm, AWS, Apple, xAI, Qwen, DeepSeek, Tencent, Cerebras and Groq. OpenAI and xAI returned HTTP 403; AMD's fetch was aborted and Tencent returned HTTP 404. Published NVIDIA's Vera Rubin/CoreWeave production deployment and Kumo Tabular open model after canonical-source verification; Gemini 4 Argon and SynthID Bio were already covered in the feed. Rejected the Open TTS leaderboard as evaluation infrastructure rather than an ecosystem shift, Apple's conditioning paper as useful but not a material capability change, and ProvenanceGuard as a narrow method linked to an earlier paper. The NVIDIA graduate-fellowship notice was not an AI product or capability development. Reuters discovery was not required for this routine scan.",
   "nextScanDue": "2026-10-01"
 }
