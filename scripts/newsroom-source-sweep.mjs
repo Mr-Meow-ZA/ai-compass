@@ -28,18 +28,21 @@ const dateHints=text=>{
   return found.slice(0,8);
 };
 
-const sources=[];
-for(const src of ops.primarySources||[]){
+async function capture(src){
   const record={name:src.name,url:src.url,topics:src.topics||[],ok:false,status:null,finalUrl:null,error:null,links:[],pageText:''};
   try{
     const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),15000);
-    const res=await fetch(src.url,{
-      redirect:'follow',
-      signal:controller.signal,
-      headers:{'user-agent':'AI-Compass-Newsroom/1.0 (+https://ai-compass-hub.vercel.app)','accept':'text/html,application/xhtml+xml'}
-    });
-    clearTimeout(timer);
+    const timer=setTimeout(()=>controller.abort(),12000);
+    let res;
+    try{
+      res=await fetch(src.url,{
+        redirect:'follow',
+        signal:controller.signal,
+        headers:{'user-agent':'AI-Compass-Newsroom/1.0 (+https://ai-compass-hub.vercel.app)','accept':'text/html,application/xhtml+xml'}
+      });
+    } finally {
+      clearTimeout(timer);
+    }
     record.status=res.status;
     record.finalUrl=res.url;
     if(!res.ok) throw new Error('HTTP '+res.status);
@@ -50,14 +53,14 @@ for(const src of ops.primarySources||[]){
     const re=/<a\b[^>]*href\s*=\s*(["'])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi;
     for(const m of html.matchAll(re)){
       let href=m[2];
-      let title=plain(m[3]);
+      const title=plain(m[3]);
       if(!title||title.length<3||title.length>300) continue;
       try{href=new URL(href,res.url).href}catch{continue}
       if(!/^https?:\/\//.test(href)) continue;
       const key=title+'|'+href;
       if(seen.has(key)) continue;
       seen.add(key);
-      const start=Math.max(0,m.index-400), end=Math.min(html.length,m.index+m[0].length+1400);
+      const start=Math.max(0,m.index-400),end=Math.min(html.length,m.index+m[0].length+1400);
       const context=plain(html.slice(start,end)).slice(0,1800);
       record.links.push({title,url:href,dateHints:dateHints(context),context});
       if(record.links.length>=180) break;
@@ -65,8 +68,10 @@ for(const src of ops.primarySources||[]){
   }catch(err){
     record.error=String(err?.message||err);
   }
-  sources.push(record);
+  return record;
 }
+
+const sources=await Promise.all((ops.primarySources||[]).map(capture));
 const payload={
   generatedAt:new Date().toISOString(),
   purpose:'Deterministic official-source snapshot for the AI Compass autonomous newsroom. Use it for discovery, then open canonical source pages for verification.',
