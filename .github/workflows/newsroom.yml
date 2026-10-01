@@ -81,6 +81,7 @@ jobs:
           git config user.name "AI Compass Newsroom"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -m "newsroom: automated AI scan $(date '+%Y-%m-%d %H:%M SAST')"
+          git pull --rebase origin main
           git push origin HEAD:main
 
       - name: Close stale newsroom alert after success
