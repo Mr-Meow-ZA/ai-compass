@@ -2,14 +2,92 @@
 'use strict';
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
-  {
-    id:'anthropic-claude-opus-5',
-    title:'Anthropic releases Claude Opus 5 with stronger agentic performance and lower task cost',
-    dek:'Anthropic has released Claude Opus 5 across Claude, Claude Code, Claude Cowork and the API, positioning it as a more efficient model for coding, knowledge work and scientific research. The company reports state-of-the-art results on its Frontier-Bench and GDPval-AA evaluations, says Opus 5 can approach the capability of Fable 5 at half the price, and lists API pricing of $5 per million input tokens and $25 per million output tokens. Those benchmark and cost-per-task comparisons are Anthropic’s evidence, not independent confirmation. The durable change is the combination of near-frontier agentic performance with broader everyday availability, alongside narrower cyber safeguards, automatic fallbacks and a separate verification program for higher-risk defensive work.',
-    source:'Anthropic',sourceType:'Official model announcement',category:'Models',format:'Daily brief',date:'2026-10-01',readTime:'5 min',
-    url:'https://www.anthropic.com/news/claude-opus-5',verified:'2026-10-01',visual:'models-blue'
+{
+    "id": "openai-dots-always-on-agents",
+    "title": "OpenAI launches Dots as always-on agents with their own cloud computers",
+    "dek": "OpenAI has launched Dots, persistent agents powered by GPT-6 Astra that can keep working toward goals without waiting for a new prompt. Each dot has its own cloud computer, can use a browser, learns from feedback over time, and can connect through OpenAI plugins to more than 4,000 apps. Dots are beginning to roll out to Pro and Business Premium users in eligible markets, with Enterprise, Edu and Healthcare beta access controlled by workspace admins. The durable signal is the move from session-based assistants toward long-running personal and enterprise agents with identity, memory, compute, app permissions and continuous responsibilities as first-class product features.",
+    "source": "OpenAI",
+    "sourceType": "Official product announcement",
+    "category": "Products",
+    "format": "Daily brief",
+    "date": "2026-09-29",
+    "readTime": "5 min",
+    "url": "https://openai.com/index/introducing-dots/",
+    "verified": "2026-10-01",
+    "visual": "developer-blue"
   },
   {
+    "id": "openai-gpt-6-1-sol",
+    "title": "OpenAI releases GPT-6.1 Sol with near-Astra capability at a lower price point",
+    "dek": "OpenAI has released GPT-6.1 Sol as a major upgrade to GPT-6 Sol for agentic coding, computer use and professional work. OpenAI says the model approaches GPT-6 Astra on several internal evaluations while standard API input and output prices are one-fifth of Astra’s; those capability and cost-per-task comparisons remain vendor evidence. GPT-6.1 Sol is available in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise and Edu users, and through the API as gpt-6.1-sol. The durable signal is that capability previously concentrated in a premium frontier tier is moving into a substantially cheaper model suitable for higher-volume agentic workflows.",
+    "source": "OpenAI",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-09-29",
+    "readTime": "5 min",
+    "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+    "contextUrl": "https://deploymentsafety.openai.com/gpt-6-1-sol/respecting-auto-review",
+    "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+  {
+    "id": "anthropic-claude-sonnet-5-5",
+    "title": "Anthropic releases Claude Sonnet 5.5 as a faster, lower-cost Claude 5.5 tier",
+    "dek": "Anthropic has released Claude Sonnet 5.5, the second model in its Claude 5.5 family. The company describes it as a clear upgrade over Sonnet 5, reporting more than 30% faster operation and up to 30% lower cost for most work, with particular emphasis on well-scoped everyday tasks, bug fixing, document creation, visual work and long-horizon workflows. Those benchmark and efficiency figures are Anthropic’s own evidence. The durable signal is product segmentation: Anthropic is pairing Opus 5.5 for harder judgment-intensive work with a faster Sonnet tier intended to make capable agentic and professional workflows more economical at higher volume.",
+    "source": "Anthropic",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-09-28",
+    "readTime": "5 min",
+    "url": "https://www.anthropic.com/claude-sonnet-5-5",
+    "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+  {
+    "id": "microsoft-copilot-autopilot",
+    "title": "Microsoft introduces Copilot Autopilot as a persistent cloud-hosted work agent",
+    "dek": "Microsoft has introduced a redesigned Copilot organized around Home, Code and Autopilot. Autopilot is a persistent, proactive agent that can be given a name, role and goal, then continue recurring or long-running work without waiting for another prompt. Microsoft says it runs in the customer tenant with its own identity, memory, computer and workspace, and can operate across Teams, Outlook, chats, channels and documents under organizational permissions, audit and governance controls. The durable signal is that persistent agents are becoming a mainstream enterprise platform primitive: identity, memory, compute, permissions and governance now sit alongside the model itself as core parts of the product.",
+    "source": "Microsoft",
+    "sourceType": "Official company announcement",
+    "category": "Products",
+    "format": "Daily brief",
+    "date": "2026-09-25",
+    "readTime": "5 min",
+    "url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+    "verified": "2026-10-01",
+    "visual": "enterprise-blue"
+  },
+  {
+    "id": "anthropic-claude-opus-5-5",
+    "title": "Anthropic releases Claude Opus 5.5 as the first model in its Claude 5.5 family",
+    "dek": "Anthropic has released Claude Opus 5.5, the first model in its Claude 5.5 family. Anthropic says it performs at roughly Claude Fable 5.1 level on most work while costing about 40% less to run than Opus 5, and positions it for complex coding, professional work and long-horizon agentic tasks. The company also says the model underwent external evaluation before release and ships with safeguards used for its most capable models; performance and efficiency comparisons remain vendor evidence. The durable signal is a substantial capability-and-cost shift in Anthropic’s top broadly available Opus tier, with external evaluation and safeguard design increasingly integrated into the release package.",
+    "source": "Anthropic",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-09-22",
+    "readTime": "5 min",
+    "url": "https://www.anthropic.com/claude-opus-5-5",
+    "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+  {
+    "id": "openai-gpt-6-sol-luna",
+    "title": "OpenAI releases GPT-6 Sol and Luna as lower-cost tiers in the GPT-6 family",
+    "dek": "OpenAI has expanded the GPT-6 family with GPT-6 Sol and GPT-6 Luna, bringing techniques from GPT-6 Astra into faster and lower-cost models for everyday work. OpenAI says both tiers improve professional work, factuality, coding, computer use and collaboration while reducing API pricing by 50% relative to GPT-5.6 promotional prices; those evaluation claims remain vendor evidence. Sol and Luna launched in ChatGPT Work and Codex, with API access as gpt-6-sol and gpt-6-luna and broader ChatGPT rollout following. The durable signal is the cost-intelligence curve: frontier-derived capabilities are becoming available in tiers designed for routine, high-volume workflows rather than only the most expensive model.",
+    "source": "OpenAI",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-09-22",
+    "readTime": "5 min",
+    "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+{
     id:'anthropic-threat-intelligence-september-2026',
     title:'Anthropic says AI-enabled cyber tradecraft is proliferating across threat actors',
     dek:'Anthropic’s September threat-intelligence report covers notable misuse it says it disrupted from December 2025 through August 2026 across cyber operations, influence, surveillance, fraud, biological misuse, conventional weapons and illicit distillation. In its cyber case set, Anthropic says a majority of operations used AI for direct execution or orchestration, including multi-agent frameworks conducting reconnaissance, exploitation and data exfiltration while humans retained decisions such as target selection and review. These are Anthropic’s observed cases rather than a prevalence estimate for all cyber activity; the durable signal is that agentic attack scaffolding is diffusing across actor classes and compressing the labor required for complex operations.',
