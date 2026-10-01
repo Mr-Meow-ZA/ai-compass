@@ -6,6 +6,17 @@ CHROME="$(command -v google-chrome || command -v google-chrome-stable || command
 TMP="$(mktemp -d)";PID='';cleanup(){ [[ -z "$PID" ]] || kill "$PID" 2>/dev/null || true; rm -rf "$TMP"; };trap cleanup EXIT
 python3 -m http.server 4173 --bind 127.0.0.1 >"$TMP/server.log" 2>&1 & PID=$!
 for _ in {1..30};do curl -fsS http://127.0.0.1:4173/ >/dev/null && break;sleep .2;done
+LATEST_DAILY_TITLE="$(node <<'NODE'
+const fs=require('fs'),vm=require('vm');
+const context={window:{}};
+vm.createContext(context);
+vm.runInContext(fs.readFileSync('news-daily.js','utf8'),context,{filename:'news-daily.js'});
+const feed=context.window.AI_COMPASS_FEED||[];
+feed.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+process.stdout.write(feed[0]?.title||'');
+NODE
+)"
+[[ -n "$LATEST_DAILY_TITLE" ]] || { echo 'Could not determine latest Daily Brief title' >&2; exit 1; }
 render(){ local hash="$1" out="$2" w="$3" h="$4"; "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size="${w},${h}" --virtual-time-budget=6200 --dump-dom "http://127.0.0.1:4173/${hash}" >"$out"; }
 shot(){ local hash="$1" out="$2" w="$3" h="$4"; "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size="${w},${h}" --virtual-time-budget=6200 --screenshot="$out" "http://127.0.0.1:4173/${hash}" >/dev/null 2>&1; }
 render '#home' "$TMP/home.html" 1440 1900;shot '#home' "$ROOT/visual-smoke-daily-intelligence-home.png" 1440 1900;cp "$TMP/home.html" "$ROOT/visual-smoke-daily-intelligence-home.html"
@@ -20,9 +31,9 @@ render '#article/xiaomi-ai-cube-local-ai-prototype' "$TMP/xiaomi-mobile.html" 39
 render '#learn' "$TMP/learn-mobile.html" 390 1300;shot '#learn' "$ROOT/visual-smoke-intelligence-learn-mobile.png" 390 1300;cp "$TMP/learn-mobile.html" "$ROOT/visual-smoke-intelligence-learn-mobile.html"
 grep -q 'Today in AI' "$TMP/home.html" || { echo 'Today in AI homepage section did not render' >&2; exit 1; }
 grep -q 'Daily editorial scan' "$TMP/home.html" || { echo 'Daily scan state did not render on home' >&2; exit 1; }
-grep -q 'Visa, Mastercard and Ant International align on Know-Your-Agent interoperability' "$TMP/home.html" || { echo 'Newest Daily Brief did not render on home' >&2; exit 1; }
+grep -Fq "$LATEST_DAILY_TITLE" "$TMP/home.html" || { echo "Newest Daily Brief did not render on home: $LATEST_DAILY_TITLE" >&2; exit 1; }
 grep -q 'Today in AI' "$TMP/home-mobile.html" || { echo 'Today in AI did not render on mobile' >&2; exit 1; }
-grep -q 'Visa, Mastercard and Ant International align on Know-Your-Agent interoperability' "$TMP/home-mobile.html" || { echo 'Newest Daily Brief did not render on mobile home' >&2; exit 1; }
+grep -Fq "$LATEST_DAILY_TITLE" "$TMP/home-mobile.html" || { echo "Newest Daily Brief did not render on mobile home: $LATEST_DAILY_TITLE" >&2; exit 1; }
 grep -q 'AI news that tells you what changed' "$TMP/news.html" || { echo 'Intelligence news hero did not render' >&2; exit 1; }
 grep -q 'Why AI Compass thinks it matters' "$TMP/news.html" || { echo 'Editorial analysis labelling did not render' >&2; exit 1; }
 grep -q 'Daily Brief' "$TMP/news.html" || { echo 'Daily Brief format key did not render' >&2; exit 1; }
