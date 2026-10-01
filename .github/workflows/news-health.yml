@@ -1,23 +1,57 @@
-name: Check AI Compass Daily News Health
+name: Monitor AI Compass News Freshness
 
 on:
   schedule:
-    - cron: '30 7 * * *'
+    - cron: '47 9,21 * * *'
+      timezone: 'Africa/Johannesburg'
   workflow_dispatch:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   news-health:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
-      - name: Require today's editorial scan
+
+      - name: Require a newsroom scan today
+        id: freshness
+        continue-on-error: true
         env:
           AIC_REQUIRE_TODAY: '1'
         run: node scripts/validate-news-health.js
+
+      - name: Raise stale-news alert
+        if: steps.freshness.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          issue="$(gh issue list --state open --search '"AI Compass newsroom automation unhealthy" in:title' --json number --jq '.[0].number // empty')"
+          run_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          body="AI Compass has not recorded a valid newsroom scan for today.\n\nHealth check: $run_url\n\nThe autonomous newsroom should be investigated before the News section is treated as current."
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --body "$body"
+          else
+            gh issue create --title "AI Compass newsroom automation unhealthy" --body "$body"
+          fi
+
+      - name: Close stale-news alert after recovery
+        if: steps.freshness.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          issue="$(gh issue list --state open --search '"AI Compass newsroom automation unhealthy" in:title' --json number --jq '.[0].number // empty')"
+          if [ -n "$issue" ]; then
+            gh issue close "$issue" --comment "News freshness is healthy again; today's newsroom scan is recorded."
+          fi
+
+      - name: Fail health check when stale
+        if: steps.freshness.outcome == 'failure'
+        run: exit 1
