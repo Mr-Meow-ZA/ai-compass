@@ -369,6 +369,24 @@
       "audience": "API developers, agent builders, coding teams and AI platform owners",
       "action": "Benchmark end-to-end latency and total task cost on representative agent workflows; use persistent WebSocket connections for frequent tool calls and check regional-processing requirements before adoption.",
       "related": "build-and-test-agentic-ai-at-work"
+    },
+    "ai2-astabrief-open-scientific-report-model": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Open-weight scientific report-generation model released",
+      "why": "AstaBrief gives research teams an open, locally runnable model and training data for cited literature synthesis, with an example workflow for private PDFs. Ai2's speed and quality results are developer-reported and largely based on 2025 comparisons, so the release is a useful specialized option rather than evidence of present-day frontier performance.",
+      "audience": "Researchers, research librarians, scientific software teams and institutions handling sensitive or unpublished literature",
+      "action": "Review the model and data licenses, test it on representative literature questions, and check every citation and claim against the source papers before relying on generated reports.",
+      "related": "research-with-ai-and-verify-sources"
+    },
+    "servicenow-autosynthdata-agent-training": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Agent-training methodology and benchmark results published",
+      "why": "AutoSynthData describes a feedback loop that mines an agent's capability gaps, generates feasible tasks, validates solutions and verifiers, and adjusts training coverage. ServiceNow reports improvements in two EnterpriseOps Gym domains, but these are company-run results on its own benchmark; the post does not release the training pipeline as a generally available tool.",
+      "audience": "Agent developers, model-training teams, enterprise AI engineers and researchers studying synthetic training data",
+      "action": "Inspect the benchmark and methodology, then measure task validity, verifier quality, generalization and compute cost in your own environment before adopting failure-guided synthetic-data training.",
+      "related": "build-and-test-agentic-ai-at-work"
     }
   },
   "method": {

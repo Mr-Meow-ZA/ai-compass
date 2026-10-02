@@ -3,6 +3,36 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "ai2-astabrief-open-scientific-report-model",
+    "title": "Ai2 releases AstaBrief, an open 8B model for cited scientific reports",
+    "dek": "Ai2 has released AstaBrief-8B, an open-weight model trained to turn a research question and retrieved scientific papers into a cited report. The model, training data and an example workflow for local PDF reports are available, and Ai2 has added it as Fast mode in its Asta research platform. Ai2 reports 51.1 seconds per report for Fast mode versus 178.5 seconds for its Claude-powered Thinking mode across the full Asta pipeline; those are developer-reported measurements, not independent results. Ai2 says most of the training and evaluation work dates to 2025 and has not been rerun against today’s frontier models, so this is not current best-in-class evidence. The practical signal is an open, task-specific option for producing literature-based drafts on local infrastructure. Researchers should verify citations and conclusions against the source papers and test it on their own domain.",
+    "source": "Ai2",
+    "sourceType": "Official open-weight model announcement",
+    "category": "OpenSource",
+    "format": "Daily brief",
+    "date": "2026-10-02",
+    "readTime": "5 min",
+    "url": "https://huggingface.co/blog/allenai/astabrief",
+    "contextUrl": "https://huggingface.co/allenai/AstaBrief_8B",
+    "verified": "2026-10-02",
+    "visual": "models-blue"
+  },
+{
+    "id": "servicenow-autosynthdata-agent-training",
+    "title": "ServiceNow details AutoSynthData, a failure-guided training pipeline for enterprise agents",
+    "dek": "ServiceNow CoreAI has detailed AutoSynthData, a pipeline that generates enterprise-agent training tasks from capability gaps exposed by a target model’s failures, then checks tasks and verifiers in the environment before training. In tests on ServiceNow’s EnterpriseOps Gym, the team says fine-tuning Gemma 4 26B improved mean Pass@1 by 7.2 percentage points on Hybrid tasks and from 18.77% to 27.18% on ITSM tasks. These are company-run results on its own benchmark, not independent evidence of general agent gains. The durable signal is a practical recipe for targeting examples to weaknesses while filtering impossible tasks and unreliable success checks. The post describes the method and links the benchmark dataset, but does not announce the training pipeline as a generally available tool. Agent teams should validate such methods in their own environments and check generated tasks before using them for training.",
+    "source": "ServiceNow AI",
+    "sourceType": "Official research and engineering report",
+    "category": "Research",
+    "format": "Daily brief",
+    "date": "2026-10-02",
+    "readTime": "5 min",
+    "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
+    "contextUrl": "https://huggingface.co/datasets/ServiceNow-AI/EnterpriseOps-Gym",
+    "verified": "2026-10-02",
+    "visual": "developer-blue"
+  },
+{
     "id": "openai-gpt-6-astra-ultrafast-mode",
     "title": "OpenAI makes GPT-6 Astra Ultrafast available for lower-latency agent workflows",
     "dek": "OpenAI has made Ultrafast, its fastest API service tier, broadly available for GPT-6 Astra. NVIDIA says the mode runs on Blackwell GPUs and reports up to 8x faster token generation than Astra Standard; that performance comparison is vendor-reported, not an independent benchmark. OpenAI’s API documentation confirms access for all API users, currently at low rate limits, and recommends persistent WebSocket connections for agents making frequent tool calls. The practical change is a lower-latency option for coding and tool-using agents, where faster responses can shorten serial work loops. OpenAI positions the higher-priced tier for cases where speed justifies the cost, and it currently supports US data residency and global processing only. Builders should compare end-to-end task latency and total cost before switching.",

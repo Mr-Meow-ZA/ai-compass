@@ -2,45 +2,45 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-02",
   "lastSuccessfulPublish": "2026-10-02",
-  "scanWindow": "Routine scan covering 2026-10-01 through 2026-10-02, using primary-source publication dates.",
+  "scanWindow": "Routine scan covering 2026-10-02 through 2026-10-02 (SAST), using primary-source publication dates; the newest existing feed item and last successful publish are both within 72 hours.",
   "result": "publish",
   "publishedIds": [
-    "openai-gpt-6-astra-ultrafast-mode"
+    "ai2-astabrief-open-scientific-report-model",
+    "servicenow-autosynthdata-agent-training"
   ],
   "scores": {
-    "openai-gpt-6-astra-ultrafast-mode": {
-      "impact": 4,
+    "ai2-astabrief-open-scientific-report-model": {
+      "impact": 3,
       "readerValue": 4,
-      "novelty": 4,
+      "novelty": 3,
       "evidence": 4,
-      "durability": 2,
-      "total": 18,
+      "durability": 1,
+      "total": 15,
       "decision": "publish",
-      "sourceDate": "2026-10-01"
+      "sourceDate": "2026-10-02"
     },
-    "nvidia-ai-factories-roi": {
+    "servicenow-autosynthdata-agent-training": {
+      "impact": 3,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 1,
+      "total": 15,
+      "decision": "publish",
+      "sourceDate": "2026-10-02"
+    },
+    "anthropic-claude-frontier-academy": {
       "impact": 2,
       "readerValue": 2,
-      "novelty": 1,
-      "evidence": 3,
-      "durability": 1,
-      "total": 9,
-      "decision": "reject",
-      "sourceDate": "2026-10-01",
-      "reason": "NVIDIA's AI-factory post argues for the productivity, longevity and flexibility of its platform but announces no new chip, system, product availability or independent evidence that changes buyer decisions."
-    },
-    "anthropic-barclays-scales-claude": {
-      "impact": 2,
-      "readerValue": 3,
-      "novelty": 1,
+      "novelty": 2,
       "evidence": 3,
       "durability": 1,
       "total": 10,
       "decision": "reject",
-      "sourceDate": "2026-10-01",
-      "reason": "This is an expansion and customer case study for a Claude assistant already live since 2025, not a new product capability; adoption projections are company/customer statements."
+      "sourceDate": "2026-10-02",
+      "reason": "Although the source-sweep index lists this $100 million training program on October 2, the canonical page's article:published_time is 2026-10-02T23:01:00Z, after this 18:25Z scan. It was not yet officially published at scan time, so the announcement date and current availability cannot be verified for publication."
     }
   },
-  "notes": "Completed the mandatory source-sweep review of OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA, Mistral, Hugging Face, AMD, Intel, Qualcomm, AWS, Apple, xAI, Qwen, DeepSeek, Tencent, Cerebras and Groq. Published GPT-6 Astra Ultrafast after confirming NVIDIA's canonical announcement date (October 1) and cross-checking current access, pricing positioning, rate limits and regional processing in OpenAI's API documentation; the up-to-8x speed claim is identified as NVIDIA-reported. Rejected NVIDIA's AI-factory ROI post as marketing analysis without a new product or capability, and Anthropic's Barclays expansion as an existing customer deployment rather than a new launch. Recent AWS material was implementation guidance; the source sweep also showed no newer material model or hardware releases from the other accessible indexes. OpenAI and xAI news indexes returned HTTP 403, AMD's fetch aborted, Tencent returned HTTP 404, Qualcomm's page exposed no announcement links and Qwen's maintained index is stale; however, accessible primary sources and OpenAI's API documentation provided sufficient evidence and discovery coverage for this routine scan.",
+  "notes": "Completed the mandatory source-sweep review of OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA, Mistral, Hugging Face, AMD, Intel, Qualcomm, AWS, Apple, xAI, Qwen, DeepSeek, Tencent, Cerebras and Groq. Published Ai2's AstaBrief-8B open model for cited scientific reports and ServiceNow CoreAI's AutoSynthData agent-training methodology; both source pages display October 2 publication dates. Benchmarks and model comparisons are identified as company-reported, and AutoSynthData is not described as a generally available product. Rejected Anthropic's Claude Frontier Academy for this run because the canonical page gives a 23:01Z publication timestamp, later than the 18:25Z scan, despite the source index's October 2 listing. The exact-date sweep showed no other new named model, major agent/platform, accelerator or hardware release in the window. OpenAI's and xAI's source indexes returned HTTP 403, AMD's fetch failed, Tencent returned HTTP 404, Qualcomm exposed no announcement links and Qwen's maintained index is stale; the other core indexes and accessible primary articles provided sufficient discovery coverage for this routine scan.",
   "nextScanDue": "2026-10-02"
 }
