@@ -360,6 +360,15 @@
       "audience": "OpenAI users, developers, AI platform teams and organizations optimizing model portfolios for cost and capability",
       "action": "Retest representative tasks across Sol, Luna and your current models; use measured task quality and total cost rather than launch benchmarks alone.",
       "related": "design-an-enterprise-ai-architecture"
+    },
+    "openai-gpt-6-astra-ultrafast-mode": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Available / low API rate limits",
+      "why": "Ultrafast makes a low-latency service tier available for GPT-6 Astra, which can matter disproportionately in serial coding and tool-use loops. NVIDIA's up-to-8x token-generation comparison is vendor-reported; OpenAI's documentation confirms the tier, its higher-cost positioning, low initial rate limits and US-only regional processing.",
+      "audience": "API developers, agent builders, coding teams and AI platform owners",
+      "action": "Benchmark end-to-end latency and total task cost on representative agent workflows; use persistent WebSocket connections for frequent tool calls and check regional-processing requirements before adoption.",
+      "related": "build-and-test-agentic-ai-at-work"
     }
   },
   "method": {

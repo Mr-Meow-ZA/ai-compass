@@ -3,6 +3,21 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "openai-gpt-6-astra-ultrafast-mode",
+    "title": "OpenAI makes GPT-6 Astra Ultrafast available for lower-latency agent workflows",
+    "dek": "OpenAI has made Ultrafast, its fastest API service tier, broadly available for GPT-6 Astra. NVIDIA says the mode runs on Blackwell GPUs and reports up to 8x faster token generation than Astra Standard; that performance comparison is vendor-reported, not an independent benchmark. OpenAI’s API documentation confirms access for all API users, currently at low rate limits, and recommends persistent WebSocket connections for agents making frequent tool calls. The practical change is a lower-latency option for coding and tool-using agents, where faster responses can shorten serial work loops. OpenAI positions the higher-priced tier for cases where speed justifies the cost, and it currently supports US data residency and global processing only. Builders should compare end-to-end task latency and total cost before switching.",
+    "source": "NVIDIA / OpenAI",
+    "sourceType": "Official infrastructure announcement and API documentation",
+    "category": "Products",
+    "format": "Daily brief",
+    "date": "2026-10-01",
+    "readTime": "5 min",
+    "url": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
+    "contextUrl": "https://developers.openai.com/api/docs/guides/ultrafast-mode",
+    "verified": "2026-10-02",
+    "visual": "developer-blue"
+  },
+{
     "id": "google-ai-flusight-forecast-evaluation",
     "title": "Google science-AI model tops CDC's 2025–26 flu forecast evaluation",
     "dek": "Google says its science-AI model ranked first among 39 eligible systems in the CDC’s retrospective evaluation of forecasts for 2025–26 U.S. flu-related hospital admissions. The CDC’s FluSight program gathered weekly forecasts for admissions nationwide and by jurisdiction, up to three weeks ahead; its evaluation uses final target data published July 1, 2026. Google says its forecasts were developed using Empirical Research Assistance, which generates optimization algorithms for scientific tasks. The result is a meaningful external signal for AI-assisted forecasting, not proof that AI broadly outperforms epidemiologists or that this model is ready for operational deployment: it covers one seasonal target and one evaluation protocol. Public-health teams should inspect the CDC methodology and test performance against local operational needs before applying it.",
