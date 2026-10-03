@@ -1,10 +1,12 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-10-02",
-  "lastSuccessfulPublish": "2026-10-02",
-  "scanWindow": "Routine scan covering 2026-10-02 through 2026-10-03 (SAST; through 2026-10-02 UTC), using primary-source publication dates; the newest existing feed item and last successful publish are both within 72 hours.",
-  "result": "no-publish",
-  "publishedIds": [],
+  "lastScan": "2026-10-03",
+  "lastSuccessfulPublish": "2026-10-03",
+  "scanWindow": "Routine scan covering 2026-10-02 through 2026-10-03 (SAST; source sweep generated 2026-10-03 06:32Z), using canonical primary-source publication dates; the newest existing feed item and last successful publish were within 72 hours.",
+  "result": "publish",
+  "publishedIds": [
+    "anthropic-claude-frontier-academy"
+  ],
   "scores": {
     "anthropic-claude-frontier-academy": {
       "impact": 3,
@@ -13,11 +15,11 @@
       "evidence": 4,
       "durability": 1,
       "total": 15,
-      "decision": "reject",
+      "decision": "publish",
       "sourceDate": "2026-10-02",
-      "reason": "The announcement is a serious candidate: Anthropic commits $100 million toward training 10,000 enterprise AI engineers by the end of 2027. However, its canonical page's article:published_time is 2026-10-02T23:01:00Z, four minutes after this 22:57Z scan. Defer until the next run can verify it as published within the scan window."
+      "reason": "Anthropic's canonical announcement is dated October 2 and details a $100 million commitment to train 10,000 enterprise Frontier Deployed Engineers by the end of 2027. The program materially addresses enterprise implementation capacity; the target and program claims are company-reported."
     }
   },
-  "notes": "Completed the mandatory source-sweep review of OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA, Mistral, Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, AWS, Apple, Tencent, Cerebras and Groq, comparing dated announcements with feed IDs, URLs and subjects. The October 2 Hugging Face posts for AstaBrief and AutoSynthData are already covered by today's feed; NVIDIA's October 1 GPT-6 Astra Ultrafast announcement is also already covered. Evaluated Anthropic's $100 million Claude Frontier Academy commitment to train 10,000 engineers: the canonical page confirms the details but gives article:published_time 23:01Z, after this 22:57Z scan, so it is deferred rather than dated or published prematurely. No other new qualifying named model, major agent/platform, accelerator or hardware launch appeared in the reviewed window. Other recent surfaced items were existing coverage or commentary rather than a new material release.",
-  "nextScanDue": "2026-10-02"
+  "notes": "Reviewed the generated official-source sweep for OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA, Mistral, Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, AWS, Apple, Tencent, Cerebras and Groq, comparing in-window candidates with feed IDs, URLs and subjects. Verified Anthropic's October 2 Claude Frontier Academy announcement on its canonical page and published it; its $100 million commitment and 10,000-engineer target are company-reported program details. The October 2 AstaBrief and AutoSynthData posts and October 1 GPT-6 Astra Ultrafast item surfaced in the sweep are already covered. OpenAI's index returned 403, AMD timed out, xAI's index returned 403 and Tencent's configured URL returned 404; direct follow-up checks did not surface a newer candidate, but these access limitations are noted.",
+  "nextScanDue": "2026-10-03"
 }

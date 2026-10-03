@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-01",
+  "reviewed": "2026-10-03",
   "methodVersion": "1.1",
   "categoryDefaults": {
     "Safety": {
@@ -40,6 +40,14 @@
     }
   },
   "explicit": {
+    "anthropic-claude-frontier-academy": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Enterprise training program launch / 10,000-engineer target",
+      "why": "Anthropic has committed $100 million to a program aiming to train 10,000 Frontier Deployed Engineers by the end of 2027, with nominated engineers working on real deployments at their organizations. The target is a company commitment rather than a verified training outcome, but the initiative makes implementation capacity a concrete part of how a major AI provider is expanding enterprise adoption.",
+      "audience": "Enterprise AI leaders, technology executives, consulting firms, workforce-development teams and builders responsible for deploying AI systems",
+      "action": "Check whether your organization is eligible and evaluate the curriculum against your own production, security and governance requirements before treating certification as evidence of deployment readiness."
+    },
     "google-ai-flusight-forecast-evaluation": {
       "importance": 4,
       "signal": "High signal",

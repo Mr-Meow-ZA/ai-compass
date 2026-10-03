@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "anthropic-claude-frontier-academy",
+    "title": "Anthropic commits $100 million to train 10,000 enterprise AI engineers",
+    "dek": "Anthropic has launched Claude Frontier Academy, backed by a $100 million commitment and aiming to train 10,000 Frontier Deployed Engineers by the end of 2027. The first cohorts include engineers from large consulting firms and enterprises; participants are nominated by their organizations, complete a practical training program and then lead a real Claude deployment with support from Anthropic. The target and program details are Anthropic’s own announcement, not independently verified outcomes. The durable signal is that enterprise AI adoption is increasingly constrained by implementation talent, and a leading model provider is investing in customer-side skills as part of its deployment strategy. The program is not a general public credential or immediately available to every engineer: organizations should check eligibility with their Anthropic account team and assess how training maps to their own security and production requirements.",
+    "source": "Anthropic",
+    "sourceType": "Official enterprise training program announcement",
+    "category": "Business",
+    "format": "Daily brief",
+    "date": "2026-10-02",
+    "readTime": "5 min",
+    "url": "https://www.anthropic.com/news/claude-frontier-academy",
+    "verified": "2026-10-03",
+    "visual": "enterprise-blue"
+  },
+{
     "id": "ai2-astabrief-open-scientific-report-model",
     "title": "Ai2 releases AstaBrief, an open 8B model for cited scientific reports",
     "dek": "Ai2 has released AstaBrief-8B, an open-weight model trained to turn a research question and retrieved scientific papers into a cited report. The model, training data and an example workflow for local PDF reports are available, and Ai2 has added it as Fast mode in its Asta research platform. Ai2 reports 51.1 seconds per report for Fast mode versus 178.5 seconds for its Claude-powered Thinking mode across the full Asta pipeline; those are developer-reported measurements, not independent results. Ai2 says most of the training and evaluation work dates to 2025 and has not been rerun against today’s frontier models, so this is not current best-in-class evidence. The practical signal is an open, task-specific option for producing literature-based drafts on local infrastructure. Researchers should verify citations and conclusions against the source papers and test it on their own domain.",
