@@ -2,9 +2,12 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-03",
   "lastSuccessfulPublish": "2026-10-03",
-  "scanWindow": "Routine scan covering 2026-10-02 through 2026-10-03 (SAST; source sweep generated 2026-10-03 12:33Z), using canonical primary-source publication dates; the newest existing feed item and last successful publish were within 72 hours.",
-  "result": "no-publish",
-  "publishedIds": [],
+  "scanWindow": "Routine scan for 2026-10-03 (SAST), expanded to recover previously unreviewed official xAI posts dated 2026-09-21 through 2026-09-28 after the generated xAI index returned 403; source sweep generated 2026-10-03 17:16Z.",
+  "result": "publish",
+  "publishedIds": [
+    "xai-team-bots-shared-agent-platform",
+    "xai-grok-4-7-frontier-model"
+  ],
   "scores": {
     "anthropic-claude-frontier-academy": {
       "impact": 3,
@@ -18,12 +21,12 @@
       "reason": "The Oct 2 announcement is already published in the feed as anthropic-claude-frontier-academy; it is not a duplicate candidate."
     },
     "ai2-astabrief-open-scientific-report-model": {
-      "impact": 3,
+      "impact": 4,
       "readerValue": 4,
       "novelty": 3,
       "evidence": 4,
-      "durability": 1,
-      "total": 15,
+      "durability": 2,
+      "total": 17,
       "decision": "already-covered",
       "sourceDate": "2026-10-02",
       "reason": "Ai2's Oct 2 AstaBrief release is already published in the feed under this ID."
@@ -38,61 +41,6 @@
       "decision": "already-covered",
       "sourceDate": "2026-10-02",
       "reason": "ServiceNow's Oct 2 AutoSynthData research post is already published in the feed under this ID."
-    },
-    "openai-gpt-6-astra-ultrafast-mode": {
-      "impact": 3,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 1,
-      "total": 15,
-      "decision": "already-covered",
-      "sourceDate": "2026-10-01",
-      "reason": "The Oct 1 GPT-6 Astra Ultrafast availability announcement is already published in the feed under this ID."
-    },
-    "ai2-olmocore3-open-moe-training": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "already-covered",
-      "sourceDate": "2026-10-01",
-      "reason": "Ai2's Oct 1 Olmo-core 3 release is already published in the feed under this ID."
-    },
-    "anthropic-barclays-enterprise-expansion": {
-      "impact": 2,
-      "readerValue": 2,
-      "novelty": 1,
-      "evidence": 4,
-      "durability": 1,
-      "total": 10,
-      "decision": "reject",
-      "sourceDate": "2026-10-01",
-      "reason": "Anthropic's Oct 1 page reports an expansion at one customer, but its featured knowledge assistant has been live since 2025 and the adoption figures and outcomes are partner-reported. The update introduces neither a new product nor broad access or independently verified deployment results, so it does not clear the materiality threshold."
-    },
-    "nvidia-ai-factories-roi-article": {
-      "impact": 1,
-      "readerValue": 2,
-      "novelty": 1,
-      "evidence": 4,
-      "durability": 1,
-      "total": 9,
-      "decision": "reject",
-      "sourceDate": "2026-10-01",
-      "reason": "NVIDIA's Oct 1 post is a vendor-authored ROI argument about existing AI factory systems, not a new accelerator, architecture, product or customer availability announcement. Its performance and cost comparisons are not independent evidence."
-    },
-    "qwen-qwen3guard": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 2,
-      "evidence": 4,
-      "durability": 1,
-      "total": 13,
-      "decision": "out-of-window",
-      "sourceDate": "2025-09-23",
-      "reason": "The Qwen3Guard open safety-model release surfaced on Qwen's official page, but the page dates it Sep 23, 2025, well before this routine scan window."
     },
     "openai-chatham-financial-case-study": {
       "impact": 2,
@@ -115,8 +63,40 @@
       "decision": "reject",
       "sourceDate": "2026-10-02",
       "reason": "OpenAI's Oct 2 model-selection guide is practical documentation rather than a change to model capability, availability, access or workflow."
+    },
+    "xai-team-bots-shared-agent-platform": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "publish",
+      "sourceDate": "2026-09-28",
+      "reason": "The official xAI page dates the public beta to Sep 28 and describes persistent shared agents with team context, app integrations, credentials and memory. No matching item exists in the feed. This is a material agent-platform release uncovered after the generated index returned 403."
+    },
+    "xai-grok-4-7-frontier-model": {
+      "impact": 5,
+      "readerValue": 4,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 19,
+      "decision": "publish",
+      "sourceDate": "2026-09-21",
+      "reason": "The official xAI page dates Grok 4.7 to Sep 21 and describes a new model generation available through Grok Build, API and coding platforms. It is absent from the feed and presumptively publishable as a named frontier-model release; performance claims are identified as vendor evidence."
+    },
+    "tencent-hy3-open-model": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 2,
+      "total": 17,
+      "decision": "out-of-window",
+      "reason": "Tencent's official Hy3 repository was created Jul 2, 2026 and its model card says the full release followed an April preview. No in-window dated release surfaced, so this significant model is pre-window."
     }
   },
-  "notes": "Completed the routine official-source sweep, comparing in-window announcements against feed IDs, URLs and subjects. Core sources reviewed: OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral; the wider sweep covered Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, AWS, Apple, Tencent, Cerebras and Groq. OpenAI's official news RSS and AMD's investor-relations press-release RSS supplemented their inaccessible newsroom pages. Microsoft AI's index and the GitHub changelog/Azure AI update pages were checked; the latter pages exposed no dated in-window launch. The Oct 2 Anthropic Frontier Academy, Ai2 AstaBrief and ServiceNow AutoSynthData items and the Oct 1 OpenAI/NVIDIA GPT-6 Astra Ultrafast and Ai2 Olmo-core 3 releases are already in the feed. Rejected Anthropic's Oct 1 Barclays expansion and OpenAI's Oct 2 Chatham item as single-customer, partner-reported case studies without a new product or broad availability; rejected OpenAI's Oct 2 model guide as documentation, and NVIDIA's Oct 1 AI-factory post as vendor ROI messaging rather than a launch. Qwen3Guard is dated Sep 23, 2025 and is outside the window. No unreviewed qualifying development was found. OpenAI's main newsroom returned 403 and AMD's newsroom timed out, but official feeds were reachable and showed no in-window presumptive launch. xAI returned 403 in the generated sweep; its directly fetched page did not expose a dated current listing. Tencent's configured URL returned 404.",
+  "notes": "Compared official announcements against feed IDs, URLs, titles and subjects. Core sources checked: OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral; the model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras, Groq and the current robotics/local-AI vendor inventory. OpenAI's index returned 403 and AMD's newsroom timed out, so their official RSS feeds were checked; OpenAI's newest item was the Oct 2 Chatham case study/model guide, while AMD's latest release was Sep 28. The generated xAI index returned 403, but direct access to xAI's dated newsroom pages exposed Team Bots (Sep 28) and Grok 4.7 (Sep 21), neither present in the feed; both canonical pages were opened and their displayed dates confirmed, so both were published as recovery of previously unreviewed major releases. The freshness check found lastScan and lastSuccessfulPublish on Oct 3 and newest feed publication Oct 2; the 72-hour catch-up trigger did not fire, but the xAI gap warranted targeted recovery. Anthropic's Oct 2 Frontier Academy and Hugging Face's Oct 2 AstaBrief and AutoSynthData are already covered. OpenAI's Chatham case study was rejected as a single-customer deployment with company-reported results, and its model guide as documentation rather than a product change. Tencent's configured news index returned 404; its official Hy3 repository was reviewed and predates this window (created Jul 2). No other qualifying dated announcement was found in the source inventory.",
   "nextScanDue": "2026-10-03"
 }

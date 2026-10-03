@@ -205,6 +205,20 @@ const items=[
     "visual": "models-blue"
   },
   {
+    "id": "xai-team-bots-shared-agent-platform",
+    "title": "xAI launches Team Bots, shared agents that learn team workflows",
+    "dek": "xAI has made Team Bots available in public beta on its Teams and Enterprise plans. A Team Bot is a shared Grok Bot configured around a team role or workflow, with shared files, instructions and skills, integrations with apps such as Salesforce, Notion and GitHub, optional credentials for other APIs, and memory that helps it improve over time. People share the bot and its team expertise, but retain separate conversations and user-specific memories; bots can also work in Slack. xAI describes internal uses for customer briefings, engineering coordination and analytics, while customer savings are company- and customer-reported rather than independently verified. The durable shift is from individual assistants to persistent, team-owned agents spanning apps and data. Before a pilot, define credential ownership, permissions, audit trails, change approvals and revocation.",
+    "source": "xAI",
+    "sourceType": "Official product announcement",
+    "category": "Products",
+    "format": "Daily brief",
+    "date": "2026-09-28",
+    "readTime": "5 min",
+    "url": "https://x.ai/news/team-bots",
+    "verified": "2026-10-03",
+    "visual": "enterprise-blue"
+  },
+  {
     "id": "microsoft-copilot-autopilot",
     "title": "Microsoft introduces Copilot Autopilot as a persistent cloud-hosted work agent",
     "dek": "Microsoft has introduced a redesigned Copilot organized around Home, Code and Autopilot. Autopilot is a persistent, proactive agent that can be given a name, role and goal, then continue recurring or long-running work without waiting for another prompt. Microsoft says it runs in the customer tenant with its own identity, memory, computer and workspace, and can operate across Teams, Outlook, chats, channels and documents under organizational permissions, audit and governance controls. The durable signal is that persistent agents are becoming a mainstream enterprise platform primitive: identity, memory, compute, permissions and governance now sit alongside the model itself as core parts of the product.",
@@ -244,6 +258,20 @@ const items=[
     "readTime": "5 min",
     "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
     "verified": "2026-10-01",
+    "visual": "models-blue"
+  },
+  {
+    "id": "xai-grok-4-7-frontier-model",
+    "title": "xAI releases Grok 4.7 for long-running coding and knowledge work",
+    "dek": "xAI has released Grok 4.7, a new model aimed at coding and knowledge work that it says is available through Grok Build, its API, Cursor and other coding platforms. The company describes a larger base model and a longer reinforcement-learning run focused on tasks that can take hours, with improvements in checking its own work and handling long context. Its benchmark, safety and price-performance claims are vendor-reported and need independent reproduction. The durable signal is another frontier provider explicitly optimizing for sustained professional tasks rather than short chat, while distributing the model through several developer channels. xAI says Grok 4.7 is served at the same price and speed as Grok 4.6; builders should verify current platform availability and test quality, latency, cost and safeguards on their own workloads before switching.",
+    "source": "xAI",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-09-21",
+    "readTime": "5 min",
+    "url": "https://x.ai/news/grok-4-7",
+    "verified": "2026-10-03",
     "visual": "models-blue"
   },
 {

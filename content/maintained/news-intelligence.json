@@ -324,6 +324,15 @@
       "action": "Review connector permissions, approval boundaries, auditability, revocation, data access and recurring-work controls before delegating sensitive or high-impact responsibilities.",
       "related": "secure-enterprise-ai-agents-with-identity-and-least-privilege"
     },
+    "xai-team-bots-shared-agent-platform": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Public beta / shared persistent agent for Teams and Enterprise",
+      "why": "Team Bots package shared context, app integrations, credentials and persistent memory into agents designed for whole teams rather than individual chats. The launch makes shared agent identity and access control part of ordinary workplace software, although availability is currently a public beta and the reported customer outcomes are not independently verified.",
+      "audience": "Enterprise AI leaders, security and IT teams, product groups, agent builders and organizations evaluating shared AI workflows",
+      "action": "Before a pilot, define who owns credentials, which data and actions each bot can access, how actions are approved and logged, and how access and memory can be reviewed or revoked.",
+      "related": "secure-enterprise-ai-agents-with-identity-and-least-privilege"
+    },
     "openai-gpt-6-1-sol": {
       "importance": 5,
       "signal": "Must know",
@@ -358,6 +367,15 @@
       "why": "Opus 5.5 is the first model in Anthropic’s 5.5 generation and materially changes the capability/cost position of the Opus tier. Anthropic also emphasizes external evaluation and safeguards as part of the release process.",
       "audience": "Advanced Claude users, developers, research teams, enterprise AI teams and model buyers",
       "action": "Evaluate it on your hardest representative work and compare quality, agent reliability, latency, cost and safeguard behavior against your current frontier model.",
+      "related": "build-and-test-agentic-ai-at-work"
+    },
+    "xai-grok-4-7-frontier-model": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Model release / available across Grok Build, API and coding platforms",
+      "why": "Grok 4.7 is a named model generation aimed at coding and knowledge work that can run for hours, with access through several developer surfaces. Its benchmark, safety and price-performance claims remain xAI evidence, but the model release and availability materially expand the choices for sustained agentic work.",
+      "audience": "AI builders, software teams, enterprise AI buyers, coding-agent developers and people comparing frontier models",
+      "action": "Benchmark it on representative long-running tasks, verify current API and platform access, and compare total task cost, latency, reliability and safeguards before changing production defaults.",
       "related": "build-and-test-agentic-ai-at-work"
     },
     "openai-gpt-6-sol-luna": {
