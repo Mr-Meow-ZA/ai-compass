@@ -413,6 +413,23 @@
       "audience": "Agent developers, model-training teams, enterprise AI engineers and researchers studying synthetic training data",
       "action": "Inspect the benchmark and methodology, then measure task validity, verifier quality, generalization and compute cost in your own environment before adopting failure-guided synthetic-data training.",
       "related": "build-and-test-agentic-ai-at-work"
+    },
+    "microsoft-huggingface-thinkingbox-agent-benchmark": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Open agent-evaluation benchmark released",
+      "why": "ThinkingBox-Bench makes agent success measurable through executable checks of backend state and side effects, then repeats tasks to expose reliability gaps hidden by a single fluent response or successful-looking tool trace. The benchmark's results are author-reported and do not establish a general ranking of current models, but its tasks and evaluation approach provide a practical foundation for testing stateful agents.",
+      "audience": "Agent builders, enterprise AI teams, model evaluators, software engineers and organizations deploying tool-using agents",
+      "action": "Inspect the benchmark and harness, then adapt executable outcome checks and repeated trials to your own workflows before relying on agent traces or model scores for deployment decisions.",
+      "related": "build-and-test-agentic-ai-at-work"
+    },
+    "nvidia-dgx-spark-64gb-local-ai": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Announced; OEM systems start Oct. 23 at $4,999",
+      "why": "The 64GB configuration gives local-AI developers another OEM-built DGX Spark option, with NVIDIA's software stack included and a two-system path to 128GB pooled memory. The hardware availability is the material change; NVIDIA's reported Qwen performance result remains vendor evidence.",
+      "audience": "Local-AI developers, workstation buyers, agent builders and teams evaluating private on-device inference",
+      "action": "Check supported models, software maturity, OEM terms and total system cost against representative workloads; independently measure performance before planning around NVIDIA's two-system benchmark."
     }
   },
   "method": {

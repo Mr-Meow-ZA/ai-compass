@@ -3,6 +3,35 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "microsoft-huggingface-thinkingbox-agent-benchmark",
+    "title": "Microsoft and Hugging Face release ThinkingBox to test agent reliability against real outcomes",
+    "dek": "Microsoft and Hugging Face have released ThinkingBox-Bench, an open evaluation set for agents handling stateful business workflows. Its 507 tasks span retail, travel, insurance, neobank support and internal IT/HR; executable checks grade the final backend state, side effects and, where relevant, response requirements—not just whether an agent’s transcript sounds plausible. The benchmark authors repeat tasks 20 times to measure consistency and report a substantial gap between apparently successful tool use and correct outcomes across their model evaluations. Those results are author-reported, not an independent comparison of current models. The durable contribution is a practical, inspectable way to test whether agents leave systems in the right state, and whether they do so reliably. Builders should adapt the tasks and checks to their own tools before using scores for model selection.",
+    "source": "Microsoft / Hugging Face",
+    "sourceType": "Joint open agent-evaluation benchmark release",
+    "category": "Research",
+    "format": "Daily brief",
+    "date": "2026-10-03",
+    "readTime": "5 min",
+    "url": "https://huggingface.co/blog/microsoft/thinkingbox",
+    "contextUrl": "https://arxiv.org/abs/2608.19741",
+    "verified": "2026-10-04",
+    "visual": "developer-blue"
+  },
+{
+    "id": "nvidia-dgx-spark-64gb-local-ai",
+    "title": "NVIDIA announces a 64GB DGX Spark configuration for local AI",
+    "dek": "NVIDIA has announced a 64GB unified-memory configuration of its DGX Spark local-AI system, to be sold through Acer, ASUS, Dell, Gigabyte, HP and MSI starting Oct. 23 at $4,999. The Grace Blackwell GB10 platform includes DGX OS and NVIDIA’s AI software stack; two units can pool memory to 128GB for larger local workloads. NVIDIA says its two-system Qwen 3.8 27B test reached up to 1.7x the performance of one unit; that is a vendor result, not an independent benchmark. The practical change is another OEM-built option for developers running models and agents on local hardware, with a path to scale across two systems. Buyers should check model fit, throughput, software support and total cost against their own workloads before treating the vendor’s performance claims as deployment guarantees.",
+    "source": "NVIDIA",
+    "sourceType": "Official local-AI hardware configuration announcement",
+    "category": "Products",
+    "format": "Daily brief",
+    "date": "2026-10-02",
+    "readTime": "5 min",
+    "url": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/",
+    "verified": "2026-10-04",
+    "visual": "hardware-blue"
+  },
+{
     "id": "anthropic-claude-frontier-academy",
     "title": "Anthropic commits $100 million to train 10,000 enterprise AI engineers",
     "dek": "Anthropic has launched Claude Frontier Academy, backed by a $100 million commitment and aiming to train 10,000 Frontier Deployed Engineers by the end of 2027. The first cohorts include engineers from large consulting firms and enterprises; participants are nominated by their organizations, complete a practical training program and then lead a real Claude deployment with support from Anthropic. The target and program details are Anthropic’s own announcement, not independently verified outcomes. The durable signal is that enterprise AI adoption is increasingly constrained by implementation talent, and a leading model provider is investing in customer-side skills as part of its deployment strategy. The program is not a general public credential or immediately available to every engineer: organizations should check eligibility with their Anthropic account team and assess how training maps to their own security and production requirements.",
