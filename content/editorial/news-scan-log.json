@@ -2,11 +2,9 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-04",
   "lastSuccessfulPublish": "2026-10-04",
-  "scanWindow": "Routine scan for 2026-10-04 (SAST), with targeted recovery of Aleph Alpha's 2026-10-03 Kolibri release found during additional discovery.",
-  "result": "publish",
-  "publishedIds": [
-    "aleph-alpha-kolibri-open-weight-model"
-  ],
+  "scanWindow": "Routine scan from 2026-10-04 through 2026-10-04 15:11 SAST; lastSuccessfulPublish was today and the newest feed item is 2026-10-03, so catch-up mode was not triggered.",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
     "aleph-alpha-kolibri-open-weight-model": {
       "impact": 4,
@@ -15,9 +13,9 @@
       "evidence": 4,
       "durability": 2,
       "total": 18,
-      "decision": "publish",
+      "decision": "already-covered",
       "sourceDate": "2026-10-03",
-      "reason": "Aleph Alpha's canonical English announcement is dated 03/10/2026 and says Kolibri was released on German Reunification Day, Oct 3. The open-weight English-German MoE has 78B total parameters, about 3.5B active per token, up to a 1M-token context and Apache 2.0 weights. It is a meaningful sovereign-model option for regulated European deployments; performance comparisons are vendor-reported. No matching feed ID, URL, title or subject existed."
+      "reason": "The consequential open-weight model release is already covered by aleph-alpha-kolibri-open-weight-model in the feed; its Oct 3 source date is before this routine window."
     },
     "microsoft-huggingface-thinkingbox-agent-benchmark": {
       "impact": 4,
@@ -28,30 +26,42 @@
       "total": 17,
       "decision": "already-covered",
       "sourceDate": "2026-10-03",
-      "reason": "The official Hugging Face post announces ThinkingBox-Bench on Oct 3, but the exact Microsoft/Hugging Face benchmark release is already in the feed as microsoft-huggingface-thinkingbox-agent-benchmark."
+      "reason": "The Oct 3 official Hugging Face post describes the Microsoft/Hugging Face benchmark release, already covered by microsoft-huggingface-thinkingbox-agent-benchmark; it predates this routine window."
     },
-    "openai-coordinated-model-distillation-campaign": {
+    "anthropic-claude-frontier-academy": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 2,
+      "evidence": 4,
+      "durability": 1,
+      "total": 13,
+      "decision": "already-covered",
+      "sourceDate": "2026-10-02",
+      "reason": "Anthropic's Oct 2 enterprise training program is already covered by anthropic-claude-frontier-academy; it is not a new development in the Oct 4 routine window."
+    },
+    "nvidia-dgx-spark-64gb-local-ai": {
       "impact": 4,
       "readerValue": 4,
       "novelty": 3,
       "evidence": 4,
       "durability": 2,
       "total": 17,
-      "decision": "out-of-window",
-      "sourceDate": "2026-09-30",
-      "reason": "OpenAI's official RSS lists this model-distillation campaign disclosure on Sep 30. It is a potentially useful security item but predates this routine Oct 4 window; lastSuccessfulPublish is today and the newest feed item is Oct 3, so the 72-hour catch-up trigger did not apply."
+      "decision": "already-covered",
+      "sourceDate": "2026-10-02",
+      "reason": "NVIDIA's 64GB DGX Spark configuration is already covered by nvidia-dgx-spark-64gb-local-ai; its Oct 2 announcement predates this routine window."
     },
-    "amd-world-labs-acquisition-claim": {
-      "impact": 5,
-      "readerValue": 4,
-      "novelty": 4,
-      "evidence": 1,
-      "durability": 2,
-      "total": 16,
-      "decision": "unverified",
-      "reason": "Secondary Google News results allege an $8.2B AMD acquisition of World Labs, but no matching primary announcement or credible independent confirmation was found. Accessible World Labs pages do not corroborate the deal, and AMD's newsroom timed out. A major acquisition is presumptively publishable only once verified, so this claim is not repeated."
+    "openai-gpt-6-model-guide": {
+      "impact": 2,
+      "readerValue": 3,
+      "novelty": 1,
+      "evidence": 4,
+      "durability": 1,
+      "total": 11,
+      "decision": "out-of-window",
+      "sourceDate": "2026-10-02",
+      "reason": "OpenAI's official RSS lists an Oct 2 guide to choosing and using the GPT-6 family. It is practitioner guidance, not a new model, capability, or platform release, and is outside the Oct 4 routine window."
     }
   },
-  "notes": "Compared candidate IDs, canonical URLs, titles and subjects against the registered feed. The generated official-source sweep was reviewed across core sources (OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral) and the model/open-source/hardware set (xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras, Groq and robotics/local-AI sources). Additional discovery surfaced Aleph Alpha's Oct 3 Kolibri announcement; its canonical English technical post confirms the date as 03/10/2026 and says the release was on German Reunification Day. The open 78B-total/3.5B-active English-German model, 1M context and Apache 2.0 weights represent a meaningful sovereign deployment option; company benchmark comparisons are identified as vendor evidence. Microsoft's and Hugging Face's Oct 3 ThinkingBox-Bench release is already covered in the feed. NVIDIA's Oct 2 DGX Spark 64GB configuration is also already covered. OpenAI's newsroom index returned 403, so its official RSS was checked: its newest product/customer items are dated Oct 2, and the Sep 30 model-distillation security disclosure was scored out-of-window. Anthropic's newest dated item is Oct 2 and already covered; Google DeepMind/Google AI, Meta, NVIDIA and Mistral showed no new qualifying uncovered release in the window. xAI's page was inaccessible in the generated sweep, but its official sitemap lists latest dated announcements on Sep 28. AMD's newsroom timed out; secondary results claiming an $8.2B acquisition of World Labs were rejected as unverified after no primary announcement or credible independent confirmation surfaced. Tencent's configured news index returned 404 and no newer dated release surfaced; Intel, Qualcomm, AWS, Apple, Alibaba/Qwen, DeepSeek, Hugging Face, Cerebras and Groq indexes were reviewed without another qualifying candidate. LastScan and lastSuccessfulPublish are 2026-10-04 and the newest actual feed item is 2026-10-03, so the 72-hour catch-up trigger did not fire; Kolibri is a targeted recovery, not a catch-up scan.",
+  "notes": "Completed the generated official-source sweep and compared dated announcements, URLs, titles and subjects with the feed. Core indexes checked: OpenAI, Anthropic, Google/DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral; model/open-source/hardware indexes checked: xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq, plus robotics/local-AI sources. No qualifying uncovered announcement dated in the Oct 4 window appeared. The strongest recent developments—Aleph Alpha's Kolibri and Microsoft/Hugging Face's ThinkingBox-Bench (Oct 3), Anthropic's Frontier Academy and NVIDIA's DGX Spark 64GB configuration (Oct 2)—are already covered in the feed and predate this routine window. OpenAI's index returned 403, so its official RSS was checked; its latest items are dated Oct 2, including a GPT-6 usage guide (not a new release, scored out-of-window). xAI's index returned 403, but its official sitemap lists no dated news newer than Sep 28. AMD timed out and Tencent's configured index returned 404; these gaps did not prevent a credible routine-scan decision because no dated candidate surfaced and the other source indexes were reviewed. lastSuccessfulPublish is today and the newest actual feed item is Oct 3, so catch-up mode was not triggered.",
   "nextScanDue": "2026-10-04"
 }
