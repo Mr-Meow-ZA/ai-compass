@@ -430,6 +430,14 @@
       "why": "The 64GB configuration gives local-AI developers another OEM-built DGX Spark option, with NVIDIA's software stack included and a two-system path to 128GB pooled memory. The hardware availability is the material change; NVIDIA's reported Qwen performance result remains vendor evidence.",
       "audience": "Local-AI developers, workstation buyers, agent builders and teams evaluating private on-device inference",
       "action": "Check supported models, software maturity, OEM terms and total system cost against representative workloads; independently measure performance before planning around NVIDIA's two-system benchmark."
+    },
+    "aleph-alpha-kolibri-open-weight-model": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Open-weight English-German model released",
+      "why": "Kolibri adds a European-developed model option for organizations that prioritize German-language capability, open weights and control over deployment. Aleph Alpha describes a 78B-total/3.5B-active mixture-of-experts model with up to a one-million-token context and Apache 2.0 weights, aimed at regulated public-sector and industrial work. Its benchmark and deployment-efficiency comparisons remain company-reported.",
+      "audience": "European AI builders, public-sector and regulated-industry teams, model evaluators and organizations assessing sovereign AI",
+      "action": "Review the model card and technical report, then test German and English quality, long-context behavior, tool use and inference requirements on representative workloads before production adoption."
     }
   },
   "method": {

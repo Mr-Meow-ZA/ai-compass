@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "aleph-alpha-kolibri-open-weight-model",
+    "title": "Aleph Alpha releases Kolibri, an open-weight model for sovereign AI",
+    "dek": "Aleph Alpha has released Kolibri, an open-weight English-German mixture-of-experts model with 78 billion total parameters and about 3.5 billion active per token. Its technical announcement says it supports context lengths up to one million tokens, and that full weights are downloadable from Hugging Face under Apache 2.0. The company positions it for mission-critical public-sector and industrial work, including on-premise deployment. Aleph Alpha also reports competitive math, coding, long-context and agentic results against larger models; those comparisons are vendor-run, not independent evidence. The practical signal is a new European-developed option for organizations that prioritize German-language capability, deployment control and transparent weights. Builders should verify quality, tool use, context performance and hardware requirements on representative workloads before considering it for production.",
+    "source": "Aleph Alpha",
+    "sourceType": "Official open-weight model announcement",
+    "category": "OpenSource",
+    "format": "Daily brief",
+    "date": "2026-10-03",
+    "readTime": "5 min",
+    "url": "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/",
+    "verified": "2026-10-04",
+    "visual": "models-blue"
+  },
+{
     "id": "microsoft-huggingface-thinkingbox-agent-benchmark",
     "title": "Microsoft and Hugging Face release ThinkingBox to test agent reliability against real outcomes",
     "dek": "Microsoft and Hugging Face have released ThinkingBox-Bench, an open evaluation set for agents handling stateful business workflows. Its 507 tasks span retail, travel, insurance, neobank support and internal IT/HR; executable checks grade the final backend state, side effects and, where relevant, response requirements—not just whether an agent’s transcript sounds plausible. The benchmark authors repeat tasks 20 times to measure consistency and report a substantial gap between apparently successful tool use and correct outcomes across their model evaluations. Those results are author-reported, not an independent comparison of current models. The durable contribution is a practical, inspectable way to test whether agents leave systems in the right state, and whether they do so reliably. Builders should adapt the tasks and checks to their own tools before using scores for model selection.",
