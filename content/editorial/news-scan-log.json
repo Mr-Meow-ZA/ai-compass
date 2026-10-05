@@ -1,21 +1,32 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-10-04",
+  "lastScan": "2026-10-05",
   "lastSuccessfulPublish": "2026-10-04",
-  "scanWindow": "Routine scan from the previous recorded scan at 2026-10-04 15:11 SAST through 2026-10-04 19:34 SAST. lastSuccessfulPublish is 2026-10-04 and the newest feed item is dated 2026-10-03, both within 72 hours, so catch-up mode was not triggered.",
+  "scanWindow": "Routine scan from the previous recorded scan at 2026-10-04 19:34 SAST through 2026-10-05 09:02 SAST. lastSuccessfulPublish is 2026-10-04 and the newest actual feed item is dated 2026-10-03, both within 72 hours, so catch-up mode was not triggered.",
   "result": "no-publish",
   "publishedIds": [],
   "scores": {
-    "google-project-suncatcher-orbital-ai-prototype": {
-      "impact": 4,
-      "readerValue": 4,
+    "anthropic-claude-opus-5-5": {
+      "impact": 5,
+      "readerValue": 5,
       "novelty": 4,
       "evidence": 4,
       "durability": 2,
-      "total": 18,
-      "decision": "out-of-window",
-      "sourceDate": "2026-10-01",
-      "reason": "Google's official post and RSS date the Project Suncatcher satellite launch to Oct 1. It is a significant early AI-infrastructure research milestone, but predates the routine scan window, which began at the previous recorded scan on Oct 4."
+      "total": 20,
+      "decision": "already-covered",
+      "sourceDate": "2026-09-22",
+      "reason": "Anthropic's official page dates Opus 5.5 to Sep 22. This presumptive major model release is already covered by anthropic-claude-opus-5-5 in the feed, and predates this routine window."
+    },
+    "anthropic-claude-sonnet-5-5": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "already-covered",
+      "sourceDate": "2026-09-28",
+      "reason": "Anthropic's official page dates Sonnet 5.5 to Sep 28. This presumptive major model release is already covered by anthropic-claude-sonnet-5-5 in the feed, and predates this routine window."
     },
     "aleph-alpha-kolibri-open-weight-model": {
       "impact": 4,
@@ -26,7 +37,7 @@
       "total": 18,
       "decision": "already-covered",
       "sourceDate": "2026-10-03",
-      "reason": "Aleph Alpha's Kolibri release is already covered by aleph-alpha-kolibri-open-weight-model; its Oct 3 source date predates this routine window."
+      "reason": "Aleph Alpha's Kolibri release is covered by aleph-alpha-kolibri-open-weight-model in the feed; its Oct 3 publication date predates this routine window."
     },
     "microsoft-huggingface-thinkingbox-agent-benchmark": {
       "impact": 4,
@@ -37,50 +48,7 @@
       "total": 17,
       "decision": "already-covered",
       "sourceDate": "2026-10-03",
-      "reason": "The official Hugging Face post is dated Oct 3 and is already covered by microsoft-huggingface-thinkingbox-agent-benchmark; it predates this routine window."
-    },
-    "ai2-astabrief-open-scientific-report-model": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 1,
-      "total": 14,
-      "decision": "already-covered",
-      "sourceDate": "2026-10-02",
-      "reason": "Ai2's canonical Hugging Face page is dated Oct 2 and the release is already covered by ai2-astabrief-open-scientific-report-model; it predates this routine window."
-    },
-    "anthropic-claude-frontier-academy": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 2,
-      "evidence": 4,
-      "durability": 1,
-      "total": 13,
-      "decision": "already-covered",
-      "sourceDate": "2026-10-02",
-      "reason": "Anthropic's Oct 2 enterprise training program is already covered by anthropic-claude-frontier-academy and is outside this routine window."
-    },
-    "nvidia-dgx-spark-64gb-local-ai": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "already-covered",
-      "sourceDate": "2026-10-02",
-      "reason": "NVIDIA's 64GB DGX Spark configuration is already covered by nvidia-dgx-spark-64gb-local-ai; its Oct 2 announcement predates this routine window."
-    },
-    "tencent-hy3-open-weight-model": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 18,
-      "decision": "not-new-in-window",
-      "reason": "The Tencent Hunyuan Hy3 repository and Hugging Face model card surfaced during fallback checks, but the repository dates to July 2, its latest code commit is July 17, and the model card was last modified July 20. The official material does not document a new Oct 4 release."
+      "reason": "The official Hugging Face post is covered by microsoft-huggingface-thinkingbox-agent-benchmark in the feed; its Oct 3 publication date predates this routine window."
     },
     "openai-gpt-6-model-guide": {
       "impact": 2,
@@ -91,9 +59,9 @@
       "total": 11,
       "decision": "out-of-window",
       "sourceDate": "2026-10-02",
-      "reason": "OpenAI's official RSS lists an Oct 2 guide to choosing and using the GPT-6 family. It is practitioner guidance, not a new model, capability, or platform release, and is outside the Oct 4 routine window."
+      "reason": "OpenAI's official RSS dates this model-selection guide to Oct 2. It is practitioner guidance rather than a new model or capability, and predates the routine window."
     }
   },
-  "notes": "Completed the generated official-source sweep and compared dated announcements, canonical URLs, titles and subjects with the registered feed. The scan checked OpenAI (official RSS after its newsroom returned 403), Anthropic, Google/DeepMind and Google AI, Microsoft AI plus GitHub and Azure sources, Meta, NVIDIA and Mistral; model/open-source/hardware coverage included xAI (official sitemap after its news index returned 403), Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent/Hunyuan, Cerebras and Groq, plus robotics and local-AI sources. No uncovered official announcement dated in the Oct 4 routine interval surfaced. The strongest nearby candidate was Google's Project Suncatcher prototype satellite, officially dated Oct 1; it is a substantial research milestone but falls before this scan window. Aleph Alpha's Kolibri and Microsoft/Hugging Face's ThinkingBox-Bench (Oct 3), AstaBrief, Anthropic's Frontier Academy and NVIDIA's DGX Spark 64GB configuration (Oct 2) are already in the feed and predate the interval. OpenAI's latest RSS items are dated Oct 2; its model guide is not a new release. Tencent's configured newsroom URL returned 404, so the official Hunyuan GitHub and Hugging Face model pages were checked; Hy3 is an existing July model, not a new release. AMD newsroom requests timed out and Qualcomm's press index requires client-side rendering; no dated candidate was exposed by those indexes, while the other core and hardware sources were reviewed. These access gaps did not prevent a credible routine-window decision. The source sweep contained no uncovered presumptive-publication event dated Oct 4. Catch-up mode was not triggered: both lastSuccessfulPublish (Oct 4) and the newest feed item (Oct 3) are within 72 hours.",
-  "nextScanDue": "2026-10-04"
+  "notes": "Completed the generated official-source sweep and compared dated announcements and their URLs, titles and subjects with the registered feed. The core sweep covered OpenAI, Anthropic, Google/DeepMind and Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral; the model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent/Hunyuan, Cerebras, Groq and robotics/local-AI sources. No uncovered official dated announcement fell in this routine window. The strongest model candidates surfaced were Anthropic's Opus 5.5 (Sep 22) and Sonnet 5.5 (Sep 28); both are already covered by their matching feed IDs and predate the window. Aleph Alpha's Kolibri and Microsoft/Hugging Face's ThinkingBox (Oct 3) are also already covered and predate the window. OpenAI's official news page returned 403, so its accessible official RSS was checked; its latest item is an Oct 2 model guide, which is not a new model/capability and predates this window. The generated sweep also reported AMD's index request timing out and xAI's index returning 403; neither exposed a dated candidate, and these gaps did not prevent a credible decision from the remaining primary-source indexes and the official OpenAI RSS. The newest actual feed item is dated Oct 3 and lastSuccessfulPublish is Oct 4, so neither age trigger exceeds 72 hours and catch-up mode was not triggered. The final source-sweep inspection showed no uncovered Oct 4 or Oct 5 presumptive-publication announcement.",
+  "nextScanDue": "2026-10-05"
 }
