@@ -1,67 +1,93 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-10-05",
-  "lastSuccessfulPublish": "2026-10-04",
-  "scanWindow": "Routine scan from the previous recorded scan at 2026-10-04 19:34 SAST through 2026-10-05 09:02 SAST. lastSuccessfulPublish is 2026-10-04 and the newest actual feed item is dated 2026-10-03, both within 72 hours, so catch-up mode was not triggered.",
-  "result": "no-publish",
-  "publishedIds": [],
+  "lastScan": "2026-10-06",
+  "lastSuccessfulPublish": "2026-10-06",
+  "scanWindow": "Catch-up scan from 2026-10-04 (the day after the newest actual feed item, dated 2026-10-03) through 2026-10-06 09:34 SAST. Catch-up mode was triggered because the newest actual feed publication is more than 72 hours old.",
+  "result": "publish",
+  "publishedIds": [
+    "tii-falcon-emirati-7b",
+    "openai-australia-agent-testimony",
+    "nolla-health-ai-prescriptions-utah"
+  ],
   "scores": {
-    "anthropic-claude-opus-5-5": {
-      "impact": 5,
-      "readerValue": 5,
+    "tii-falcon-emirati-7b": {
+      "impact": 4,
+      "readerValue": 3,
       "novelty": 4,
       "evidence": 4,
       "durability": 2,
-      "total": 20,
-      "decision": "already-covered",
-      "sourceDate": "2026-09-22",
-      "reason": "Anthropic's official page dates Opus 5.5 to Sep 22. This presumptive major model release is already covered by anthropic-claude-opus-5-5 in the feed, and predates this routine window."
+      "total": 17,
+      "decision": "publish",
+      "sourceDate": "2026-10-06",
+      "reason": "TII's official announcement introduces a 7B model adapted for Emirati Arabic and makes it available to try. Its narrow language focus is meaningful for localization and evaluation, while the benchmark and comparison results are clearly identified as developer-reported."
     },
-    "anthropic-claude-sonnet-5-5": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
+    "openai-australia-agent-testimony": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 3,
       "durability": 2,
-      "total": 20,
-      "decision": "already-covered",
-      "sourceDate": "2026-09-28",
-      "reason": "Anthropic's official page dates Sonnet 5.5 to Sep 28. This presumptive major model release is already covered by anthropic-claude-sonnet-5-5 in the feed, and predates this routine window."
+      "total": 16,
+      "decision": "publish",
+      "sourceDate": "2026-10-06",
+      "reason": "The Guardian's dated report records OpenAI's chief strategy officer apologising to an Australian parliamentary inquiry and describing further review of agent-training logs after website access by agents. The testimony materially updates incident response and public accountability; the claims are attributed to the hearing and reporting."
     },
-    "aleph-alpha-kolibri-open-weight-model": {
+    "nolla-health-ai-prescriptions-utah": {
       "impact": 4,
       "readerValue": 4,
       "novelty": 4,
       "evidence": 4,
       "durability": 2,
       "total": 18,
-      "decision": "already-covered",
-      "sourceDate": "2026-10-03",
-      "reason": "Aleph Alpha's Kolibri release is covered by aleph-alpha-kolibri-open-weight-model in the feed; its Oct 3 publication date predates this routine window."
+      "decision": "publish",
+      "sourceDate": "2026-10-05",
+      "reason": "Nolla's official launch page dates a live Utah pilot that can issue initial acne prescriptions using an app-based intake and face scan. The staged physician oversight and state safety gates are material to healthcare-AI deployment; the company's clinical-performance claims are not treated as independent evidence."
     },
-    "microsoft-huggingface-thinkingbox-agent-benchmark": {
+    "openai-chatgpt-ad-format": {
       "impact": 4,
       "readerValue": 4,
       "novelty": 3,
-      "evidence": 4,
+      "evidence": 3,
       "durability": 2,
-      "total": 17,
-      "decision": "already-covered",
-      "sourceDate": "2026-10-03",
-      "reason": "The official Hugging Face post is covered by microsoft-huggingface-thinkingbox-agent-benchmark in the feed; its Oct 3 publication date predates this routine window."
+      "total": 16,
+      "decision": "rejected-unverified",
+      "sourceDate": "2026-10-05",
+      "reason": "OpenAI's official RSS describes a new visual ChatGPT ad format and expanded measurement tools, a potentially material product and monetization shift. The canonical page returned 403 and no independently accessible report in the checked indexes verified rollout details, so it was not published without opening and confirming the primary source."
     },
-    "openai-gpt-6-model-guide": {
-      "impact": 2,
+    "openai-eu-text-provenance": {
+      "impact": 3,
       "readerValue": 3,
+      "novelty": 3,
+      "evidence": 3,
+      "durability": 2,
+      "total": 14,
+      "decision": "rejected-unverified",
+      "sourceDate": "2026-10-05",
+      "reason": "OpenAI's official RSS describes its approach to EU text-provenance rules and research access, but the canonical page returned 403. Without the primary page, the scope and status of the announced watermarking work could not be verified."
+    },
+    "australia-ai-copyright-inquiry": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 2,
+      "evidence": 3,
+      "durability": 2,
+      "total": 13,
+      "decision": "watch",
+      "sourceDate": "2026-10-06",
+      "reason": "Independent reporting surfaced company and rights-holder testimony in Australia's AI inquiry, but no new bill, rule or policy decision in the scan window. Track the inquiry rather than treating hearing statements as a regulatory change."
+    },
+    "google-gemini-call-for-me-rumor": {
+      "impact": 2,
+      "readerValue": 2,
       "novelty": 1,
-      "evidence": 4,
+      "evidence": 1,
       "durability": 1,
-      "total": 11,
-      "decision": "out-of-window",
-      "sourceDate": "2026-10-02",
-      "reason": "OpenAI's official RSS dates this model-selection guide to Oct 2. It is practitioner guidance rather than a new model or capability, and predates the routine window."
+      "total": 7,
+      "decision": "rejected-rumor",
+      "sourceDate": "2026-10-05",
+      "reason": "The Verge reports an unconfirmed possible expansion inferred from an Android APK teardown; Google has not announced it, so it does not meet the verification threshold."
     }
   },
-  "notes": "Completed the generated official-source sweep and compared dated announcements and their URLs, titles and subjects with the registered feed. The core sweep covered OpenAI, Anthropic, Google/DeepMind and Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral; the model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent/Hunyuan, Cerebras, Groq and robotics/local-AI sources. No uncovered official dated announcement fell in this routine window. The strongest model candidates surfaced were Anthropic's Opus 5.5 (Sep 22) and Sonnet 5.5 (Sep 28); both are already covered by their matching feed IDs and predate the window. Aleph Alpha's Kolibri and Microsoft/Hugging Face's ThinkingBox (Oct 3) are also already covered and predate the window. OpenAI's official news page returned 403, so its accessible official RSS was checked; its latest item is an Oct 2 model guide, which is not a new model/capability and predates this window. The generated sweep also reported AMD's index request timing out and xAI's index returning 403; neither exposed a dated candidate, and these gaps did not prevent a credible decision from the remaining primary-source indexes and the official OpenAI RSS. The newest actual feed item is dated Oct 3 and lastSuccessfulPublish is Oct 4, so neither age trigger exceeds 72 hours and catch-up mode was not triggered. The final source-sweep inspection showed no uncovered Oct 4 or Oct 5 presumptive-publication announcement.",
-  "nextScanDue": "2026-10-05"
+  "notes": "Catch-up discovery used the generated official-source inventory and compared dated announcements, URLs, titles and subjects with the registered feed. Core indexes checked: OpenAI (official RSS used because its news page returned 403), Anthropic, Google/DeepMind and Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Model/open-source/hardware indexes checked: xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. The sweep exposed TII's Oct 6 Falcon-Emirati model announcement; its canonical Hugging Face/TII page confirms the Oct 6 publication date. The official OpenAI RSS showed Oct 5 ad-format and EU text-provenance posts, but both canonical pages returned 403, so neither was published without source-page verification. Independent catch-up discovery used The Guardian's AI RSS and The Verge's AI feed after Reuters returned 401 and AP News returned 403. This surfaced Nolla Health's Utah acne-prescription pilot (verified against its official Oct 5 launch page and Utah AI Sandbox guidance), OpenAI's Oct 6 parliamentary testimony (reported by The Guardian), an Australia copyright hearing with no policy decision (watch), and an unconfirmed Gemini feature inferred from an APK teardown (rejected as rumor). Three items were published: the Falcon-Emirati specialization, the OpenAI agent-incident testimony, and the Nolla pilot. The newest feed item had been dated Oct 3, more than 72 hours before this run, so catch-up began Oct 4 despite the previous scan record.",
+  "nextScanDue": "2026-10-06"
 }

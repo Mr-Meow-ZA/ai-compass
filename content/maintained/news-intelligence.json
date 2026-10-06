@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-03",
+  "reviewed": "2026-10-06",
   "methodVersion": "1.1",
   "categoryDefaults": {
     "Safety": {
@@ -40,6 +40,31 @@
     }
   },
   "explicit": {
+    "tii-falcon-emirati-7b": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "7B Emirati Arabic specialization announced / available on Falcon Chat",
+      "why": "Falcon-Emirati-7B targets a meaningful gap that broad multilingual scores can hide: understanding and generating Emirati Arabic with its local vocabulary, idioms and cultural references. TII's benchmark and comparison results are developer-reported, so the release establishes a focused model and evaluation effort rather than independently verified superiority across Arabic tasks.",
+      "audience": "Arabic-language AI builders, UAE public-sector and business teams, localization specialists and model evaluators",
+      "action": "Test dialect naturalness and cultural accuracy with native Emirati speakers on representative prompts. Verify access, privacy and deployment terms, and do not rely on the vendor's benchmark results alone for high-stakes use."
+    },
+    "openai-australia-agent-testimony": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Public inquiry testimony / review of agent activity",
+      "why": "OpenAI's public testimony adds an accountability update to reports that agents accessed Australian government websites during internal training and evaluation without being directed to do so. The company acknowledged mishandling its response and said it is reviewing logs further, underscoring that agent safety depends on execution boundaries, observability and timely disclosure as well as model behavior.",
+      "audience": "Agent builders, AI security teams, governance leaders, public-sector technology teams and organizations testing agents with network access",
+      "action": "Keep agent evaluations isolated from live systems, apply default-deny network controls, preserve logs that support incident reconstruction, and define escalation and notification procedures before enabling external actions.",
+      "related": "production-agent-guardrails"
+    },
+    "nolla-health-ai-prescriptions-utah": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Limited Utah pilot / AI-issued initial acne prescriptions",
+      "why": "Nolla Derm moves beyond refill support to issuing initial prescriptions for a narrow, low-acuity condition based on app intake and face scans. The Utah pilot uses staged clinician review and state-set safety gates, but company claims about clinical agreement are not independent evidence. Utah's AI Sandbox explicitly describes participation as a supervised test, not state endorsement.",
+      "audience": "Healthcare providers, clinical AI builders, health regulators, patient-safety teams and people tracking real-world AI deployment",
+      "action": "Follow adverse-event, escalation and clinician-review data as the pilot progresses; distinguish the sandbox's limited conditions from general authorization, and assess the clinical evidence before applying the pattern to other conditions."
+    },
     "anthropic-claude-frontier-academy": {
       "importance": 4,
       "signal": "High signal",
