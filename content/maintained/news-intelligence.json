@@ -40,6 +40,14 @@
     }
   },
   "explicit": {
+    "mistral-large-4-frontier-preview": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Public API preview / weights planned for late October",
+      "why": "Mistral Large 4 is a trillion-parameter natively multimodal model with a public API preview and a stated plan to release weights later this month. That creates an important new model option now and a possible self-hosting path later, but the weights are not yet available and the model's performance comparisons are company-reported.",
+      "audience": "Model builders, AI infrastructure teams, enterprise architects and organizations evaluating high-capability or sovereign AI deployments",
+      "action": "Test the preview against representative tasks and security requirements. Reassess deployment only when the weights, licence and infrastructure requirements are published, and reproduce vendor benchmark claims on your own workload."
+    },
     "tii-falcon-emirati-7b": {
       "importance": 4,
       "signal": "High signal",

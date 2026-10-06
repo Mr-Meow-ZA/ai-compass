@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "mistral-large-4-frontier-preview",
+    "title": "Mistral opens a public preview of its 1-trillion-parameter Large 4 model",
+    "dek": "Mistral has opened a public API preview of Mistral Large 4, a natively multimodal model with one trillion total parameters and 49 billion active per token. The preview is available through Mistral Studio; the company says downloadable weights are planned for the end of October, so self-hosting is not available yet. Mistral reports strong results in coding, agent workflows, multimodal tasks and specialist domains, including cybersecurity, but those comparisons are vendor claims; its announcement also cites an external cyber evaluation. The immediate change is access to a new high-end model, with a potential open-weight deployment option to follow. Builders should test the preview on representative tasks and assess safety controls for their use case, then verify the weights, licence and deployment requirements when they are actually released rather than treating the benchmark claims as settled.",
+    "source": "Mistral AI",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-10-06",
+    "readTime": "5 min",
+    "url": "https://mistral.ai/news/mistral-large-4/",
+    "verified": "2026-10-06",
+    "visual": "models-blue"
+  },
+{
     "id": "tii-falcon-emirati-7b",
     "title": "TII introduces Falcon-Emirati-7B for Emirati Arabic",
     "dek": "Technology Innovation Institute (TII) has introduced Falcon-Emirati-7B, a 7-billion-parameter model adapted from its Falcon-H1-Arabic family to understand and generate Emirati Arabic, including local vocabulary, idiom and cultural context. TII says it built the adaptation with curated dialectal text, cultural material and synthetic examples; the model can be tried through its Falcon Chat service. In the institute’s evaluations, Falcon-Emirati-7B scored 84.83% on the Alyah multiple-choice benchmark and led its comparison on Emirati dialect fidelity, but those results are developer-reported and include LLM-judged tests, not independent evidence of broad Arabic performance. The durable signal is that language-specific evaluation and tuning can close gaps hidden by general multilingual benchmarks. Teams serving Emirati users should test dialect naturalness and cultural accuracy with native speakers; TII cautions against high-stakes reliance without task-specific evaluation.",

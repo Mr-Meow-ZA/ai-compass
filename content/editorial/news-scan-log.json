@@ -2,92 +2,34 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-06",
   "lastSuccessfulPublish": "2026-10-06",
-  "scanWindow": "Catch-up scan from 2026-10-04 (the day after the newest actual feed item, dated 2026-10-03) through 2026-10-06 09:34 SAST. Catch-up mode was triggered because the newest actual feed publication is more than 72 hours old.",
+  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-06 09:34 SAST through 2026-10-06 18:49 SAST. Catch-up mode was not triggered: the last successful publish and newest actual feed item are both dated 2026-10-06.",
   "result": "publish",
   "publishedIds": [
-    "tii-falcon-emirati-7b",
-    "openai-australia-agent-testimony",
-    "nolla-health-ai-prescriptions-utah"
+    "mistral-large-4-frontier-preview"
   ],
   "scores": {
-    "tii-falcon-emirati-7b": {
-      "impact": 4,
-      "readerValue": 3,
+    "mistral-large-4-frontier-preview": {
+      "impact": 5,
+      "readerValue": 5,
       "novelty": 4,
       "evidence": 4,
       "durability": 2,
-      "total": 17,
+      "total": 20,
       "decision": "publish",
       "sourceDate": "2026-10-06",
-      "reason": "TII's official announcement introduces a 7B model adapted for Emirati Arabic and makes it available to try. Its narrow language focus is meaningful for localization and evaluation, while the benchmark and comparison results are clearly identified as developer-reported."
+      "reason": "Mistral's official announcement, dated October 6, introduces a public preview of a natively multimodal trillion-parameter model and states that weights are planned for later this month. This is a major named model launch; vendor benchmark claims are clearly attributed."
     },
-    "openai-australia-agent-testimony": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 3,
-      "durability": 2,
-      "total": 16,
-      "decision": "publish",
-      "sourceDate": "2026-10-06",
-      "reason": "The Guardian's dated report records OpenAI's chief strategy officer apologising to an Australian parliamentary inquiry and describing further review of agent-training logs after website access by agents. The testimony materially updates incident response and public accountability; the claims are attributed to the hearing and reporting."
-    },
-    "nolla-health-ai-prescriptions-utah": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 18,
-      "decision": "publish",
-      "sourceDate": "2026-10-05",
-      "reason": "Nolla's official launch page dates a live Utah pilot that can issue initial acne prescriptions using an app-based intake and face scan. The staged physician oversight and state safety gates are material to healthcare-AI deployment; the company's clinical-performance claims are not treated as independent evidence."
-    },
-    "openai-chatgpt-ad-format": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 3,
-      "durability": 2,
-      "total": 16,
-      "decision": "rejected-unverified",
-      "sourceDate": "2026-10-05",
-      "reason": "OpenAI's official RSS describes a new visual ChatGPT ad format and expanded measurement tools, a potentially material product and monetization shift. The canonical page returned 403 and no independently accessible report in the checked indexes verified rollout details, so it was not published without opening and confirming the primary source."
-    },
-    "openai-eu-text-provenance": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 3,
-      "durability": 2,
-      "total": 14,
-      "decision": "rejected-unverified",
-      "sourceDate": "2026-10-05",
-      "reason": "OpenAI's official RSS describes its approach to EU text-provenance rules and research access, but the canonical page returned 403. Without the primary page, the scope and status of the announced watermarking work could not be verified."
-    },
-    "australia-ai-copyright-inquiry": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 2,
-      "evidence": 3,
-      "durability": 2,
-      "total": 13,
-      "decision": "watch",
-      "sourceDate": "2026-10-06",
-      "reason": "Independent reporting surfaced company and rights-holder testimony in Australia's AI inquiry, but no new bill, rule or policy decision in the scan window. Track the inquiry rather than treating hearing statements as a regulatory change."
-    },
-    "google-gemini-call-for-me-rumor": {
+    "tii-falcon-ocr-arabic": {
       "impact": 2,
       "readerValue": 2,
-      "novelty": 1,
-      "evidence": 1,
+      "novelty": 2,
+      "evidence": 2,
       "durability": 1,
-      "total": 7,
-      "decision": "rejected-rumor",
-      "sourceDate": "2026-10-05",
-      "reason": "The Verge reports an unconfirmed possible expansion inferred from an Android APK teardown; Google has not announced it, so it does not meet the verification threshold."
+      "total": 9,
+      "decision": "rejected-below-threshold",
+      "reason": "TII's newly surfaced Falcon-OCR-Arabic post describes a focused adaptation of its existing 270M OCR model and a hosted try-out, not a broad model-family release; the post does not announce downloadable weights. Its benchmark is TII-run and its canonical page does not display a publication date. The focused Arabic-document utility is worth monitoring, but the limited deployment evidence and narrow scope do not clear today's publication threshold."
     }
   },
-  "notes": "Catch-up discovery used the generated official-source inventory and compared dated announcements, URLs, titles and subjects with the registered feed. Core indexes checked: OpenAI (official RSS used because its news page returned 403), Anthropic, Google/DeepMind and Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Model/open-source/hardware indexes checked: xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. The sweep exposed TII's Oct 6 Falcon-Emirati model announcement; its canonical Hugging Face/TII page confirms the Oct 6 publication date. The official OpenAI RSS showed Oct 5 ad-format and EU text-provenance posts, but both canonical pages returned 403, so neither was published without source-page verification. Independent catch-up discovery used The Guardian's AI RSS and The Verge's AI feed after Reuters returned 401 and AP News returned 403. This surfaced Nolla Health's Utah acne-prescription pilot (verified against its official Oct 5 launch page and Utah AI Sandbox guidance), OpenAI's Oct 6 parliamentary testimony (reported by The Guardian), an Australia copyright hearing with no policy decision (watch), and an unconfirmed Gemini feature inferred from an APK teardown (rejected as rumor). Three items were published: the Falcon-Emirati specialization, the OpenAI agent-incident testimony, and the Nolla pilot. The newest feed item had been dated Oct 3, more than 72 hours before this run, so catch-up began Oct 4 despite the previous scan record.",
+  "notes": "The generated official-source inventory was compared with existing feed IDs, URLs, titles and subjects for this routine same-day interval. Core sources checked: Anthropic (latest indexed announcement Oct 2), Google DeepMind/Google AI (no new release dated in this interval), Microsoft/GitHub/Azure (no new qualifying dated release), Meta (no new qualifying dated release), NVIDIA (latest relevant indexed announcement Oct 1), and Mistral (canonical announcement confirms Mistral Large 4 was published Oct 6). OpenAI's news index returned 403; the source snapshot did not expose a verifiable dated candidate from it. Model/open-source/hardware sources checked: Hugging Face surfaced TII's Falcon-OCR-Arabic post, rejected because it is a narrow hosted adaptation without announced weights and the canonical page lacks a displayed publication date; xAI returned 403, AMD timed out, and Tencent returned 404. Intel, Qualcomm, Amazon/AWS, Apple, Alibaba/Qwen, DeepSeek, Cerebras and Groq were also in the sweep, with no additional material announcement dated in this interval. Falcon-Emirati, already in the feed, was not duplicated. One item was published: Mistral Large 4. Its vendor benchmark claims are attributed and weights are described as planned, not currently available.",
   "nextScanDue": "2026-10-06"
 }
