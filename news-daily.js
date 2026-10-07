@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "nvidia-nemotron-ioi-imo-gold-results",
+    "title": "NVIDIA's Nemotron models reach gold-medal level at IOI and IMO",
+    "dek": "NVIDIA reports that teams fine-tuned Nemotron 3 models into specialist systems that reached gold-medal level at the 2026 International Olympiad in Informatics (IOI) and International Mathematical Olympiad (IMO). The IOI system scored 535.4/600, above the reported 361.12 gold threshold and top human score, but its run was unofficial and unsupervised, not part of the official standings. The IMO system scored 30/42, above the official 29-point gold threshold; official IMO graders assessed its submitted proofs. These are NVIDIA team results, not independent comparisons, and the scores came from tailored training and multi-stage generate-verify-refine inference rather than an unmodified general model. NVIDIA has released checkpoints, datasets and recipes. The durable signal is a concrete, reproducible route to specializing open-weight models for difficult domains, though teams should account for substantial training and inference resources.",
+    "source": "NVIDIA",
+    "sourceType": "Official model-specialization research and release",
+    "category": "OpenSource",
+    "format": "Daily brief",
+    "date": "2026-10-07",
+    "readTime": "5 min",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026",
+    "verified": "2026-10-07",
+    "visual": "models-blue"
+},
+{
     "id": "anthropic-cyber-verification-program-expansion",
     "title": "Anthropic expands verified access to advanced cyber models for defenders",
     "dek": "Anthropic has expanded its Cyber Verification Program (CVP), offering three access tiers for security professionals using its most capable models. Defense Access covers work such as incident response and vulnerability analysis; Red Team Access adds authorized penetration testing for organizations; and Specialized Access is limited to verified organizations testing safety-critical systems such as power grids or telecom networks. Applicants must meet tier-specific verification and security requirements, and Anthropic says participating organizations must retain data for misuse monitoring, with limited exceptions. The company’s tests of the tiered safeguards on CyScenarioBench are internal results, not independent evidence that the controls prevent misuse in real deployments. The practical change is a wider, structured route for vetted defenders to use capabilities that remain more restricted in generally available models. Security teams should check the eligibility, oversight and data-handling terms before applying.",

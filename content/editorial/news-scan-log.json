@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-07",
   "lastSuccessfulPublish": "2026-10-07",
-  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-06 18:49 SAST through 2026-10-07 09:14 SAST. Catch-up mode was not triggered: the last successful publish and newest actual feed item were both dated 2026-10-06.",
+  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-07 09:14 SAST through 2026-10-07 16:32 SAST. Catch-up mode was not triggered: the previous successful publish was dated 2026-10-07 and the newest actual feed item was dated 2026-10-06; both were less than 72 hours old.",
   "result": "publish",
   "publishedIds": [
-    "anthropic-cyber-verification-program-expansion"
+    "nvidia-nemotron-ioi-imo-gold-results"
   ],
   "scores": {
-    "anthropic-cyber-verification-program-expansion": {
+    "nvidia-nemotron-ioi-imo-gold-results": {
       "impact": 4,
       "readerValue": 4,
       "novelty": 3,
@@ -16,32 +16,21 @@
       "durability": 2,
       "total": 17,
       "decision": "publish",
-      "sourceDate": "2026-10-06",
-      "reason": "Anthropic's canonical announcement, published October 6, expands its Cyber Verification Program into three eligibility tiers, including broader defensive access and organization-only authorized red-team access. The access change is material for security teams, while the safeguard evaluation is company-run and is described as such."
+      "sourceDate": "2026-10-07",
+      "reason": "NVIDIA's canonical Hugging Face post, published October 7, reports specialist Nemotron systems above gold thresholds at both IOI and IMO and releases associated checkpoints, datasets and recipes. The IOI run was unofficial; the IMO proofs were graded by official graders. The scores are developer-reported, but the released artifacts make this a concrete model-specialization capability and reproducible workflow."
     },
-    "nvidia-telecom-open-models-strategy": {
-      "impact": 2,
-      "readerValue": 2,
-      "novelty": 2,
-      "evidence": 2,
-      "durability": 1,
-      "total": 9,
-      "decision": "rejected-below-threshold",
+    "google-embeddinggemma-2-multimodal-embeddings": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 2,
+      "total": 17,
+      "decision": "rejected-outside-research-window",
       "sourceDate": "2026-10-06",
-      "reason": "NVIDIA's source index surfaced 'Why Telecom Operators Are Building Their AI Strategy on Open Models' as an October 6 item, but it is framed as an industry-strategy/customer story rather than a model, product, hardware or platform launch. The surfaced title does not establish a concrete new capability or availability change, so it does not clear the Daily Brief threshold."
-    },
-    "meta-assistive-robotics-prototype": {
-      "impact": 2,
-      "readerValue": 3,
-      "novelty": 2,
-      "evidence": 3,
-      "durability": 1,
-      "total": 11,
-      "decision": "rejected-insufficient-deployment-evidence",
-      "sourceDate": "2026-10-06",
-      "reason": "Meta's October 6 story describes a University of Pittsburgh assistive-robotics prototype using existing vision models and says it is ready for real-world testing, but provides no field-test outcomes or generally available robotics platform. The use case is promising, yet current evidence is an early engineering case study rather than a demonstrated capability or deployment shift."
+      "reason": "Google's canonical announcement confirms EmbeddingGemma 2 as a 740M-parameter open model that unifies code, images, video and audio embeddings under Apache 2.0, but its published timestamp is October 6 at 16:00 UTC, before the current routine scan window began at 06:14 UTC on October 7 (09:14 SAST). It is not new since the last recorded scan; catch-up mode was not triggered because the previous successful publish and newest actual feed item were both less than 72 hours old."
     }
   },
-  "notes": "The generated official-source inventory was compared with existing feed IDs, URLs, titles and subjects for this routine interval. Core sources checked: Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Anthropic's canonical October 6 announcement of the expanded Cyber Verification Program was verified and published; its CyScenarioBench results are identified as company-run. Meta's October 6 assistive-robotics prototype story was evaluated and rejected because it reports an early engineering case study without field-test results or a generally available platform. NVIDIA's October 6 telecom/open-models strategy article was evaluated and rejected because the indexed title describes industry strategy, not a concrete capability or availability change. Mistral Large 4, also dated October 6, is already in the feed and was not duplicated. OpenAI's index returned 403. The model/open-source/hardware sweep also covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq; xAI returned 403, Hugging Face 429, AMD timed out and Tencent returned 404, while no other dated presumptive launch appeared in the inventory. One item was published: anthropic-cyber-verification-program-expansion.",
+  "notes": "The generated official-source inventory was compared with feed IDs, URLs, titles and subjects for the routine interval. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. NVIDIA's canonical October 7 Hugging Face post on Nemotron specialist systems was verified and published; the IOI result is explicitly unofficial, while official IMO graders assessed the submitted proofs. Google EmbeddingGemma 2 was confirmed as a multimodal open model release dated October 6, but its 16:00 UTC publication predates this scan window's October 7 06:14 UTC start, so it was recorded with an explicit out-of-window reason rather than backdated into this routine run. NVIDIA's October 6 telecom/open-model strategy piece was also reviewed and is not a concrete capability or availability change; Mistral Large 4 is already in the feed. The model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. OpenAI returned 403, xAI 403, Tencent 404 and AMD timed out; Qualcomm's index exposed no article content. No other in-window presumptive launch appeared. One item was published: nvidia-nemotron-ioi-imo-gold-results.",
   "nextScanDue": "2026-10-07"
 }

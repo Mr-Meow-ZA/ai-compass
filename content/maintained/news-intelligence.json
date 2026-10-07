@@ -40,6 +40,14 @@
     }
   },
   "explicit": {
+    "nvidia-nemotron-ioi-imo-gold-results": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Fine-tuned Nemotron specialists and open recipes released",
+      "why": "NVIDIA reports Nemotron 3 specialists reached gold-medal-level scores at both the 2026 IOI and IMO, with checkpoints, datasets and inference recipes made available. The IOI result was unofficial and unsupervised; IMO graders assessed the submitted proofs. These are developer-reported results from specialized systems, not independent evidence of general-purpose model superiority.",
+      "audience": "Open-model builders, AI researchers, model-training teams and developers working on coding or mathematical reasoning",
+      "action": "Inspect the papers, checkpoints, datasets and NeMo-Skills recipes; reproduce results with the published constraints and measure training and inference costs before applying the specialization approach to other tasks."
+    },
     "anthropic-cyber-verification-program-expansion": {
       "importance": 5,
       "signal": "Must know",
