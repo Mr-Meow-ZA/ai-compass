@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "anthropic-cyber-verification-program-expansion",
+    "title": "Anthropic expands verified access to advanced cyber models for defenders",
+    "dek": "Anthropic has expanded its Cyber Verification Program (CVP), offering three access tiers for security professionals using its most capable models. Defense Access covers work such as incident response and vulnerability analysis; Red Team Access adds authorized penetration testing for organizations; and Specialized Access is limited to verified organizations testing safety-critical systems such as power grids or telecom networks. Applicants must meet tier-specific verification and security requirements, and Anthropic says participating organizations must retain data for misuse monitoring, with limited exceptions. The company’s tests of the tiered safeguards on CyScenarioBench are internal results, not independent evidence that the controls prevent misuse in real deployments. The practical change is a wider, structured route for vetted defenders to use capabilities that remain more restricted in generally available models. Security teams should check the eligibility, oversight and data-handling terms before applying.",
+    "source": "Anthropic",
+    "sourceType": "Official cybersecurity access-program announcement",
+    "category": "Safety",
+    "format": "Daily brief",
+    "date": "2026-10-06",
+    "readTime": "5 min",
+    "url": "https://www.anthropic.com/news/cyber-verification-program",
+    "verified": "2026-10-07",
+    "visual": "enterprise-blue"
+},
+{
     "id": "mistral-large-4-frontier-preview",
     "title": "Mistral opens a public preview of its 1-trillion-parameter Large 4 model",
     "dek": "Mistral has opened a public API preview of Mistral Large 4, a natively multimodal model with one trillion total parameters and 49 billion active per token. The preview is available through Mistral Studio; the company says downloadable weights are planned for the end of October, so self-hosting is not available yet. Mistral reports strong results in coding, agent workflows, multimodal tasks and specialist domains, including cybersecurity, but those comparisons are vendor claims; its announcement also cites an external cyber evaluation. The immediate change is access to a new high-end model, with a potential open-weight deployment option to follow. Builders should test the preview on representative tasks and assess safety controls for their use case, then verify the weights, licence and deployment requirements when they are actually released rather than treating the benchmark claims as settled.",

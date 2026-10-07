@@ -40,6 +40,14 @@
     }
   },
   "explicit": {
+    "anthropic-cyber-verification-program-expansion": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Expanded tiered access program for verified security professionals",
+      "why": "Anthropic's expanded Cyber Verification Program creates a broader, tiered path for verified defenders to use advanced model capabilities, including authorized red-team work and a narrowly limited tier for safety-critical systems. The access controls and safeguards are Anthropic's own program design and test results, not independent proof of real-world misuse prevention. Data-retention requirements also matter for organizations assessing the program.",
+      "audience": "Cybersecurity teams, security researchers, AI safety and governance leaders, and organizations evaluating advanced models for defensive security work",
+      "action": "Review the verification criteria, authorized-use boundaries, required security controls and data-retention terms for the relevant tier before applying; do not treat the company's safeguard evaluation as an independent deployment guarantee."
+    },
     "mistral-large-4-frontier-preview": {
       "importance": 5,
       "signal": "Must know",

@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-10-06",
-  "lastSuccessfulPublish": "2026-10-06",
-  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-06 09:34 SAST through 2026-10-06 18:49 SAST. Catch-up mode was not triggered: the last successful publish and newest actual feed item are both dated 2026-10-06.",
+  "lastScan": "2026-10-07",
+  "lastSuccessfulPublish": "2026-10-07",
+  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-06 18:49 SAST through 2026-10-07 09:14 SAST. Catch-up mode was not triggered: the last successful publish and newest actual feed item were both dated 2026-10-06.",
   "result": "publish",
   "publishedIds": [
-    "mistral-large-4-frontier-preview"
+    "anthropic-cyber-verification-program-expansion"
   ],
   "scores": {
-    "mistral-large-4-frontier-preview": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
+    "anthropic-cyber-verification-program-expansion": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
       "evidence": 4,
       "durability": 2,
-      "total": 20,
+      "total": 17,
       "decision": "publish",
       "sourceDate": "2026-10-06",
-      "reason": "Mistral's official announcement, dated October 6, introduces a public preview of a natively multimodal trillion-parameter model and states that weights are planned for later this month. This is a major named model launch; vendor benchmark claims are clearly attributed."
+      "reason": "Anthropic's canonical announcement, published October 6, expands its Cyber Verification Program into three eligibility tiers, including broader defensive access and organization-only authorized red-team access. The access change is material for security teams, while the safeguard evaluation is company-run and is described as such."
     },
-    "tii-falcon-ocr-arabic": {
+    "nvidia-telecom-open-models-strategy": {
       "impact": 2,
       "readerValue": 2,
       "novelty": 2,
@@ -27,9 +27,21 @@
       "durability": 1,
       "total": 9,
       "decision": "rejected-below-threshold",
-      "reason": "TII's newly surfaced Falcon-OCR-Arabic post describes a focused adaptation of its existing 270M OCR model and a hosted try-out, not a broad model-family release; the post does not announce downloadable weights. Its benchmark is TII-run and its canonical page does not display a publication date. The focused Arabic-document utility is worth monitoring, but the limited deployment evidence and narrow scope do not clear today's publication threshold."
+      "sourceDate": "2026-10-06",
+      "reason": "NVIDIA's source index surfaced 'Why Telecom Operators Are Building Their AI Strategy on Open Models' as an October 6 item, but it is framed as an industry-strategy/customer story rather than a model, product, hardware or platform launch. The surfaced title does not establish a concrete new capability or availability change, so it does not clear the Daily Brief threshold."
+    },
+    "meta-assistive-robotics-prototype": {
+      "impact": 2,
+      "readerValue": 3,
+      "novelty": 2,
+      "evidence": 3,
+      "durability": 1,
+      "total": 11,
+      "decision": "rejected-insufficient-deployment-evidence",
+      "sourceDate": "2026-10-06",
+      "reason": "Meta's October 6 story describes a University of Pittsburgh assistive-robotics prototype using existing vision models and says it is ready for real-world testing, but provides no field-test outcomes or generally available robotics platform. The use case is promising, yet current evidence is an early engineering case study rather than a demonstrated capability or deployment shift."
     }
   },
-  "notes": "The generated official-source inventory was compared with existing feed IDs, URLs, titles and subjects for this routine same-day interval. Core sources checked: Anthropic (latest indexed announcement Oct 2), Google DeepMind/Google AI (no new release dated in this interval), Microsoft/GitHub/Azure (no new qualifying dated release), Meta (no new qualifying dated release), NVIDIA (latest relevant indexed announcement Oct 1), and Mistral (canonical announcement confirms Mistral Large 4 was published Oct 6). OpenAI's news index returned 403; the source snapshot did not expose a verifiable dated candidate from it. Model/open-source/hardware sources checked: Hugging Face surfaced TII's Falcon-OCR-Arabic post, rejected because it is a narrow hosted adaptation without announced weights and the canonical page lacks a displayed publication date; xAI returned 403, AMD timed out, and Tencent returned 404. Intel, Qualcomm, Amazon/AWS, Apple, Alibaba/Qwen, DeepSeek, Cerebras and Groq were also in the sweep, with no additional material announcement dated in this interval. Falcon-Emirati, already in the feed, was not duplicated. One item was published: Mistral Large 4. Its vendor benchmark claims are attributed and weights are described as planned, not currently available.",
-  "nextScanDue": "2026-10-06"
+  "notes": "The generated official-source inventory was compared with existing feed IDs, URLs, titles and subjects for this routine interval. Core sources checked: Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Anthropic's canonical October 6 announcement of the expanded Cyber Verification Program was verified and published; its CyScenarioBench results are identified as company-run. Meta's October 6 assistive-robotics prototype story was evaluated and rejected because it reports an early engineering case study without field-test results or a generally available platform. NVIDIA's October 6 telecom/open-models strategy article was evaluated and rejected because the indexed title describes industry strategy, not a concrete capability or availability change. Mistral Large 4, also dated October 6, is already in the feed and was not duplicated. OpenAI's index returned 403. The model/open-source/hardware sweep also covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq; xAI returned 403, Hugging Face 429, AMD timed out and Tencent returned 404, while no other dated presumptive launch appeared in the inventory. One item was published: anthropic-cyber-verification-program-expansion.",
+  "nextScanDue": "2026-10-07"
 }
