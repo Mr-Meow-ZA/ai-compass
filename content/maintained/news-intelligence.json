@@ -40,6 +40,14 @@
     }
   },
   "explicit": {
+    "anthropic-claude-haiku-5-5": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Released / available across Anthropic platforms and major clouds",
+      "why": "Haiku 5.5 adds a new small-model option aimed at high-volume, cost-sensitive and latency-sensitive work. Anthropic's reported average cost reduction versus Haiku 4.5 and its speed claims are vendor evidence, but the model's release and availability materially expand choices for repetitive tasks and agent sub-work.",
+      "audience": "Claude users, developers, agent builders, enterprise AI teams and model buyers",
+      "action": "Test Haiku 5.5 against representative tasks and compare quality, latency, safeguards and total workflow cost with Haiku 4.5 and larger models before changing production routing."
+    },
     "nvidia-nemotron-ioi-imo-gold-results": {
       "importance": 5,
       "signal": "Must know",

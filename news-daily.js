@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "anthropic-claude-haiku-5-5",
+    "title": "Anthropic releases Claude Haiku 5.5 for faster, lower-cost tasks",
+    "dek": "Anthropic has released Claude Haiku 5.5, its new small model for high-volume, cost-sensitive work. The company says it is its fastest model yet, supports adjustable effort settings, and costs about 75% less to run on average than Haiku 4.5; those capability and cost comparisons are vendor-reported. Haiku 5.5 is available now across Anthropic's platforms, including its API and major cloud providers. The release gives teams a lower-cost option for repetitive or latency-sensitive tasks such as summaries, classification and agent sub-tasks. Anthropic says its larger Sonnet and Opus models remain better for complex agentic coding, so builders should compare quality, latency and end-to-end task cost on their own workloads. Its cybersecurity safeguards also differ from those of the larger models, which matters when choosing it for security work.",
+    "source": "Anthropic",
+    "sourceType": "Official model announcement",
+    "category": "Models",
+    "format": "Daily brief",
+    "date": "2026-10-07",
+    "readTime": "5 min",
+    "url": "https://www.anthropic.com/claude-haiku-5-5",
+    "verified": "2026-10-07",
+    "visual": "models-blue"
+},
+{
     "id": "nvidia-nemotron-ioi-imo-gold-results",
     "title": "NVIDIA's Nemotron models reach gold-medal level at IOI and IMO",
     "dek": "NVIDIA reports that teams fine-tuned Nemotron 3 models into specialist systems that reached gold-medal level at the 2026 International Olympiad in Informatics (IOI) and International Mathematical Olympiad (IMO). The IOI system scored 535.4/600, above the reported 361.12 gold threshold and top human score, but its run was unofficial and unsupervised, not part of the official standings. The IMO system scored 30/42, above the official 29-point gold threshold; official IMO graders assessed its submitted proofs. These are NVIDIA team results, not independent comparisons, and the scores came from tailored training and multi-stage generate-verify-refine inference rather than an unmodified general model. NVIDIA has released checkpoints, datasets and recipes. The durable signal is a concrete, reproducible route to specializing open-weight models for difficult domains, though teams should account for substantial training and inference resources.",

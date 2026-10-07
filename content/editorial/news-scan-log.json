@@ -2,12 +2,34 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-07",
   "lastSuccessfulPublish": "2026-10-07",
-  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-07 09:14 SAST through 2026-10-07 16:32 SAST. Catch-up mode was not triggered: the previous successful publish was dated 2026-10-07 and the newest actual feed item was dated 2026-10-06; both were less than 72 hours old.",
+  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-07 16:32 SAST through 2026-10-07 23:18 SAST. Catch-up mode was not triggered: the previous successful publish and newest actual feed item were both dated 2026-10-07, within 72 hours.",
   "result": "publish",
   "publishedIds": [
-    "nvidia-nemotron-ioi-imo-gold-results"
+    "anthropic-claude-haiku-5-5"
   ],
   "scores": {
+    "anthropic-claude-haiku-5-5": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "publish",
+      "sourceDate": "2026-10-07",
+      "reason": "Anthropic's official newsroom lists the Claude Haiku 5.5 announcement as published October 7, and its canonical model page confirms the new model, current availability, adjustable effort setting and the company's reported cost comparison with Haiku 4.5. This is a named model release with a material lower-cost, speed-focused role in the model family; performance and savings claims are identified as vendor evidence."
+    },
+    "liquidai-open-d1-decision-models": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 1,
+      "durability": 1,
+      "total": 13,
+      "decision": "rejected-unverified-source",
+      "sourceDate": "2026-10-07",
+      "reason": "Hugging Face's official blog index surfaced a LiquidAI-titled post, 'Multimodal open d1 decision models for the edge,' dated October 7. The linked canonical page currently returns unrelated AOL account-recovery SEO content rather than the model announcement, and no matching primary announcement could be verified. With the post's claims and model release unsubstantiated, it is rejected pending a valid source."
+    },
     "nvidia-nemotron-ioi-imo-gold-results": {
       "impact": 4,
       "readerValue": 4,
@@ -15,7 +37,7 @@
       "evidence": 4,
       "durability": 2,
       "total": 17,
-      "decision": "publish",
+      "decision": "already-in-feed",
       "sourceDate": "2026-10-07",
       "reason": "NVIDIA's canonical Hugging Face post, published October 7, reports specialist Nemotron systems above gold thresholds at both IOI and IMO and releases associated checkpoints, datasets and recipes. The IOI run was unofficial; the IMO proofs were graded by official graders. The scores are developer-reported, but the released artifacts make this a concrete model-specialization capability and reproducible workflow."
     },
@@ -31,6 +53,6 @@
       "reason": "Google's canonical announcement confirms EmbeddingGemma 2 as a 740M-parameter open model that unifies code, images, video and audio embeddings under Apache 2.0, but its published timestamp is October 6 at 16:00 UTC, before the current routine scan window began at 06:14 UTC on October 7 (09:14 SAST). It is not new since the last recorded scan; catch-up mode was not triggered because the previous successful publish and newest actual feed item were both less than 72 hours old."
     }
   },
-  "notes": "The generated official-source inventory was compared with feed IDs, URLs, titles and subjects for the routine interval. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. NVIDIA's canonical October 7 Hugging Face post on Nemotron specialist systems was verified and published; the IOI result is explicitly unofficial, while official IMO graders assessed the submitted proofs. Google EmbeddingGemma 2 was confirmed as a multimodal open model release dated October 6, but its 16:00 UTC publication predates this scan window's October 7 06:14 UTC start, so it was recorded with an explicit out-of-window reason rather than backdated into this routine run. NVIDIA's October 6 telecom/open-model strategy piece was also reviewed and is not a concrete capability or availability change; Mistral Large 4 is already in the feed. The model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. OpenAI returned 403, xAI 403, Tencent 404 and AMD timed out; Qualcomm's index exposed no article content. No other in-window presumptive launch appeared. One item was published: nvidia-nemotron-ioi-imo-gold-results.",
+  "notes": "The generated official-source inventory was compared with feed IDs, canonical URLs, titles and subjects for the routine interval. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Anthropic's official listing dates Haiku 5.5 to October 7; its canonical model page confirms the release and availability, so the named model was published. Hugging Face surfaced a purported October 7 LiquidAI open-d1 model post, but its canonical page now serves unrelated AOL recovery spam and a matching primary source could not be verified; it was rejected explicitly rather than presented as fact. NVIDIA's October 7 Nemotron post is already covered in the feed. The October 6 Anthropic Cyber Verification Program and Mistral Large 4 announcements are also already covered. Google's EmbeddingGemma 2 is dated October 6 and was reviewed in the preceding scan; no additional in-window candidate appeared on Google, Microsoft, Meta or NVIDIA indexes. The model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. OpenAI and xAI returned 403, Tencent returned 404, AMD timed out, and Qualcomm's index exposed no article content; the other indexes were inspected and showed no further in-window presumptive launch. One item was published: anthropic-claude-haiku-5-5.",
   "nextScanDue": "2026-10-07"
 }
