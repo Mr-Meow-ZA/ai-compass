@@ -3,6 +3,20 @@
 const feed=window.AI_COMPASS_FEED||(window.AI_COMPASS_FEED=[]);
 const items=[
 {
+    "id": "nvidia-rtx-spark-dgx-station-windows-ai",
+    "title": "NVIDIA and Microsoft bring local AI hardware and agent execution to Windows",
+    "dek": "NVIDIA and Microsoft have announced RTX Spark laptops and compact desktops for running local AI on Windows, alongside a Windows version of NVIDIA’s deskside DGX Station. RTX Spark combines a Blackwell GPU and Grace CPU with up to 128GB of unified memory; NVIDIA lists up to one petaflop of FP4 AI performance. Laptop preorders opened October 7, with availability stated for October 16; compact desktops are planned for November. Separately, DGX Station for Windows is a previewed GB300-based system with 748GB of coherent memory, not a currently available RTX Spark configuration. Microsoft also announced general availability of Microsoft Execution Containers, OS-level infrastructure for agents running persistently in the background. Hardware specifications and performance figures are vendor claims. Together, the announcements make local model execution and governed Windows agents more practical; teams should assess workload fit, cost, power and security before choosing local systems over cloud services.",
+    "source": "NVIDIA / Microsoft",
+    "sourceType": "Official joint Windows AI hardware and platform announcement",
+    "category": "Products",
+    "format": "Daily brief",
+    "date": "2026-10-07",
+    "readTime": "5 min",
+    "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
+    "verified": "2026-10-08",
+    "visual": "hardware-blue"
+},
+{
     "id": "anthropic-claude-haiku-5-5",
     "title": "Anthropic releases Claude Haiku 5.5 for faster, lower-cost tasks",
     "dek": "Anthropic has released Claude Haiku 5.5, its new small model for high-volume, cost-sensitive work. The company says it is its fastest model yet, supports adjustable effort settings, and costs about 75% less to run on average than Haiku 4.5; those capability and cost comparisons are vendor-reported. Haiku 5.5 is available now across Anthropic's platforms, including its API and major cloud providers. The release gives teams a lower-cost option for repetitive or latency-sensitive tasks such as summaries, classification and agent sub-tasks. Anthropic says its larger Sonnet and Opus models remain better for complex agentic coding, so builders should compare quality, latency and end-to-end task cost on their own workloads. Its cybersecurity safeguards also differ from those of the larger models, which matters when choosing it for security work.",

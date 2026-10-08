@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-10-07",
-  "lastSuccessfulPublish": "2026-10-07",
-  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-07 16:32 SAST through 2026-10-07 23:18 SAST. Catch-up mode was not triggered: the previous successful publish and newest actual feed item were both dated 2026-10-07, within 72 hours.",
+  "lastScan": "2026-10-08",
+  "lastSuccessfulPublish": "2026-10-08",
+  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-07 23:18 SAST through 2026-10-08 03:55 SAST. Also closed a confirmed prior-scan omission: NVIDIA's canonical post was published 2026-10-07 at 18:45 UTC, before the prior scan ended, but was absent from that scan's candidate record. Catch-up mode was not triggered because the previous successful publish and newest feed item were both within 72 hours.",
   "result": "publish",
   "publishedIds": [
-    "anthropic-claude-haiku-5-5"
+    "nvidia-rtx-spark-dgx-station-windows-ai"
   ],
   "scores": {
-    "anthropic-claude-haiku-5-5": {
+    "nvidia-rtx-spark-dgx-station-windows-ai": {
       "impact": 5,
       "readerValue": 5,
       "novelty": 4,
@@ -17,9 +17,9 @@
       "total": 20,
       "decision": "publish",
       "sourceDate": "2026-10-07",
-      "reason": "Anthropic's official newsroom lists the Claude Haiku 5.5 announcement as published October 7, and its canonical model page confirms the new model, current availability, adjustable effort setting and the company's reported cost comparison with Haiku 4.5. This is a named model release with a material lower-cost, speed-focused role in the model family; performance and savings claims are identified as vendor evidence."
+      "reason": "NVIDIA's canonical post is dated October 7 at 18:45 UTC and describes RTX Spark Windows laptops and compact desktops, a preview of DGX Station for Windows, and Microsoft's generally available Execution Containers for persistent agents. This is a consequential local-AI hardware and agent-platform launch; vendor specifications and performance claims are labeled as such. The post was published before the previous scan ended but was missing from its recorded candidates, so it is included now to close that coverage gap."
     },
-    "liquidai-open-d1-decision-models": {
+    "hugging-face-open-d1-edge-model": {
       "impact": 4,
       "readerValue": 4,
       "novelty": 3,
@@ -28,31 +28,9 @@
       "total": 13,
       "decision": "rejected-unverified-source",
       "sourceDate": "2026-10-07",
-      "reason": "Hugging Face's official blog index surfaced a LiquidAI-titled post, 'Multimodal open d1 decision models for the edge,' dated October 7. The linked canonical page currently returns unrelated AOL account-recovery SEO content rather than the model announcement, and no matching primary announcement could be verified. With the post's claims and model release unsubstantiated, it is rejected pending a valid source."
-    },
-    "nvidia-nemotron-ioi-imo-gold-results": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-07",
-      "reason": "NVIDIA's canonical Hugging Face post, published October 7, reports specialist Nemotron systems above gold thresholds at both IOI and IMO and releases associated checkpoints, datasets and recipes. The IOI run was unofficial; the IMO proofs were graded by official graders. The scores are developer-reported, but the released artifacts make this a concrete model-specialization capability and reproducible workflow."
-    },
-    "google-embeddinggemma-2-multimodal-embeddings": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "rejected-outside-research-window",
-      "sourceDate": "2026-10-06",
-      "reason": "Google's canonical announcement confirms EmbeddingGemma 2 as a 740M-parameter open model that unifies code, images, video and audio embeddings under Apache 2.0, but its published timestamp is October 6 at 16:00 UTC, before the current routine scan window began at 06:14 UTC on October 7 (09:14 SAST). It is not new since the last recorded scan; catch-up mode was not triggered because the previous successful publish and newest actual feed item were both less than 72 hours old."
+      "reason": "Hugging Face's official blog index lists 'Multimodal open d1 decision models for the edge' on October 7, but the linked canonical page returns unrelated AOL account-recovery content and no matching primary model announcement could be verified. The model-release claims remain unsubstantiated, so it is rejected."
     }
   },
-  "notes": "The generated official-source inventory was compared with feed IDs, canonical URLs, titles and subjects for the routine interval. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Anthropic's official listing dates Haiku 5.5 to October 7; its canonical model page confirms the release and availability, so the named model was published. Hugging Face surfaced a purported October 7 LiquidAI open-d1 model post, but its canonical page now serves unrelated AOL recovery spam and a matching primary source could not be verified; it was rejected explicitly rather than presented as fact. NVIDIA's October 7 Nemotron post is already covered in the feed. The October 6 Anthropic Cyber Verification Program and Mistral Large 4 announcements are also already covered. Google's EmbeddingGemma 2 is dated October 6 and was reviewed in the preceding scan; no additional in-window candidate appeared on Google, Microsoft, Meta or NVIDIA indexes. The model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. OpenAI and xAI returned 403, Tencent returned 404, AMD timed out, and Qualcomm's index exposed no article content; the other indexes were inspected and showed no further in-window presumptive launch. One item was published: anthropic-claude-haiku-5-5.",
-  "nextScanDue": "2026-10-07"
+  "notes": "The generated official-source inventory was compared with feed IDs, URLs, titles and subjects. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. NVIDIA's canonical October 7 Windows event post confirms RTX Spark local-AI laptops/desktops, the separate DGX Station for Windows preview, and Microsoft's generally available Execution Containers; the significant hardware and agent-platform changes were published. The item had been posted before the previous scan ended but was missing from its candidate record, so this run closes that documented gap. The purported Hugging Face open-d1 model post was rejected because its canonical page serves unrelated AOL recovery content and a matching primary announcement could not be verified. NVIDIA's Nemotron post is already in the feed; Anthropic's Cyber Verification Program and Mistral Large 4 were covered in the previous scan. The sweep also covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. OpenAI and xAI returned 403, Tencent returned 404 and AMD timed out; other indexes were inspected. One item was published: nvidia-rtx-spark-dgx-station-windows-ai.",
+  "nextScanDue": "2026-10-08"
 }

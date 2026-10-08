@@ -40,6 +40,14 @@
     }
   },
   "explicit": {
+    "nvidia-rtx-spark-dgx-station-windows-ai": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "RTX Spark announced / laptop availability stated for October 16; Windows DGX Station previewed",
+      "why": "RTX Spark brings NVIDIA's AI stack to Windows laptops and compact desktops with up to 128GB of unified memory, while DGX Station for Windows targets much larger local workloads. Microsoft Execution Containers add OS-level infrastructure for persistent agents. The systems have different specifications and availability; performance figures are vendor claims, not independent benchmarks.",
+      "audience": "Local-AI builders, developers, enterprise IT and security teams, and organizations weighing local inference against cloud deployment",
+      "action": "Compare the hardware and software on representative workloads, including memory fit, latency, power, total cost and agent security controls. Confirm product availability and requirements before planning a deployment."
+    },
     "anthropic-claude-haiku-5-5": {
       "importance": 5,
       "signal": "Must know",
