@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-06",
+  "reviewed": "2026-10-08",
   "methodVersion": "1.1",
   "categoryDefaults": {
     "Safety": {
@@ -40,6 +40,30 @@
     }
   },
   "explicit": {
+    "anthropic-cyber-mission": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Cyber Mission launched; Critical Infrastructure Defense Program and opt-in OSS Scanner announced",
+      "why": "Anthropic is pairing its frontier models and engineering support with critical-infrastructure defenders, while offering open-source maintainers model-generated vulnerability reports. The effort moves frontier AI cyber defense from individual product access toward an organized program, but scanner findings are not human-triaged and remain subject to false positives.",
+      "audience": "Critical-infrastructure operators, open-source maintainers, cybersecurity teams and AI safety leaders",
+      "action": "Review the program's eligibility, disclosure and validation process before using scanner findings to prioritize fixes or applying AI-generated reports to production systems."
+    },
+    "anthropic-2026-usage-policy-update": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Updated policy published / effective November 12, 2026",
+      "why": "Anthropic says most revisions clarify existing enforcement, but the update adds explicit requirements for Claude-connected physical equipment that could cause injury, including qualified operator oversight and a safe state on disconnection. That makes deployment controls more concrete for systems where model actions affect the physical world.",
+      "audience": "AI product teams, robotics and industrial-automation builders, safety and governance teams, and organizations using Claude",
+      "action": "Check physical-system integrations for an observant operator with stop authority and a safe disconnect state, and review the updated policy before it takes effect."
+    },
+    "anthropic-genesis-mission-commitment": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "$150 million three-year commitment announced / federal agency and research-project access planned",
+      "why": "Anthropic says the commitment will extend Claude, Claude Code and API access with support to more than 15 Genesis Mission agencies and several hundred research projects. It is a significant expansion of a previously announced partnership, although the announced funding and planned access are not evidence of completed deployments or research outcomes.",
+      "audience": "Federal research agencies, scientific teams, public-sector technology leaders and organizations evaluating AI for research",
+      "action": "Participating teams should confirm agency eligibility, data-handling and procurement requirements, then assess model access against the needs and controls of each research workflow."
+    },
     "nvidia-rtx-spark-dgx-station-windows-ai": {
       "importance": 5,
       "signal": "Must know",
