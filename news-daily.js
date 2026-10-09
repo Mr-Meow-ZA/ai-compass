@@ -45,6 +45,20 @@ const items=[
     "visual": "research-blue"
 },
 {
+    "id": "liquid-ai-open-d1-decision-models",
+    "title": "Liquid AI releases open d1 decision models for multimodal edge tasks",
+    "dek": "Liquid AI has released two open-weight models in its d1 decision family: d1-3B, which accepts text and images, and experimental d1-omni-600M, which accepts text paired with images or audio. Unlike token-generating chat models, d1 returns probabilities for structured yes/no, classification and scoring decisions in a single forward pass, targeting low-latency tasks such as routing, inspection and agent actions. Liquid AI reports d1-3B benchmark leads and sub-50-millisecond responses on NVIDIA Jetson devices; those results are company-reported, and d1-omni-600M remains an early research release without published speed results. The practical signal is an open, multimodal path to compact decision systems at the edge—not a replacement for general-purpose language models. Builders should test task quality, hardware needs, model terms and safety bounds on real data before deployment.",
+    "source": "Liquid AI",
+    "sourceType": "Official open-model announcement",
+    "category": "OpenSource",
+    "format": "Daily brief",
+    "date": "2026-10-07",
+    "readTime": "5 min",
+    "url": "https://huggingface.co/blog/LiquidAI/open-d1",
+    "verified": "2026-10-09",
+    "visual": "models-blue"
+},
+{
     "id": "nvidia-rtx-spark-dgx-station-windows-ai",
     "title": "NVIDIA and Microsoft bring local AI hardware and agent execution to Windows",
     "dek": "NVIDIA and Microsoft have announced RTX Spark laptops and compact desktops for running local AI on Windows, alongside a Windows version of NVIDIA’s deskside DGX Station. RTX Spark combines a Blackwell GPU and Grace CPU with up to 128GB of unified memory; NVIDIA lists up to one petaflop of FP4 AI performance. Laptop preorders opened October 7, with availability stated for October 16; compact desktops are planned for November. Separately, DGX Station for Windows is a previewed GB300-based system with 748GB of coherent memory, not a currently available RTX Spark configuration. Microsoft also announced general availability of Microsoft Execution Containers, OS-level infrastructure for agents running persistently in the background. Hardware specifications and performance figures are vendor claims. Together, the announcements make local model execution and governed Windows agents more practical; teams should assess workload fit, cost, power and security before choosing local systems over cloud services.",

@@ -1,16 +1,14 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-10-08",
-  "lastSuccessfulPublish": "2026-10-08",
-  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-08 13:21 SAST through 2026-10-08 21:16 SAST. Catch-up mode was not triggered because lastSuccessfulPublish is 2026-10-08 and the newest actual feed publication was dated 2026-10-07, both within 72 hours.",
+  "lastScan": "2026-10-09",
+  "lastSuccessfulPublish": "2026-10-09",
+  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-08 21:16 SAST through 2026-10-09 09:23 SAST. Catch-up mode was not triggered because the previous successful publication and newest actual feed item were both less than 72 hours old. Also re-verified the prior scan's October 7 open-d1 candidate after its canonical source became available.",
   "result": "publish",
   "publishedIds": [
-    "anthropic-cyber-mission",
-    "anthropic-2026-usage-policy-update",
-    "anthropic-genesis-mission-commitment"
+    "liquid-ai-open-d1-decision-models"
   ],
   "scores": {
-    "anthropic-cyber-mission": {
+    "liquid-ai-open-d1-decision-models": {
       "impact": 5,
       "readerValue": 5,
       "novelty": 4,
@@ -18,8 +16,19 @@
       "durability": 2,
       "total": 20,
       "decision": "publish",
+      "sourceDate": "2026-10-07",
+      "reason": "Liquid AI's official Hugging Face release page verifies two open d1 decision models, their input modalities and their availability as weights; the page is dated October 7, 2026. This is a material model-family release that changes multimodal edge-deployment options. Vendor benchmark and speed claims are identified as such in the brief. The prior scan rejected this candidate because its source appeared to resolve incorrectly; the current source sweep and canonical page now verify it."
+    },
+    "anthropic-cyber-mission": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "already-in-feed",
       "sourceDate": "2026-10-08",
-      "reason": "Anthropic's dated Cyber Mission launch establishes a defender-focused program combining critical-infrastructure support with an opt-in vulnerability scanner for open-source maintainers. The canonical announcement confirms the program scope and its unreviewed-report caveat."
+      "reason": "Anthropic's October 8 Cyber Mission announcement and opt-in scanner are already covered by the feed."
     },
     "anthropic-2026-usage-policy-update": {
       "impact": 4,
@@ -28,9 +37,9 @@
       "evidence": 4,
       "durability": 2,
       "total": 17,
-      "decision": "publish",
+      "decision": "already-in-feed",
       "sourceDate": "2026-10-08",
-      "reason": "The update is mostly clarification, but adds explicit operator and safe-disconnect requirements for Claude-connected physical equipment that could cause injury. This is a material provider safety policy change for physical-agent deployments, not a new law or independent standard."
+      "reason": "Anthropic's October 8 policy update, including operator oversight and safe-disconnect requirements for physical equipment, is already covered."
     },
     "anthropic-genesis-mission-commitment": {
       "impact": 4,
@@ -39,64 +48,20 @@
       "evidence": 4,
       "durability": 2,
       "total": 17,
-      "decision": "publish",
+      "decision": "already-in-feed",
       "sourceDate": "2026-10-08",
-      "reason": "Anthropic announced a $150 million three-year commitment to expand Claude access, credits and implementation support across more than 15 Genesis Mission agencies. The scale and federal-science access plans make this a material public-sector partnership, while outcomes remain unverified."
+      "reason": "Anthropic's October 8 $150 million Genesis Mission commitment is already covered; its stated access and agency plans remain future commitments."
     },
-    "anthropic-claude-haiku-5-5": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-07",
-      "reason": "Anthropic's significant Haiku 5.5 release is dated October 7, before this routine window, and is already covered by the feed."
-    },
-    "nvidia-rtx-spark-dgx-station-windows-ai": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-07",
-      "reason": "NVIDIA's October 7 announcement of RTX Spark Windows systems, the DGX Station for Windows preview and Microsoft's Execution Containers predates this window and is already covered."
-    },
-    "nvidia-nemotron-ioi-imo-gold-results": {
-      "impact": 5,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 18,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-07",
-      "reason": "NVIDIA's October 7 Nemotron specialist-models announcement predates this window and is already covered with its vendor-reported results distinguished from official competition outcomes."
-    },
-    "hugging-face-falcon-asr-1": {
-      "impact": 3,
+    "hugging-face-building-with-ml-intern": {
+      "impact": 2,
       "readerValue": 3,
-      "novelty": 3,
+      "novelty": 2,
       "evidence": 4,
       "durability": 1,
-      "total": 14,
-      "decision": "outside-scan-window",
-      "sourceDate": "2026-10-07",
-      "reason": "Hugging Face's inventory dates TII's Falcon ASR 1 announcement to October 7, before this routine window began on October 8. The Arabic-focused speech-recognition release is not a new development since the previous scan."
-    },
-    "hugging-face-open-d1-edge-model": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 1,
-      "durability": 1,
-      "total": 13,
-      "decision": "rejected-unverified-source",
-      "sourceDate": "2026-10-07",
-      "reason": "The Hugging Face inventory's October 7 open-d1 link resolves to unrelated AOL account-recovery content rather than a model announcement. No matching primary release could be verified, and the claim predates this window."
+      "total": 12,
+      "decision": "rejected-non-material",
+      "sourceDate": "2026-10-08",
+      "reason": "The October 8 Hugging Face post documents one user's ML Intern workflow and several individually fine-tuned models. It is a useful case study, not a major model-family or platform release, and its performance and cost figures are author-reported."
     },
     "google-embeddinggemma-2-multimodal": {
       "impact": 4,
@@ -107,20 +72,20 @@
       "total": 18,
       "decision": "outside-scan-window",
       "sourceDate": "2026-10-06",
-      "reason": "Google's canonical post identifies EmbeddingGemma 2 as a 740-million-parameter open model unifying code, images, video and audio embeddings, and confirms publication on October 6. This meaningful release predates the routine window beginning October 8 at 13:21 SAST."
+      "reason": "Google's EmbeddingGemma 2 is a meaningful open multimodal embedding release, but its October 6 announcement is outside the routine window that began October 8 at 21:16 SAST."
     },
-    "intel-agentic-ai-throughput-oct-6": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 2,
+    "nvidia-rtx-spark-dgx-station-windows-ai": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
       "evidence": 4,
-      "durability": 1,
-      "total": 13,
-      "decision": "outside-scan-window",
-      "sourceDate": "2026-10-06",
-      "reason": "Intel's official source index dates its Xeon agentic-throughput and open production-AI infrastructure posts to October 6. They predate this routine scan window; no later qualifying Intel announcement appeared in the sweep."
+      "durability": 2,
+      "total": 20,
+      "decision": "already-in-feed",
+      "sourceDate": "2026-10-07",
+      "reason": "NVIDIA and Microsoft's October 7 local-AI hardware and persistent-agent announcement is already covered."
     }
   },
-  "notes": "The routine window was 2026-10-08 13:21 to 21:16 SAST; catch-up mode was not triggered because the last successful publication was today and the newest feed item is dated October 7. The generated official-source inventory was compared against feed IDs, URLs, titles and subjects. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Anthropic's three October 8 announcements were verified against their canonical pages and published: the Cyber Mission (including the unreviewed-report caveat for OSS Scanner), its Usage Policy update (mostly clarification, with new physical-equipment controls), and its $150 million Genesis Mission commitment (plans, not completed outcomes). October 7 Anthropic Haiku 5.5 and NVIDIA RTX Spark/Nemotron announcements are already in the feed. Hugging Face's Falcon ASR 1 post is dated October 7 and falls before this window; its open-d1 listing remains unverified because the canonical page serves unrelated AOL account-recovery content. Google's EmbeddingGemma 2 and Intel's agentic-throughput/infrastructure posts are dated October 6 and outside this window; Google's visible recent models are otherwise from earlier dates, Meta's newest indexed posts are from July, and Mistral Large 4 dated October 6 is already covered. The wider sweep included xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq. OpenAI returned 403 on its index and direct fetch, AMD timed out, Tencent returned 404, and xAI's inventory fetch returned 403; its separately reachable official news page showed a $6 billion Series C headline without a visible on-window date. No other dated presumptive-publication release was exposed within this short routine interval.",
-  "nextScanDue": "2026-10-08"
+  "notes": "The deterministic source-sweep inventory was compared with feed IDs, URLs, titles and subjects for the 2026-10-08 21:16–2026-10-09 09:23 SAST routine interval. Catch-up mode was not triggered: the last successful publication and newest actual feed item were less than 72 hours old. Published Liquid AI's official October 7 open d1 release after re-verifying the canonical Hugging Face post; the prior scan had incorrectly rejected this same release because its URL appeared to resolve to unrelated AOL content. The post verifies open d1-3B and experimental d1-omni-600M, with vendor benchmarks clearly labeled. Anthropic's three October 8 announcements are already in the feed. The strongest newly surfaced rejected candidate was Hugging Face's October 8 ML Intern article, a single user's workflow and model-making case study rather than a major release. Google's EmbeddingGemma 2 is a material October 6 release but outside this routine interval. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. The wider sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq; OpenAI and xAI returned 403, AMD timed out, and Tencent returned 404. Accessible indexes showed no further dated presumptive-publication event in the routine interval; NVIDIA's October 7 hardware release is already covered.",
+  "nextScanDue": "2026-10-09"
 }

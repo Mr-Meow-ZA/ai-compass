@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-08",
+  "reviewed": "2026-10-09",
   "methodVersion": "1.1",
   "categoryDefaults": {
     "Safety": {
@@ -527,6 +527,14 @@
       "why": "Kolibri adds a European-developed model option for organizations that prioritize German-language capability, open weights and control over deployment. Aleph Alpha describes a 78B-total/3.5B-active mixture-of-experts model with up to a one-million-token context and Apache 2.0 weights, aimed at regulated public-sector and industrial work. Its benchmark and deployment-efficiency comparisons remain company-reported.",
       "audience": "European AI builders, public-sector and regulated-industry teams, model evaluators and organizations assessing sovereign AI",
       "action": "Review the model card and technical report, then test German and English quality, long-context behavior, tool use and inference requirements on representative workloads before production adoption."
+    },
+    "liquid-ai-open-d1-decision-models": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Two open-weight d1 models released; d1-omni-600M remains experimental",
+      "why": "Liquid AI's d1 family adds open models that make structured decisions in one forward pass rather than generating tokens, with text-and-image input in d1-3B and text paired with image or audio input in the experimental d1-omni-600M. The release expands multimodal edge-deployment options, while performance comparisons and latency figures are company-reported.",
+      "audience": "Edge-AI developers, agent builders, ML engineers and teams evaluating fast structured decisions from text, images or audio",
+      "action": "Inspect the model cards and licences, then test decision quality, latency, hardware fit and failure handling on representative data before substituting d1 for a general-purpose model."
     }
   },
   "method": {
