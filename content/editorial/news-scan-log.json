@@ -2,57 +2,44 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-09",
   "lastSuccessfulPublish": "2026-10-09",
-  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-08 21:16 SAST through 2026-10-09 09:23 SAST. Catch-up mode was not triggered because the previous successful publication and newest actual feed item were both less than 72 hours old. Also re-verified the prior scan's October 7 open-d1 candidate after its canonical source became available.",
-  "result": "publish",
-  "publishedIds": [
-    "liquid-ai-open-d1-decision-models"
-  ],
+  "scanWindow": "Routine scan from the previous recorded scan at 2026-10-09 09:23 SAST through 2026-10-09 18:59 SAST. Catch-up mode was not triggered because lastSuccessfulPublish is 2026-10-09 and the newest actual feed publication is 2026-10-08, both less than 72 hours old.",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
-    "liquid-ai-open-d1-decision-models": {
+    "google-cloud-gemini-agent": {
       "impact": 5,
       "readerValue": 5,
       "novelty": 4,
       "evidence": 4,
       "durability": 2,
       "total": 20,
-      "decision": "publish",
+      "decision": "outside-scan-window",
+      "sourceDate": "2026-10-08",
+      "reason": "Google Cloud's official post announces Gemini as a universal work agent with organization context, cross-system tools, agent identities, sandboxing, and policy controls; Reuters independently reported the launch on October 8. This is a presumptive major agent-platform event, but it predates this routine window, which began October 9 at 09:23 SAST, and is not in the feed. Catch-up mode was not triggered because the last successful publication and newest feed item are both less than 72 hours old."
+    },
+    "openai-722-math-manuscripts": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 3,
+      "durability": 2,
+      "total": 19,
+      "decision": "outside-scan-window",
       "sourceDate": "2026-10-07",
-      "reason": "Liquid AI's official Hugging Face release page verifies two open d1 decision models, their input modalities and their availability as weights; the page is dated October 7, 2026. This is a material model-family release that changes multimodal edge-deployment options. Vendor benchmark and speed claims are identified as such in the brief. The prior scan rejected this candidate because its source appeared to resolve incorrectly; the current source sweep and canonical page now verify it."
+      "reason": "Independent coverage describes a potentially important OpenAI release of AI-generated mathematics manuscripts and subsequent withdrawal of several preprints. The release and withdrawal reports predate this routine window, and OpenAI's newsroom returned 403; no new technical release was verified during the window."
     },
-    "anthropic-cyber-mission": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-08",
-      "reason": "Anthropic's October 8 Cyber Mission announcement and opt-in scanner are already covered by the feed."
-    },
-    "anthropic-2026-usage-policy-update": {
-      "impact": 4,
+    "ai2-impactful-scheduling-gpu-clusters": {
+      "impact": 3,
       "readerValue": 4,
       "novelty": 3,
       "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-08",
-      "reason": "Anthropic's October 8 policy update, including operator oversight and safe-disconnect requirements for physical equipment, is already covered."
+      "durability": 1,
+      "total": 15,
+      "decision": "rejected-non-material",
+      "sourceDate": "2026-10-09",
+      "reason": "Ai2's post describes its internal GPU time-budget and fair-share scheduling process for research clusters. It offers useful operational lessons but does not announce a generally available scheduler, model, hardware system, or measured research-capability change."
     },
-    "anthropic-genesis-mission-commitment": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-08",
-      "reason": "Anthropic's October 8 $150 million Genesis Mission commitment is already covered; its stated access and agency plans remain future commitments."
-    },
-    "hugging-face-building-with-ml-intern": {
+    "aws-postman-agent-mode-case-study": {
       "impact": 2,
       "readerValue": 3,
       "novelty": 2,
@@ -60,32 +47,43 @@
       "durability": 1,
       "total": 12,
       "decision": "rejected-non-material",
-      "sourceDate": "2026-10-08",
-      "reason": "The October 8 Hugging Face post documents one user's ML Intern workflow and several individually fine-tuned models. It is a useful case study, not a major model-family or platform release, and its performance and cost figures are author-reported."
+      "sourceDate": "2026-10-09",
+      "reason": "AWS and Postman's article documents architecture and operating lessons for the existing Agent Mode product. It is a customer case study, not a new agent, platform launch, or change in availability."
     },
-    "google-embeddinggemma-2-multimodal": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 4,
+    "intel-sandboxed-agentic-ai-xeon": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 2,
       "evidence": 4,
-      "durability": 2,
-      "total": 18,
+      "durability": 1,
+      "total": 13,
       "decision": "outside-scan-window",
-      "sourceDate": "2026-10-06",
-      "reason": "Google's EmbeddingGemma 2 is a meaningful open multimodal embedding release, but its October 6 announcement is outside the routine window that began October 8 at 21:16 SAST."
+      "sourceDate": "2026-10-08",
+      "reason": "Intel's official October 8 post describes Xeon-based provisioning and sandbox optimization for agent workloads. It predates this routine window and presents workload-specific vendor results rather than announcing a new accelerator, agent platform, or broadly available capability."
     },
-    "nvidia-rtx-spark-dgx-station-windows-ai": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
+    "openai-eternal-complement-essay": {
+      "impact": 2,
+      "readerValue": 2,
+      "novelty": 1,
       "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "already-in-feed",
-      "sourceDate": "2026-10-07",
-      "reason": "NVIDIA and Microsoft's October 7 local-AI hardware and persistent-agent announcement is already covered."
+      "durability": 1,
+      "total": 10,
+      "decision": "rejected-non-material",
+      "sourceDate": "2026-10-09",
+      "reason": "The OpenAI-hosted essay is explicitly part of a series featuring independent voices and discusses broad economic implications; it does not announce a new model, product, policy, or research result."
+    },
+    "openai-safety-researcher-dismissals": {
+      "impact": 3,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 2,
+      "durability": 1,
+      "total": 13,
+      "decision": "rejected-insufficiently-established",
+      "sourceDate": "2026-10-09",
+      "reason": "Current reports describe disputed claims about three researchers' dismissals and OpenAI denies that the decisions were retaliation for raising safety concerns. The reporting does not establish a new safety incident, policy, or governance control, so presenting the disputed causal claim as a verified safety development would overstate the evidence."
     }
   },
-  "notes": "The deterministic source-sweep inventory was compared with feed IDs, URLs, titles and subjects for the 2026-10-08 21:16–2026-10-09 09:23 SAST routine interval. Catch-up mode was not triggered: the last successful publication and newest actual feed item were less than 72 hours old. Published Liquid AI's official October 7 open d1 release after re-verifying the canonical Hugging Face post; the prior scan had incorrectly rejected this same release because its URL appeared to resolve to unrelated AOL content. The post verifies open d1-3B and experimental d1-omni-600M, with vendor benchmarks clearly labeled. Anthropic's three October 8 announcements are already in the feed. The strongest newly surfaced rejected candidate was Hugging Face's October 8 ML Intern article, a single user's workflow and model-making case study rather than a major release. Google's EmbeddingGemma 2 is a material October 6 release but outside this routine interval. Core sources checked: OpenAI, Anthropic, Google DeepMind/Google AI, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. The wider sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq; OpenAI and xAI returned 403, AMD timed out, and Tencent returned 404. Accessible indexes showed no further dated presumptive-publication event in the routine interval; NVIDIA's October 7 hardware release is already covered.",
+  "notes": "Completed the deterministic source-sweep review and compared exposed titles, URLs and subjects against the feed for the 2026-10-09 09:23–18:59 SAST routine window. Catch-up mode was not triggered: lastSuccessfulPublish is 2026-10-09 and the newest actual feed publication is 2026-10-08, both less than 72 hours old. No item cleared the publication threshold. The strongest new dated items within the interval were Ai2's internal GPU-scheduling case study and AWS/Postman's account of an existing Agent Mode deployment; neither announced a new platform or broadly available capability. OpenAI's October 9 'The eternal complement' is an essay by independent contributors, not an OpenAI product or research announcement. The OpenAI researcher-dismissal reports contain disputed causation that OpenAI denies, with no verified new safety control or incident. The major Google Cloud Gemini agent launch (October 8) and OpenAI's mathematics-manuscript release (October 7) predate this routine window; the Google launch is not in the feed, but catch-up was not triggered. Core indexes checked: OpenAI, Anthropic, Google/Google DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. The wider inventory covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq, plus robotics/local-AI hardware. OpenAI's newsroom returned 403, AMD's newsroom timed out and Tencent returned 404; OpenAI's official API changelog and indexed official posts, AMD's IR index and independent news indexes supplemented discovery. xAI's news page and the Intel, Google Cloud, Hugging Face and AWS canonical pages were accessible. Reuters confirmed the prior-day Google Cloud launch; its AI index returned 401. No dated presumptive-publication event within the routine window was left unevaluated.",
   "nextScanDue": "2026-10-09"
 }
