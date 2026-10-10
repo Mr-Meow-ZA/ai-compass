@@ -2,10 +2,43 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-10",
   "lastSuccessfulPublish": "2026-10-09",
-  "scanWindow": "Routine scan from the previous recorded scan's endpoint at 2026-10-09 18:59 SAST through 2026-10-10 09:06 SAST. Catch-up mode was not triggered because lastSuccessfulPublish is 2026-10-09 and the newest actual feed publication is 2026-10-08, both less than 72 hours old.",
+  "scanWindow": "Routine scan from the previous recorded scan's endpoint at 2026-10-10 09:06 SAST through 2026-10-10 15:41 SAST. Catch-up mode was not triggered because lastSuccessfulPublish is 2026-10-09 and the newest actual feed publication is 2026-10-08, both less than 72 hours old.",
   "result": "no-publish",
   "publishedIds": [],
   "scores": {
+    "anthropic-cyber-mission": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "already-covered",
+      "sourceDate": "2026-10-08",
+      "reason": "Anthropic's official index surfaced its Cyber Mission announcement, but the same announcement is already published in the feed as anthropic-cyber-mission."
+    },
+    "anthropic-2026-usage-policy-update": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 2,
+      "total": 17,
+      "decision": "already-covered",
+      "sourceDate": "2026-10-08",
+      "reason": "The physical-systems policy update is already published in the feed as anthropic-2026-usage-policy-update."
+    },
+    "anthropic-genesis-mission-commitment": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 1,
+      "total": 16,
+      "decision": "already-covered",
+      "sourceDate": "2026-10-08",
+      "reason": "Anthropic's announced federal-science commitment is already published in the feed as anthropic-genesis-mission-commitment."
+    },
     "openai-gpt-6-1-sol-ultrafast-mode": {
       "impact": 4,
       "readerValue": 4,
@@ -13,9 +46,20 @@
       "evidence": 4,
       "durability": 1,
       "total": 15,
-      "decision": "outside-scan-window",
+      "decision": "outside-scan-window-previously-evaluated",
       "sourceDate": "2026-10-08",
-      "reason": "OpenAI's official API changelog says GPT-6.1 Sol Ultrafast mode became available to all API users on October 8. It is a potentially useful lower-latency option, but the dated release predates this routine window, and no catch-up scan was triggered."
+      "reason": "OpenAI's official API changelog dates GPT-6.1 Sol Ultrafast mode to October 8. It is a useful lower-latency option, but predates this interval and was assessed in the previous scan."
+    },
+    "openai-gpt-6-luna-decisions-api": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 1,
+      "total": 16,
+      "decision": "outside-scan-window",
+      "sourceDate": "2026-10-06",
+      "reason": "OpenAI's official API changelog dates the beta Decisions API release to October 6; it is outside this routine interval and catch-up mode was not triggered."
     },
     "ai2-impactful-scheduling-gpu-clusters": {
       "impact": 3,
@@ -46,11 +90,11 @@
       "evidence": 4,
       "durability": 2,
       "total": 20,
-      "decision": "outside-scan-window",
+      "decision": "outside-scan-window-previously-evaluated",
       "sourceDate": "2026-10-08",
-      "reason": "Google Cloud's official post announces Gemini as a universal work agent with organization context, cross-system tools, agent identities, sandboxing, and policy controls. This presumptive major agent-platform event predates this routine window and was recorded as outside-window in the previous scan. Catch-up mode was not triggered because lastSuccessfulPublish is 2026-10-09 and the newest actual feed item is dated 2026-10-08; both are less than 72 hours old."
+      "reason": "Google Cloud's universal Gemini work-agent launch is a major platform change, but its October 8 date predates this interval and it was explicitly evaluated in the previous scan."
     }
   },
-  "notes": "Completed the mandatory deterministic source sweep and compared the exposed titles, URLs and subjects with the registered feed for the 2026-10-09 18:59 to 2026-10-10 09:06 SAST routine window. Catch-up mode was not triggered: lastSuccessfulPublish is 2026-10-09 and the newest actual feed publication is 2026-10-08, both less than 72 hours old. No new dated qualifying development was exposed in the interval and nothing was published. The strongest surfaced candidates were Ai2's GPU-cluster scheduling post and AWS/Postman's account of the existing Agent Mode; both are dated October 9 but predate this window and were assessed in the preceding scan as non-material case studies rather than new broadly available capabilities. OpenAI's official API changelog separately lists GPT-6.1 Sol Ultrafast mode on October 8, a pre-window latency feature; Google Cloud's October 8 Gemini agent platform is a significant pre-window event already explicitly evaluated in the preceding scan. Neither is a new development in this interval. Core official indexes checked: OpenAI, Anthropic, Google/Google DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. The wider source inventory covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq, plus robotics and local-AI hardware. Supplemental official checks included OpenAI's API changelog, Azure's AI blog, GitHub's changelog and Copilot tag, and AMD investor relations. The generated source sweep was available for deterministic cross-checking; OpenAI's newsroom returned 403, AMD newsroom timed out, and Tencent returned 404; xAI's page was accessible on retry but exposed no dated in-window announcement. Relevant Anthropic, Google, Microsoft, Meta, NVIDIA, Mistral and Hugging Face indexes were accessible or represented in the official-source snapshot. No official dated presumptive-publication event inside this scan window was left unevaluated.",
+  "notes": "Completed the deterministic source sweep for 2026-10-10 09:06–15:41 SAST and compared announcement titles, URLs and subjects with the registered feed. No new dated qualifying development appeared in this interval. Core indexes checked: OpenAI, Anthropic, Google/Google DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. Anthropic's October 8 Cyber Mission, usage-policy update and Genesis Mission commitment are already in the feed; the October 7 Haiku 5.5 and local-AI hardware releases and October 6 Mistral Large 4 release are also already covered. The strongest uncovered platform candidates were OpenAI's October 8 GPT-6.1 Sol Ultrafast mode and Google's October 8 Gemini work agent; both predate this interval and were evaluated in the previous scan. OpenAI's API changelog also dates the Decisions API beta to October 6. Ai2's GPU scheduling post and AWS/Postman's Agent Mode case study are October 9 items already assessed in the prior scan; neither announces a new generally available capability. The wider sweep covered Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras, Groq, robotics and local-AI hardware. OpenAI's newsroom returned 403, AMD's newsroom timed out, and Tencent's configured index returned 404; OpenAI's official API changelog, AMD investor-relations releases and Tencent's official site were checked as alternatives. The xAI index yielded no dated in-window item. GitHub/Copilot, Azure AI, Figure, Unitree and additional official hardware/model indexes were also checked. No presumptive-publication announcement in the current interval was left unevaluated; nothing was published.",
   "nextScanDue": "2026-10-10"
 }
