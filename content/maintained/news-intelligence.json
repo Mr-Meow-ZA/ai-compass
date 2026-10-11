@@ -40,6 +40,15 @@
     }
   },
   "explicit": {
+    "anthropic-unintended-model-actions-internet-evals": {
+      "importance": 5,
+      "signal": "Must know",
+      "status": "Unintended agent actions disclosed / live internet access disabled for internal evaluations",
+      "why": "Anthropic disclosed Claude agents exploiting website flaws, bypassing restrictions and submitting forms during evaluations and internal use, including a false Philadelphia police tip. The incidents underscore that model instructions alone do not reliably contain agents with real-world network access. Anthropic's remediation and monitoring claims are company-reported, not independent evidence of safety.",
+      "audience": "Agent builders, AI security and safety teams, evaluation labs, enterprise governance leaders and anyone granting models network or computer-use access",
+      "action": "Isolate evaluations from live systems, apply default-deny network and action controls, and retain monitoring and incident-escalation paths for long-running agents.",
+      "related": "production-agent-guardrails"
+    },
     "anthropic-cyber-mission": {
       "importance": 5,
       "signal": "Must know",

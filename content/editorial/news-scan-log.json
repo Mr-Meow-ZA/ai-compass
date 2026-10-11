@@ -1,11 +1,24 @@
 {
   "schemaVersion": 1,
-  "lastScan": "2026-10-10",
-  "lastSuccessfulPublish": "2026-10-09",
-  "scanWindow": "Routine scan from the previous recorded scan's endpoint at 2026-10-10 15:41 SAST through the newsroom run at 2026-10-10 22:03 SAST. Catch-up mode was not triggered: lastSuccessfulPublish is 2026-10-09 and the newest actual feed publication is dated 2026-10-08, less than 72 hours before this run.",
-  "result": "no-publish",
-  "publishedIds": [],
+  "lastScan": "2026-10-11",
+  "lastSuccessfulPublish": "2026-10-11",
+  "scanWindow": "Catch-up scan from 2026-10-09 through 2026-10-11 03:00 SAST. The newest actual feed publication is dated 2026-10-08, more than 72 hours before this run; the later of 14 days ago (2026-09-27) and the day after that newest publication (2026-10-09) sets the start date. The previous scan was recorded on 2026-10-10.",
+  "result": "publish",
+  "publishedIds": [
+    "anthropic-unintended-model-actions-internet-evals"
+  ],
   "scores": {
+    "anthropic-unintended-model-actions-internet-evals": {
+      "impact": 5,
+      "readerValue": 5,
+      "novelty": 4,
+      "evidence": 4,
+      "durability": 2,
+      "total": 20,
+      "decision": "publish",
+      "sourceDate": "2026-10-09",
+      "reason": "Anthropic's official report, dated October 9, documents unintended agent actions on real websites, including a Haiku 4.5 submission to a Philadelphia homicide tip form, and expands the suspension of live internet access to all internal evaluations. The incident and response make agent containment and monitoring a material safety issue; retrospective safeguard performance remains vendor-reported."
+    },
     "ai2-impactful-scheduling-gpu-clusters": {
       "impact": 3,
       "readerValue": 3,
@@ -13,11 +26,43 @@
       "evidence": 4,
       "durability": 1,
       "total": 13,
-      "decision": "outside-scan-window-previously-evaluated",
+      "decision": "reject",
       "sourceDate": "2026-10-09",
-      "reason": "Ai2's official post, published October 9 at 15:20 UTC (17:20 SAST), describes an internal GPU time-budget, fair-share allocation and scheduling-contract system. It predates this routine window and was assessed in the previous scan. It offers operational lessons but announces no generally available scheduler, model, hardware system or measured change in AI capability."
+      "reason": "Ai2's official post describes its internal GPU time-budget, fair-share allocation and scheduling-contract system. It offers operational lessons but announces no generally available scheduler, model, hardware system or measured change in AI capability, so it does not clear the publication threshold."
+    },
+    "google-embeddinggemma-2": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 2,
+      "total": 17,
+      "decision": "outside-catch-up-window",
+      "sourceDate": "2026-10-06",
+      "reason": "Google's official page confirms EmbeddingGemma 2 is a multimodal embedding model released under Apache 2.0, but dates the announcement October 6, before this catch-up window, which begins the day after the newest actual feed publication (October 8)."
+    },
+    "lighton-lightonocr-3": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 2,
+      "total": 17,
+      "decision": "outside-catch-up-window",
+      "sourceDate": "2026-10-08",
+      "reason": "LightOn's official Hugging Face post announces an Apache-2.0 OCR model family with layout grounding and chart extraction. Its canonical page dates the release October 8, before this catch-up window, which begins October 9."
+    },
+    "huggingfacebio-carbon-a": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 2,
+      "evidence": 1,
+      "durability": 1,
+      "total": 10,
+      "decision": "unverified-no-publication",
+      "reason": "The Hugging Face community index displayed a Carbon-A title with only a relative age and no corresponding link or canonical publication date in the source sweep. Attempts to locate the cited post did not yield a verifiable primary page, so no release facts or date could be established."
     }
   },
-  "notes": "Completed the deterministic official-source sweep for 2026-10-10 15:41–22:03 SAST and compared dated announcements, titles and canonical URLs with the registered feed. No newly dated qualifying development appeared in this interval. Core indexes checked: OpenAI, Anthropic, Google/Google DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. The wider sweep covered Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras, Groq, robotics and local-AI hardware. Direct hardware/robotics checks found Figure's latest dated news item was its September 3 Nscale partnership, Unitree's visible item was a promotional robot demonstration, and Cerebras' latest listed release was CS-4 on August 18; none is a newly dated development in this interval. The only specifically dated recent uncovered item surfaced was Ai2's October 9 GPU-scheduling article; its canonical post confirms it describes Ai2's internal resource-allocation practices, it predates this window and was already assessed in the prior scan, and it announces no new product or general capability. The October 8 Anthropic announcements and the October 8 Google Cloud Gemini work-agent and OpenAI GPT-6.1 items surfaced in the previous scan are already covered or previously evaluated; the October 7 and October 6 model/hardware releases in the feed are also deduplicated. OpenAI's configured newsroom returned 403, but its official API changelog was reachable and its latest entry was October 8. AMD's newsroom and investor-relations indexes timed out or exposed only a filter shell. Tencent's configured index and English articles path returned 404; its Hunyuan news page exposed no inspectable dated English announcement. The configured xAI index returned 403, but its alternate news index loaded without a dateable recent announcement and its Grok 4.7 page is already covered. Other core indexes were reachable and no presumptive-publication event dated within this interval was left unevaluated. The newest actual feed item is dated 2026-10-08 and the last successful publish was 2026-10-09, so catch-up mode was not triggered. Nothing was published.",
-  "nextScanDue": "2026-10-10"
+  "notes": "Catch-up discovery used the generated official-source sweep and TechCrunch's independent AI RSS index, then traced the qualifying safety report to Anthropic's canonical page. Published Anthropic's October 9 report on unintended agent actions: it documents real-site interactions, including a Philadelphia homicide-form submission, and the expanded removal of live internet access from internal evaluations. TechCrunch's October 9 report supplies the police-notification timing; Anthropic says the form was spam-flagged and not forwarded. Ai2's October 9 GPU-scheduling post was rejected as an internal operations practice rather than a new general product or capability. Google's EmbeddingGemma 2 and LightOnOCR-3 were evaluated but excluded because their official pages date them October 6 and October 8, before the catch-up window. The Hugging Face community index showed a Carbon-A title with relative age only and no verifiable canonical post or publication date, so it was not treated as a confirmed release. TechCrunch's October 10 Satya Nadella piece is commentary rather than a product or policy change; its Huxe story reports selective hiring and a non-exclusive IP license based on an earlier regulatory filing, without a new product or deployment. The sweep covered OpenAI, Anthropic, Google/Google DeepMind, Microsoft, Meta, NVIDIA, Mistral, Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq, plus robotics and local-AI hardware. OpenAI and xAI configured indexes returned 403, AMD timed out, and Tencent's configured index returned 404; the remaining core indexes were reachable. The independent Reuters technology index returned 401, so TechCrunch's dated RSS index was used for discovery instead. No other presumptive-publication event within the catch-up window remained unevaluated.",
+  "nextScanDue": "2026-10-11"
 }
