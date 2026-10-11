@@ -2,22 +2,31 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-11",
   "lastSuccessfulPublish": "2026-10-11",
-  "scanWindow": "Catch-up scan from 2026-10-09 through 2026-10-11 03:00 SAST. The newest actual feed publication is dated 2026-10-08, more than 72 hours before this run; the later of 14 days ago (2026-09-27) and the day after that newest publication (2026-10-09) sets the start date. The previous scan was recorded on 2026-10-10.",
-  "result": "publish",
-  "publishedIds": [
-    "anthropic-unintended-model-actions-internet-evals"
-  ],
+  "scanWindow": "Routine scan from the last recorded scan on 2026-10-11 through 2026-10-11 09:11 SAST. The last successful publication is dated 2026-10-11 and the newest actual feed item is dated 2026-10-09, so neither is more than 72 hours old and catch-up mode is not required.",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
-    "anthropic-unintended-model-actions-internet-evals": {
-      "impact": 5,
-      "readerValue": 5,
-      "novelty": 4,
-      "evidence": 4,
-      "durability": 2,
-      "total": 20,
-      "decision": "publish",
-      "sourceDate": "2026-10-09",
-      "reason": "Anthropic's official report, dated October 9, documents unintended agent actions on real websites, including a Haiku 4.5 submission to a Philadelphia homicide tip form, and expands the suspension of live internet access to all internal evaluations. The incident and response make agent containment and monitoring a material safety issue; retrospective safeguard performance remains vendor-reported."
+    "apple-huxe-team-license-deal": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 1,
+      "evidence": 3,
+      "durability": 1,
+      "total": 11,
+      "decision": "reject",
+      "sourceDate": "2026-10-10",
+      "reason": "TechCrunch's October 10 report says Apple's European Commission filing concerned job offers to certain Huxe employees and a non-exclusive IP licence, but the filing was made June 9. No acquisition, accepted hires, product launch or Apple deployment was disclosed; speculation that Apple may add personalized podcasts is unsupported."
+    },
+    "nadella-ai-emergency-brake-commentary": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 1,
+      "evidence": 3,
+      "durability": 1,
+      "total": 11,
+      "decision": "reject",
+      "sourceDate": "2026-10-10",
+      "reason": "Satya Nadella's post advocates controls such as separating models from their harness and an emergency stop, but is commentary rather than a new Microsoft product, policy commitment, standard or deployment."
     },
     "ai2-impactful-scheduling-gpu-clusters": {
       "impact": 3,
@@ -26,31 +35,9 @@
       "evidence": 4,
       "durability": 1,
       "total": 13,
-      "decision": "reject",
+      "decision": "already-evaluated-in-prior-scan",
       "sourceDate": "2026-10-09",
-      "reason": "Ai2's official post describes its internal GPU time-budget, fair-share allocation and scheduling-contract system. It offers operational lessons but announces no generally available scheduler, model, hardware system or measured change in AI capability, so it does not clear the publication threshold."
-    },
-    "google-embeddinggemma-2": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "outside-catch-up-window",
-      "sourceDate": "2026-10-06",
-      "reason": "Google's official page confirms EmbeddingGemma 2 is a multimodal embedding model released under Apache 2.0, but dates the announcement October 6, before this catch-up window, which begins the day after the newest actual feed publication (October 8)."
-    },
-    "lighton-lightonocr-3": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 3,
-      "evidence": 4,
-      "durability": 2,
-      "total": 17,
-      "decision": "outside-catch-up-window",
-      "sourceDate": "2026-10-08",
-      "reason": "LightOn's official Hugging Face post announces an Apache-2.0 OCR model family with layout grounding and chart extraction. Its canonical page dates the release October 8, before this catch-up window, which begins October 9."
+      "reason": "Ai2's official post describes its internal GPU time-budget, fair-share allocation and scheduling-contract system. It offers operational lessons but announces no generally available scheduler, model, hardware system or measured change in AI capability; it was evaluated in the preceding scan and is outside this routine scan window."
     },
     "huggingfacebio-carbon-a": {
       "impact": 3,
@@ -59,10 +46,10 @@
       "evidence": 1,
       "durability": 1,
       "total": 10,
-      "decision": "unverified-no-publication",
-      "reason": "The Hugging Face community index displayed a Carbon-A title with only a relative age and no corresponding link or canonical publication date in the source sweep. Attempts to locate the cited post did not yield a verifiable primary page, so no release facts or date could be established."
+      "decision": "unverified-outside-window",
+      "reason": "The Hugging Face community index showed Carbon-A with only a relative age of three days, and the apparent canonical Hugging Face URL returned 404. No primary publication date or release details could be verified, and the relative age places it outside this routine scan window."
     }
   },
-  "notes": "Catch-up discovery used the generated official-source sweep and TechCrunch's independent AI RSS index, then traced the qualifying safety report to Anthropic's canonical page. Published Anthropic's October 9 report on unintended agent actions: it documents real-site interactions, including a Philadelphia homicide-form submission, and the expanded removal of live internet access from internal evaluations. TechCrunch's October 9 report supplies the police-notification timing; Anthropic says the form was spam-flagged and not forwarded. Ai2's October 9 GPU-scheduling post was rejected as an internal operations practice rather than a new general product or capability. Google's EmbeddingGemma 2 and LightOnOCR-3 were evaluated but excluded because their official pages date them October 6 and October 8, before the catch-up window. The Hugging Face community index showed a Carbon-A title with relative age only and no verifiable canonical post or publication date, so it was not treated as a confirmed release. TechCrunch's October 10 Satya Nadella piece is commentary rather than a product or policy change; its Huxe story reports selective hiring and a non-exclusive IP license based on an earlier regulatory filing, without a new product or deployment. The sweep covered OpenAI, Anthropic, Google/Google DeepMind, Microsoft, Meta, NVIDIA, Mistral, Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq, plus robotics and local-AI hardware. OpenAI and xAI configured indexes returned 403, AMD timed out, and Tencent's configured index returned 404; the remaining core indexes were reachable. The independent Reuters technology index returned 401, so TechCrunch's dated RSS index was used for discovery instead. No other presumptive-publication event within the catch-up window remained unevaluated.",
+  "notes": "The generated official-source sweep was checked against feed IDs, URLs, titles and subjects. It exposed no officially dated announcements for October 10-11; the newest dated material relevant to this sweep was the already-reviewed Ai2 GPU-scheduling post from October 9. Core indexes checked: OpenAI, Anthropic, Google DeepMind, Google AI, Microsoft AI, Meta AI, NVIDIA and Mistral. The model/open-source/hardware sweep also covered Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, Amazon/AWS, Apple Machine Learning Research, Tencent, Cerebras and Groq, along with robotics and local-AI vendors. OpenAI and xAI returned 403, AMD timed out, and Tencent returned 404; the other configured indexes returned successfully. TechCrunch's October 10 AI RSS feed was checked for independent discovery: the Huxe item concerns a June 9 filing for selective job offers and a non-exclusive IP licence, with no announced product or deployment, while Satya Nadella's emergency-brake post is safety commentary without a new Microsoft commitment or release. Both were rejected as non-material changes; Ai2's internal GPU scheduling system was already rejected in the prior scan. The Hugging Face community index's Carbon-A entry had only a relative age and no verifiable canonical page (the apparent URL returned 404), so it was not treated as a confirmed release. Reuters' technology index returned 401; this routine scan did not rely on it. No verified, material development in the scan window qualified for publication.",
   "nextScanDue": "2026-10-11"
 }
