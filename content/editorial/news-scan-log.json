@@ -2,31 +2,31 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-11",
   "lastSuccessfulPublish": "2026-10-11",
-  "scanWindow": "Routine scan from the last recorded scan on 2026-10-11 through 2026-10-11 09:11 SAST. The last successful publication is dated 2026-10-11 and the newest actual feed item is dated 2026-10-09, so neither is more than 72 hours old and catch-up mode is not required.",
+  "scanWindow": "Routine scan from the last recorded scan on 2026-10-11 at 09:11 SAST through 2026-10-11 16:02 SAST. The last successful publication is dated 2026-10-11 and the newest actual feed item is dated 2026-10-09 (under 72 hours old), so catch-up mode is not required.",
   "result": "no-publish",
   "publishedIds": [],
   "scores": {
-    "apple-huxe-team-license-deal": {
-      "impact": 3,
-      "readerValue": 3,
+    "openai-sophos-daybreak-customer-case-study": {
+      "impact": 2,
+      "readerValue": 2,
       "novelty": 1,
       "evidence": 3,
       "durability": 1,
-      "total": 11,
+      "total": 9,
       "decision": "reject",
-      "sourceDate": "2026-10-10",
-      "reason": "TechCrunch's October 10 report says Apple's European Commission filing concerned job offers to certain Huxe employees and a non-exclusive IP licence, but the filing was made June 9. No acquisition, accepted hires, product launch or Apple deployment was disclosed; speculation that Apple may add personalized podcasts is unsupported."
+      "sourceDate": "2026-10-09",
+      "reason": "OpenAI's official RSS dates this Sophos customer story October 9, before the current routine scan window. It reports customer results from using Daybreak but announces no new model, generally available product or capability change; the claims are a company customer-story summary."
     },
-    "nadella-ai-emergency-brake-commentary": {
-      "impact": 3,
-      "readerValue": 3,
+    "openai-asana-gpt-6-1-sol-case-study": {
+      "impact": 2,
+      "readerValue": 2,
       "novelty": 1,
       "evidence": 3,
       "durability": 1,
-      "total": 11,
+      "total": 9,
       "decision": "reject",
-      "sourceDate": "2026-10-10",
-      "reason": "Satya Nadella's post advocates controls such as separating models from their harness and an emergency stop, but is commentary rather than a new Microsoft product, policy commitment, standard or deployment."
+      "sourceDate": "2026-10-09",
+      "reason": "OpenAI's official RSS dates this Asana browser-agent customer story October 9, before the current routine scan window. Its speed and cost figures describe a customer test and do not announce a new model or general capability; the GPT-6.1 Sol release is already covered in the feed."
     },
     "ai2-impactful-scheduling-gpu-clusters": {
       "impact": 3,
@@ -37,19 +37,40 @@
       "total": 13,
       "decision": "already-evaluated-in-prior-scan",
       "sourceDate": "2026-10-09",
-      "reason": "Ai2's official post describes its internal GPU time-budget, fair-share allocation and scheduling-contract system. It offers operational lessons but announces no generally available scheduler, model, hardware system or measured change in AI capability; it was evaluated in the preceding scan and is outside this routine scan window."
+      "reason": "Ai2's official October 9 post describes its internal GPU time-budget, fair-share allocation and scheduling-contract system. It offers operational lessons but announces no generally available scheduler, model or hardware; the candidate was evaluated in the preceding scan and is outside this routine window."
     },
-    "huggingfacebio-carbon-a": {
+    "tii-falcon-asr": {
       "impact": 3,
       "readerValue": 3,
       "novelty": 2,
-      "evidence": 1,
+      "evidence": 4,
+      "durability": 1,
+      "total": 13,
+      "decision": "outside-window",
+      "sourceDate": "2026-10-07",
+      "reason": "Hugging Face's official TII post dates Falcon-ASR to October 7. The 1.6B speech-recognition model supports Arabic, English, French, Spanish and Portuguese, but it is a specialized ASR release rather than a frontier model or a broad open model-family shift, and it predates this scan window."
+    },
+    "lighton-lightonocr-3": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 2,
+      "evidence": 4,
+      "durability": 1,
+      "total": 13,
+      "decision": "outside-window-date-unverified",
+      "reason": "LightOn's Hugging Face article describes three Apache-2.0 OCR models with document grounding, image descriptions and chart extraction, but the source index labels it only as three days old and the canonical page does not display a publication date. It is a specialized OCR upgrade, not a broad frontier-model release, and the available relative date places it before this routine scan."
+    },
+    "tii-falcon-ocr-arabic": {
+      "impact": 2,
+      "readerValue": 3,
+      "novelty": 1,
+      "evidence": 3,
       "durability": 1,
       "total": 10,
-      "decision": "unverified-outside-window",
-      "reason": "The Hugging Face community index showed Carbon-A with only a relative age of three days, and the apparent canonical Hugging Face URL returned 404. No primary publication date or release details could be verified, and the relative age places it outside this routine scan window."
+      "decision": "outside-window-date-unverified",
+      "reason": "The Hugging Face index labels TII's Falcon-OCR-Arabic article as five days old; its canonical article describes an Arabic-specific OCR adaptation of a 270M model. The index provides no absolute publication date, and this narrow specialist release predates the current routine scan rather than changing broad model availability."
     }
   },
-  "notes": "The generated official-source sweep was checked against feed IDs, URLs, titles and subjects. It exposed no officially dated announcements for October 10-11; the newest dated material relevant to this sweep was the already-reviewed Ai2 GPU-scheduling post from October 9. Core indexes checked: OpenAI, Anthropic, Google DeepMind, Google AI, Microsoft AI, Meta AI, NVIDIA and Mistral. The model/open-source/hardware sweep also covered Hugging Face, xAI, Alibaba/Qwen, DeepSeek, AMD, Intel, Qualcomm, Amazon/AWS, Apple Machine Learning Research, Tencent, Cerebras and Groq, along with robotics and local-AI vendors. OpenAI and xAI returned 403, AMD timed out, and Tencent returned 404; the other configured indexes returned successfully. TechCrunch's October 10 AI RSS feed was checked for independent discovery: the Huxe item concerns a June 9 filing for selective job offers and a non-exclusive IP licence, with no announced product or deployment, while Satya Nadella's emergency-brake post is safety commentary without a new Microsoft commitment or release. Both were rejected as non-material changes; Ai2's internal GPU scheduling system was already rejected in the prior scan. The Hugging Face community index's Carbon-A entry had only a relative age and no verifiable canonical page (the apparent URL returned 404), so it was not treated as a confirmed release. Reuters' technology index returned 401; this routine scan did not rely on it. No verified, material development in the scan window qualified for publication.",
+  "notes": "The generated official-source sweep was compared with existing feed IDs, canonical URLs, titles and subjects. No official announcement dated October 10-11 appeared in the inventory. The newest dated material was Ai2's October 9 GPU-scheduling post, already evaluated in the preceding scan; Anthropic's October 8 announcements and the other earlier model and platform releases were matched to existing feed items. Core indexes checked: OpenAI, Anthropic, Google DeepMind, Google AI, Microsoft AI, Meta AI, NVIDIA and Mistral. The broader model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple Machine Learning Research, Tencent, Cerebras and Groq, as well as robotics and local-AI vendors. The Hugging Face inventory's October 7 Falcon-ASR post and relative-age entries for LightOnOCR-3 and Falcon-OCR-Arabic were checked at their canonical pages; they describe specialist speech/OCR models published before this routine window, and the relative-age entries did not provide absolute publication dates. OpenAI's news index returned 403, but its official RSS endpoint loaded and showed no October 10-11 items; its October 9 Sophos Daybreak and Asana GPT-6.1 Sol customer stories were scored and rejected as outside this window and not new product or capability announcements. OpenAI's article pages also returned 403. xAI returned 403 in the source sweep, while its news page showed only an undated funding headline; AMD's index and alternate press-release pages timed out, and Tencent returned 404. The remaining configured indexes, including Intel's newsroom, were accessible; this routine scan found no qualifying dated development. Reuters' technology index returned 401 and was not needed for this non-catch-up scan.",
   "nextScanDue": "2026-10-11"
 }
