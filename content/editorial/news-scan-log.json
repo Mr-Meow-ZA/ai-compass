@@ -2,75 +2,55 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-11",
   "lastSuccessfulPublish": "2026-10-11",
-  "scanWindow": "Routine scan from the last recorded scan on 2026-10-11 at 09:11 SAST through 2026-10-11 16:02 SAST. The last successful publication is dated 2026-10-11 and the newest actual feed item is dated 2026-10-09 (under 72 hours old), so catch-up mode is not required.",
+  "scanWindow": "Routine scan from the previous recorded scan ending 2026-10-11 at 16:02 SAST through 2026-10-11 22:16 SAST. The last successful publication is dated 2026-10-11 and the newest actual feed item is dated 2026-10-09 (under 72 hours old), so catch-up mode is not required.",
   "result": "no-publish",
   "publishedIds": [],
   "scores": {
-    "openai-sophos-daybreak-customer-case-study": {
-      "impact": 2,
-      "readerValue": 2,
-      "novelty": 1,
-      "evidence": 3,
-      "durability": 1,
-      "total": 9,
-      "decision": "reject",
-      "sourceDate": "2026-10-09",
-      "reason": "OpenAI's official RSS dates this Sophos customer story October 9, before the current routine scan window. It reports customer results from using Daybreak but announces no new model, generally available product or capability change; the claims are a company customer-story summary."
-    },
-    "openai-asana-gpt-6-1-sol-case-study": {
-      "impact": 2,
-      "readerValue": 2,
-      "novelty": 1,
-      "evidence": 3,
-      "durability": 1,
-      "total": 9,
-      "decision": "reject",
-      "sourceDate": "2026-10-09",
-      "reason": "OpenAI's official RSS dates this Asana browser-agent customer story October 9, before the current routine scan window. Its speed and cost figures describe a customer test and do not announce a new model or general capability; the GPT-6.1 Sol release is already covered in the feed."
-    },
-    "ai2-impactful-scheduling-gpu-clusters": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 2,
+    "google-cloud-gemini-agent": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
       "evidence": 4,
-      "durability": 1,
-      "total": 13,
-      "decision": "already-evaluated-in-prior-scan",
-      "sourceDate": "2026-10-09",
-      "reason": "Ai2's official October 9 post describes its internal GPU time-budget, fair-share allocation and scheduling-contract system. It offers operational lessons but announces no generally available scheduler, model or hardware; the candidate was evaluated in the preceding scan and is outside this routine window."
-    },
-    "tii-falcon-asr": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 2,
-      "evidence": 4,
-      "durability": 1,
-      "total": 13,
+      "durability": 2,
+      "total": 17,
       "decision": "outside-window",
-      "sourceDate": "2026-10-07",
-      "reason": "Hugging Face's official TII post dates Falcon-ASR to October 7. The 1.6B speech-recognition model supports Arabic, English, French, Spanish and Portuguese, but it is a specialized ASR release rather than a frontier model or a broad open model-family shift, and it predates this scan window."
+      "sourceDate": "2026-10-08",
+      "reason": "Google's canonical announcement describes Gemini agent as a universal work agent that plans tasks, uses tools and connects to business systems with enterprise governance. The source page dates it October 8, before this routine window, which began at 16:02 SAST on October 11; it is not yet covered in the feed, but this run is not in catch-up mode."
     },
-    "lighton-lightonocr-3": {
+    "google-embeddinggemma-2": {
+      "impact": 4,
+      "readerValue": 4,
+      "novelty": 3,
+      "evidence": 4,
+      "durability": 2,
+      "total": 17,
+      "decision": "outside-window",
+      "sourceDate": "2026-10-06",
+      "reason": "Google's canonical page dates EmbeddingGemma 2 to October 6 and describes a 740M-parameter Apache-2.0 model for shared text, code, image, video and audio embeddings. This materially expands open, on-device multimodal retrieval, but it predates the routine scan window and catch-up mode is not required."
+    },
+    "openai-false-front-operations": {
+      "impact": 3,
+      "readerValue": 3,
+      "novelty": 2,
+      "evidence": 3,
+      "durability": 1,
+      "total": 12,
+      "decision": "outside-window",
+      "sourceDate": "2026-10-08",
+      "reason": "OpenAI's official RSS dates this disclosure to October 8 and says it disrupted two AI-enabled influence operations using false-front journalists and a think tank. The date predates this routine window; the news index returned 403 and the RSS provides only a short summary, so the announcement is not treated as a newly verified current-window development."
+    },
+    "google-amie-lancet-clinical-study": {
       "impact": 3,
       "readerValue": 3,
       "novelty": 2,
       "evidence": 4,
-      "durability": 1,
-      "total": 13,
-      "decision": "outside-window-date-unverified",
-      "reason": "LightOn's Hugging Face article describes three Apache-2.0 OCR models with document grounding, image descriptions and chart extraction, but the source index labels it only as three days old and the canonical page does not display a publication date. It is a specialized OCR upgrade, not a broad frontier-model release, and the available relative date places it before this routine scan."
-    },
-    "tii-falcon-ocr-arabic": {
-      "impact": 2,
-      "readerValue": 3,
-      "novelty": 1,
-      "evidence": 3,
-      "durability": 1,
-      "total": 10,
-      "decision": "outside-window-date-unverified",
-      "reason": "The Hugging Face index labels TII's Falcon-OCR-Arabic article as five days old; its canonical article describes an Arabic-specific OCR adaptation of a 270M model. The index provides no absolute publication date, and this narrow specialist release predates the current routine scan rather than changing broad model availability."
+      "durability": 2,
+      "total": 14,
+      "decision": "outside-window",
+      "sourceDate": "2026-10-08",
+      "reason": "Google's official post dated October 8 describes a peer-reviewed Lancet study evaluating AMIE in a real-world primary-care clinic. It is a potentially useful clinical-AI research result, but it predates this routine scan window and therefore is not a new brief in this run."
     }
   },
-  "notes": "The generated official-source sweep was compared with existing feed IDs, canonical URLs, titles and subjects. No official announcement dated October 10-11 appeared in the inventory. The newest dated material was Ai2's October 9 GPU-scheduling post, already evaluated in the preceding scan; Anthropic's October 8 announcements and the other earlier model and platform releases were matched to existing feed items. Core indexes checked: OpenAI, Anthropic, Google DeepMind, Google AI, Microsoft AI, Meta AI, NVIDIA and Mistral. The broader model/open-source/hardware sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple Machine Learning Research, Tencent, Cerebras and Groq, as well as robotics and local-AI vendors. The Hugging Face inventory's October 7 Falcon-ASR post and relative-age entries for LightOnOCR-3 and Falcon-OCR-Arabic were checked at their canonical pages; they describe specialist speech/OCR models published before this routine window, and the relative-age entries did not provide absolute publication dates. OpenAI's news index returned 403, but its official RSS endpoint loaded and showed no October 10-11 items; its October 9 Sophos Daybreak and Asana GPT-6.1 Sol customer stories were scored and rejected as outside this window and not new product or capability announcements. OpenAI's article pages also returned 403. xAI returned 403 in the source sweep, while its news page showed only an undated funding headline; AMD's index and alternate press-release pages timed out, and Tencent returned 404. The remaining configured indexes, including Intel's newsroom, were accessible; this routine scan found no qualifying dated development. Reuters' technology index returned 401 and was not needed for this non-catch-up scan.",
+  "notes": "The generated source sweep was checked against feed IDs, canonical URLs, titles and subjects, then inspected again after candidate verification. No official announcement dated October 11 appeared in the inventory; the routine interval was only 16:02-22:16 SAST. OpenAI's RSS (the news index itself returned 403) showed no items after October 9; Google News RSS last built October 8, with the latest material including the October 8 Gemini agent and AMIE clinical-study posts. Their canonical pages confirmed October 8 dates; EmbeddingGemma 2's canonical page confirmed October 6. These unlisted developments may merit later coverage but were not published outside this run's window, and the last successful publication and newest feed item remain under the 72-hour catch-up threshold. Core sources checked: OpenAI, Anthropic, Google DeepMind, Google AI, Microsoft AI/GitHub/Azure, Meta AI, NVIDIA and Mistral. The broader inventory covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple Machine Learning Research, Tencent, Cerebras and Groq, plus robotics and local-AI vendors. Hugging Face's October 9 GPU-scheduling post had already been evaluated in the preceding scan; the other recent dated releases exposed by the core indexes predate this interval or are already in the feed. OpenAI's official RSS enabled discovery despite its 403 index; xAI returned 403, AMD's sweep request was aborted and Tencent returned 404. The accessible primary-source inventory showed no current-window presumptive model, agent, platform or hardware launch. Reuters was not required for this routine, non-catch-up scan.",
   "nextScanDue": "2026-10-11"
 }
