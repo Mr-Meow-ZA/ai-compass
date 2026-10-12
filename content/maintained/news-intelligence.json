@@ -544,6 +544,15 @@
       "why": "Liquid AI's d1 family adds open models that make structured decisions in one forward pass rather than generating tokens, with text-and-image input in d1-3B and text paired with image or audio input in the experimental d1-omni-600M. The release expands multimodal edge-deployment options, while performance comparisons and latency figures are company-reported.",
       "audience": "Edge-AI developers, agent builders, ML engineers and teams evaluating fast structured decisions from text, images or audio",
       "action": "Inspect the model cards and licences, then test decision quality, latency, hardware fit and failure handling on representative data before substituting d1 for a general-purpose model."
+    },
+    "github-copilot-jetbrains-model-mcp-controls": {
+      "importance": 4,
+      "signal": "High signal",
+      "status": "Enterprise-managed default agent models and MCP server auto-start controls added",
+      "why": "GitHub's JetBrains update lets enterprise administrators choose the default available Copilot agent model for new conversations and lets users disable automatic MCP server startup. These are practical controls over agent defaults and tool activation, alongside a shorter diagnostic-to-fix workflow, but the change is specific to the JetBrains plugin rather than a new model or broad Copilot platform launch.",
+      "audience": "GitHub Copilot users, JetBrains developers, enterprise AI administrators and teams governing MCP integrations",
+      "action": "Review default-model and MCP auto-start settings against team policy, and confirm the plugin and JetBrains IDE versions before rollout; JetBrains IDE 2025.2 or later is required.",
+      "related": "secure-enterprise-ai-agents-with-identity-and-least-privilege"
     }
   },
   "method": {
