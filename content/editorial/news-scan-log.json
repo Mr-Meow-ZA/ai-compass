@@ -2,68 +2,11 @@
   "schemaVersion": 1,
   "lastScan": "2026-10-12",
   "lastSuccessfulPublish": "2026-10-12",
-  "scanWindow": "Catch-up scan from 2026-10-10 (the day after the newest feed item dated 2026-10-09) through 2026-10-12 03:19 SAST. Catch-up was triggered because the newest feed item is more than 72 hours old; the prior successful publication was dated 2026-10-11.",
-  "result": "publish",
-  "publishedIds": [
-    "github-copilot-jetbrains-model-mcp-controls"
-  ],
+  "scanWindow": "Routine scan from the previous recorded scan on 2026-10-12 at 03:19 SAST through 2026-10-12 at 13:58 SAST. The newest actual feed item is dated 2026-10-10 and lastSuccessfulPublish is 2026-10-12, so neither catch-up trigger was met.",
+  "result": "no-publish",
+  "publishedIds": [],
   "scores": {
-    "github-copilot-jetbrains-model-mcp-controls": {
-      "impact": 3,
-      "readerValue": 4,
-      "novelty": 2,
-      "evidence": 4,
-      "durability": 1,
-      "total": 14,
-      "decision": "publish",
-      "sourceDate": "2026-10-10",
-      "reason": "GitHub's canonical changelog confirms enterprise-managed defaults for available Copilot agent models, an option to disable automatic MCP server startup, a diagnostic Fix action and JetBrains IDE 2025.2+ support. The model and MCP controls create a practical workflow and governance change for JetBrains teams; the improvements are more than UI polish, though limited to this IDE plugin."
-    },
-    "nvidia-reflection-ai-investment-talks": {
-      "impact": 4,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 1,
-      "durability": 2,
-      "total": 13,
-      "decision": "reject-unconfirmed",
-      "sourceDate": "2026-10-10",
-      "reason": "Reuters reported that the Financial Times said NVIDIA was in talks to invest further in or acquire Reflection AI. This is an unconfirmed report about possible talks, not a completed or announced transaction; neither company supplied primary confirmation, so it does not meet the verification rule."
-    },
-    "amazon-decart-acquisition-talks": {
-      "impact": 4,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 1,
-      "durability": 2,
-      "total": 13,
-      "decision": "reject-unconfirmed",
-      "sourceDate": "2026-10-11",
-      "reason": "Reuters reported that the Wall Street Journal said Amazon was in talks to buy AI startup Decart. No acquisition was announced or confirmed by Amazon or Decart; reporting about negotiations alone is not sufficient to publish a completed ecosystem shift."
-    },
-    "us-uk-ai-model-testing-cooperation": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 2,
-      "evidence": 1,
-      "durability": 2,
-      "total": 13,
-      "decision": "reject-unconfirmed",
-      "sourceDate": "2026-10-11",
-      "reason": "A report that the United States reversed its position on British testing of AI models was attributed to the Telegraph, with no confirming statement or primary document found from either government. The policy question could matter, but the reported reversal is not sufficiently verified."
-    },
-    "xai-grok-bot-page": {
-      "impact": 4,
-      "readerValue": 4,
-      "novelty": 2,
-      "evidence": 1,
-      "durability": 1,
-      "total": 12,
-      "decision": "reject-undated-duplicate",
-      "sourceDate": null,
-      "reason": "Search discovery surfaced an 'AI teammates' Grok Bot result, but the official grok.com/bot page has no displayed publication date and xAI's news index returned 403. The verifiable xAI Team Bots launch is already covered in the feed under xai-team-bots-shared-agent-platform (2026-09-28); no distinct dated announcement was established."
-    },
-    "lightonocr-3-open-model-family": {
+    "google-embeddinggemma-2-open-multimodal-model": {
       "impact": 4,
       "readerValue": 4,
       "novelty": 3,
@@ -71,43 +14,10 @@
       "durability": 2,
       "total": 17,
       "decision": "outside-window",
-      "sourceDate": "2026-10-08",
-      "reason": "LightOn's Hugging Face announcement dates LightOnOCR-3 to October 8 and documents an Apache-2.0 model family with layout, image-description and chart-extraction capabilities. This could merit a brief on its merits, but October 8 precedes the required October 10 catch-up start."
-    },
-    "microsoft-decision-1-model": {
-      "impact": 4,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 1,
-      "durability": 2,
-      "total": 13,
-      "decision": "outside-window-unverified",
-      "sourceDate": "2026-10-09",
-      "reason": "A Google News result attributed 'Introducing Microsoft-Decision-1' to Microsoft and dated it October 9, outside this catch-up window. The guessed canonical route returned 404 and the model details could not be verified from a primary page, so the result is not treated as a confirmed launch."
-    },
-    "nvidia-dlss-5-page": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 3,
-      "evidence": 2,
-      "durability": 1,
-      "total": 12,
-      "decision": "outside-window",
-      "sourceDate": "2026-09-01",
-      "reason": "An NVIDIA DLSS 5 product-page result carried an October 11 index date, but the separate NVIDIA research listing dates 'DLSS 5: Generative Neural Rendering' to September 1. The research page was blocked when opened, and no new October 10–12 announcement was established; an index refresh is not a new release."
-    },
-    "reuters-anthropic-false-tip-follow-up": {
-      "impact": 3,
-      "readerValue": 3,
-      "novelty": 1,
-      "evidence": 4,
-      "durability": 1,
-      "total": 12,
-      "decision": "duplicate",
-      "sourceDate": "2026-10-09",
-      "reason": "Reuters' October 9 report on Anthropic's false Philadelphia police tip and other unintended agent actions concerns the same disclosure already covered by anthropic-unintended-model-actions-internet-evals. It adds no distinct current-window development."
+      "sourceDate": "2026-10-06",
+      "reason": "Google's canonical page describes EmbeddingGemma 2 as a 740-million-parameter multimodal embedding model covering code, images, video and audio under Apache 2.0, a substantive open model release. The page's published_time is 2026-10-06, six days before this routine scan window, so it is not a new development since the previous scan and is not republished."
     }
   },
-  "notes": "Catch-up discovery covered 2026-10-10 through this run. The generated official-source sweep was compared with feed IDs, URLs, titles and subjects and inspected again before recording the result; it exposed no dated announcement in the window titled as a new named model, major agent, Copilot/platform launch, accelerator or comparable presumptive event. Core sources checked: OpenAI, Anthropic, Google/Google DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. The broader sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras, Groq, plus robotics and local-AI vendors. OpenAI's news index returned 403 but its official RSS was accessible; xAI's news index returned 403, AMD's newsroom timed out and Tencent's registered page returned 404. Targeted Google News searches and accessible official pages supplemented those channels; they produced no other verifiable in-window model or hardware launch. Reuters was used as a catch-up discovery index, although its direct site returned 401. Published github-copilot-jetbrains-model-mcp-controls (October 10): enterprise-managed model defaults and MCP server auto-start controls make a material, if IDE-specific, governance and workflow change. Rejected as unconfirmed: Reuters reports of NVIDIA/Reflection AI investment-or-acquisition talks and Amazon/Decart acquisition talks, neither confirmed by the companies; a US/UK model-testing policy reversal attributed only to the Telegraph. xAI's undated Grok Bot landing page overlaps the already-covered September 28 Team Bots announcement. Reuters' October 9 Anthropic false-tip report duplicates existing coverage. LightOnOCR-3 (October 8), Microsoft-Decision-1 (October 9; primary details unverified) and NVIDIA DLSS 5 (official research listing dated September 1) are outside the fixed catch-up window; the October 11 DLSS page index date is not a verified new announcement.",
+  "notes": "Routine discovery covered the interval since the 2026-10-12 03:19 SAST scan; no qualifying dated announcement from October 12 was identified. The generated official-source sweep was compared with feed IDs, URLs, titles and subjects and inspected again before recording this result. Core sources checked: OpenAI, Anthropic, Google/Google DeepMind, Microsoft/GitHub/Azure, Meta, NVIDIA and Mistral. The broader sweep covered xAI, Alibaba/Qwen, DeepSeek, Hugging Face, AMD, Intel, Qualcomm, Amazon/AWS, Apple, Tencent, Cerebras and Groq, along with robotics and local-AI vendors. OpenAI's official news RSS was reachable and its latest listed items were October 9 customer case studies and product-use stories, not new model or platform launches; the generated OpenAI news index itself returned 403. The generated xAI index returned 403, AMD's newsroom timed out, and Tencent's registered page returned 404; the remaining accessible source indexes disclosed no current-window presumptive event, so access gaps did not prevent a credible decision. The strongest candidate surfaced was Google DeepMind's EmbeddingGemma 2, a meaningful multimodal open-model release, but its canonical page explicitly dates publication to October 6, outside today's routine window; it is recorded as outside-window rather than duplicated. Other prominent dated source-sweep items were Anthropic's October 8 Cyber Mission and policy update, both already present in the feed, and GitHub's October 10 JetBrains controls, already published as github-copilot-jetbrains-model-mcp-controls. No item was published.",
   "nextScanDue": "2026-10-12"
 }
